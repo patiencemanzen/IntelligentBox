@@ -1,0 +1,412 @@
+/* 
+    //////////////////////////////////////////////////////
+
+    INTELLIGENT BOX
+    DESIGNED & DEVELOPED by Manirabona Patience
+    
+    author: Mnirabona Patience,
+    Email:  Hseal419@gmail.com,
+    location: Kigali,Rwanda,
+    pro: Intelligent Box E-learning,
+    version: 1.0.0
+    
+	//////////////////////////////////////////////////////
+*/
+
+ /* external font family */
+ @font-face {font-family: 'roboto_bold';src: url('../fonts/Roboto/Roboto-Bold.ttf');} 
+ @font-face{font-family: 'roboto_regular';src: url('../fonts/Roboto/Roboto-Regular.ttf');}
+ @font-face{font-family: 'baskvile';src: url('../fonts/baskerville/BASKVILL.TTF');}
+ @font-face{font-family: 'roboto_medium';src: url('../fonts/Roboto/Roboto-Medium.ttf');}
+
+/* apply on scroll bar */
+/* width */
+ ::-webkit-scrollbar {
+     width: 10px;
+ }
+
+ /* Track */
+ ::-webkit-scrollbar-track {
+     background: white; 
+ }
+
+ /* Handle */
+ ::-webkit-scrollbar-thumb {
+     background: #041a2f;
+     border-radius: 4px; 
+ }
+
+/* body style */
+body{
+   padding: 0;
+   margin: 0;
+   font-family: roboto_regular;
+}
+
+/* card-header style */
+.card-header{
+   font-family: roboto_regular;
+}
+
+/* nav-item-box */
+.nav-item-box{
+  padding: 10px;
+}
+.nav-item-box .active{
+   border: 1px solid #d3d3d3;
+}
+.nav-item-box .nav-link-box{
+   color: white;
+   font-size: 15px;
+   border: none;
+   text-transform: capitalize;
+}
+
+/* top-header-fixed style */
+.top-header-fixed{
+   position: sticky;
+   top: 0;
+   z-index: 99;
+}
+
+/* navigation bar style */
+nav .company-present-logo{
+   background-color: #041a2f;
+   width: 100%;
+   color: white;
+   font-weight: bold;
+   font-size: 24px;
+   text-transform: capitalize;
+   padding: 15px;
+}
+
+/* nav-icons style */
+.nav-icons .navbar-nav .nav-item{
+    background: #f6f7fd;
+    font-size: 17px;
+    color: #041a2f;
+    position: relative;
+}
+.nav-icons .navbar-nav .nav-item a .fa{
+    color: #041a2f;
+    font-size: 17px;
+}
+.nav-icons .navbar-nav .nav-item a {
+  color: #041a2f;
+  font-size: 13px;
+  font-family: roboto_bold;
+}
+.counter{
+    background: rgb(175, 10, 10);
+    color: white;
+    font-family: roboto_regular;
+    font-size: 13px;
+    position: absolute;
+    top: -10px;
+    right: -5px;
+    border-radius: 6px;
+    padding: 2px 4px 2px 4px;
+}
+.popup-notification-nav{
+  background: white;
+  border-radius: 4px;
+  position: absolute;
+  padding: 10px;
+  width: 300px;
+  margin-top: 5px;
+  margin-left: 5px;
+  z-index: 20;
+  height: 400px;
+  overflow: auto;
+  display: none;
+}
+.popup-notification-nav::-webkit-scrollbar {
+  width: 8px;
+}
+/* Track */
+.popup-notification-nav::-webkit-scrollbar-track {
+  background: white; 
+}
+
+/* Handle */
+.popup-notification-nav::-webkit-scrollbar-thumb {
+  background: #d3d3d3;
+  border-radius: 4px; 
+}
+.each-notification{
+    margin-bottom: 10px;
+    background: #f6f7fd;
+    padding: 7px;
+    border-radius: 4px;
+    position: relative;
+}
+.present-noti-type{
+    position: absolute;
+    right: 5px;
+    top: 7px;
+    background: #041a2f;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 50%;
+    font-size: 13px;
+}
+.present-msg-type{
+  position: absolute;
+  right: 5px;
+  top: 7px;
+  background: #041a2f;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: roboto_medium;
+}
+.time-ageo{
+    color: #d3d3d3;
+    font-size: 12px;
+    font-family: roboto_bold;
+}
+.noti-img-def img{
+    border-radius: 50%;
+}
+.noti-img-def{
+    border-radius: 50%;
+    background: #f6f7fd;
+    width: 45px;
+    height: 45px;
+}
+.noti-title span{
+    font-size: 14px;
+    font-family: roboto_medium;
+}
+.noti-list {
+    border-top: 1.5px solid #d3d3d3;
+    margin-top: 5px;
+    padding: 10px 0px;
+}
+.noti-detali .noti-lesson{
+    text-transform: capitalize;
+    font-size: 13px;
+    font-family: roboto_regular;
+}
+.name-noti{
+    font-family: roboto_medium;
+    font-size: 14px;
+    text-transform: capitalize;
+}
+.pre-nav-image img{
+    border-radius: 50%;
+}
+.pre-nav-image{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #f6f7fd;
+    margin-top: 2.5px;
+}
+
+/* search-student-control style */
+.search-student-control{
+    border: none;
+    outline: none;
+    background-color: #f6f7fd;
+    width: 100%;
+    height: 100%;
+ }
+ .search-student-form{
+    padding: 5px 10px 5px 10px;
+    margin-top: 5px;
+    font-family: roboto_regular;
+    border-radius: 4px;
+    width: 250px;
+    background-color: #f6f7fd;
+ }
+ .search-student-form .fa{
+     margin-top: 2px;
+ }
+ .search-user-student{position: relative;}
+ .search-result{
+     position: absolute;
+     top: 37px;
+     padding: 15px;
+     background: white;
+     border-bottom-left-radius: 4px;
+     border-bottom-right-radius: 4px;
+     width: 100%;
+     overflow: auto;
+     overflow-x: hidden;
+     height: 400px;
+     display: none;
+ }
+ .result-show{overflow: auto;}
+ .each-result{
+     border: 1px solid #d3d3d3;
+     border-radius: 4px;
+     background: white;
+     padding: 1px;
+     float: left;
+     margin-left: 5px;
+     margin-right: 5px;
+     margin-bottom: 10px;
+     width: 180px;
+ }
+ .result-image img{
+     border-top-left-radius: 4px;
+     border-top-right-radius: 4px;
+     background: #f6f7fd;
+ }
+ .result-image{
+     background: #f6f7fd;
+     border-top-left-radius: 4px;
+     border-top-right-radius: 4px;
+     width: 100%;
+     height: 100px;
+ }
+ .result-detail{
+     padding: 6px;
+     font-family: roboto_medium;
+     text-transform: capitalize;
+ }
+ .accurate-to-user{
+     padding: 6px;
+     overflow: auto;
+ }
+ .accurate-to-user .follow-user{
+     background: #041a2f;
+     color: white;
+     border: none;
+     border-radius: 4px;
+     padding: 4px 20px 4px 20px;
+     font-family: roboto_medium;
+     cursor: pointer;
+     text-transform: capitalize;
+     outline: none;
+     font-size: 12px;
+     float: right;
+ }
+ .accurate-to-user .following-user{
+       background: white;
+       color: #041a2f;
+       border: 1px solid #d3d3d3;
+       border-radius: 4px;
+       padding: 4px 20px 4px 20px;
+       font-family: roboto_medium;
+       cursor: pointer;
+       text-transform: capitalize;
+       outline: none;
+       font-size: 12px;
+       float: right;
+}
+/* end top navigation */
+
+/* down section */
+.down-section{
+    position: relative;
+}
+.background-image{
+    background-attachment: fixed;
+    background: white;
+    height: 300px;
+}
+.background-image img{
+    background-attachment: fixed;
+}
+.ads-section{
+    position: absolute;
+    background: white;
+    padding: 10px 10px 10px 5px;
+    top: 100px;
+    left: 115px;
+    border-radius: 4px;
+}
+.title-schools{
+    background: #f6f7fd;
+    font-family: roboto_bold;
+    text-transform: capitalize;
+    border-radius: 20px;
+    padding: 8px 11px 8px 13px;
+    font-size: 15px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+.each-ads{
+    border: 1px solid #d3d3d3;
+    padding: 10px;
+    border-radius: 4px;
+    float: left;
+    overflow: hidden;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: 10px;
+}
+.schools-img{
+    position: relative;
+    width: 245px;
+    background: #f6f7fd;
+    border-radius: 4px;
+}
+.schools-img img{border-radius: 4px;}
+.school-logo{
+    position: absolute;
+    border-radius: 100%;
+    bottom: 10px;
+    left: 10px;
+    width: 90px;
+    height: 88px;
+    background: white;
+    padding: 3px;
+}
+.school-logo img{
+    border-radius: 100%;
+}
+.school-master{
+    position: absolute;
+    border-radius: 100%;
+    bottom: 10px;
+    left: 70px;
+    width: 70px;
+    height: 68px;
+    background: white;
+    padding: 3px;
+}
+.school-master img{
+    border-radius: 100%;
+}
+.school-name{
+    font-family: roboto_bold;
+    text-transform: capitalize;
+    font-size: 16px;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.school-full-detail div{
+    background: #f6f7fd;
+    font-family: roboto_bold;
+    text-transform: capitalize;
+    border-radius: 20px;
+    padding: 8px 11px 8px 13px;
+    font-size: 15px;
+    margin-bottom: 10px;
+    width: 270px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.location{
+    width: 270px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.user-option div{
+    background: #f6f7fd;
+    font-family: roboto_bold;
+    text-transform: capitalize;
+    border-radius: 20px;
+    padding: 8px 11px 8px 13px;
+    font-size: 15px;
+    cursor: pointer;
+}
+/* end down section */

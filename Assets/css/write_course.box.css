@@ -1,0 +1,359 @@
+/* 
+    //////////////////////////////////////////////////////
+
+    INTELLIGENT BOX
+    DESIGNED & DEVELOPED by Manirabona Patience
+    
+    author: Mnirabona Patience,
+    Email:  Hseal419@gmail.com,
+    location: Kigali,Rwanda,
+    pro: Intelligent Box E-learning,
+    version: 1.0.0
+    
+	//////////////////////////////////////////////////////
+*/
+
+ /* external fonts family */
+ @font-face {font-family: 'roboto_bold';src: url('../fonts/Roboto/Roboto-Bold.ttf');} 
+ @font-face{font-family: 'roboto_regular';src: url('../fonts/Roboto/Roboto-Regular.ttf');}
+ @font-face{font-family: 'baskvile';src: url('../fonts/baskerville/BASKVILL.TTF');}
+ @font-face{font-family: 'roboto_medium';src: url('../fonts/Roboto/Roboto-Medium.ttf');}
+
+/* apply on scroll bar */
+/* width */
+ ::-webkit-scrollbar {
+     width: 10px;
+ }
+
+ /* Track */
+ ::-webkit-scrollbar-track {
+     background: white; 
+ }
+
+ /* Handle */
+ ::-webkit-scrollbar-thumb {
+     background: #041a2f;
+     border-radius: 4px; 
+ }
+
+/* body style */
+body{
+   padding: 0;
+   margin: 0;
+   font-family: roboto_regular;
+}
+/* left side section style */
+
+.down-side{
+    padding: 10px;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 10px rgba(0,0,0, 0.4);
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.top-background{
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    background: white;
+    border: none;
+    position: relative;
+    box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 10px rgba(0,0,0, 0.4);
+    margin-bottom: 10px;
+}
+.top-background img{
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    position: relative;
+    height: 270px;
+}
+.title-background{
+    font-family: roboto_bold;
+    text-transform: capitalize;
+    font-size: 18px;
+    position: absolute;
+    bottom: 70px;
+    left: 25px;
+    color: white;
+}
+.search-department input{
+    font-family: roboto_medium;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+}
+.search-department{
+    border-radius: 4px;
+    padding: 5px;
+    border: 1px solid #d3d3d3;
+    margin-top: 10px;
+}
+.seach-result-department{
+    background: white;
+    position: absolute;
+    padding: 10px;
+    z-index: 26;
+    width: 100%;
+    margin: 0 auto;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 6px rgba(0,0,0, 0.4);
+    top: 40px;
+    display: none;
+}
+.department-list-searched{
+    overflow: auto;
+    height: 350px;
+    overflow-x: hidden;
+}
+.close-search{
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    border-radius: 50%;
+    background: #f6f7fd;
+    padding: 0 5px;
+    cursor: pointer;
+}
+
+.department-title{
+    background: #f6f7fd;
+    font-family: roboto_bold;
+    text-transform: capitalize;
+    font-size: 16px;
+    border-radius: 20px;
+    padding: 9px 15px 9px 15px;
+}
+.each-course{
+    border: 1px solid #d3d3d3;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.course-name{
+    font-family: roboto_bold;
+    text-transform: capitalize;
+    font-size: 15px;
+}
+.course-image{
+    width: 100%;
+    height: 140px;
+    background: #f6f7fd;
+    border-radius: 4px;
+}
+.course-image img{
+    border-radius: 4px;
+}
+.course-bio{
+    font-family: roboto_regular;
+    line-height: 17px;
+    letter-spacing: 0.3px;
+}
+.course-status div{
+    background: #f6f7fd;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-family: roboto_medium;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+.course-status div span{
+    font-family: roboto_bold;
+    margin-left: 5px;
+}
+.user-option{
+    border-top: 1px solid #d3d3d3;
+    padding-top: 10px;
+}
+.user-option div button{
+    background: #041a2f;
+    color: white;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    padding: 5px 9px 5px 9px;
+    font-family: roboto_regular;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+.user-option div button .fa{
+    margin-right: 5px;
+}
+/* end left side style */
+
+/* right side style */
+.right-side{
+    background: white;
+    padding: 15px 0px 15px 0px;
+}
+.course-department{
+    border: 1px solid #d3d3d3;
+    border-radius: 4px;
+    padding: 9px;
+    margin-bottom: 20px;
+}
+.section-title{
+    text-transform: capitalize;
+    font-family: roboto_bold;
+    font-size: 15px;
+    background: #f6f7fd;
+    border-radius: 20px;
+    padding: 9px 15px 9px 15px;
+}
+.save_course{
+    overflow: hidden;
+}
+.save_course_btn{
+    background: #041a2f;
+    color: white;
+    padding: 5px 20px;
+    border-radius: 4px;
+    font-family: roboto_bold;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-top: 20px;
+    float: right;
+}
+.saving{
+    font-family: roboto_bold;
+}
+.loader {
+    position: relative;
+    margin: 0px auto;
+    width: 50px;
+    display: none;
+  }
+  .loader:before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+  }
+
+  .circular {
+    -webkit-animation: rotate 2s linear infinite;
+    animation: rotate 2s linear infinite;
+    height: 100%;
+    -webkit-transform-origin: center center;
+    -ms-transform-origin: center center;
+    transform-origin: center center;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    /* background-color: #34A853; */
+  }
+
+  .path {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+    -webkit-animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+    animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+    stroke-linecap: round;
+  }
+  @-webkit-keyframes rotate {  
+    100% {
+      -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+  @keyframes rotate {  
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+      }
+  }
+  @-webkit-keyframes dash {  
+    0% {
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0;
+    }
+    50% {
+      stroke-dasharray: 89, 200;
+      stroke-dashoffset: -35;
+    }
+    100% {
+      stroke-dasharray: 89, 200;
+      stroke-dashoffset: -124;
+    }
+  }
+  @keyframes dash {  
+    0% {
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0;
+    }
+    50% {
+      stroke-dasharray: 89, 200;
+      stroke-dashoffset: -35;
+    }
+    100% {
+      stroke-dasharray: 89, 200;
+      stroke-dashoffset: -124;
+    }
+  }
+
+  @-webkit-keyframes color {  
+    100%, 0% {
+      stroke: #2196f3;
+    }
+    40% {
+      stroke: #34A853;
+    }
+    66% {
+      stroke: #041a2f;
+    }
+    80%, 90% {
+      stroke: #0d71ce;
+    }
+  }
+  @keyframes color {  
+    100%, 0% {
+      stroke: #2196f3;
+    }
+    40% {
+      stroke: #34A853;
+    }
+    66% {
+      stroke: #041a2f;
+    }
+    80%, 90% {
+      stroke: #0d71ce;
+    }
+  }
+
+/* end right side style */
+/* =========================================================================================================================================== */
+/* =========================================================================================================================================== */
+
+/* MEDIA QUERY APPLY ON SMALL DEIVICE */
+/* =========================================================================================================================================== */
+/* =========================================================================================================================================== */
+@media screen and (max-width: 425px){
+    .top-desc-img-detail{
+        flex-direction: column;
+    }
+    .course-image{
+        width: 100%;
+        height: 180px;
+        background: #f6f7fd;
+        border-radius: 4px;
+    }
+    .course-detail{
+        margin-top: 10px;
+    }
+}
+@media screen and (max-width: 768px){
+    .course-image{
+        width: 100%;
+        height: 180px;
+        background: #f6f7fd;
+        border-radius: 4px;
+    }
+}
+/* END MEDIA QUERY APPLY ON SMALL DEVICE */
+/* =========================================================================================================================================== */
+/* =========================================================================================================================================== */

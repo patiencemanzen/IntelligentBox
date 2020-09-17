@@ -1,0 +1,2072 @@
+/* //////////////////////////////////////////////////////
+
+    INTELLIGENT BOX
+    DESIGNED & DEVELOPED by Manirabona Patience
+    
+    author: Mnirabona Patience,
+    Email:  Hseal419@gmail.com,
+    location: Kigali,Rwanda,
+    pro: Intelligent Box E-learning,
+    version: 1.0.0 
+ ////////////////////////////////////////////////////// */
+
+ /* external font family */
+ @font-face {font-family: 'roboto_bold';src: url('../fonts/Roboto/Roboto-Bold.ttf');} 
+ @font-face{font-family: 'roboto_regular';src: url('../fonts/Roboto/Roboto-Regular.ttf');}
+ @font-face{font-family: 'baskvile';src: url('../fonts/baskerville/BASKVILL.TTF');}
+ @font-face{font-family: 'roboto_medium';src: url('../fonts/Roboto/Roboto-Medium.ttf');}
+
+
+ /* body stle */
+ /* =========================================================================================================== */
+    body{
+        padding: 0;
+        margin: 0;
+        font-family: roboto_regular;
+        background-color: white;
+        letter-spacing: 0.2px;
+    }
+
+/* MAIN COLOR */
+/* ===================================================================================================================================================== */
+:root{
+    --BoxPrimary: #041a2f;
+    --BoxSecondary: #f6f7fd;
+    --BoxSubPrimary: #071c2e;
+    --BoxSubSecondary: #08345e;
+    --BoxLines: #d3d3d3;
+    --Basic: white;
+}
+/* ==================================================================================================================================================== */
+
+
+ /* apply on scroll bar */
+ /* ============================================================================================================ */
+ /* width */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: white; 
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #041a2f;
+        border-radius: 4px; 
+    }
+
+    .header-fixed{
+        box-shadow: 0 0 15px rgba(0,0,0, 0.4);
+    }
+
+
+  /* pre loader for all site */
+  /* ============================================================================================================ */
+   .container-pre-signup {
+        position: relative;
+        width: 30px;
+        height: 30px;
+        border-radius: 15px;
+        -webkit-animation: rotation 1s infinite;
+                animation: rotation 1s infinite;
+        margin-right: 10px;   
+        display: none;
+    }
+    .container-pre-signup .shape {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+    }
+    .container-pre-signup .shape.shape-1 {
+        left: 0;
+        background-color: #041a2f;
+    }
+    .container-pre-signup .shape.shape-2 {
+        right: 0;
+        background-color: #041a2f;
+    }
+    .container-pre-signup .shape.shape-3 {
+        bottom: 0;
+        background-color: #041a2f;
+    }
+    .container-pre-signup .shape.shape-4 {
+        bottom: 0;
+        right: 0;
+        background-color: #041a2f;
+    }
+    
+    @-webkit-keyframes rotation {
+        from {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+        }
+        to {
+        -webkit-transform: rotate(720deg);
+                transform: rotate(720deg);
+        }
+    }
+  
+    @keyframes rotation {
+        from {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+        }
+        to {
+        -webkit-transform: rotate(720deg);
+                transform: rotate(720deg);
+        }
+    }
+    
+
+ /* Top navbar style */
+ /* ============================================================================================================ */
+    nav{
+        padding: 0;
+        z-index: 99;
+        position: sticky;
+        top: 0;
+    }
+    .down-tab li {
+        list-style: none;
+        text-decoration: none;
+    }
+
+ /* inner-header-1 style */
+ /* ============================================================================================================ */
+    .inner-header-1{
+        background: #041a2f;
+        width: 100%;
+        color: white;
+        font-weight: bold;
+        font-size: 24px;
+        text-transform: capitalize;
+        padding: 15px;
+    }
+
+ /* sub navbar style */
+ /* ============================================================================================================ */
+    .sub-nav{
+        background: white;
+        padding: 3px 0px;
+    }
+    .all-trades-section{
+        display: flex;
+        justify-content: space-between;
+        background: white;
+        padding: 0;
+    }
+    .sign-in-btn ul{
+        padding: 0;
+    }
+    .sign-in-btn ul li{
+        float: left;
+        list-style: none;
+        padding: 7px 14px;
+        cursor: pointer;
+        position: relative;
+    }
+    .sign-in-btn ul li::before{
+        content: "";
+        position: absolute;
+        /* z-index: -1; */
+        left: 50%;
+        right: 50%;
+        bottom: -0.1px;
+        background: #041a2f;
+        height: 3px;
+        transition-property: left, right;
+        -webkit-transition-duration: 0.3s;
+        transition-duration: 0.3s;
+        -webkit-transition-timing-function: ease-out;
+        transition-timing-function: ease-out;
+        border-radius: 30%;
+    }
+    .sign-in-btn ul li:hover::before,.sign-in-btn ul li:focus::before{
+        left: 0;
+        right: 0;
+    }
+    .sign-in-btn ul li a{
+        color: #041a2f;
+        font-family: roboto_bold;
+        letter-spacing: 0.3px;
+    }
+
+
+ /* intelectual-skills style */
+ /* ============================================================================================================= */
+    .search-index{
+        position: relative;
+        display: flex;
+    }   
+    .intelectual-skills{
+        color: #737373;
+        font-size: 20px;
+        margin-top: 8px;
+        text-transform: capitalize;
+        font-weight: 700;
+        letter-spacing: 0.6px;
+    }
+
+ /* search input bar style */
+ /* ============================================================================================================= */
+    .search-input input[type=text]{
+        width: 100%;
+        border: none;
+        outline: none;
+        background: white;
+        height: 100%;
+        background: white;
+        font-family: roboto_medium;
+    }
+    .search-input{
+        padding: 4px 8px 4px 10px;
+        border: 1.5px solid #d3d3d3;
+        margin-left: 30px;
+        width: 430px;
+        border-radius: 50px;
+        background: white;
+        margin-top: 1px;
+    }
+    .search-input .fa{
+        margin-right: 10px;
+        margin-top: 3px;
+        color: #041a2f;
+    }
+
+/* seach result */
+/* ============================================================================================================== */
+   .seach-output{
+        position: absolute;
+        z-index: 10;
+        padding: 10px;
+        background: white;
+        top: 60px;
+        left: 193px;
+        width: 430px;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        overflow: auto;
+        overflow-x: hidden;
+        height: 550px;
+        box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 10px rgba(0,0,0, 0.4);
+        display: none;
+   }
+   .seach-keyword{
+        background: #f6f7fd;
+        padding: 8px 11px 8px 12px;
+        border-radius: 20px;
+        text-transform: capitalize;
+        font-family: roboto_bold;
+        font-size: 15px;
+        display: flex;
+   }
+   .seach-keyword #searched_query{
+        background: #404040;
+        padding: 4px 11px 4px 12px;
+        border-radius: 20px;
+        text-transform: capitalize;
+        font-family: roboto_bold;
+        color: white;
+        max-width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+   }
+   .course-searched img{
+       border-radius: 4px;
+       display: flex;
+   }
+
+/* course searched style */
+/* ============================================================================================================= */
+   .title-course{
+       padding: 10px;
+   }
+   .title-course div{
+        background: #f6f7fd;
+        padding: 8px 11px 8px 12px;
+        border-radius: 20px;
+        text-transform: capitalize;
+        font-family: roboto_bold;
+        font-size: 17px;
+   }
+    .title-course-trade{
+        background: #f6f7fd;
+        padding: 8px 11px 8px 13px;
+        border-radius: 20px;
+        text-transform: capitalize;
+        font-family: roboto_bold;
+        font-size: 14px;
+        width: 300px;
+    }
+    .all-course{
+        position: fixed;
+        background: rgba(0,0,0, 0.6);
+        padding: 10px;
+        z-index: 12px;
+        border-bottom-right-radius: 4px;
+        border-bottom-left-radius: 4px;
+        top: 50px;
+        width: 100%;
+        height: 500px;
+        display: none;
+        animation: all_course 5s ease-in-out forwards;
+        box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 10px rgba(0,0,0, 0.4);
+        overflow: auto;
+        left: 0;
+        /* margin-left: 10px; */
+        margin-right: 10px;
+    }
+    @keyframes all_course{
+        0%{
+            transform: translateX(200%);
+        }
+        15%, 85%{
+            transform: translateX(0%);
+        }
+        100%{
+            transform: translateX(0%);
+        }
+    }
+
+/* all course on top navbar */
+/* ================================================================================================================== */
+   .eachdepartment{
+        border-radius: 4px;
+        width: 300px;
+        margin-right: 5px;
+        margin-top: 10px;
+        margin-right: 15px;
+        box-shadow: 0 0 10px rgba(0,0,0, 0.4);
+        float: left;
+        padding-bottom: 5px;
+        background: white;
+    }
+    .department-image{
+        position: relative;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        background: #f6f7fd;
+    }
+    .department-image img{
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+    }
+    .department-image .department-name{
+        position: absolute;
+        bottom: 5px;
+        left: 5px;
+        color: white;
+        font-family: roboto_bold;
+        font-size: 16px;
+        text-transform: capitalize;
+    }
+    .department-bio{
+        padding: 10px;
+        font-family: roboto_regular;
+        font-size: 15px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    .department-status{
+        padding: 10px;
+        background-color: white;
+    }
+    .department-status div{
+        background: #f6f7fd;
+        padding: 5px 10px 5px 11px;
+        border-radius: 20px;
+        text-transform: capitalize;
+        font-family: roboto_bold;
+        font-size: 13px;
+    }
+    .department-status div span{
+        text-transform: capitalize;
+        font-family: roboto_bold;
+        margin-left: 2px;
+    }
+    .title-depart{
+        background: #f6f7fd;
+        padding: 5px 10px 5px 11px;
+        border-radius: 20px;
+        text-transform: capitalize;
+        font-family: roboto_bold;
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    .content img{
+        border-radius: 4px;
+    }
+   .status div{
+        background: #f6f7fd;
+        padding: 4px 8px 4px 8px;
+        border-radius: 20px;
+        text-transform: capitalize;
+        font-family: roboto_bold;
+        font-size: 15px;
+   }
+    .btn-all-course button{
+        color: #041a2f;
+        border: none;
+        text-decoration: none;
+        outline: none;
+        border-radius: 4px;
+        padding: 6px 20px 5px 20px;
+        font-family: roboto_bold;
+        font-size: 15px;
+        cursor: pointer;
+        color: white;
+        text-transform: capitalize;
+        margin-top: 16px;
+    }
+    .btn-create-account ul li a button{
+        background: white;
+        color: #041a2f;
+        border: none;
+        text-decoration: none;
+        outline: none;
+        border-radius: 4px;
+        padding: 6px 20px 5px 20px;
+        font-family: roboto_bold;
+        font-size: 15px;
+        cursor: pointer;
+        border: 1px solid #d3d3d3;
+    }
+    .classfication{
+        display: none;
+    }
+    .top-nav-link li{
+        padding: 5px;
+        border-radius: 4px;
+        margin-left: 20px;
+    }
+    .nav-item a .btn-signup{
+        color: #071c2e;
+        font-family: roboto_bold;
+        /* margin-top: 5px; */
+        /* margin-left: 20px; */
+        cursor: pointer;
+    }
+
+
+
+
+
+    .open_trades{
+        font-family: roboto_bold;
+        margin-top: 5px;
+        font-size: 15px;
+        cursor: pointer;
+    }
+    .open_trades::before{
+        content: "";
+        position: absolute;
+        z-index: -1;
+        left: 50%;
+        right: 50%;
+        bottom: 0;
+        background: #041a2f;
+        height: 2px;
+        transition-property: left, right;
+        -webkit-transition-duration: 0.3s;
+        transition-duration: 0.3s;
+        -webkit-transition-timing-function: ease-out;
+        transition-timing-function: ease-out;
+    }
+    .open_trades:hover::before,.open_trades:focus::before{
+        left: 0;
+        right: 0;
+    }
+ /* End of top header section */
+ /* ================================================================================================================ */
+ /* ================================================================================================================ */
+
+
+
+ /* start down section */
+ /* =================================================================================================================== */
+ /* =================================================================================================================== */
+
+ /* carousel style */
+ /* ======================================================================================================================= */
+    .carousel{
+        position: relative;
+        box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 7px rgba(0,0,0, 0.4);
+    }
+    .over-carousel{
+        position: absolute;
+        top: 0px;
+        width: 100%;
+        display: flex;
+        background: rgba(0,0,0, 0.4);
+        width: 100%;
+        height: 100%;
+    }
+    .carousel-caption-down{
+        color: white;
+        font-size: 15px;
+        margin-top: 9rem;
+        width: 100%;
+        font-family: roboto_bold;
+        letter-spacing: 0.6px;
+    }
+    .carousel-item{
+        height: 345px;
+        background: #f6f7fd;
+        box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 6px rgba(0,0,0, 0.4);
+        background-size: cover;
+    }
+    .btn-get-started{
+        background: white;
+        padding: 10px 20px 10px 20px;
+        font-family: roboto_bold;
+        font-size: 15px;
+        border: none;
+        outline: none;
+        border-radius: 4px;
+    }
+
+    /* FIXED BACKGROUND IMAGE */
+    /* ============================================================================================================================================================== */
+    .profession_detail {
+        padding: 50px;
+        background: url(../../images/index-img/fixed_background.jpg) center center no-repeat;
+        background-size: cover;
+        overflow: hidden;
+        position: relative;
+        text-align: center;
+        color: white;
+    }
+
+    .profession_detail:before {
+        content: "";
+        background: rgba(0, 0, 0, 0.4);
+        position: absolute;
+        bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .profession_detail .section-header .prof_title {
+        color: var(--Basic);
+        line-height: 35px;
+        margin-bottom: 20px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        font-family: roboto_bold;
+        text-align: center;
+        font-size: 30px;
+    }
+    .profession_detail p{
+        color: var(--Basic);
+        line-height: 24px;
+        font-family: roboto_medium;
+    }
+
+    /* ========================================================================================================================== */
+
+
+
+  /* CARD CONTENT contain signup, sign in and about us ,,,,*/
+  /* ===================================================================================================================== */
+  /* ===================================================================================================================== */
+  
+   .nav-link{
+        font-size: 12px;
+    }
+    .user-option{
+        height: 600px; /* Actual card height */
+    }
+    .tab-content-container{ /* Card style */
+      margin-left: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0, 0.4);
+      border-radius: 4px;
+      background: white;
+      width: 400px;
+    }
+    .card-header-content{
+        border-bottom: 1.5px solid #d3d3d3;
+    }
+    .card-footer-bottom{
+        border-top: 1.5px solid #d3d3d3;
+    }
+    .nav-tabs .nav-item{
+        margin: auto;
+    }
+  .nav-tabs .nav-item .nav-link-top{
+      font-family: roboto_bold;
+      font-size: 18px;
+      color: #041a2f;
+    }
+    .nav-tabs .nav-item .active{
+        color: green
+    }
+    .nav-tabs .nav-item .nav-link-footer{
+        font-family: roboto_bold;
+        font-size: 18px;
+        color: #041a2f;
+    }
+    .nav-tabs .nav-item .active{
+        color: green
+    }
+   
+    /* resize all tab in card */
+    /* ============================================================================================================ */
+    #intro{
+        overflow: scroll;
+        height: 495px;
+    }
+    #signmeup{
+        height: 495px;
+        position: relative;
+    }
+    #signmein{
+        height: 495px;
+        position: relative;
+    }
+    #aboutus{
+        height: 495px;
+        position: relative;
+        overflow: scroll;
+        overflow-x: hidden;
+        padding: 10px;
+    }
+    #contuctus{
+        height: 495px;
+        position: relative;
+        padding: 10px;
+    }
+    #firstnameMsg{
+        color: rgb(170, 20, 20);
+        font-family: roboto_bold;
+        font-size: 12px;
+    }
+    #holdResponse{
+        font-family: roboto_bold;
+        font-size: 12px;
+        color: royalblue;
+    }
+    #countedLetter{
+        font-family: roboto_bold;
+        font-size: 12px;
+    }
+    #developer{
+        height: 495px;
+        position: relative;
+        overflow: scroll;
+        overflow-x: hidden;
+        padding: 10px;
+    }
+    /* end tabs resize */
+    /* ==================================================================================================================== */
+  
+    
+    /* the vertical rule on each department card in every tabs */
+    /* ==================================================================================================================== */
+    /* The actual timeline (the vertical ruler) */
+    .timeline {
+        position: relative;
+        margin: 0 auto;
+        overflow-x: hidden;
+    }
+    
+    /* The actual timeline (the vertical ruler) */
+    .timeline::after {
+        content: '';
+        position: absolute;
+        width: 6px;
+        background-color: #041a2f;
+        top: 0;
+        bottom: 0;
+        left: 4%;
+        margin-left: -3px;
+    }
+    
+    /* Container around content */
+    .right{
+        padding: 10px 10px;
+        position: relative;
+        background-color: white;   
+    }
+    
+    /* The circles on the timeline */
+    .right::after {
+        content: '';
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        right: -17px;
+        background-color: #041a2f;
+        border: 4px solid white;
+        top: 15px;
+        border-radius: 50%;
+        z-index: 1;
+    }
+    
+    /* Place the container to the right */
+    .right {
+        left: 5%;
+    }
+
+    /* Add arrows to the right container (pointing left) */
+    .right::before {
+        content: " ";
+        height: 0;
+        position: absolute;
+        top: 18px;
+        width: 0;
+        z-index: 1;
+        left: 5px;
+        border: medium solid #041a2f;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent #041a2f transparent transparent;
+    }
+    
+    /* Fix the circle for containers on the right side */
+    .right::after {
+        left: -16px;
+    }
+    
+    /* The actual content */
+    .content {
+        padding: 10px;
+        background-color: white;
+        position: relative;
+        border-radius: 6px;
+        width: 330px;
+        box-shadow: 0 0 10px rgba(0,0,0, 0.4);
+    }
+    
+    /* right h3 style*/
+    .right h3{
+        text-transform: capitalize;
+        font-family: roboto_bold;
+    }
+
+    /* right paragraph and button */
+    .right p,.right button{
+        font-family: roboto_regular;
+        text-align: left;
+        padding: 10px;
+        font-size: 15px;
+    }
+    .desc-trades{
+        font-family: roboto_regular;
+        letter-spacing: 0.3px;
+        line-height: 20px;
+    }
+    .dep-status{
+        border-top: 1.5px solid #d3d3d3;
+        padding: 10px 0 0 0;
+    }
+    .dep-status div{
+        font-size: 14px;
+        font-family: roboto_bold;
+    }
+
+
+    /* thumbnail style , actual card in line width sign in ans sugn up card */
+    /* ========================================================================================================= */
+    .thumbnail{
+        background: white;
+        padding: 20px 0px;
+    }
+    .dis-grid{
+        display: flex;
+    }
+    .active-column{
+        background: white;
+        border-radius: 6px;
+        position: relative;
+        width: 200px;
+        height: 290px;
+        margin-right: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0, 0.4);
+    }
+    .active-column .img-full {
+        height: 100%;
+        width: 100%;
+    }
+    .active-column .img-full img{
+        border-radius: 6px;
+    }
+    .active-column .over-img-full{
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-size: 15px;
+        color: white;
+        font-family: roboto_bold;
+        margin: 0 auto;
+    }
+
+    .connect_world{
+        background: white;
+        border-radius: 6px;
+        position: relative;
+        width: 200px;
+        height: 136px;
+        margin-right: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0, 0.4);
+    }
+    .connect_world .img-full {
+        height: 100%;
+        width: 100%;
+    }
+    .connect_world .img-full img{
+        border-radius: 6px;
+    }
+    .connect_world .over-img-full{
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-size: 15px;
+        color: white;
+        font-family: roboto_bold;
+        margin: 0 auto;
+    }
+
+
+    .middle_thumb_content{
+        display: flex;
+    }
+    .thumbnail-items{
+        background: white;
+        border-radius: 6px;
+        width: 228px;
+        height: auto;
+        margin-right: 5px;
+        margin-left: 5px;
+        box-shadow: 0 0 10px rgba(0,0,0, 0.4);
+    }
+    .thumbnail-images{
+        height: 140px;
+    }
+    .thumbnail-images img{
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+    }
+    .middle_img_pre div{
+        width: 228px;
+        background: white;
+        border-radius: 6px;
+        width: 228px;
+        height: auto;
+        margin: 15px 5px 5px 7px;
+        box-shadow: 0 0 10px rgba(0,0,0, 0.4);
+    }
+    .middle_img_pre div img{
+        border-radius: 4px;
+    }
+    .course-desc{
+        padding: 20px;
+        font-family: roboto_bold;
+        text-align: center;
+        letter-spacing: 0.3px;
+        line-height: 19px;
+        font-size: 15px;
+    }
+    .course-sub-desc{
+        padding: 9px 20px 9px 23px;
+        font-family: roboto_medium;
+        text-align: center;
+        line-height: 20px;
+        font-size: 14px;
+    }
+
+    /* INTELLIGENT SELF */
+    /* ====================================================================================================================== */
+    .intelligent_self{
+        background: white;
+        border-radius: 4px;
+
+        margin-left: 15px;
+        box-shadow: 0 0 10px rgba(0,0,0, 0.4);
+        border-radius: 4px;
+        background: white;
+        width: 400px;
+    }
+    .self{
+        padding: 10px;
+    }
+    .Title_self{
+        font-family: roboto_bold;
+        text-transform: capitalize;
+        font-weight: 560;
+        line-height: 20px;
+        font-size: 17px;
+        text-align: center;
+    }
+    .desc_self{
+        margin-top: 10px;
+        font-family: roboto_medium;
+        font-size: 14px;
+        line-height: 20px;
+        text-align: center;
+    }
+    .footer_copyright{
+        background: #041a2f;
+        padding: 7px 15px;
+        margin-top: 5px;
+        text-align: center;
+        font-family: roboto_medium;
+        font-weight: 580;
+        text-transform: capitalize;
+        letter-spacing: 0.6px;
+        color: white;
+    }
+    /* end thambnail */
+    /* =============================================================================================================== */
+
+
+    /* footer */
+    /* ================================================================================================================== */
+    .box-footer{
+        background: #041a2f;
+        padding: 20px 0px;
+        width: 100%;
+    }
+    .inner-footer{
+        border-radius: 4px;
+        padding: 5px;
+        box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 6px rgba(0,0,0, 0.4);
+        overflow: hidden;
+        background: white;
+    }
+    .condition{
+        padding: 5px;
+        float: left;
+        color: #041a2f;
+    }
+    .condition-icons .fa {
+        font-size: 23px;
+        color: #041a2f;
+    }
+    .condition-detail{
+        width: 200px;
+    }
+    .condition-title {
+        font-family: roboto_bold;
+        text-transform: capitalize;
+        line-height: 18px;
+    }
+    .conditio-body{
+        font-family: roboto_medium;
+        line-height: 18px;
+        letter-spacing: 0.2px;
+    }
+    .pre-footer-log{
+        background: #041a2f;
+        width: auto;
+        padding: 25px;
+        color: white;
+        font-family: roboto_bold;
+        font-size: 25px;
+        border-radius: 4px;
+    }
+    /* end footer */
+    /* =================================================================================================================== */
+
+ /* end down section */
+ /* ======================================================================================================================== */
+ /* ======================================================================================================================== */
+
+
+ /* the actual tab sign in and sign up inputs and content */
+ /* ============================================================================================================================ */
+ /* ============================================================================================================================ */
+   .sign-me-up-backimage{
+       width: 100%;
+       height: 100%;
+       position: relative;
+   }
+   .message-pop{
+       font-size: 20px;
+       letter-spacing: 1px;
+       color: white;
+       text-transform: capitalize;
+       font-family: roboto_bold;
+   }
+   .student-trainer-option{
+       position: absolute;
+       top: 0px;
+       overflow: auto;
+       padding: 10px 15px;
+   }
+   .inputs-form{overflow: hidden;}
+   .signin-btn {float: right;}
+   .submit-student{
+       background: #041a2f;
+       color: white;
+       padding: 6px 20px;
+       border-radius: 4px;
+       border: none;
+       outline: none;
+       cursor: pointer;
+       margin-top: 5px;
+       font-family: roboto_bold;
+       text-transform: capitalize;
+       font-size: 15px;
+   }
+   .submit-student-signin{
+        background: #041a2f;
+        color: white;
+        padding: 6px 20px;
+        border-radius: 4px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        margin-top: 5px;
+        font-family: roboto_bold;
+        text-transform: capitalize;
+        font-size: 15px;
+   }
+   .tab-holder{
+        overflow: auto;
+        overflow-x: hidden;
+        height: 400px;
+        padding: 30px;
+   }
+   .sub-footer{
+       position: absolute;
+       top: 549px;
+       color: white;
+       letter-spacing: 1px;
+       left: 100px;
+       font-size: 13px;
+       font-family: roboto_regular;
+   }
+
+   /* usr when set cookie */
+   /* ============================================================================================ */
+   .user-login-session{
+       position: absolute; 
+       background: white;
+       width: 250px;
+       bottom: 5px;
+       left: -50px;
+       border-radius: 4px;
+       padding: 2px;
+       box-shadow: 0 0 10px rgba(0,0,0, 0.3);
+       transition: .5s;
+       /* display: none; */
+    }
+    .usr-image img{
+        width: 100%;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        /* for trapezium */
+        /* -webkit-clip-path: polygon(0 0, 100% 78%, 100% 100%, 0% 100%);
+        clip-path: polygon(0 0, 100% 78%, 100% 100%, 0% 100%); */
+    }
+    .user-name{
+        text-align: center;
+        font-family: roboto_bold;
+        font-size: 16px;
+        text-transform: capitalize;
+    }
+    .input-password input{
+        width: 100%;
+        border: none;
+        font-family: roboto_medium;
+    }
+    .input-password{
+        border: 1px solid #d3d3d3;
+        padding: 5px;
+        border-radius: 4px;
+    }
+    .select_position select{
+        width: 100%;
+        border: none;
+        font-family: roboto_medium;
+    }
+    .select_position {
+        border: 1px solid #d3d3d3;
+        border-radius: 4px;
+        padding: 5px;
+    }
+    #formCookie{
+        padding: 5px 5px;
+    }
+    .ckeckForgetme{
+        font-family: roboto_medium;
+    }
+    .submit-co_user{
+        background: #041a2f;
+        color: white;
+        border-radius: 4px; 
+        width: 100%;
+        border: none;
+        padding: 5px;
+        outline: none;
+        font-family: roboto_bold;
+        cursor: pointer;
+    }
+    .input-set{
+        position: relative;
+    }
+    .close-user-session{
+        background: whitesmoke;
+        padding: 2px 7px;
+        color: #041a2f;
+        top: 5px; 
+        right: 5px;
+        position: absolute;
+        border-radius: 50%;
+        cursor: pointer;
+        text-align: center;
+    }
+    /* end set cookie */
+
+   /* zero tab */
+   /* the first tab on sign up form */
+   /* ================================================================================================================== */
+   .present-section{
+       font-family: roboto_bold;
+       letter-spacing: 0.5px;
+   }
+   .student-choise{
+       background: #071c2e;
+       padding: 6px 20px;
+       color: white;
+       font-family: roboto_bold;
+       text-transform: capitalize;
+       border-radius: 4px;
+       text-align: center;
+       cursor: pointer;
+       margin-top: 50px;
+       width: 100%;
+   }
+   .trainer-choise{
+        background: #071c2e;
+        padding: 6px 20px;
+        color: white;
+        font-family: roboto_bold;
+        text-transform: capitalize;
+        border-radius: 4px;
+        text-align: center;
+        margin-top: 10px;
+        cursor: pointer;
+        border: none;
+        outline: none;
+   }
+   /* end zero tab */
+   /* ============================================================================================================================= */
+
+
+   /* sign up input form */
+   /* ==================================================================================================================================== */
+    .tab {display: none;animation: tab 5s ease-in-out forwards}
+    @keyframes tab{
+        0%{
+            transform: translateX(200%);
+        }
+        15%, 85%{
+            transform: translateY(0%);
+        }
+        100%{
+            transform: translateX(0%);
+        }
+    }
+    .student-trainer-option{
+        background: white;
+        width: 100%;
+        overflow-x: hidden;
+    }
+    .bmd-label{
+        font-size: 20px;
+        
+    }
+    .form-input{
+        border: none;
+        outline: none;
+        width: 100%;
+    }
+    .form-groups input{
+        width: 100%;
+        height: 100%;
+        border: none;
+        outline: none;
+    }
+    .form-groups{
+        border: 1px solid #041a2f;
+        padding: 3px;
+        border-radius: 4px;
+        margin-bottom: 10px;
+    }
+    .passdowrd-message{
+        font-size: 13px;
+        text-align: left;
+        font-family: roboto_medium;
+    }
+    .Msg{
+        color: green;
+        font-size: 13px;
+        font-family: roboto_bold;
+    }
+    .remember-me{
+        border: 1px solid #041a2f;
+        padding: 5px 10px 5px 10px;
+        border-radius: 4px;
+        font-family: roboto_medium;
+    }
+    .forget-password{
+        border: 1px solid #041a2f;
+        padding: 5px 10px 5px 10px;
+        border-radius: 4px;
+    }
+    .forget-password {color: #041a2f;font-family: roboto_medium;cursor: pointer;}
+    .check{margin-top: 2px;}
+    .email-verification-title{
+        font-family: roboto_bold;
+        font-size: 17px;
+        text-transform: capitalize;
+    }
+    .subtitle-verification{
+        font-family: roboto_medium;
+        font-size: 15px;
+    }
+    .input-verification{
+        margin-top: 10px;
+        border-top: 1.5px solid #d3d3d3;
+        padding: 10px 0px;
+    }
+    .firstname-verify input{
+        border: none;
+        outline: none;
+        width: 100%;
+        height: 100%;
+    }
+    .firstname-verify{
+        border: 1px solid #d3d3d3;
+        padding: 6px;
+        border-radius: 4px;
+        font-family: roboto_medium;
+        margin-bottom: 5px;
+    }
+    .current-email input{
+        border: none;
+        outline: none;
+        width: 100%;
+        height: 100%;
+    }
+    .current-email{
+        border: 1px solid #d3d3d3;
+        padding: 6px;
+        border-radius: 4px;
+        font-family: roboto_medium;
+    }
+    .email-verification-area{overflow: hidden;}
+    .submit-email-verification{overflow: hidden; float: right;}
+    .submit-email-verification button{
+        background: #041a2f;
+        color: white;
+        padding: 5px 20px;
+        font-family: roboto_medium;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-transform: capitalize;
+        float: right;
+    }
+    .code-verify-title{
+        font-family: roboto_bold;
+        font-size: 17px;
+        text-transform: capitalize;
+    }
+    .subtitle{
+        font-family: roboto_medium;
+        font-size: 15px;
+    }
+    .code-verified-input{
+        padding: 10px 0px;
+        margin-top: 10px;
+        border-top: 1.5px solid #d3d3d3;
+        border-bottom: 1.5px solid #d3d3d3;
+    }
+    .pre-code{
+        font-size: 15px;
+        font-family: roboto_bold;
+        text-transform: capitalize;
+        color: #d3d3d3;
+        margin-top: 6px;
+    }
+    .input-code-email input{
+        border: none;
+        outline: none;
+        width: 100%;
+        height: 100%;
+    }
+    .input-code-email{
+        border: 1px solid #d3d3d3;
+        padding: 5px;
+        border-radius: 4px;
+    }
+    .code-verified-input{overflow: hidden;}
+    .submit-code{overflow: hidden;float: right;margin-top: 20px;}
+    .submit-code button{
+        background: #041a2f;
+        color: white;
+        padding: 5px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-transform: capitalize;
+        font-family: roboto_medium;
+        float: right;
+    }
+    .passowrd-input-new{
+        border-top: 1.5px solid #d3d3d3;
+        padding: 10px 0px;
+    }
+    .new-password-input input{
+        border: none;
+        outline: none;
+        width: 100%;
+        height: 100%;
+    }
+    .new-password-input{
+        border: 1px solid #d3d3d3;
+        border-radius: 4px;
+        padding: 5px;
+        font-family: roboto_medium;
+        margin-bottom: 10px;
+    }
+    .confurm-password input{
+        border: none;
+        outline: none;
+        width: 100%;
+        height: 100%;
+    }
+    .confurm-password{
+        border: 1px solid #d3d3d3;
+        border-radius: 4px;
+        padding: 5px;
+        font-family: roboto_medium;
+    }
+    .passowrd-input-new{overflow: hidden;}
+    .submit-new-password{float: right;margin-top: 20px;}
+    .submit-new-password button{
+        background: #041a2f;
+        color: white;
+        cursor: pointer;
+        float: right;
+        font-family: roboto_medium;
+        text-transform: capitalize;
+        padding: 8px 20px;
+        border: none;
+        border-radius: 4px;
+    }
+    .pwdForget{display: none;animation: tab 5s ease-in-out forwards;}
+    .user_profile_image{
+        border-radius: 50%;
+        background: #f6f7fd;
+        width: 70px;
+        height: 70px;
+        
+    }
+    .user_profile_image img{
+        object-fit: fill;
+        border-radius: 50%;
+    }
+
+    /* Make circles that indicate the steps of the form sign in input */
+    /* ================================================== */
+    .stand {
+        height: 10px;
+        width: 10px;
+        margin: 0 2px;
+        background-color: #bbbbbb;
+        border: none;  
+        border-radius: 50%;
+        display: inline-block;
+        opacity: 0.5;
+    }
+    .stand.active {
+        opacity: 1;
+    }
+    /* ============================================== */
+    /* Mark the steps that are finished and valid: */
+    .stand.finish {
+        background-color: #041a2f;
+    }
+   /* end sign up input*/
+   /* ====================================================================================================== */
+
+
+    /* Make circles that indicate the steps of the form: on sign up */
+    /* ====================================================================================================== */
+    .step {
+        height: 10px;
+        width: 10px;
+        margin: 0 2px;
+        background-color: #bbbbbb;
+        border: none;  
+        border-radius: 50%;
+        display: inline-block;
+        opacity: 0.5;
+    }
+    .step.active {
+        opacity: 1;
+    }
+    /* Mark the steps that are finished and valid: */
+    .step.finish {
+        background-color: #041a2f;
+    }
+   /* end sign up input*/
+   /* =========================================================================================================== */
+
+
+   /* verify code */
+   /* =========================================================================================================== */
+   .title-validation{
+       font-family: roboto_bold;
+       color: #041a2f;
+       text-transform: capitalize;
+       font-size: 18px;
+   }
+   .subtitle-validation{
+       margin-top: 5px;
+       font-family: roboto_medium;
+   }
+   .bar-code{
+       margin-top: 10px;
+       border-top: 1.5px solid #d3d3d3;
+       padding: 20px 0px;
+       border-bottom: 1.5px solid #d3d3d3;
+       overflow: hidden;
+   }
+   .start-code{
+       color: #d3d3d3;
+       font-family: roboto_bold;
+       text-transform: capitalize;
+       font-size: 16px;
+       margin-top: 6px;
+   }
+   .code-area input{
+       width: 100%;
+       height: 100%;
+       border: none;
+       outline: none;
+   }
+   .code-area{
+       border-radius: 4px;
+       padding: 5px;
+       border: 1px solid #d3d3d3;
+   }
+   .submit-th-code{margin-top: 30px;overflow: hidden;}
+   .submit-th-code button{
+       background: #041a2f;
+       color: white;
+       border-radius: 4px;
+       border: none;
+       outline: none;
+       padding: 5px 20px;
+       font-family: roboto_medium;
+       float: right;
+       cursor: pointer;
+       opacity: .8;
+   }
+   /* end verify code */
+   /* =================================================================================================================== */
+
+
+   /* interest in input area */
+   /* ===================================================================================================================== */
+    .tab-2-title{
+       font-family: roboto_medium;
+       font-size: 12px;
+    }
+    .alert-msg{
+        background: #f6f7fd;
+        padding: 7px;
+    }
+    .sport-interest{
+        background: #f6f7fd;
+        padding: 4px 6px;
+        cursor: pointer;
+        margin-bottom: 5px;
+    }
+    .title-sport{
+        font-family: roboto_bold;
+        color: #d3d3d3;
+        text-transform: capitalize;
+    }
+    .list-sport{
+        margin-left: 10px;
+        border: 1px solid #d3d3d3;
+        padding: 10px;
+        margin-bottom: 5px;
+        border-radius: 4px;
+        overflow: auto;
+    }
+    .each-list-interest{
+        background: #f6f7fd;
+        padding: 3px 5px;
+        font-family: roboto_medium;
+        width: auto;
+        border-radius: 3px;
+        float: left;
+        margin-bottom: 5px;
+        margin-left: 3px;
+        margin-right: 3px;
+    }
+    .int-content{
+        margin-top: 3px;
+    }
+    .tab-title{
+        font-family: roboto_bold;
+        font-size: 16px;
+        text-transform: capitalize;
+    }
+    .subtitle{
+        font-family: roboto_medium;
+        font-size: 13px;
+        text-transform: capitalize;
+    }
+    .user-suggetion{
+        border-top: 1.5px solid #d3d3d3;
+        margin-top: 5px;
+        padding: 15px 0px;
+    }
+   /* end interest in area */
+   /* =========================================================================================================== */
+
+   /* choose user to follow */
+   /* ========================================================================================================== */
+   .each-suggestion{
+        display: flex;
+        padding: 3px;
+        margin-bottom: 10px;
+    }
+    .each-suggestion-trainer{
+        display: flex;
+        padding: 10px 0px;
+        border-bottom: 2px solid #d3d3d3;
+    }
+    .display-sug-img img{
+        border-radius: 50%;
+    }
+    .display-sug-img{
+        width: 55px;
+        height: 54px;
+        background: #f6f7fd;
+        border-radius: 50%;
+        border: 1px solid #d3d3d3;
+        padding: 2px;
+    }
+    .user-email-name{
+        font-family: roboto_medium;
+        text-transform: capitalize;
+    }
+    .follow-btn button{
+        background: #041a2f;
+        color: white;
+        border-radius: 4px;
+        border: none;
+        outline: none;
+        font-family: roboto_bold;
+        font-size: 13px;
+        cursor: pointer;
+        padding: 4px 8px;
+        margin-top: 3px;
+    }
+    .following-btn button{
+        background: white;
+        color: #041a2f;
+        border-radius: 4px;
+        border: 1px solid #d3d3d3;
+        outline: none;
+        font-family: roboto_bold;
+        font-size: 13px;
+        cursor: pointer;
+        padding: 4px 8px;
+        margin-top: 3px;
+    }
+    .user-sug-bio{
+        font-family: roboto_regular;
+        font-size: 14px;
+        color: #d3d3d3;
+    }
+    .logo-title{
+        font-family: roboto_bold;
+        text-transform: capitalize;
+        font-size: 25px;
+        color: #041a2f;
+    }
+   /* end user to follow */
+   /* ========================================================================================================== */
+
+   /* welcome tab */
+   /* ========================================================================================================== */
+   .noticed-word{
+        color: #041a2f;
+        font-family: roboto_medium;
+        margin-top: 20px;
+        font-size: 12px;
+    }
+    .welcome-word{
+        font-family: roboto_bold;
+        font-size: 20px;
+        text-transform: capitalize;
+        margin-top: 20px;
+        color: #041a2f;
+    }
+    .get-started-btn-welcome button{
+        background: white;
+        color: #041a2f;
+        border: 2px solid #d3d3d3;
+        padding: 7px 20px;
+        text-transform: capitalize;
+        font-family: roboto_bold;
+        border-radius: 4px;
+        font-size: 13px;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+   /* end welcome tab */
+   /* ========================================================================================================= */
+
+   /* abbout us style tab */
+   /* ======================================================================================================== */
+   .full-desc{
+       line-height: 19px;
+   }
+   .title-company{
+       font-family: roboto_bold;
+       font-size: 20px;
+       line-height: 19px;
+       letter-spacing: 0.3px;
+   }
+   .sub-title{
+      text-decoration: underline;
+      font-size: 15px;
+      font-family: roboto_bold;
+      text-transform: capitalize;
+   }
+   .about-detail{
+       background: white;
+       overflow: hidden;
+   }
+   .about-detail div{
+       float: left;
+   }
+   .logo-about{
+       width: 150px;
+       background-color: #041a2f;
+       height: 140px;
+       border-radius: 6px;
+       margin-right: 10px;
+   }
+   .about-detail .logo-about img{
+       border-radius: 6px;
+   }
+   .company-desc{
+       font-family: roboto_regular;
+       font-weight: 570;
+       line-height: 19px;
+       letter-spacing: 0.2px;
+       font-size: 14px;
+       margin-top: 10px;
+   }
+   .micro_social a{
+       background: #041a2f;
+       padding: 5px 9px;
+       border-radius: 6px;
+       color: white;
+   }
+   /* end about us style */
+   /* ================================================================================================================= */
+
+   /* contuct us style */
+   /* ====================================================================================================================== */
+    .descript-company{
+        text-align: left;
+        font-size: 15px;
+        font-family: roboto_medium;
+        background: #f6f7fd;
+        padding: 10px;
+        border-radius: 4px;
+        letter-spacing: 0.4px;
+        line-height: 20px;
+    }
+   /* end contuct us */
+   /* ========================================================================================================================= */
+
+   /* developer style */
+   /* ========================================================================================================================= */
+   .meet-team{
+       color: #071c2e;
+       font-family: roboto_bold;
+       font-size: 24px;
+       padding: 30px;
+       text-align: center;
+   }  
+   .each-developer{
+         background: white;
+         margin-top: 20px;
+         width: 300px;
+         margin-left: 30px;
+         border-radius: 6px;
+         margin-bottom: 30px;
+         box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 1px rgba(0,0,0, 0.4),0 0 10px rgba(0,0,0, 0.4);
+     }
+     .developer-img {
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+        height: 250px;
+     }
+     .developer-img .backgroundImage{
+         width: 100%;
+         height: 100%;
+         border-top-left-radius: 6px;
+         border-top-right-radius: 6px;
+         /* for trapezium */
+        -webkit-clip-path: polygon(0 0, 100% 78%, 100% 100%, 0% 100%);
+        clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 50%);
+     }
+     .profile_image{
+         position: absolute;
+         border-radius: 50%;
+         background-color: white;
+         padding: 5px;
+         width: 150px;
+         height: 150px;
+         right: 80px;
+         top: 100px;
+     }
+     .profile_image img{
+         border-radius: 50%;
+     }
+
+     .developer-name{
+         font-family: roboto_bold;
+         font-size: 20px;
+         margin-top: 10px;
+         text-align: center;
+         padding: 10px;
+         color: #041a2f;
+     }
+     .function-user{
+        font-family: roboto_medium;
+        font-size: 15px;
+        text-align: center;
+        padding: 5px;
+        color: #737373;
+     }
+     .developer-desc{
+        font-family: roboto_medium;
+        text-align: center;
+        padding: 20px 20px;
+        font-size: 14px;
+     }
+     .find-social-network{
+        padding: 0px 30px 10px 30px;
+        text-align: center;
+        margin-top: 10px;
+     }
+     .find-social-network a .fa-facebook-f{
+         background: #02a9f7;
+         padding: 7px;
+         color: white;
+         border-radius: 6px;
+         font-size: 18px;
+     }
+     .find-social-network a .fa-instagram{
+        background: rgb(117, 13, 13);
+        padding: 7px;
+        color: white;
+        border-radius: 6px;
+        font-size: 18px;
+     }
+     .find-social-network a .fa-whatsapp{
+        background: green;
+        padding: 7px;
+        color: white;
+        border-radius: 6px;
+        font-size: 18px;
+     }
+     .find-social-network a .fa-twitter{
+        background: #89d6fb;
+        padding: 7px;
+        color: white;
+        border-radius: 6px;
+        font-size: 18px;
+     }
+   /* end developer style */
+   /* ================================================================================================================================ */
+   /* =============================================================================================================================== */
+
+   /* MEDIA QUERY APPLY ON SMALL DEVICE AND EXTRA LARGE DEVICE */
+   /* ==================================================================================================================================== */
+   /* ==================================================================================================================================== */
+   @media screen and (max-width: 1199px){
+    .search-input{
+        margin-left: 30px;
+        width: 300px;
+    }
+    .active-column{
+        background: white;
+        border-radius: 6px;
+        position: relative;
+        width: 150px;
+        height: 290px;
+        margin-right: 10px;
+        box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 7px rgba(0,0,0, 0.4);
+    }
+    .thumbnail-items{
+        width: 200px;
+        height: auto;
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+    .connect_world{
+        width: 150px;
+    }
+   }
+   @media screen and (max-width: 991px){
+       /* intelectual-skills style */
+        /* ============================================================================================================= */
+        .search-index{
+            display: none;
+        }
+        .active-column,.thumb-1{
+            display: none;
+        }
+        .connect_world{
+            display: none;
+        }
+        .condition-detail{width: 100%;}
+        .conditio-body{width: 100%;}
+        .thumbnail-items{
+            border-radius: 6px;
+            width: 250px;
+        }
+        .intelligent_self{
+            margin-left: 0px;
+            width: 300px;
+        }
+        .inner-header-1{
+            padding: 10px 0px;
+        }
+   }
+   @media screen and (max-width: 767px){
+        .search-input{
+            width: 250px;
+            margin-left:  0;
+        }
+        .dis_short_devs{display: none;}
+        #intro,#signmeup,#signmein{
+            height: 370px;
+            position: relative;
+        }
+        #aboutus{
+            height: 370px;
+            position: relative;
+            overflow: scroll;
+            overflow-x: hidden;
+            padding: 10px;
+        }
+        #contuctus{
+            height: 370px;
+            position: relative;
+            padding: 10px;
+        }
+        #developer{
+            height: 370px;
+            position: relative;
+            overflow: scroll;
+            overflow-x: hidden;
+            padding: 10px;
+        }
+        .user-option{
+            height: 480px;
+            margin-top: 20px;
+        }
+        .tab-content-container{ /* Card style */
+            margin-left: 0px;
+            width: 100%;
+          }
+        .thumb-1{display: block;}
+        .align-thumbnails{
+            flex-direction: column;
+        }
+        .condition{
+            flex-direction: column;
+        }
+        .condition-icons{display: none;}
+        .condition-detail{
+            font-size: 13px;
+            letter-spacing: 0.4px;
+        }
+        .nav-tabs .nav-item {
+            font-family: roboto_bold;
+            font-size: 18px;
+            color: #041a2f;
+        }
+        .middle_thumb_content{
+            flex-direction: column;
+        }
+        .dis-grid{
+            display: flex;
+            flex-direction: column;
+        }
+        .thumbnail-items{
+            border-radius: 6px;
+            width: 380px;
+        }
+        .middle_img_pre div{
+            border-radius: 6px;
+            width: 380px;
+            margin-left: 0;
+        }
+        .tab-content-container{ /* Card style */
+            border-radius: 4px;
+            width: 380px;
+        }
+        .user-option{
+            height: 500px;
+            margin-top: 20px;
+        }
+            
+        .connect_world{
+            width: 380px;
+            height: 136px;
+            margin-right: 0px;
+            margin-bottom: 20px;
+        }
+        .sep-dep-ex{
+           margin-top: 20px;
+        }
+        .intelligent_self{
+            width: 380px;
+        }
+        .eachdepartment{
+            width: 100px;
+        }
+        /* The actual timeline (the vertical ruler) */
+        .timeline::after {
+            display: none;
+        }
+        /* The circles on the timeline */
+        .right::after {
+            display: none;
+        }
+        /* Place the container to the right */
+        .right {
+            left: 0%;
+        }
+
+        /* Add arrows to the right container (pointing left) */
+        .right::before {
+            display: none;
+        }
+    
+   }
+    @media screen and (max-width: 375px){
+        .search-input{
+            width: 300px;
+            margin-left: 0;
+        }
+        .all_trades_found{display: none;}
+        .sign-in-btn{
+            display: none;
+        }
+        .over-carousel{
+            position: absolute;
+            width: 100%;
+            display: flex;
+        }
+        .dis-grid{
+            display: flex;
+            flex-direction: column;
+        }
+        .sep-dep-ex{
+            margin-top: 15px;
+        }
+        .thumbnail-items{
+            border-radius: 6px;
+            width: 280px;
+        }
+        .middle_img_pre div{
+            border-radius: 6px;
+            width: 280px;
+        }
+        .tab-content-container{ /* Card style */
+            border-radius: 4px;
+            background: white;
+            width: 280px;
+        }
+        .intelligent_self{
+            margin-left: 0px;
+            width: 280px;
+        }
+        .box-footer{
+            width: 100%;
+        }
+        .content {
+            padding: 10px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            width: 250px;
+            box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 5px rgba(0,0,0, 0.4);
+        }
+        .student-trainer-option{
+            position: absolute;
+            top: 0px;
+            overflow: auto;
+            padding: 10px 15px;
+            height: 100%;
+        }
+        .down-tab{
+            padding: 10px;
+        }
+        .each-developer{
+            background: white;
+            margin-top: 20px;
+            width: 250px;
+            margin-left: 5px;
+        }
+        .developer-img {
+            height: 200px;
+         }
+         .profile_image{
+             position: absolute;
+             border-radius: 50%;
+             background-color: white;
+             padding: 5px;
+             width: 150px;
+             height: 150px;
+             right: 50px;
+             top: 80px;
+         }
+         .carousel-caption-down{
+            margin-top: 5rem;
+            line-height: 20px;
+            font-size: 14px;
+        }
+        .middle_thumb_content{
+            flex-direction: column;
+        }
+        .user-option{
+            height: 580px;
+            margin-top: 20px;
+        }
+        .search-input .fa{
+            display: none;
+        }
+    }
+   /* END MEDIA QUERY */
+   /* =================================================================================================================================== */
+   /* =================================================================================================================================== */
+
+
+ /* end sign in and sign up for user */
+ /* ================================================================================================================================= */
+ /* ================================================================================================================================= */

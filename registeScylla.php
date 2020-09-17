@@ -1,0 +1,284 @@
+<?php 
+    // INITIALIZE PHP MAILER
+    // ===========================================================================================================
+    use PHPMailer\PHPMailer\PHPMailer;
+    // =========================================================================================================== 
+
+    // INITIALIZE DATABASE CONNECTION AND USER CODE
+    // ===========================================================================================================
+    include_once ("Scyllar.php");
+    include_once ("User_local_info.php");
+    include_once ("Geo.box.php");
+    // ===========================================================================================================
+    
+    // IMPORT PHPMAILER FILE
+    // ==========================================================================================================
+    require_once "PHPMailer/PHPMailer.php";
+    require_once "PHPMailer/SMTP.php";
+    require_once "PHPMailer/Exception.php";
+    // ===========================================================================================================
+
+    // INITIALIZE INTERFACE NEULON
+    // ============================================================================================================
+    interface Neulon{
+        public function validateEmail();
+        public function validateInput();
+        public function checkEmailExist();
+        public function saveData();
+        public function updateProfileImage();
+        public function extraInformation();
+        public function ReloadInfo($email);
+        public function sendEmail();
+    }
+    // ============================================================================================================
+
+
+    // CONFIGURE CLASS MYTHOLOGY
+    // ============================================================================================================
+    class Mythology extends Scyllar implements Neulon {
+        private $_firstname;
+        private $_lastname;
+        private $_email;
+        private $_password;
+        private $title;
+        private $verify;
+        private $dateSession;
+        public $executed;
+
+        // FUNCTION VALIDATE USER THAT REMOVE UNWANT TEXT AND CHECK 
+        // ========================================================
+        function validate_input($Input){
+            $Input = trim($Input);
+            $Input = stripslashes($Input);
+            $Input = htmlspecialchars($Input);
+            $Input = strip_tags($Input);
+            $Input = htmlentities($Input);
+            return $Input;
+        }
+
+        // SATITIZE INPUTED DATA
+        // ==========================================================
+        function sanitizeMySQL($connectionFunction, $Input){
+            $Input = $connectionFunction->real_escape_string($Input);
+            $Input = $this->validate_input($Input);
+            return $Input;
+        }
+
+        // INITIALIZE CONSTRUCTER
+        // ===================================================================================================
+        public function __construct($firstname,$lastname,$email,$password,$title,$verityCode,$date,$executed){
+            $this->_firstname = $this->sanitizeMySQL($this->Frequency(),trim($firstname));
+            $this->_lastname = $this->sanitizeMySQL($this->Frequency(),trim($lastname));
+            $this->_email = $this->sanitizeMySQL($this->Frequency(),trim($email));
+            $this->_password = $this->sanitizeMySQL($this->Frequency(),trim($password));
+            $this->title = $this->sanitizeMySQL($this->Frequency(),trim($title));
+            $this->verify = $this->sanitizeMySQL($this->Frequency(),trim($verityCode));
+            $this->dateSession = $this->sanitizeMySQL($this->Frequency(),trim($date));
+            $this->executed = $this->sanitizeMySQL($this->Frequency(),trim($executed));
+        }
+
+        // VALIDATE EMAIL TO REQUIRED EMAIL
+        // =======================================================
+        public function validateEmail(){
+            if(!filter_var($this->_email,FILTER_VALIDATE_EMAIL)){
+                return false;
+            }else{
+                return true;
+            }
+        }
+
+        // REGEX EXPRESS TO INPUTED DATA
+        // ========================================================================================================
+        public function validateInput(){
+            if (!preg_match("/^[a-zA-Z ]*$/",$this->_firstname) || !preg_match("/^[a-zA-Z ]*$/",$this->_lastname)) {
+                return true;
+            }else{
+               if(strlen($this->_firstname) > 20 || strlen($this->_lastname) > 20){
+                  return true;
+               }else{
+                   return false;
+               }
+            }
+        }
+
+        // METHORD CHECK IF EMAIL EXIST IN OWER DATA
+        // =============================================================================================================
+        // =============================================================================================================
+        public function checkEmailExist(){
+            $selectCurrentEmail = "SELECT * FROM intelligent_users WHERE email='$this->_email'";
+            $executeChecking = mysqli_query($this->Frequency(),$selectCurrentEmail);
+            if(mysqli_num_rows($executeChecking) > 0){
+                return true;
+            } else {
+                return false;
+            }
+         }
+ 
+
+        // METHOD SAVE DATA INTO DATABASE
+        // ============================================================================================================================================================================================================
+        public function saveData(){
+            $encripto = $this->_firstname.'#'.$this->_email.'@user.box';
+            $unique_url_code = sha1($encripto);
+            $ency_password = sha1($this->_password);
+            $EncodeData = "INSERT INTO intelligent_users VALUE ('','$unique_url_code','$this->_firstname','$this->_lastname','$this->_email','$ency_password','$this->title','$this->verify','$this->dateSession','notYet','$this->executed')";
+            $execute_Frequency = mysqli_query($this->Frequency(),$EncodeData);
+        }
+
+        // UPDATE PROFILE IMAGE SET TO DEFAULT IMAGE
+        // ==========================================================================================================================================================
+        public function updateProfileImage(){
+            // fetch basic info 
+            // =========================================================
+            $selectIdentity = "SELECT identity FROM intelligent_users WHERE email='$this->_email'";
+            $execute_identity = mysqli_query($this->Frequency(),$selectIdentity);
+            $fetchIdentity = mysqli_fetch_assoc($execute_identity);
+            $identity = $fetchIdentity['identity'];
+            $created_on = date("d/m/Y");
+
+            // upload image
+            // =============================================================
+            $setDefault = "INSERT INTO user_profile_image VALUE ('','$identity','$this->_firstname','$this->_email','defaultProfileImage.png','1','$created_on')";
+            $executeProfile = mysqli_query($this->Frequency(),$setDefault);
+        }
+
+        // GET USER EXTRA INFO
+        // ================================================================================================
+        public function extraInformation(){
+
+            //  get local info
+            // ==============================================================================================================================
+            $ip_address = new UserInfo();
+                $get_ip_address = $ip_address->get_ip();
+                $get_browser = $ip_address->get_browser();
+                $get_device = $ip_address->get_device();
+                $get_os = $ip_address->get_os();
+            // ==============================================================================================================================
+
+            // GET user location detail
+            // ==============================================================================================================================
+            // $user_location = new Geo();
+            //     $user_location->request($get_ip_address);
+                $get_country = ""; //$user_location->country;
+                $get_city = ""; //$user_location->city;
+                $get_timezone = ""; //$user_location->timezone;
+            // ================================================================================================  ============================= 
+
+            // insert user anonymous information 
+            // ===============================================================================================================================
+            $created_on = Date("Y-m-d h:m:s");
+            $insertInfo = "INSERT INTO user_auto_detection VALUE ('','$this->_firstname','$this->_lastname','$this->_email','$get_city','$get_country','$get_timezone','$get_browser','$get_device','$get_os','$get_ip_address','$created_on')";
+            $executeInfo = mysqli_query($this->Frequency(),$insertInfo);
+            // ===============================================================================================================================
+
+            // INsert notification settings
+            // ==============================================================================================================================
+            $created_on = Date("Y-m-d h:m:s");
+            $insert_new = "INSERT INTO notification_settings VALUE ('','$this->_email','Badge_on','Off','Off','Off','Off','$created_on')";
+            $execute_new = mysqli_query($this->Frequency(), $insert_new);
+        }
+
+        // METHOD RETRIEVE DATA THAT SAVE FROM DATABASE
+        // ==================================================================================================
+        public function ReloadInfo($email){
+            $RequestCode = "SELECT * FROM intelligent_users WHERE email='$email'";
+            $executeCode = mysqli_query($this->Frequency(),$RequestCode);
+            $code = mysqli_fetch_assoc($executeCode);
+            $name = $code['firstName'];
+            $lastname = $code['lastName'];
+            $digital = $code['verification_Code']; 
+
+            return "Hello {$name} {$lastname}, Here is your code IBox-- {$digital}, Please do not shared this code";    
+        }
+
+        // METHOD SEND EMAIL TO EMAIL PROVIDED
+        // ===========================================================================================================
+        public function sendEmail(){
+            $subject = "Verification code From Intelligent box";
+            $sender = "intelligentbox@gmail.com";
+            $sender_name = "Intelligent box";
+
+            $mail = new PHPMailer();
+
+            // SMTP settings
+            $mail->isSMTP();
+            $mail->Host = "smtp.gmail.com";
+            $mail->SMTPAuth = true;
+            $mail->Username = "intelligentbox732@gmail.com";
+            $mail->Password = 'intelligentBox2020';
+            $mail->Port = 465;    //587
+            $mail->SMTPSecure = "ssl";   // tls
+            
+            // Email settings
+            $mail->isHTML(true);       
+            $mail->setFrom($sender, $sender_name);      // specify who sending email (sender)
+            $mail->addAddress($this->_email);    // specify where email sended (reciever)
+            $mail->Subject = $subject;
+            $mail->Body = $this->ReloadInfo($this->_email);;
+
+            if($mail->send()){
+                return true;
+            }else{
+                return false;
+            }
+        }
+    }
+    // ===============================================================================================================
+
+    // GET DATA THANK HAVE BEEN INPUTED
+    // ============================================================================================================
+    // ============================================================================================================
+    $firstname = $_POST['getFirstname'];
+    $lastname = $_POST['getLastname'];
+    $email = $_POST['getEmail'];
+    $password = $_POST['getPassword'];
+    $getTitle = "student";
+    $verifyCode = rand(100000,999999);
+
+    $Line = Date("Y-m-d h:m:s");
+    $executed_date = Date("Y-m-d h:m:s");
+
+    // execute class Mythology 
+    // ============================================================================================================
+    // ============================================================================================================
+    $implementNeulon = new Mythology($firstname,$lastname,$email,$password,$getTitle,$verifyCode,$Line,$executed_date);
+    try {
+        if($implementNeulon->validateEmail() == false){
+            $status = "Fail";
+            $response = "Invalid email inputed";
+         }else{
+             if($implementNeulon->validateInput() == true){
+                 $status = "fail";
+                 $response = "Lastname,firstname must be less than 20 characters, Only letters allowed";
+             }else{
+                if($implementNeulon->checkEmailExist() == false){
+                    $implementNeulon->saveData();
+                    $implementNeulon->updateProfileImage();
+
+                    $implementNeulon->extraInformation();
+                    if($implementNeulon->sendEmail()){
+                        $status = "success";
+                        $response = "Check code we sent to this E-mail";
+                    }else{
+                        $status = "Fail";
+                        $response = "Fail to send code, try again!";
+                    }
+                }else{
+                    $status = "Fail";
+                    $response = "E-mail you entered already exist, !Please try again or another";
+                }
+            }
+        }
+    } catch (\Throwable $th) {
+        $status = $th;
+        $response = "Technical error, we're working to get it fixed, try again!";
+    }
+
+    // end mythology
+    // =====================================================================================================================
+    // =====================================================================================================================
+
+    // send data by json files
+    // =====================================================================================================================
+    exit(json_encode($response))
+?>

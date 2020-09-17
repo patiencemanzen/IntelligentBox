@@ -1,0 +1,4955 @@
+    /* 
+        //////////////////////////////////////////////////////
+
+        INTELLIGENT BOX
+        DESIGNED & DEVELOPED by Manirabona Patience
+        
+        author: Mnirabona Patience,
+        Email:  Hseal419@gmail.com,
+        location: Kigali,Rwanda,
+        pro: Intelligent Box E-learning,
+        version: 1.0.0
+        
+        //////////////////////////////////////////////////////
+    */
+
+    /* external font family */
+        @font-face {font-family: 'roboto_bold';src: url('../fonts/Roboto/Roboto-Bold.ttf');} 
+        @font-face{font-family: 'roboto_regular';src: url('../fonts/Roboto/Roboto-Regular.ttf');}
+        @font-face{font-family: 'baskvile';src: url('../fonts/baskerville/BASKVILL.TTF');}
+        @font-face{font-family: 'roboto_medium';src: url('../fonts/Roboto/Roboto-Medium.ttf');}
+        @font-face{font-family: 'roboto_black';src: url('../fonts/Roboto/Roboto-Black.ttf');}
+
+
+    /* apply on scroll bar */
+    /* width */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: white; 
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #041a2f;
+            border-radius: 4px; 
+        }
+
+        /* body style */
+        body{
+            padding: 0;
+            margin: 0;
+            font-family: roboto_regular;
+        }
+
+        /* card-header style */
+        .card-header{
+            font-family: roboto_regular;
+        }
+        .top-side-profile{
+            box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 15px rgba(0,0,0, 0.4);
+            border-radius: 4px;
+        }
+        .top-side-profile::before{
+            content: "";
+            position: absolute;
+            background: rgba(0,0,0, 0.4);
+            width: 100%;
+        }
+        
+
+        /* nav-icons style */
+        .nav-icons .navbar-nav .nav-item{
+            background: #f6f7fd;
+            font-size: 17px;
+            color: #041a2f;
+            position: relative;
+            cursor: pointer;
+        }
+        .nav-icons .navbar-nav .nav-item a .fa{
+            color: #041a2f;
+            font-size: 17px;
+        }
+        .nav-icons .navbar-nav .nav-item a {
+            color: #041a2f;
+            font-size: 13px;
+            font-family: roboto_bold;
+        }
+     
+        .down-sectio-alignment{
+            background-color: white;
+            margin-top: 20px;
+            padding: 5px;
+            border-radius: 4px;
+            box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 15px rgba(0,0,0, 0.4);
+        }
+        .user-background-image{
+            background: #f6f7fd;
+            height: 350px;
+            position: relative;
+            overflow: hidden;
+        }
+        .user-background-image img{
+            transition: .5s;
+        }
+        .user-background-image img:hover{
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+        .user-background-image::before{
+            content: "";
+            background: rgba(0, 0, 0, 0.3);
+            position: absolute;
+            bottom: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+        /* preloader apple top background image*/
+        .container-pre-image-loader{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: none;
+        }
+        .container-rolls:last-child {
+            padding: 31.5px;
+        }
+        .container-rolls::after {
+            position: absolute;
+            width: 100px;
+            height: 30px;
+            left: 0;
+            bottom: -30px;
+            line-height: 30px;
+            text-align: center;
+            background-color: blue;
+            display: none;
+        }
+        /* end preloader */
+
+        /* preloader profile image */
+        .container-profile-image-loader{
+            position: absolute;
+            bottom: 90px;
+            right: 90px;
+            display: none;
+        }
+        .container-profile-wheel:last-child {
+            padding: 31.5px;
+        }
+        .container-profile-wheel::after {
+            position: absolute;
+            width: 100px;
+            height: 30px;
+            left: 0;
+            bottom: -30px;
+            line-height: 30px;
+            text-align: center;
+            background-color: blue;
+        }
+        /* end preloader */
+
+        /* profile-detail style */
+        .down-section{
+            margin-top: 60px;
+        }
+        .user-profile-section{
+            position: relative;
+            /* background-color: white; */
+        }
+        .profile-detail{
+            position: absolute;
+            bottom: 10px;
+            left: 20px;
+            font-family: roboto_regular;
+            width: auto;
+        }
+        .settings{
+            position: absolute;
+            bottom: 80px;
+            left: 58%;
+        }
+        .edit-background-image-section{
+            position: relative;
+        }
+        .settings div .user-full-name,.settings-icons,.edit-background-image{
+            cursor: pointer;
+            font-size: 25px;
+            text-transform: capitalize;
+            color: white;
+            font-family: roboto_black;
+            letter-spacing: 0.5px;
+        }
+        /* edit user biography */
+        .edit{
+            position: absolute;
+            background: white;
+            padding: 5px;
+            border-radius: 4px;
+            z-index: 5;
+            box-shadow: 0 0 10px rgba(0,0,0, 0.3);
+            display: none;
+        }
+        .edit-bio-title{
+            background: #f6f7fd;
+            padding: 10px;
+            font-family: roboto_bold;
+            text-transform: capitalize;
+            font-size: 15px;
+        }
+        .close_bio_edition{
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            cursor: pointer;
+        }
+        .type-your-bio textarea{
+            border: none;
+            outline: none;
+            width: 100%;
+            height: 100%;
+            background: white;
+            font-size: 15px;
+            font-family: roboto_medium;
+        }
+        .type-your-bio {
+            border: 1px solid #d3d3d3;
+            border-radius: 4px;
+            padding: 5px;
+        }
+        .user-option-bio{
+            padding: 2px;
+        }
+        .update-btn-bio button{
+            background: #041a2f;
+            font-size: 13px;
+            font-family: roboto_bold;
+            border-radius: 4px;
+            padding: 5px 20px 5px 20px;
+            color: white;
+            border: none;
+            text-transform: capitalize;
+            font-size: 14px;
+            cursor: pointer;
+            outline: none;
+        }
+        .feeling-smile{
+            background: #f6f7fd;
+            padding: 5px 10px 5px 10px;
+            border-radius: 100%;
+            font-size: 16px;
+            font-family: roboto_bold;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .edit-bio-btn .fa{
+            color: #041a2f;
+            font-size: 26px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+
+        .settings-alignment{
+            position: relative;
+        }
+        .setting-log{
+            position: relative;
+        }
+        .pre-defined-setting{
+            position: absolute;
+            border-radius: 4px;
+            background-color: white;
+            top: 40px;
+            right: 0px;
+            padding: 10px;
+            width: 350px;
+            z-index: 21;
+            display: none;
+            animation: settings 300ms ease-in-out forwards;
+            transform-origin: top right;
+            box-shadow: 0 0 10px rgba(0,0,0, 0.3);
+        }
+        @keyframes settings{
+            0%{
+                opacity: 0;
+                transform: scale(0.1);
+            }
+            100%{
+                opacity: 1;
+                text-replace: scale(1);
+            }
+        }
+        .setting-holder{
+            position: relative;
+        }
+        .settings-header{
+            padding: 8px 8px 10px 8px;
+        }
+        .user-image-settings img{
+            border-radius: 100%;
+        }
+        .user-image-settings{
+            border-radius: 100%;
+            width: 50px;
+            height: 50px;
+            background-color: #f6f7fd;
+        }
+        .user-detail-settings{
+            margin-top: 5px;
+        }
+        .user-detail-settings div{
+            font-size: 15px;
+            font-family: roboto_bold;
+            color: #041a2f;
+            text-transform: capitalize;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            width: 250px;
+        }
+        .bodysetting{
+            background: whitesmoke;
+            padding: 5px 15px;
+            border-radius: 4px;
+        }
+        .settingsbody{
+            padding: 10px;
+            border-top: 2px solid #d3d3d3;
+            border-bottom: 2px solid #d3d3d3;
+        }
+        .settings-link{color: #041a2f;}
+        .accountSettings,.publicPost,.notificationPsetting,.messageSetting,.challengeSetting{
+            margin-top: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        .accountSettings .fa,.publicPost .fa,.notificationPsetting .fa,.messageSetting .fa,.challengeSetting .fa{
+            background: #f6f7fd;
+            font-size: 16px;
+            border-radius: 50%;
+            padding: 10px;
+            font-size: 17px;
+        }
+        .accountSettings div,.publicPost div,.notificationPsetting div,.messageSetting div,.challengeSetting div{
+            font-family: roboto_bold;
+            text-transform: capitalize;
+            margin-top: 10px;
+        }
+        .feedbacks{
+            padding: 5px 0px 0px 0px;
+        }
+        .feedback-option{
+            background: #f6f7fd;
+            border-radius: 4px;
+            padding: 8px;
+            cursor: pointer;
+        }
+        .option-noticed .btn-feed{
+            font-family: roboto_bold;
+            text-transform: capitalize;
+            font-size: 15px;
+        }
+        .option-noticed .help{
+            font-size: 13px;
+            font-family: roboto_regular;
+        }
+        .feedback-option .fa{
+            font-size: 16px;
+            margin-top: 2px;
+        }
+        .about-box{
+            padding: 5px;
+        }
+        .about-box .conditions{
+            font-family: roboto_bold;
+            display: flex;
+            justify-content: space-between;
+            text-transform: capitalize;
+            border-bottom: 1.3px solid #d3d3d3;
+            padding: 5px 0;
+        }
+        .about-box .conditions div{
+            font-size: 13px;
+            cursor: pointer;
+        }
+        .copyright{
+            margin-top: 10px;
+            width: 100%;
+            text-align: center;
+            text-transform: capitalize;
+            font-family: roboto_bold;
+        }
+        .group_image img{
+            border-radius: 50%;
+            object-fit: fill;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .group_image{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f6f7fd;
+        }
+        .each-show_group{
+            font-family: roboto_bold;
+            color: #041a2f;
+        }
+        .group_name_show{
+            margin-left: 10px;
+            margin-top: 10px;
+            width: 100%;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+
+        /* account settings */
+        .settings-seg{position: relative;}
+        .account-settings{
+            background: white;
+            border-radius: 4px;
+            position: absolute;
+            padding: 5px;
+            top: 97px;
+            left: -250px;
+            z-index: 25;
+            width: 250px;
+            display: none;
+        }
+        .account-settings::before{
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 5px;
+            width: 0;
+            z-index: 1;
+            right: -10px;
+            border: medium solid white;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent #f6f7fd;
+        }
+        .add-more-info{
+            display: flex;
+            background: #f6f7fd;
+            padding: 10px;
+            margin-bottom: 10px;
+            justify-content: space-between;
+        }
+        .add-more-info .fa{
+            margin-top: 2px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .add-more-info div{
+            font-family: roboto_medium;
+            text-transform: capitalize;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        .more-information-addition{
+            position: absolute;
+            background: white;
+            padding: 10px;
+            border-radius: 4px;
+            left: -260px;
+            top: -10px;
+            width: 250px;
+            display: none;
+        }
+        .more-information-addition::before{
+            content: '';
+            position: absolute;
+            height: 0;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: -10px;
+            border: medium solid #f6f7fd;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent #f6f7fd;
+        }
+        .location input{
+            border: none;
+            outline: none;
+            background: white;
+            width: 100%;
+            height: 100%;
+            font-size: 12px;
+        }
+        .location{
+            border: 1px solid #d3d3d3;
+            padding: 5px;
+            font-family: roboto_medium;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        .date-of-birth input{
+            border: none;
+            outline: none;
+            background: white;
+            width: 100%;
+            height: 100%;
+            font-size: 12px;
+        }
+        .date-of-birth{
+            border: 1px solid #d3d3d3;
+            padding: 5px;
+            font-family: roboto_medium;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        .phone input{
+            border: none;
+            outline: none;
+            background: white;
+            width: 100%;
+            height: 100%;
+            font-size: 12px;
+        }
+        .phone{
+            border: 1px solid #d3d3d3;
+            padding: 5px;
+            font-family: roboto_medium;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        .school input{
+            border: none;
+            outline: none;
+            background: white;
+            width: 100%;
+            height: 100%;
+            font-size: 12px;
+        }
+        .school{
+            border: 1px solid #d3d3d3;
+            padding: 5px;
+            font-family: roboto_medium;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        .submi-form-info{overflow: auto;}
+        .submi-form-info button{
+            background: #041a2f;
+            color: white;
+            border: none;
+            outline: none;
+            border-radius: 4px;
+            font-family: roboto_medium;
+            text-transform: capitalize;
+            padding: 3px 8px 3px 8px;
+            cursor: pointer;
+            font-size: 12px;
+            float: right;
+        }
+
+        /* blocked user */
+        .blocked-user{
+            position: absolute;
+            left: -230px;
+            top: 190px;
+            background: white;
+            padding: 15px;
+            border-radius: 4px;
+            display: none;
+        }
+        .list-them{
+            overflow: auto;
+            height: 200px;
+            overflow-x: hidden;
+        }
+        .blocked-user::before{
+            content: '';
+            position: absolute;
+            height: 0;
+            top: 10px;
+            width: 0;
+            z-index: 1;
+            right: -10px;
+            border: medium solid #f6f7fd;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent #f6f7fd;
+        }
+        .each-blocked-user{
+            padding: 1px;
+            background: white;
+            border-radius: 4px;
+            border: 1px solid #d3d3d3;
+            display: flex;
+            margin-bottom: 5px;
+        }
+        .user-blocked-image img{
+        border-radius: 4px;
+        }
+        .user-blocked-image{
+            width: 55px;
+            height: 100%;
+            border-radius: 4px;
+            background: #f6f7fd;
+        }
+        .blocked-user-detail{
+            font-family: roboto_medium;
+            font-size: 12px;
+            padding: 1px 10px 2px 0px;
+        }
+        .unblocked button{
+            background: white;
+            border: 1px solid #d3d3d3;
+            color: #041a2f;
+            outline: none;
+            border-radius: 4px;
+            padding: 2px 5px 2px 5px;
+            cursor: pointer;
+            font-family: roboto_medium;
+        }
+
+        /* public post settings */
+        .public-post-settings-section{
+            background: white;
+            border-radius: 4px;
+            position: absolute;
+            padding: 5px;
+            top: 145px;
+            left: -250px;
+            z-index: 26;
+            width: 250px;
+            display: none;
+        }
+        .public-post-settings-section::before{
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 5px;
+            width: 0;
+            z-index: 1;
+            right: -10px;
+            border: medium solid white;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent #f6f7fd;
+        }
+        .future-post{
+            display: flex;
+            background: #f6f7fd;
+            padding: 10px;
+            margin-bottom: 10px;
+            justify-content: space-between;
+        }
+        .future-post .fa{
+            margin-top: 2px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .future-post div{
+            font-family: roboto_medium;
+            text-transform: capitalize;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        
+
+        /* notification settings */
+
+       .notification-settings-sections{
+            background: white;
+            border-radius: 4px;
+            position: absolute;
+            padding: 5px;
+            top: 238px;
+            left: -250px;
+            z-index: 26;
+            width: 250px;
+            display: none;
+        }
+        .notification-settings-sections::before{
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 5px;
+            width: 0;
+            z-index: 1;
+            right: -10px;
+            border: medium solid white;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent #f6f7fd;
+        }
+        .set-noti{
+            display: flex;
+            background: #f6f7fd;
+            padding: 10px;
+            margin-bottom: 10px;
+            justify-content: space-between;
+        }
+        .fset-noti .fa{
+            margin-top: 2px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .set-noti div{
+            font-family: roboto_medium;
+            text-transform: capitalize;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        .edit-background{
+            position: absolute;
+            top: 40px;
+            right: 0px;
+            background: white;
+            border-radius: 4px;
+            padding: 5px;
+            width: 400px;
+            z-index: 21;
+            display: none;
+            animation: edit_background 300ms ease-in-out forwards;
+            transform-origin: top right;
+            box-shadow: 0 0 10px rgba(0,0,0, 0.3);
+        }
+        @keyframes edit_background{
+            0%{
+                opacity: 0;
+                transform: scale(0.1);
+            }
+            100%{
+                opacity: 1;
+                text-replace: scale(1);
+            }
+        }
+        .preview-title{
+            padding: 10px;
+            font-family: roboto_bold;
+            text-transform: capitalize;
+            font-size: 15px;
+            background: #f6f7fd;
+        }
+        .preview-title .fa {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            cursor: pointer;
+        }
+        .preview{
+            background: white;
+            width: 100%;
+            height: 250px;
+            text-align: center;
+        }
+        .preview .fa{
+            color: #d3d3d3;
+            font-size: 80px;
+            margin-top: 20%;
+        }
+
+        .choose-image{
+            padding: 10px;
+            background: #f6f7fd;
+            position: relative;
+        }
+        .update-btn button{
+            background: white;
+            font-size: 15px;
+            font-family: roboto_bold;
+            border-radius: 4px;
+            padding: 5px 20px 5px 20px;
+            color: #041a2f;
+            border: 1px solid #d3d3d3;
+            position: absolute;
+            top: -15px;
+            right: 10px;
+            text-transform: capitalize;
+            font-size: 14px;
+            cursor: pointer;
+            outline: none;
+        }
+        .choose-file button{
+            background: #041a2f;
+            font-size: 15px;
+            font-family: roboto_bold;
+            border-radius: 4px;
+            padding: 5px 20px 5px 20px;
+            color: white;
+            border: none;
+            top: -15px;
+            right: 10px;
+            text-transform: capitalize;
+            font-size: 14px;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .edit-profile-image{
+            position: absolute;
+            background: white;
+            border-radius: 4px;
+            padding: 5px;
+            width: 400px;
+            z-index: 15;
+            top: 260px;
+            display: none;
+            animation: profile 300ms ease-in-out forwards;
+            transform-origin: top;
+            box-shadow: 0 0 10px rgba(0,0,0, 0.3);
+        }
+        @keyframes profile{
+            0%{
+                opacity: 0;
+                transform: scale(0.1);
+            }
+            100%{
+                opacity: 1;
+                text-replace: scale(1);
+            }
+        }
+
+        .profile-image-title{
+            padding: 10px;
+            font-family: roboto_bold;
+            text-transform: capitalize;
+            font-size: 15px;
+            background: #f6f7fd;
+        }
+        .profile-image-title .fa{
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            cursor: pointer;
+        }
+        .preview-image-profile{
+            background: white;
+            width: 100%;
+            height: 250px;
+            text-align: center;
+        }
+        .preview-image-profile .fa{
+            color: #d3d3d3;
+            font-size: 80px;
+            margin-top: 20%;
+        }
+
+        .choose-image-profile{
+            padding: 10px;
+            background: #f6f7fd;
+            position: relative;
+        }
+        .update-profile button{
+            background: white;
+            font-size: 15px;
+            font-family: roboto_bold;
+            border-radius: 4px;
+            padding: 5px 20px 5px 20px;
+            color: #041a2f;
+            border: 1px solid #d3d3d3;
+            position: absolute;
+            top: -15px;
+            right: 10px;
+            text-transform: capitalize;
+            font-size: 14px;
+            cursor: pointer;
+            outline: none;
+        }
+        .choose-profile-image button{
+            background: #041a2f;
+            font-size: 15px;
+            font-family: roboto_bold;
+            border-radius: 4px;
+            padding: 5px 20px 5px 20px;
+            color: white;
+            border: none;
+            top: -15px;
+            right: 10px;
+            text-transform: capitalize;
+            font-size: 14px;
+            cursor: pointer;
+            outline: none;
+        }
+
+
+        .user-status-info{
+            background: white;
+            padding: 10px;
+            color: black;
+            font-family: roboto_regular;
+            border-radius: 3px;
+            text-transform: capitalize;
+            box-shadow: 0 0 2px rgba(0,0,0, 0.3);
+        }
+        .user-status-info div{
+            margin-right: 10px;
+            background: #f6f7fd;
+            padding: 7px 13px 7px 13px;
+            border-radius: 4px;
+            margin-right: 5px;
+            margin-top: 3px;
+            text-transform: capitalize;
+            font-family: roboto_bold;
+            width: 220px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .user-status-info div span{
+            color: #041a2f;
+            font-family: roboto_bold;
+            margin-left: 5px;
+        }
+        #my_time{
+            margin-left: 0px;
+        }
+        .profile-image-user{
+            width: 250px;
+            height: 240px;
+            background: white;
+            padding: 4px;
+            position: relative;
+            border-radius: 4px;
+            box-shadow: 0 0 2px rgba(0,0,0, 0.3);
+        }
+        #getProfileimage img{
+            border-radius: 4px;
+            object-fit: fill;
+        }
+        #getProfileimage{
+            width: 100%;
+            height: 100%;
+        }
+        .videos{
+            background: #f6f7fd;
+            padding: 8px 10px 8px 10px;
+            font-family: roboto_bold;
+            font-size: 13px;
+            border-radius: 4px;
+            margin-right: 5px;
+            margin-left: 5px;
+            text-transform: capitalize;
+        }
+        .photos{
+            background: #f6f7fd;
+            padding: 8px 10px 8px 10px;
+            font-family: roboto_bold;
+            font-size: 13px;
+            border-radius: 4px;
+            margin-right: 5px;
+            text-transform: capitalize;
+            font-weight: 570;
+        }
+        .bio-section{
+            border-bottom-right-radius: 4px;
+            border-bottom-left-radius: 4px;
+            background: white;
+            padding: 10px;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+        }
+        .user-biography{
+            font-family: roboto_bold;
+            background: #f6f7fd;
+            padding: 8px;
+            border-radius: 4px;
+        }
+        .written-biography{
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 300px;
+            font-size: 14px;
+        }
+
+        .edit-profile{
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 16px;
+            color: #041a2f;
+            cursor: pointer;
+            background: #f6f7fd;
+            padding: 4px 13px 4px 13px;
+            border-radius: 20px;
+            text-transform: capitalize;
+            font-family: roboto_bold;
+        }
+        .container-profile-image-loader{
+            display: none;
+        }
+        .user-name-location-email{
+            color: white;
+        }
+        .user-full-name{
+            font-size: 20px;
+            margin-top: 5px;
+            width: 300px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            padding: 5px;
+        }
+        .user-email{
+            font-size: 17px;
+            margin-top: 5px;
+        }
+        .user-location{
+            font-size: 17px;
+            margin-top: 5px;
+            font-family: roboto_bold;
+        }
+        .set_up_btn{
+            background: #041a2f;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-family: roboto_medium;
+            font-size: 12.5px;
+            outline: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* user-creation style */
+        .user-creation{
+            margin-top: 30px;
+            margin-bottom: 10px;
+            padding: 7px 7px 7px 10px;
+            border-radius: 4px;
+            text-transform: capitalize;
+            margin-right: 20px;
+            margin-left: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0, 0.3);
+        }
+        .img-pre-user{
+            width: 100%;
+            height: 100%;
+            background: #f6f7fd;
+            border-radius: 4px;
+        }
+        .img-pre-user img{
+            border-radius: 6px;
+        }
+        .create{
+            border-radius: 6px;
+            width: 175px;
+            margin-right: 10px;
+            position: relative;
+            height: 200px;
+        }
+        .create-btn{
+            position: absolute;
+            top: 10px;
+            left: 5px;
+            color: white;
+            font-family: roboto_bold;
+        }
+        .create-btn .fa{
+            background: whitesmoke;
+            color: #041a2f;
+            padding: 5px 6px 5px 7px;
+            border-radius: 100%;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .create-post{
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(0,0,0, 0.4);
+            margin-right: 20px;
+            margin-left: 20px;
+            position: relative;
+        }
+        .create-title{
+            padding: 5px 10px 5px 10px;
+            font-family: roboto_bold;
+            background-color: #f6f7fd;
+            text-transform: capitalize;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+        }
+        .ask{
+            font-family: roboto_bold;
+            color: #d3d3d3;
+            padding: 5px 6px 5px 6px;
+        }
+        .what-going-on{
+            background: #f6f7fd;
+            border-radius: 10px;
+            padding: 10px;
+            width: 100%;
+        }
+        .post-create-img{
+            width: 60px;
+            height: 58px;
+            border-radius: 100%;
+            background: #f6f7fd;
+        }
+        .post-create-img img{
+            border-radius: 100%;
+        }
+        /* post-creation style area right side*/
+        .post-creation-right-side{
+            background: white;
+            border-radius: 4px;
+            padding: 5px;
+            position: absolute;
+            top: 0px;
+            right: 345px;
+            z-index: 20;
+            width: 500px;
+            box-sizing: border-box;
+            display: none;
+        }
+        .post-creation-right-side::before{
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: -10px;
+            border: medium solid #f6f7fd;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent #f6f7fd;
+        }
+        .title-post-creation-right{
+            background: #f6f7fd;
+            font-family: roboto_bold;
+            text-transform: capitalize;
+            padding: 10px;
+            position: relative;
+        }
+        .title-post-creation-right .fa{
+            background: white;
+            padding: 5px;
+            position: absolute;
+            right: 5px;
+            top: 5px;
+        }
+        .create-area-body-right{
+            display: flex;
+            margin-top: 10px;
+            margin-right: 10px;
+        }
+        .image-preview-post-right{
+            background: #f6f7fd;
+            width: 300px;
+            height: 230px;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .image-preview-post-right .control-video{
+            color: white;
+            font-size: 50px;
+            margin-top: 30%;
+        }
+        
+        .caption-area-right {
+            margin-left: 10px;
+        }
+        .caption-textarea-right textarea{
+            width: 100%;
+            height: 100%;
+            outline: none;
+            border: none;
+            font-family: roboto_medium;
+            font-size: 13px;
+        }
+        .caption-textarea-right .fa{
+            cursor: pointer;
+        }
+        .caption-textarea-right{
+            border: 1px solid #d3d3d3;
+            border-radius: 4px;
+            padding: 10px 5px 5px 5px;
+        }
+        .option-creation-right{
+            display: flex;
+            margin-top: 10px;
+            justify-content: space-between;
+            background: #f6f7fd;
+            padding: 10px;
+            position: absolute;
+        }
+        .choose-option-area-right{
+            display: flex;
+        }
+        .choose-image-btn-right button{
+            background: white;
+            border: 1px solid #d3d3d3;
+            outline: none;
+            border-radius: 4px;
+            font-size: 13px;
+            font-family: roboto_bold;
+            padding: 5px 10px 5px 10px;
+            cursor: pointer;
+            color: #041a2f;
+            text-transform: capitalize;
+        }
+        .choose-video-btn-right button{
+            background: #041a2f;
+            border: none;
+            outline: none;
+            border-radius: 4px;
+            font-size: 13px;
+            font-family: roboto_bold;
+            padding: 5px 10px 5px 10px;
+            cursor: pointer;
+            color: white;
+            text-transform: capitalize;
+            margin-left: 10px;
+        }
+        .create-post-btn-right div button{
+            background: #041a2f;
+            border: none;
+            outline: none;
+            border-radius: 4px;
+            font-size: 13px;
+            font-family: roboto_bold;
+            padding: 5px 20px 5px 20px;
+            cursor: pointer;
+            color: white;
+            text-transform: capitalize;
+            margin-left: 10px;
+            opacity: .6;
+        }
+        /* end post-creation stylearea */
+        .right-section{
+            width: 500px;
+        }
+        .create-more{
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-top: 1.5px solid #d3d3d3;
+            position: relative;
+        }
+        .create-story button{
+            background: #f6f7fd;
+            color: #041a2f;
+            border-radius: 4px;
+            padding: 5px 20px;
+            font-family: roboto_medium;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+        .write-autobio-btn button{
+            background: #f6f7fd;
+            color: #041a2f;
+            border-radius: 4px;
+            padding: 5px 20px;
+            font-family: roboto_medium;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .user_setup_profile{
+            box-shadow: 0 0 10px rgba(0,0,0, 0.3);
+            background: white;
+            margin: 30px 20px;
+            border-radius: 4px;
+        }
+        .user-into{
+            background: white;
+            padding: 10px;
+            color: black;
+            font-family: roboto_regular;
+            text-transform: capitalize;
+            overflow: hidden;
+            border-radius: 3px;
+        }
+        .user-into div{
+            margin-right: 10px;
+            background: #f6f7fd;
+            padding: 7px 13px 7px 13px;
+            border-radius: 4px;
+            margin-right: 5px;
+            margin-top: 3px;
+            text-transform: capitalize;
+            font-family: roboto_bold;
+            width: auto;
+            float: left;
+        }
+        .title-setup{
+            font-family: roboto_bold;
+            margin-left: 10px;
+        }
+        .user_add_info{
+            padding: 10px;
+            overflow: hidden;
+            background-color: white;
+            border-radius: 4px;
+        }
+        .user_add_info div input{
+            width: 100%;
+            height: 100%;
+            border: none;
+            outline: none;
+            font-size: 12px;
+        }
+        .user_add_info div select{
+            width: 100%;
+            height: 100%;
+            border: none;
+            outline: none;
+            font-size: 12px;
+        }
+        .user_add_info .set{
+            margin-bottom: 10px;
+            float: left;
+            margin-right: 5px;
+        }
+        .user_add_info .set_up_location{
+            border: 1.2px solid #d3d3d3;
+            padding: 3px;
+            border-radius: 4px;
+            color: #041a2f;
+            font-family: roboto_medium;
+        }
+        .user_add_info .setup_school{
+            border: 1.2px solid #d3d3d3;
+            padding: 3px;
+            border-radius: 4px;
+            color: #041a2f;
+            font-family: roboto_medium;
+        }
+        .user_add_info .setup_trade{
+            border: 1.2px solid #d3d3d3;
+            padding: 3px;
+            border-radius: 4px;
+            color: #041a2f;
+            font-family: roboto_medium;
+        }
+        .user_add_info .setup_level{
+            border: 1.2px solid #d3d3d3;
+            padding: 3px;
+            border-radius: 4px;
+            color: #041a2f;
+            font-family: roboto_medium;
+        }
+        .user_add_info .setup_dateof_birth{
+            border: 1.2px solid #d3d3d3;
+            padding: 3px;
+            border-radius: 4px;
+            color: #041a2f;
+            font-family: roboto_medium;
+        }
+        .user_add_info .setup_contact{
+            border: 1.2px solid #d3d3d3;
+            padding: 3px;
+            border-radius: 4px;
+            color: #041a2f;
+            font-family: roboto_medium;
+        }
+
+        /* WHEN USER IS TRAINER */
+        /* ================================================================================================================= */
+        .trainer_place{
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        .create_new_class{
+            background: white;
+            box-shadow: 0 0 5px rgba(0,0,0, 0.3); 
+            padding: 5px 20px;
+            font-family: roboto_bold;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        .create_class_course{
+            border-radius: 4px;
+            width: 100%;
+            position: relative;
+            border-radius: 4px;
+            box-shadow: 0 0 5px rgba(0,0,0, 0.3);
+            margin-bottom: 30px;
+        }
+        .handle_class{
+            display: flex;
+        }
+        .trainer_dash_pre{
+            background: #f6f7fd;
+            height: 100%;
+            text-align: center;
+            width: 200px;
+            padding: 10px;
+            border-top-left-radius: 4px;
+        }
+        .trainer_dash_pre .fa{
+            font-size: 30px;
+            color: #d3d3d3;
+        }
+        .trainer_dash_pre div{
+            font-family: roboto_bold;
+            font-size: 15px;
+            margin-top: 10px;
+        }
+
+        .trainer_create_course{
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+        }
+        .create_title{
+            font-size: 16px;
+            font-family: roboto_bold;
+            width: 100%;
+        }
+        .create_input_form{
+            margin-top: 5px;
+            width: 100%;
+        }
+        .create_class_input input,.create_course_name input, .create_course_name select,.create_class_input textarea{
+            width: 100%;
+            height: 100%;
+            border: none;
+            outline: none;
+            font-family: roboto_medium;
+        }
+        .create_class_input, .create_course_name{
+            border: 1.3px solid #d3d3d3;
+            padding: 3px;
+            border-radius: 4px;
+            margin-bottom: 7px;
+            width: 100%;
+        }
+        .submit_class{
+            background: #041a2f;
+            padding: 5px 20px;
+            font-family: roboto_bold;
+            border: none;
+            border-radius: 4px;
+            color: white;
+        }
+
+
+        .each_class{
+            margin-bottom: 10px;
+        }
+        .hold_two_section{
+            display: flex;
+        }
+        .class_status{
+            border-radius: 4px;
+            width: 100%;
+            position: relative;
+            border-radius: 4px;
+            box-shadow: 0 0 5px rgba(0,0,0, 0.3);
+            width: 200px;
+        }
+        .class_background img{
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            width: 100%;
+            height: 70px;
+        }
+        .class_background {
+            height: 100px;
+        }
+        .class_image img{
+            border-radius: 50%;
+        }
+        .class_image{
+            border-radius: 50%;
+            background: white;
+            width: 100px;
+            height: 100px;
+            padding: 5px;
+            position: absolute;
+            top: 30px;
+            left: 20px;
+        }
+        .class_short_detail{
+            padding: 30px 10px 10px 10px;
+            line-height: 19px;
+            margin-top: 5px;
+        }
+        .class_status_activity div{
+            font-size: 14px;
+            font-family: roboto_bold;
+        }
+        .class_name{
+            font-family: roboto_black;
+            font-size: 15px;
+        }
+        .class_dashboard{
+            margin-left: 20px;
+            width: 100%;
+        }
+        .class_event {
+            width: 100%;
+        }
+        .class_event ul{
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+            box-shadow: 0 0 5px rgba(0,0,0, 0.3);
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            padding: 2px;
+        }
+        .class_event ul li{
+            float: left;
+            text-decoration: none;
+            list-style: none;
+            margin-right: 10px;
+            padding: 10px 0;
+            margin-left: 5px;
+        }
+        .class_event ul .active{
+            background: #f6f7fd;
+            box-shadow: 0 0 7px rgba(0,0,0, 0.3);
+            border-radius: 4px;
+        }
+        .class_event ul li a{
+            color: #041a2f;
+            font-family: roboto_bold;
+            text-decoration: none;
+            text-transform: capitalize;
+            padding: 10px 10px;
+        }
+        .create_course{
+            padding: 10px;
+            background: white;
+            width: 100%;
+            position: relative;
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+            box-shadow: 0 0 5px rgba(0,0,0, 0.3);
+            height: 180px;
+            overflow: auto;
+            overflow-x: hidden;
+        }
+        .each_course_class{
+            display: flex;
+            padding: 8px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .each_course_class:hover{
+            background-color: #f6f7fd;
+        }
+        .course_detail{
+            margin-left: 5px;
+        }
+        .course_img img{
+            border-radius: 4px;
+        }
+        .course_img{
+            width: 50px;
+            height: 49px;
+            margin-top: 2px;
+        }
+        .course_name_class, .class_course_topic, .class_course_comment{
+            font-family: roboto_bold;
+            font-size: 14px;
+            text-transform: capitalize;
+            line-height: 18px;
+        }
+
+        .current-followed-course{
+            overflow: auto;
+        }
+        .eachdeclass{
+            border-radius: 4px;
+            width: 200px;
+            float: left;
+            margin-left: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 3px rgba(0,0,0, 0.3);
+        }
+        .department-image{
+            position: relative;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            background: #f6f7fd;
+            width: 100%;
+            height: 150px;
+        }
+        .department-image img{
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+        }
+        .department-image .department-name{
+            position: absolute;
+            bottom: 5px;
+            color: white;
+            font-family: roboto_bold;
+            font-size: 15px;
+            text-transform: capitalize;
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding: 0px 5px 0px 8px;
+        }
+        .study-now{
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            color: white;
+            border-radius: 4px;
+            border: 1px solid white;
+            padding: 0px 10px 0px 10px;
+            cursor: pointer;
+            font-family: roboto_bold;
+        }
+        .department-bio{
+            padding: 10px;
+            font-family: roboto_regular;
+            font-size: 13px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            line-height: 17px;
+            letter-spacing: 0.5px;
+            height: 100px;
+            overflow: auto;
+        }
+        .department-bio::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        /* Track */
+        .department-bio::-webkit-scrollbar-track {
+            background: white; 
+        }
+
+        /* Handle */
+        .department-bio::-webkit-scrollbar-thumb {
+            background: #08345e;
+            border-radius: 4px; 
+        }
+        .department-status{
+            padding: 10px;
+            font-family: roboto_bold;
+            border-top: 1.5px solid #d3d3d3;
+        }
+
+        .each-discovery{
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #d3d3d3;
+            padding: 7px 4px;
+        }
+        .discover-image img{
+            border-radius: 50%;
+        }
+        .discover-image{
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            background: #f6f7fd;
+        }
+        .discovery-detail{
+            margin-left: 5px;
+            letter-spacing: 0.3px;
+            line-height: 16px;
+            margin-top: 4px;
+            width: 100%;
+        }
+        .dis-name{
+            font-family: roboto_medium;
+            font-size: 12.5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 170px;
+        }
+        .dis-dep{
+            font-family: roboto_medium;
+            font-size: 12.5px;
+            color: #d3d3d3;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 170px;
+        }
+        .follow-discovery{
+            background: #071c2e;
+            border-radius: 4px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            color: white;
+            font-family: roboto_medium;
+            font-size: 12px;
+            padding: 3px 8px;
+            margin-top: 5px;
+        }
+        .following{
+            background: white;
+            border-radius: 4px;
+            border: 1px solid #d3d3d3;
+            outline: none;
+            cursor: pointer;
+            color: #071c2e;
+            font-family: roboto_medium;
+            font-size: 12px;
+            padding: 3px 8px;
+            margin-top: 5px; 
+        }
+        
+
+        /* post-creation style area */
+        .post-creation{
+            background: white;
+            border-radius: 4px;
+            padding: 5px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 20;
+            width: 500px;
+            box-sizing: border-box;
+            display: none;
+            box-shadow: 0 0 10px rgba(0,0,0, 0.3);
+            transition: all 1.2s ease-in-out;
+            -webkit-transition: all 1.2s ease-in-out;
+            animation: post 400ms ease-in-out forwards;
+        }
+        @keyframes post{
+            0%{
+                opacity: 0;
+                transform: scale(0.1);
+            }
+            100%{
+                opacity: 1;
+                transform: scale(1);
+            }
+                
+        }
+
+        .title-post-creation{
+            background: #f6f7fd;
+            font-family: roboto_bold;
+            text-transform: capitalize;
+            padding: 10px;
+            position: relative;
+        }
+        .title-post-creation .fa{
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            background: white;
+            padding: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .create-area-body{
+            display: flex;
+            margin-top: 10px;
+            margin-right: 10px;
+        }
+        .image-preview-post{
+            background: #f6f7fd;
+            width: 300px;
+            height: 180px;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .image-preview-post .fa{
+            color: white;
+            font-size: 50px;
+            margin-top: 30%;
+        }
+        .for-video{
+            width: 100%;
+            position: relative;
+            object-fit: fill;
+            height: 100%;
+            display: none;
+            background-image: url('../../Images/cotation.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .for-video video{
+            object-fit: fill;
+            height: 100%;
+            width: 100%;
+            border-radius: 4px;
+        }
+        .for-video .control-video{
+            position: absolute;
+            top: 25%;
+            left: 37%;
+            padding: 16px 20px 15px 20px;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            font-size: 25px;
+            animation: fade 500ms ease-in-out forwards;
+        }
+        .for-video .video-controls{
+            display: none;
+        }
+        .for-image img{
+            border-radius: 4px;
+        }
+        .for-image{
+            width: 100%;
+            height: 100%;
+            display: none;
+            background-image: url('../../Images/cotation.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .caption-area {
+            margin-left: 10px;
+        }
+        .caption-textarea textarea{
+            width: 100%;
+            height: 100%;
+            outline: none;
+            border: none;
+            font-family: roboto_regular;
+            font-size: 13px;
+        }
+        .caption-textarea{
+            border: 1px solid #d3d3d3;
+            border-radius: 4px;
+            padding: 5px;
+        }
+        .option-creation{
+            display: flex;
+            margin-top: 10px;
+            justify-content: space-between;
+            background: #f6f7fd;
+            padding: 10px
+        }
+        .choose-option-area{
+            display: flex;
+        }
+        .choose-image-btn button{
+            background: white;
+            border: 1px solid #d3d3d3;
+            outline: none;
+            border-radius: 4px;
+            font-size: 13px;
+            font-family: roboto_bold;
+            padding: 5px 10px 5px 10px;
+            cursor: pointer;
+            color: #041a2f;
+            text-transform: capitalize;
+        }
+        .choose-video-btn button{
+            background: #041a2f;
+            border: none;
+            outline: none;
+            border-radius: 4px;
+            font-size: 13px;
+            font-family: roboto_bold;
+            padding: 5px 10px 5px 10px;
+            cursor: pointer;
+            color: white;
+            text-transform: capitalize;
+            margin-left: 10px;
+        }
+        .create-post-btn div button{
+            background: #041a2f;
+            border: none;
+            outline: none;
+            border-radius: 4px;
+            font-size: 13px;
+            font-family: roboto_bold;
+            padding: 5px 20px 5px 20px;
+            cursor: pointer;
+            color: white;
+            text-transform: capitalize;
+            margin-left: 10px;
+        }
+        /* end post-creation stylearea */
+
+        /* create autobiography */
+        .create-biography-option{
+            background: white;
+            padding: 5px;
+            border-radius: 4px;
+            position: absolute;
+            z-index: 20;
+            top: 30px;
+            width: 300px;
+            display: none;
+            right: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0, 0.3);
+            animation: autobio 300ms ease-in-out forwards;
+            transform-origin: top right;
+        }
+        @keyframes autobio{
+            0%{
+                opacity: 0;
+                transform: scale(0.1);
+            }
+            100%{
+                opacity: 1;
+                transform: scale(1)
+            }
+        }
+        .autobiograpy-title{
+            padding: 10px;
+            font-size: 16px;
+            font-family: roboto_bold;
+            display: flex;
+        }
+        .close-autobio{
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        .user-auto-image img{
+            border-radius: 100%;
+        }
+        .user-auto-image{
+            border-radius: 100%;
+            width: 50px;
+            height: 48px;
+            background: #f6f7fd;
+        }
+        .option-bio{
+            border-top: 2px solid #d3d3d3;
+            padding: 10px 5px 10px 5px;
+        }
+        .create-new{
+            background: #f6f7fd;
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+        .add-to-exist{
+            background: #f6f7fd;
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+        .create-new .option-note{
+            font-family: roboto_regular;
+        }
+        .create-new button{
+            background: #041a2f;
+            color: white;
+            padding: 5px 20px 5px 20px;
+            border: none;
+            outline: none;
+            font-family: roboto_bold;
+            text-transform: capitalize;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+        .add-to-exist .note{
+            font-family: roboto_regular;
+            font-size: 14px;
+        }
+        .add-to-exist button{
+            background: #041a2f;
+            color: white;
+            padding: 5px 20px 5px 20px;
+            border: none;
+            outline: none;
+            font-family: roboto_bold;
+            text-transform: capitalize;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+        .create-new-autobiography{
+            position: absolute;
+            background: white;
+            border-radius: 3px;
+            padding: 5px;
+            width: 300px;
+            top: 10px;
+            left: 300px;
+            display: none;
+            box-shadow: 0 0 10px rgba(0,0,0, 0.3);
+        }
+       .create-new-autobiography::before{
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 18px;
+            width: 0;
+            z-index: 1;
+            left: -10px;
+            border: 1px solid white;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent white transparent transparent;
+        }
+        .create-title-autbio{
+            background: #f6f7fd;
+            padding: 10px;
+            font-family: roboto_bold;
+            font-size: 15px;
+            text-transform: capitalize;
+        }
+        .fillout {
+            margin-top: 10px;
+            padding: 10px;
+        }
+        .name-autobio input{
+            border: none;
+            outline: none;
+            width: 100%;
+            height: 100%;
+        }
+        .name-autobio{
+            border: 1px solid #d3d3d3;
+            padding: 5px;
+            border-radius: 3px;
+            font-size: 14px;
+        }
+        .page-name input{
+            border: none;
+            outline: none;
+            width: 100%;
+            height: 100%;
+        }
+        .page-name{
+            border: 1px solid #d3d3d3;
+            padding: 5px;
+            border-radius: 3px;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        
+        .spiner_autobio {
+            position: relative;
+            width: 30px;
+            height: 30px;
+            -webkit-transform: rotate(45deg);
+                    transform: rotate(45deg);
+            display: none;        
+          }
+          .spiner_autobio .shape {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border-radius: 2px;
+          }
+          
+          .spiner_autobio .shape.shape-1 {
+            left: 0;
+            background-color: #2196f3;
+          }
+          .spiner_autobio .shape.shape-2 {
+            right: 0;
+            background-color: #34A853;
+          }
+          .spiner_autobio .shape.shape-3 {
+            bottom: 0;
+            background-color: #89ff00;
+          }
+          .spiner_autobio .shape.shape-4 {
+            bottom: 0;
+            right: 0;
+            background-color: #0d71ce;
+          }
+          
+          .spiner_autobio .shape-1 {
+            animation: shape1 2s infinite reverse;
+          }
+          .spiner_autobio .shape-2 {
+            animation: shape2 2s infinite reverse;
+          }
+          .spiner_autobio .shape-3 {
+            animation: shape3 2s infinite reverse;
+          }
+          .spiner_autobio .shape-4 {
+            animation: shape4 2s infinite reverse;
+          }
+          
+          @-webkit-keyframes shape1 {
+            0% {
+              -webkit-transform: translate(0, 0);
+                      transform: translate(0, 0);
+            }
+            25% {
+              -webkit-transform: translate(0, 15px);
+                      transform: translate(0, 15px);
+            }
+            50% {
+              -webkit-transform: translate(15px, 15px);
+                      transform: translate(15px, 15px);
+            }
+            75% {
+              -webkit-transform: translate(15px, 0);
+                      transform: translate(15px, 0);
+            }
+          }
+          
+          @keyframes shape1 {
+            0% {
+              -webkit-transform: translate(0, 0);
+                      transform: translate(0, 0);
+            }
+            25% {
+              -webkit-transform: translate(0, 15px);
+                      transform: translate(0, 15px);
+            }
+            50% {
+              -webkit-transform: translate(15px, 15px);
+                      transform: translate(15px, 15px);
+            }
+            75% {
+              -webkit-transform: translate(15px, 0);
+                      transform: translate(15px, 0);
+            }
+          }
+          @-webkit-keyframes shape2 {
+            0% {
+              -webkit-transform: translate(0, 0);
+                      transform: translate(0, 0);
+            }
+            25% {
+              -webkit-transform: translate(-15px, 0);
+                      transform: translate(-15px, 0);
+            }
+            50% {
+              -webkit-transform: translate(-15px, 15px);
+                      transform: translate(-15px, 15px);
+            }
+            75% {
+              -webkit-transform: translate(0, 15px);
+                      transform: translate(0, 15px);
+            }
+          }
+          @keyframes shape2 {
+            0% {
+              -webkit-transform: translate(0, 0);
+                      transform: translate(0, 0);
+            }
+            25% {
+              -webkit-transform: translate(-15px, 0);
+                      transform: translate(-15px, 0);
+            }
+            50% {
+              -webkit-transform: translate(-15px, 15px);
+                      transform: translate(-15px, 15px);
+            }
+            75% {
+              -webkit-transform: translate(0, 15px);
+                      transform: translate(0, 15px);
+            }
+          }
+          @-webkit-keyframes shape3 {
+            0% {
+              -webkit-transform: translate(0, 0);
+                      transform: translate(0, 0);
+            }
+            25% {
+              -webkit-transform: translate(15px, 0);
+                      transform: translate(15px, 0);
+            }
+            50% {
+              -webkit-transform: translate(15px, -15px);
+                      transform: translate(15px, -15px);
+            }
+            75% {
+              -webkit-transform: translate(0, -15px);
+                      transform: translate(0, -15px);
+            }
+          }
+          @keyframes shape3 {
+            0% {
+              -webkit-transform: translate(0, 0);
+                      transform: translate(0, 0);
+            }
+            25% {
+              -webkit-transform: translate(15px, 0);
+                      transform: translate(15px, 0);
+            }
+            50% {
+              -webkit-transform: translate(15px, -15px);
+                      transform: translate(15px, -15px);
+            }
+            75% {
+              -webkit-transform: translate(0, -15px);
+                      transform: translate(0, -15px);
+            }
+          }
+          @-webkit-keyframes shape4 {
+            0% {
+              -webkit-transform: translate(0, 0);
+                      transform: translate(0, 0);
+            }
+            25% {
+              -webkit-transform: translate(0, -15px);
+                      transform: translate(0, -15px);
+            }
+            50% {
+              -webkit-transform: translate(-15px, -15px);
+                      transform: translate(-15px, -15px);
+            }
+            75% {
+              -webkit-transform: translate(-15px, 0);
+                      transform: translate(-15px, 0);
+            }
+          }
+          @keyframes shape4 {
+            0% {
+              -webkit-transform: translate(0, 0);
+                      transform: translate(0, 0);
+            }
+            25% {
+              -webkit-transform: translate(0, -15px);
+                      transform: translate(0, -15px);
+            }
+            50% {
+              -webkit-transform: translate(-15px, -15px);
+                      transform: translate(-15px, -15px);
+            }
+            75% {
+              -webkit-transform: translate(-15px, 0);
+                      transform: translate(-15px, 0);
+            }
+          }
+          
+
+        .list-all-book-exist{
+            position: absolute;
+            background: white;
+            padding: 5px;
+            border-radius: 4px;
+            width: 250px;
+            top: 20px;
+            left: 300px;
+            box-shadow: 0 0 5px rgba(0,0,0, 0.3);
+            display: none;
+        }
+        .list-all-book-exist::before{
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 18px;
+            width: 0;
+            z-index: 1;
+            left: -10px;
+            border: 1px solid white;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent white transparent transparent;
+    }
+        .books-title{
+            background: #f6f7fd;
+            padding: 10px;
+            font-family: roboto_bold;
+            font-size: 15px;
+        }
+        .list-book{
+            margin-top: 10px;
+            border-top: 2px solid #d3d3d3;
+            border-bottom: 2px solid #d3d3d3;
+            padding-bottom: 10px;
+        }
+        .each-book{
+            margin-top: 10px;
+            border: 1px solid #d3d3d3;
+            padding: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .each-book .fa{
+            background: #f6f7fd;
+            padding: 10px;
+            border-radius: 50%;
+        }
+        .each-book div{
+            font-family: roboto_bold;
+            margin-top: 7px;
+        }
+
+        .write-autobiography {
+            background: white;
+            border-radius: 4px;
+            padding: 5px;
+            position: fixed;
+            width: 600px;
+            z-index: 50;
+            top: 130px;
+            left: 350px;
+            display: none;
+        }
+        .autobiography-title{
+            padding: 10px;
+            display: flex;
+            position: relative;
+        }
+        .my-image img{
+            border-radius: 100%;
+        }
+        .my-image{
+            background: #f6f7fd;
+            border-radius: 100%;
+            width: 60px;
+            height: 58px;
+        }
+        .path{
+            font-family: roboto_bold;
+            text-transform: capitalize;
+        }
+        .edit-current input{
+            border: none;
+            font-family: roboto_bold;
+        }
+        .close-autobio{
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            background: #f6f7fd;
+            padding: 5px 10px 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .autobiography-type{
+            padding: 10px;
+            border-top: 2px solid #d3d3d3;
+            border-bottom: 2px solid #d3d3d3;
+        }
+        .autobiography-footer{
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .autobiography-footer .add-image button{
+            background: white;
+            color: #041a2f;
+            font-family: roboto_bold;
+            font-size: 14px;
+            border: 1px solid #d3d3d3;
+            outline: none;
+            border-radius: 4px;
+            padding: 5px 20px 5px 20px;
+            cursor: pointer;
+        }
+        .autobiography-footer .save button,.autobiography-footer .save-close button{
+            background: #041a2f;
+            color: white;
+            font-family: roboto_bold;
+            font-size: 14px;
+            border: none;
+            outline: none;
+            border-radius: 4px;
+            padding: 5px 20px 5px 20px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+       /* end autbiography */
+
+        /* left-section style */
+        .questions_answer_status{
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+        }
+        .count_recieved_question{
+            font-family: roboto_bold;
+            margin-top: 5px;
+        }
+        .count_recieved_answer{
+            font-family: roboto_bold;
+            margin-top: 5px;
+        }
+        .take_look_btn a button{
+            background: #071c2e;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 5px 20px;
+            border-radius: 4px;
+            font-family: roboto_bold;
+            cursor: pointer;
+        }
+        .card-user-status{
+            /* box-shadow: 0 0 5px rgba(0,0,0, 0.3); */
+            margin: 50px 0px;
+            border-radius: 4px;
+        }
+        .card-body-content{
+            padding: 15px;
+            box-shadow: 0 0 5px rgba(0,0,0, 0.3);
+            border-bottom-right-radius: 4px;
+            border-bottom-left-radius: 4px;
+            margin-top: 15px;
+        }
+        .nav-item-box{
+            margin-right: 20px;
+        }
+        .nav-item-box .nav-link-box{
+            color: #041a2f;
+            font-size: 14px;
+            border: none;
+            text-transform: capitalize;
+            font-family: roboto_bold;
+            text-align: center;
+            padding: 10px 10px;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+        }
+        .nav-item-box .active{
+            text-align: center;
+            padding: 10px 20px;
+            text-decoration: none;
+            box-shadow: 0 0 5px rgba(0,0,0, 0.3);
+            background-color: white;
+        }
+        .nav-link-box .fa{
+            font-size: 16px;
+        }
+        .about-supporter{
+            position: relative;
+        }
+        .user-friend{
+            background: white;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            border: 1px solid #d3d3d3;
+            margin-right: 20px;
+            margin-left: 20px;
+            /* overflow: hidden; */
+            box-shadow: 0 0 5px rgba(0,0,0, 0.3);
+        }
+        .spacer{
+            margin-top: 30px;
+        }
+        .friend-list{
+            padding: 10px;
+            /* overflow: hidden;
+            height: 300px; */
+        }
+        .no-data-found{
+            font-family: roboto_black;
+            color: #d3d3d3;
+            letter-spacing: 0.5px;
+            font-size: 18px;
+        }
+        .no-data-found .fa{
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+        .present-img-friend img{
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+        }
+        .present-img-friend{
+            height: 100px;
+        }
+        .label_tab{
+            font-size: 16px;
+            font-family: roboto_bold;
+            text-transform: capitalize;
+            background: #f6f7fd;
+            padding: 7px 13px 7px 13px;
+            border-radius: 4px;
+            margin-right: 10px;
+            margin-top: 9px;
+            margin-left: 10px;
+            text-transform: capitalize;
+            font-family: roboto_bold;
+        }
+        .friend-section{
+            width: 100%;
+            margin-left: 15px;
+        }
+        .friend-section_friends{
+            display: flex;
+            width: 100%;
+        }
+        .middle_detail{
+            display: flex;
+        }
+
+
+        .each-department{
+            padding: 10px;
+            border-top: 1px solid #d3d3d3;
+            width: 100%;
+            box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+            border-radius: 14px;
+            margin-bottom: 10px;
+        }
+        .each-user{
+            padding: 10px;
+            /* margin-bottom: 20px; */
+            border-top: 1px solid #d3d3d3;
+            width: 100%;
+        }
+        .dep_detail{
+            display: flex;
+        }
+        .friend-image{
+            width: 50px;
+            height: 50px;
+            background: #f6f7fd;
+            border-radius: 100%;
+        }
+        .friend-image img{
+            border-radius: 100%;
+            height: 100%;
+        }
+        .friend-name{
+            width: 100%;
+        }
+        .friend-name div{
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 210px;
+            font-family: roboto_bold;
+            text-transform: capitalize;
+        }
+        .friend-name span{
+            font-size: 13px;
+        }
+        .friend-name-course{
+            text-transform: capitalize;
+            font-family: roboto_bold;
+        }
+        .ero_title{
+            color: #d3d3d3;
+            font: roboto_bold;
+            letter-spacing: 0.5px;
+        }
+        .friend-bio{
+            width: 100%;
+            font-family: roboto_regular;
+            font-size: 13px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap; 
+        }
+        .btn-follow {
+            margin-top: 2px;
+            padding: 2px;
+        }
+        .follow-btn{
+            background-color: #041a2f;
+            color: white;
+            font-family: roboto_bold;
+            border: none;
+            outline: none;
+            padding: 5px 10px 5px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            margin-left: 5px;
+            text-transform: capitalize;
+            cursor: pointer;
+        }
+        .following-btn{
+            background-color: white;
+            color: #041a2f;
+            font-family: roboto_bold;
+            border: 1px solid #d3d3d3;
+            outline: none;
+            padding: 5px 10px 5px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            margin-left: 5px;
+            text-transform: capitalize;
+            cursor: pointer;
+        }
+
+        /* about user */
+        .about-usr{
+            background: white;
+            padding: 6px;
+            border-radius: 4px;
+            position: absolute;
+            top: -5px;
+            margin-left: 10px;
+            left: -250px;
+            /* width: 500px; */
+            box-shadow: 0 0 10px rgba(0,0,0, 0.3);
+            z-index: 99;
+            display: none;
+        }
+        .about-usr::before{
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: -10px;
+            border: medium solid white;
+            border-width: 20px 0 20px 20px;
+            border-color: transparent transparent transparent white;
+        }
+        .about-specification{
+            display: flex;
+        }
+        .user-about-image img{
+        border-radius: 50%;
+        }    
+        .user-about-image{
+            width: 90px;
+            height: 89px;
+            border-radius: 50%;
+            background: #f6f7fd;
+            margin-top: 5px;
+            margin-left: 5px;
+            border: 1px solid #d3d3d3;
+            padding: 3px;
+        }
+        .about-info{
+            margin-left: 10px;
+            font-family: roboto_medium;
+            text-transform: capitalize;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .firstname{
+            font-size: 16px;
+            font-family: roboto_bold;
+            margin-bottom: 5px;
+        }
+        .about-info div{
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 210px;
+        }
+        .activity-status{
+            margin-left: 8px;
+            font-family: roboto_bold;
+            text-transform: capitalize;
+            margin-top: 5px;
+        }
+        .activity-status div{
+            background: #f6f7fd;
+            border-radius: 4px;
+            padding: 4px 7px 4px 7px;
+            font-family: roboto_bold;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        /* shared content */
+        /* ============================================================ */
+        .top_nav_shared{
+            border-bottom: 2px solid #d3d3d3;
+        }
+        .top_nav_shared ul li{
+            padding: 10px 15px;
+        }
+        .top_nav_shared ul li a div{
+            color: #041a2f;
+            font-family: roboto_bold;
+            line-height: 19px;
+            letter-spacing: 0.3px;
+            font-size: 16px;
+        }
+        .top_nav_shared ul li .active div{
+            color: #0d71ce;
+        }
+        .friend-list_files{
+            min-height: 130px;
+            max-height: 230px;
+            overflow: auto;
+            overflow-x: hidden;
+        }
+        .shared_notes{
+            padding: 10px;
+        }
+        .each_files_shared{
+            width: 100%;
+            border-radius: 4px;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .expand_shared{
+            display: flex;
+        }
+        .each_files_shared:hover{
+            background: #f6f7fd;
+        }
+        .file_type{
+            background: #071c2e;
+            padding: 15px;
+            border-radius: 4px;
+            font-family: roboto_bold;
+            font-size: 18px;
+            text-align: center;
+            color: white;
+            opacity: .8;
+        }
+        .file_description{
+            margin-left: 7px;
+            width: 180px;
+            line-height: 18px;
+        }
+        .file_name{
+            font-family: roboto_bold;
+            font-size: 15px;
+            letter-spacing: 0.2px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            width: 100%;
+        }
+        .file_size{
+            font-family: roboto_bold;
+            font-weight: 550;
+            color: #d3d3d3;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            width: 100%;
+        }
+        .from_user{
+            font-family: roboto_medium;
+            font-size: 14px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            width: 100%;
+        }
+        .downlord_file{
+            background: #071c2e;
+            color: white;
+            font-family: roboto_bold;
+            padding: 5px;
+            border-radius: 4px;
+            text-transform: capitalize;
+            letter-spacing: 0.2px;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        .shared_images{
+            padding: 10px;
+        }
+        .image_file_shared img{
+            border-radius: 4px;
+        }
+        .image_file_shared{
+            border-radius: 4px;
+            background: #f6f7fd;
+            width: 65px;
+            height: 50px;
+        }
+        .shared_from_title{
+            font-family: roboto_bold;
+            color: #d3d3d3;
+            letter-spacing: 0.3px;
+            text-transform: capitalize;
+        }
+        .View_file{
+            background: #071c2e;
+            color: white;
+            font-family: roboto_bold;
+            padding: 5px 10px;
+            border-radius: 4px;
+            text-transform: capitalize;
+            letter-spacing: 0.2px;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        .chose_user{
+            display: flex;
+            justify-content: space-between;
+        }
+        .notice_user{
+            font-family: roboto_bold;
+            font-weight: 550;
+        }
+        .chose_user_btn{
+            background: #071c2e;
+            color: white;
+            padding: 5px 10px;
+            font-family: roboto_bold;
+            cursor: pointer;
+            border-radius: 8px;
+            display: none;
+        }
+        .chosen_list{
+            margin-top: 10px;
+        }
+        .each_member{
+            display: flex;
+            justify-content: space-between;
+            border-top: 1.4px solid #d3d3d3;
+            padding: 5px;
+        }
+        .flex-user_detail{
+            display: flex;
+        }
+        .user_chosen_image img{
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .user_chosen_image{
+            width: 50px;
+            height: 50px;
+            background: #f6f7fd;
+            border-radius: 50%;
+        }
+        .user_detail_chosen{
+            margin-left: 10px;
+            font-family: roboto_bold;
+            letter-spacing: 0.2px;
+            font-weight: 550;
+            line-height: 18px;
+            margin-top: 7px;
+        }
+        .check_user{
+            margin-top: 5px;
+        }
+        .upload_file_input{
+            text-align: center;
+            vertical-align: middle;
+        }
+        .preview_file_shared img{
+            border-radius: 4px;
+        }
+        .preview_file_shared{
+            background: #f6f7fd;
+            width: 100%;
+            height: 150px;
+            border-radius: 4px;
+            font-family: roboto_bold;
+            text-align: center;
+            font-size: 17px;
+            color: white;
+            display: none;
+            margin-bottom: 5px;
+        }
+        .choose_file_to_share{
+            margin-left: 5px;
+        }
+        .choose_file_btn{
+            background: #071c2e;
+            border-radius: 4px;
+            padding: 5px 15px;
+            color: white;
+            font-family: roboto_bold;
+            text-transform: capitalize;
+            cursor: pointer;
+        }
+        #send_file{
+            display: none;
+        }
+        .send_file button{
+            background: #071c2e;
+            color: white;
+            font-family: roboto_bold;
+            text-transform: capitalize;
+            border: none;
+            border-radius: 4px;
+            margin-top: 10px;
+            cursor: pointer;
+            padding: 5px 15px;
+            outline: none;
+            width: 100%;
+        }
+        .upload-pdf-btn{
+            vertical-align: middle;
+            text-align: center;
+            width: 100%;
+        }
+        /* ============================================================= */
+
+        .card-trainer-question{
+            margin-right: 20px;
+            margin-left: 20px;
+        }
+
+        /* course style */
+        .course-image {
+            width: 100px;
+            height: 90px;
+            border-radius: 4px;
+            background: #f6f7fd;
+        }
+        .course-image img{
+            height: 100%;
+            border-radius: 4px;
+        }
+        .friend-desc{
+            width: 100%;
+        }
+        .course-bio{
+            width: 100%;
+            font-family: roboto_regular;
+            margin-top: 5px;
+            line-height: 19px;
+            font-weight: 550;
+        }
+        .btn-course button{
+            background-color: #041a2f;
+            color: white;
+            font-family: roboto_bold;
+            border: none;
+            outline: none;
+            padding: 5px 20px 5px 20px;
+            border-radius: 4px;
+            font-size: 13px;
+            margin-left: 5px;
+            text-transform: capitalize;
+            margin-top: 5px;
+        }
+        .course-count-desc{
+            border-top: 1px solid #d3d3d3;
+            margin-top: 10px;
+            padding-top: 5px;
+            font-family: roboto_regular;
+            text-align: left;
+            text-transform: capitalize;
+        }
+        .course-count-desc div span{
+            color: #041a2f;
+            font-family: roboto_bold;
+            margin-left: 4px;
+        }
+
+        .courses-title{
+            font-size: 17px;
+            font-family: roboto_bold;
+            text-transform: capitalize;
+            background: #f6f7fd;
+            padding: 8px 11px 8px 13px;
+            border-radius: 4px;
+        }
+
+        /* gallery style */
+        .galleries-list{
+            padding: 5px;
+            min-height: 210px;
+            max-height: 300px;
+            overflow: auto;
+            margin-bottom: 5px;
+        }
+        .galleries-list .image-found{
+            width: 135px;
+            float: left;
+            display: block;
+            margin-left: 5px;
+            margin-top: 5px;
+            text-align: center;
+            cursor: pointer;
+            background: #f6f7fd;
+            height: 128px;
+            border-radius: 4px;
+        }
+        .galleries-list .image-found:hover{
+            opacity: .8;
+        }
+        .image-found img{
+            border-radius: 4px;
+        }
+
+        /* trainer style */
+        .trainer-image img{
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+            height: 100%;
+        }
+        .trainer-image{
+            width: 50px;
+            height: 50px;
+        }
+        /* end trainer style */
+
+        /* course style */
+        .course-holder{
+            border-radius: 4px;
+            margin-right: 20px;
+            margin-left: 20px;
+            box-shadow: 0 0 5px rgba(0,0,0, 0.3);
+        }
+        .course-list{
+            padding: 20px;
+        }
+        .each-course{
+            padding: 10px 10px 5px 10px;
+            border-radius: 4px;
+            border: 1px solid #d3d3d3;
+        }
+        .course-img{
+            width: 123px;
+            height: 118px;
+            border-radius: 4px;
+            background: #f6f7fd;
+        }
+        .course-img img{
+            width: 100%;
+            height: 100%;
+            border-radius: 4px;
+        }
+        .course-name{
+            font-family: roboto_bold;
+            font-size: 17px;
+            text-transform: capitalize;
+        }
+        .course-full-desc{
+            text-align: left;
+            margin-top: 10px;
+            width: 340px;
+            font-family: roboto_regular;
+            font-weight: 550;
+            line-height: 19px;
+        }
+        .course-model .status{
+            font-size: 13px;
+            font-family: roboto_bold;
+            text-transform: capitalize;
+            background: #f6f7fd;
+            padding: 8px 11px 8px 13px;
+            border-radius: 4px;
+            margin-top: 5px;
+            cursor: pointer;
+        }
+        .learn{
+            padding: 5px;
+        }
+        .learn-now{
+            padding: 5px;
+        }
+        .learn-now button{
+            background-color: #041a2f;
+            color: #f6f7fd;
+            border: none;
+            outline: none;
+            padding: 5px 20px 5px 20px;
+            border-radius: 4px;
+            font-family: roboto_medium;
+        }
+        .course-status{
+            padding: 10px;
+            border-top: 1px solid #d3d3d3;
+        }
+        .status{
+            color: #041a2f;
+            font-family: roboto_regular;
+            text-transform: capitalize;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 120px;
+        }
+        .status span{
+            font-family: roboto_bold;
+        }
+        /* end course style */
+
+        /* quick-noti style */
+        .quick-noti{
+            background-color: white;
+            margin-top: 20px;
+            border-radius: 4px;
+            border: 1px solid #d3d3d3;
+            margin-right: 20px;
+            margin-left: 20px;
+        }
+        .quick-noti-list{
+            padding: 20px;
+        }
+        .each-noti {
+            padding: 5px;
+            border: 1px solid #d3d3d3;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        .noti-img{
+            width: 70px;
+            height: 70px;
+            border-radius: 100%;
+            padding: 5px;
+            position: relative;
+            border: 1px solid #d3d3d3;
+            background: #f6f7fd;
+        }
+        .noti-img .fa{
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            color:white;
+            font-size: 15px;
+            padding: 5px;
+            background: #041a2f;
+            border-radius: 100%;
+        }
+        .noti-img img{
+            border-radius: 50%;
+        }
+        .owner-name{
+            font-family: roboto_bold;
+            text-transform: capitalize;
+            font-size: 16px;
+            padding: 5px 5px 0px 5px;
+            margin-top: 5px;
+        }
+        .notification{
+            font-family: roboto_regular;
+            padding: 5px 5px 5px 5px;
+            background: #f6f7fd;
+            border-radius: 4px;
+        }
+        .card-posted{
+            margin-right: 20px;
+            margin-left: 20px;
+        }
+        /* cards */
+        .profile-post-shared{
+            border: 1px solid #d3d3d3;
+        }
+        .card-title-profile ul li a{
+            font-size: 14px;
+        }
+        .course-followed{
+            border: 1px solid #d3d3d3;
+            border-radius: 4px;
+            padding: 2px;
+        }
+        .course-f-img{
+            width: 100px;
+            background: #f6f7fd;
+        }
+        .course-f-name{
+            font-family: roboto_bold;
+            text-transform: capitalize;
+        }
+        .smail-desc{
+            font-family: roboto_regular;
+            text-transform: capitalize;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+        .smail-desc div{
+            font-size: 13px;
+            font-family: roboto_bold;
+            text-transform: capitalize;
+            background: #f6f7fd;
+            padding: 5px 12px 5px 13px;
+            border-radius: 20px;
+        }
+        .smail-desc div span{
+            font-family: roboto_bold;
+        }
+        .continue-btn button{
+            background: #041a2f;
+            color: white;
+            padding: 5px 20px 5px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 13px;
+            cursor: pointer;
+            font-family: roboto_bold;
+        }
+        .progress-bar{position: relative;}
+        .progress{position: relative;}
+        .progress span{
+            position: absolute;
+            right: 10px;
+            color: #041a2f;
+            font-family: roboto_bold;
+        }
+        .no_course{
+            text-align: center;
+            font-size: 20px;
+            font-family: roboto_bold;
+            margin-bottom: 20px;
+            color: #d3d3d3;
+        }
+
+        /* each-trainer style */
+        .question-area-rolls{
+            position: relative;
+        }
+        .ask-question{
+            background: white;
+            padding: 5px;
+            border-radius: 4px;
+            position: absolute;
+            top: 25px;
+            left: 130px;
+            width: 350px;
+            z-index: 20;
+            display: none;
+            box-shadow: 0 0 10px rgba(0,0,0, 0.3);
+            transform-origin: top right;
+            transition: 0.5s;
+        }
+        .title-question{
+            background: #f6f7fd;
+            padding: 10px;
+            font-family: roboto_bold;
+            font-size: 15px;
+            position: relative;
+        }
+        .close-question{
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            background: white;
+            padding: 1px 3px 1px 3px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .question-area-image{
+            margin-top: 10px;
+            display: flex;
+        }
+        .preview-image-question{
+            background: #f6f7fd;
+            width: 200px;
+            height: 120px;
+            border-radius: 4px;
+        }
+        .preview-image-question img{
+            border-radius: 4px;
+        }
+        .textarea-question textarea{
+            border: none;
+            outline: none;
+            width: 100%;
+            height: 100%;
+            font-size: 13px;
+        }
+        .textarea-question{
+            border: 1px solid #d3d3d3;
+            padding: 5px;
+            border-radius: 4px;
+        }
+        .with-photo button{
+            background: white;
+            border: 1px solid #d3d3d3;
+            border-radius: 4px;
+            outline: none;
+            font-family: roboto_bold;
+            padding: 5px 10px 5px 10px;
+            cursor: pointer;
+        }
+        .send button{
+            background: #041a2f;
+            border: none;
+            border-radius: 4px;
+            outline: none;
+            font-family: roboto_bold;
+            padding: 5px 10px 5px 10px;
+            cursor: pointer;
+            color: white;
+        }
+        .friend-list-trainer{
+            overflow: auto;
+            padding: 10px;
+            min-height: 200px;
+            max-height: 375px;
+        }
+        .each-trainer-sec{
+            border-radius: 4px;
+            width: 200px;
+            float: left;
+            margin-left: 4px;
+            margin-right: 4px;
+            margin-bottom: 10px;
+            box-shadow: 0 0 5px rgba(0,0,0, 0.3);
+        }
+        .image-trainer-sec{
+            background-color: #f6f7fd;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            height: 80px;
+            width: 100%;
+            position: relative;
+        }
+        .image-trainer-sec img{
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+        }
+        .image-pre-trainer{
+            background: white;
+            padding: 3px;
+            border-radius: 50%;
+        }
+        .image-pre-trainer img{
+            border-radius: 50%;
+        }
+        .trainer-pre-detail{
+            position: relative;
+            padding: 14px 10px;
+            font-family: roboto_medium;
+            margin-top: 5px;
+            width: 100%
+        }
+        .detail-trainer-sec{width: 100%;}
+        .email-trainer{
+            color: #d8c8c8;
+            width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            line-height: 18px;
+        }
+        .name-trainer{
+            width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            line-height: 18px;
+        }
+        .image-pre-trainer{
+            width: 65px;
+            height: 64px;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            top: -50px;
+            left: 10px;
+        }
+        .Follow-trainers{
+            padding: 2px 10px;
+            border-radius: 4px;
+            outline: none;
+            font-family: roboto_medium;
+            font-size-adjust: 12px;
+            position: absolute;
+            right: 5px;
+            bottom: 5px;
+            background-color: white;
+            color: #041a2f;
+            border: none;
+            cursor: pointer;
+        }
+
+
+        .each-trainer{
+            border: 1px solid #d3d3d3;
+            border-radius: 4px;
+            padding: 2px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+        .tariner-img{
+            width: 130px;
+            height: 100px;
+            background: #f6f7fd;
+            border-radius: 4px;
+        }
+        .trainer-name{
+            font-family: roboto_bold;
+            text-transform: capitalize;
+            text-align: left;
+            font-size: 15px;
+        }
+        .trainer-email{
+            font-family: roboto_medium;
+            font-weight: 550;
+        }
+        .trainer-bio{
+            font-family: roboto_regular;
+            text-align: left;
+            font-size: 13px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+        .trainer-status{
+            font-family: roboto_regular;
+            text-transform: capitalize;
+            text-align: left;
+            margin-top: 10px;
+        }
+        .trainer-desc{
+            width: 300px;
+        }
+        .trainer-status div{
+            font-size: 13px;
+            font-family: roboto_bold;
+            text-transform: capitalize;
+            background: #f6f7fd;
+            padding: 1px 10px;
+            border-radius: 4px;
+            text-align: center;
+            /* overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap; */
+        }
+        .btn-get-trainer button{
+            background-color: #041a2f;
+            color: white;
+            font-family: roboto_regular;
+            border: none;
+            outline: none;
+            margin-top: 5px;
+            border-radius: 4px;
+            padding: 4px 9px 4px 9px;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+
+        /* each-question style */
+        .each-question{
+            border: 2px solid #d3d3d3;
+            padding: 4px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            padding: 10px;
+            width: 100%;
+        }
+        .each-question label{
+            text-transform: capitalize;
+            font-family: roboto_bold;
+        }
+        .qustionair{
+            border-radius: 4px;
+            /* padding: 10px; */
+        }
+        .questioneir-img{
+            border-radius: 100%;
+            width: 50px;
+            height: 49px;
+            background: #f6f7fd;
+        }
+        .questioneir-img img{
+            border-radius: 100%;
+        }
+        .questionair-name{
+            text-transform: capitalize;
+            font-family: roboto_bold;
+            font-size: 15px;
+            text-align: left;
+        }
+        .question-full{
+            background: #f6f7fd;
+            padding: 5px;
+            border-radius: 4px;
+            text-align: left;
+            font-family: roboto_medium;
+            width: 100%;
+            line-height: 18px;
+            letter-spacing: 0.3px;
+            font-size: 13.5px;
+        }
+        .media-type-question img{
+            border-radius: 4px;
+        }
+        .media-type-question{
+            width: 100%;
+            height: 250px;
+            border-radius: 4px;
+            background: #f6f7fd;
+        }
+        .accurancy{
+            margin-top: 5px;
+            padding: 3px;
+            cursor: pointer;
+            
+        }
+        .accurancy .fa{
+            font-size: 16px;
+        }
+        .comment-add-comment{
+            margin-top: 5px;
+            display: flex;
+        }
+        .commeter-image-down img{
+            border-radius: 50%;
+        }
+        .commeter-image-down{
+            width: 40px;
+            height: 40px;
+            background: #f6f7fd;
+            border-radius: 50%;
+        }
+        .textarea-add-comment textarea{
+            width: 100%;
+            height: 100%;
+            border: none;
+            outline: none;
+            font-family: roboto_medium;
+        }
+        .textarea-add-comment{
+            border-radius: 4px;
+            border: 1px solid #d3d3d3;
+            padding: 5px;
+            margin-left: 5px;
+            width: 100%;
+        }
+        .post-comment-written{
+            margin-left: 5px;
+            margin-right: 3px;
+            word-break: break-all;
+        }
+        .post-comment-written button{
+            background: #f6f7fd;
+            color: #041a2f;
+            padding: 6px;
+            border-radius: 4px;
+            cursor: pointer;
+            outline: none;
+            font-family: roboto_bold;
+            text-transform: capitalize;
+            border: none;
+        }
+        .comment-found-comment{
+            border: 1px solid #d3d3d3;
+            border-top: none;
+            margin-top: 5px;
+            border-radius: 4px;
+            word-break: break-all;
+        }
+        .each-comment-found{
+            border-top: 1px solid #d3d3d3;
+            padding: 10px 5px;
+            display: flex;
+        }
+        .commenter-image-found img{
+            border-radius: 50%;
+        }
+        .commenter-image-found{
+            width: 30px;
+            height: 30px;
+            background: #f6f7fd;
+            border-radius: 50%;
+        }
+        .real-comment-found{
+            font-family: roboto_medium;
+            letter-spacing: 0.3px;
+            line-height: 17px;
+            margin-left: 5px;
+            font-size: 12.5px;
+            word-break: break-all;
+        }
+        .time-commented{
+            font-family: roboto_bold;
+            font-size: 12px;
+            color: #d3d3d3;
+            margin-left: 5px;
+        }
+        /* answer style */
+        /* The actual timeline (the vertical ruler) */
+        .timeline {
+            position: relative;
+            margin: 0 auto;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        /* The actual timeline (the vertical ruler) */
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #041a2f;
+            top: 0;
+            bottom: 0;
+            left: 20%;
+            margin-left: -3px;
+        }
+
+        /* Container around content */
+        .right{
+            padding: 10px 10px;
+            position: relative;
+            background-color: white;
+        }
+
+        /* The circles on the timeline */
+        .right::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -9px;
+            background-color: #041a2f;
+            border: 4px solid white;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        /* Place the container to the right */
+        .right {
+            left: 20.6%;
+        }
+
+        /* Add arrows to the right container (pointing left) */
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 18px;
+            width: 0;
+            z-index: 1;
+            left: 4px;
+            border: medium solid #041a2f;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent #041a2f transparent transparent;
+        }
+
+        /* Fix the circle for containers on the right side */
+        .right::after {
+            left: -16px;
+        }
+        .answer-content{
+            border: 1px solid #d3d3d3;
+            padding: 5px;
+            border-radius: 4px;
+            width: 100%;
+        }
+        .answerer-images{
+            width: 40px;
+            height: 38px;
+            border-radius: 100%;
+            background: #f6f7fd;
+        }
+        .answerer-images img{
+            border-radius: 100%;
+        }
+        .answerer-name{
+            font-family: roboto_bold;
+            text-align: left;
+            text-transform: capitalize;
+        }
+        .answer{
+            background: #f6f7fd;
+            border-radius: 4px;
+            padding: 7px;
+            text-align: left;
+            font-family: roboto_regular;
+            word-break: break-all;
+        }
+        .answerer-detail{
+            width: 100%;
+        }
+
+        /* post style */
+        .each-post{
+            padding: 10px;
+            border: 2px solid #d3d3d3;
+            border-radius: 4px;
+            width: 100%;
+        }
+        .poster-img{
+            background: #f6f7fd;
+            border-radius: 50px;
+            width: 50px;
+            height: 48px;
+        }
+        .poster-img img{
+            border-radius: 100%;
+        }
+        .poster-name{
+            font-family: roboto_bold;
+            font-size: 15px;
+            text-transform: capitalize;
+        }
+        .time-update{
+            font-size: 13px;
+        }
+        .post-caption{
+            font-family: roboto_medium;
+            font-size: 14px;
+            line-height: 18px;
+            letter-spacing: 0.3px;
+            width: 100%;
+            word-break: break-all;
+        }
+        .media{
+            border-radius: 14px;
+            background: #eee;
+            width: 100%;
+            height: 250px;
+        }
+        .media img{
+            border-radius: 14px;
+            width: 100%;
+            height: 100%;
+        }
+
+        .type-media{
+            background: #f6f7fd;
+            border-radius: 4px;
+            height: 250px;
+            width: 100%;
+        }
+        .type-media img{
+            border-radius: 4px;
+            width: 100%;
+            height: 100%;
+        }
+        .type-media video{
+            border-radius: 4px;
+            height: 100%;
+            width: 100%;
+            object-fit: fill;
+        }
+        .video-controls{
+            width: 100%;
+            position: absolute;
+            bottom: 10px;
+            color: white;
+            padding: 10px;
+            font-family: roboto_bold;
+            animation: fade 1000ms ease-in-out forwards;
+        }
+        @keyframes fade{
+            0%{
+                opacity: 0;
+                transform: scale(0.1);
+                transform-origin: bottom;
+            }
+            100%{
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        .video-stream-line{
+            background: #f2f2f2;
+            width: 100%;
+            border-radius: 10px;
+        }
+        .video-stream-line div{
+            background-color: #041a2f;
+            padding: 2px;
+            border-radius: 10px;
+        }
+        .control-video{
+            position: absolute;
+            top: 40%;
+            left: 40%;
+            padding: 16px 20px 15px 20px;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            font-size: 40px;
+            animation: fade 500ms ease-in-out forwards;
+            /* filter: blur(1px);
+            -webkit-filter: blur(1px); */
+            /* background: rgba(0,0,0, 0.6);
+            border: 2px solid white; */
+        }
+        @keyframes fade{
+            0%{
+                opacity: 0;
+                transform: scale(0.1);
+            }
+            100%{
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        .control-video:hover{
+            animation: fadout 500ms ease-in-out forwards;
+        }
+        .pause-play .fa{
+            color: white;
+        }
+        .mute-unmute{
+            margin-left: 10px;
+            margin-top: 10px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        .user-accurate-feeling{
+            font-family: roboto_bold;
+        }
+        .time-post{
+            background: #f6f7fd;
+            padding: 7px 8px 6px 8px;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+        .user-feelings div{
+            background: #f6f7fd;
+            padding: 7px 8px 6px 8px;
+            border-radius: 4px;
+            margin-right: 5px;
+            margin-left: 5px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+        .icon-comment{
+            background: #f6f7fd;
+            padding: 7px 8px 6px 8px;
+            border-radius: 10px;
+        }
+        .user-feelings div .fa{
+            font-size: 17px;
+        }
+        .add-comment {
+            display: flex;
+            justify-content: space-between;
+        }
+        .commenter-image{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-left: 5px;
+            margin-top: 5px;
+            background-color: #f6f7fd;
+        }
+        .commenter-image img{
+            border-radius: 50%;
+        }
+        .text-input textarea{
+            border: none;
+            outline: none;
+            font-family: roboto_medium;
+            background-color: #f6f7fd;
+            width: 100%;
+        }
+        .text-input{
+            padding: 5px;
+            border-radius: 4px;
+            font-size: 13px;
+            background: #f6f7fd;
+            width: 100%;
+        }
+        .post{
+            background: #f6f7fd;
+            color: #041a2f;
+            border-radius: 4px;
+            padding: 5px 10px;
+            border: none;
+            margin-left: 5px;
+            font-family: roboto_bold;
+            margin-top: 4px;
+            cursor: pointer;
+        }
+        .list-comments{
+            border: 1px solid #d3d3d3;
+            border-left: none;
+            border-right: none;
+            overflow: auto;
+            height: 280px;
+            word-break: break-all;
+        }
+        .timeline-image-poster{
+            position: relative;
+            margin: 0 auto;
+            overflow-x: hidden;
+            width: 100%;
+            padding: 10px;
+            height: 100%;
+        }
+        .timeline-image-poster::after{
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #041a2f;
+            top: 0;
+            bottom: 0;
+            margin-left: 15px;
+            height: 200px;
+            padding: 2px
+        }
+
+        /* The actual timeline (the vertical ruler) */
+        .timeline-comment {
+            position: relative;
+            margin: 0 auto;
+            overflow-x: hidden;
+            /* width: 100%; */
+            height: 100%;
+        }
+
+        /* The actual timeline (the vertical ruler) */
+        .timeline-comment::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #041a2f;
+            top: 0;
+            bottom: 0;
+            margin-left: -3px;
+        }
+
+        /* Container around content */
+        .right-comment{
+            padding: 10px 10px;
+            position: relative;
+            background-color: white;
+                
+        }
+
+        /* Place the container to the right */
+        .right-comment {
+            left: 0.8%;
+        }
+        .content{
+            border: 1px solid #d3d3d3;
+            padding: 5px;
+            border-radius: 4px;
+            width: 100%;
+        }
+        .answerer-image{
+            width: 50px;
+            height: 45px;
+            border-radius: 100%;
+        }
+        .answerer-image img{
+            border-radius: 100%;
+        }
+        .answerer-name{
+            font-family: roboto_bold;
+            text-align: left;
+            text-transform: capitalize;
+        }
+        .answer{
+            background: #eaedfa;
+            border-radius: 4px;
+            padding: 5px;
+            text-align: left;
+            font-family: roboto_medium;
+            font-size: 13px;
+            word-break: break-all;
+        }
+        .accurancy div{
+            background: #f6f7fd;
+            padding: 4px 8px 4px 8px;
+            border-radius: 10px;
+            margin-right: 5px;
+            margin-top: 3px;
+            font-size: 13px;
+            font-family: roboto_medium;
+        }
+        .accurancy div span{
+            font-family: roboto_bold;
+        }
+        .comment-textarea-answer textarea{
+            width: 100%;
+            height: 100%;
+            border: none;
+            font-family: robot_medium;
+        }
+        .comment-textarea-answer{
+            border: 1px solid #d3d3d3;
+            border-radius: 4px;
+            padding: 3px;
+        }
+        .submit-comments-post{
+            background: #f6f7fd;
+            padding: 5px 10px;
+            color: #041a2f;
+            font-family: roboto_bold;
+            border-radius: 4px;
+            border: none;
+            font-family: 12px;
+            cursor: pointer;
+        }
+        .comment-found-answer{
+            padding: 6px;
+        }
+        #comment-found{
+            overflow: auto;
+            height: 200px;
+            overflow-x: hidden;
+            word-break: break-all;
+        }
+        #comment-found::-webkit-scrollbar {
+            width: 7px;
+        }
+        /* Track */
+        #comment-found::-webkit-scrollbar-track {
+            background: white; 
+        }
+        /* Handle */
+        #comment-found::-webkit-scrollbar-thumb {
+            background: #eaedfa;
+            border-radius: 4px; 
+        }
+        .each-comment-answer{
+            background: white;
+            border-right: 3px solid #041a2f;
+        }
+        .commenter-answer-img img{
+            border-radius: 50%;
+        }
+        .commenter-answer-img{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f6f7fd;
+            margin-top: 5px;
+        }
+        .inner-section-answer{
+            background: #eaedfa;
+            border-radius: 6px;
+            padding: 7px;
+            font-family: roboto_medium;
+            font-size: 13px;
+            margin-top: 10px;
+        }
+        .comment-add-comment{
+            margin-top: 5px;
+            display: flex;
+        }
+        .commeter-image-down img{
+            border-radius: 50%;
+        }
+        .commeter-image-down{
+            width: 40px;
+            height: 40px;
+            background: #f6f7fd;
+            border-radius: 50%;
+        }
+        .textarea-add-comment textarea{
+            width: 100%;
+            height: 100%;
+            border: none;
+            outline: none;
+            font-family: roboto_medium;
+        }
+        .textarea-add-comment{
+            border-radius: 4px;
+            border: 1px solid #d3d3d3;
+            padding: 5px;
+            margin-left: 5px;
+            width: 100%;
+        }
+        .post-comment-written{
+            margin-left: 5px;
+            margin-right: 3px;
+            margin-top: 5px;
+        }
+        .post-comment-written button{
+            background: #f6f7fd;
+            color: #041a2f;
+            padding: 6px;
+            border-radius: 4px;
+            cursor: pointer;
+            outline: none;
+            font-family: roboto_bold;
+            text-transform: capitalize;
+            border: none;
+        }
+        .comment-found-comment{
+            border: 1px solid #d3d3d3;
+            border-top: none;
+            margin-top: 5px;
+            border-radius: 4px;
+            word-break: break-all;
+        }
+        .each-comment-found{
+            border-top: 1px solid #d3d3d3;
+            padding: 10px 5px;
+            display: flex;
+        }
+        .commenter-image-found img{
+            border-radius: 50%;
+        }
+        .commenter-image-found{
+            width: 30px;
+            height: 30px;
+            background: #f6f7fd;
+            border-radius: 50%;
+        }
+        .real-comment-found{
+            font-family: roboto_medium;
+            letter-spacing: 0.3px;
+            line-height: 17px;
+            margin-left: 5px;
+            font-size: 12.5px;
+        }
+        .commeter-name_replied{
+            margin-left: 5px;
+            font-size: 13px;
+            letter-spacing: 0.3px;
+            font-family: roboto_bold;
+        }
+        .time-commented{
+            font-family: roboto_bold;
+            font-size: 12px;
+            color: #d3d3d3;
+            margin-left: 5px;
+        }
+        #trainer,#courses{
+            max-height: 500px;
+            overflow: auto;
+        }
+        #questions{
+            /* height: 400px; */
+            overflow: auto;
+            width: 530px;
+            padding-right: 5px;
+            max-height: 500px;
+        }
+
+        #home1,#profile1{
+            min-height: 300px;
+            max-height: 600px;
+            overflow: auto;
+            padding-right: 5px;
+        }
+
+        .create-group-section{
+            position: fixed;
+            border-radius: 4px;
+            padding: 5px;
+            position: absolute;
+            background: white;
+            top: 320px;
+            left: 60px;
+            display: none;
+            box-shadow: 0 0 5px rgba(0,0,0, 0.4);    
+            z-index: 200;   
+        }
+        .title-group-creation{
+            background: #f6f7fd;
+            padding: 10px;
+            display: flex;
+            position: relative;
+        }
+        .preImage img{
+            border-radius: 100%;
+        }
+        .preImage{
+            width: 50px;
+            height: 48px;
+            border-radius: 100%;
+            background: #f6f7fd;
+        }
+        .user-detail-creation-group{
+            margin-top: 5px;
+            margin-left: 5px;
+        }
+        .user-detail-creation-group div{
+            font-family: roboto_medium;
+            text-transform: capitalize;
+            font-size: 15px;
+        }
+        .close-group-creation{
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            background: white;
+            padding: 3px 8px 3px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .dwon-section-group-creation{
+            margin-top: 10px;
+            display: flex;
+            padding-right: 6px;
+        }
+        .image-preview-group{
+            background: #f6f7fd;
+            border-radius: 4px;
+            width: 270px;
+            margin-right: 10px;
+            height: 200px;
+        }
+        .groupName-input input{
+            border: none;
+            outline: none;
+            width: 100%;
+            height: 100%;
+            font-size: 14px;
+            font-family: roboto_medium;
+        }
+        .groupName-input{
+            border: 1px solid #d3d3d3;
+            padding: 5px;
+            border-radius: 4px;
+            font-family: roboto_medium;
+        }
+        .textarea-bio-group textarea{
+            border: none;
+            outline: none;
+            width: 100%;
+            height: 100%;
+            font-size: 14px;
+            font-family: roboto_medium;
+        }
+        .textarea-bio-group{
+            border: 1px solid #d3d3d3;
+            padding: 5px;
+            border-radius: 4px;
+        }
+        .who-can-join{
+            background: #f6f7fd;
+            padding: 6px;
+            border-radius: 4px;
+            margin-top: 5px;
+        }
+        .present-option{
+            font-family: roboto_medium;
+            text-transform: capitalize;
+            font-size: 13px;
+        }
+        .option-join form{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+            font-family: roboto_regular;
+        }
+        .create-group-btn{
+            display: flex;
+            justify-content: space-between;
+            border-top: 2px solid #d3d3d3;
+            padding-top: 10px;
+        }
+        .choose-image-btn-group button{
+            background: white;
+            border: 1px solid #d3d3d3;
+            outline: none;
+            font-family: roboto_bold;
+            color: #041a2f;
+            padding: 5px 20px 5px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            text-transform: capitalize;
+        }
+        .create-btn-group button{
+            background: #041a2f;
+            border: none;
+            outline: none;
+            font-family: roboto_bold;
+            color: white;
+            padding: 5px 20px 5px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            text-transform: capitalize;
+        }
+
+        /* FEED BACK */
+        /* =================================================================================================== */
+        .open_feedback{
+            background: white;
+            box-shadow: 0 0 5px rgba(0,0,0, 0.3);
+            border-radius: 4px;
+            padding: 10px 10px 10px 10px;
+            display: flex;
+            /* display: none; */
+        }
+        .left-side-user_detail{
+            margin-right: 10px;
+        }
+        .user_profile_image_feed{
+            background: #f6f7fd;
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            text-align: center;
+            margin: 0 auto;
+        }
+        .user_profile_image_feed img{
+            object-fit: fill;
+            border-radius: 50%;
+        }
+        .div_profile_image{
+            background: white;
+            /* box-shadow: 0 0 3px rgba(0,0,0, 0.3); */
+            padding: 10px;
+            position: relative;
+            text-align: center;
+            align-items: center;
+        }
+        .user_detail_fed{
+            font-family: roboto_bold;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+            line-height: 20px;
+            margin-top: 10px;
+        }
+        .right-side-feedback{
+            padding: 10px;
+            background: white;
+            box-shadow: 0 0 5px rgba(0,0,0, 0.3);
+            border-radius: 4px;
+        }
+        .add_feedback{
+            border: 2px solid #d3d3d3;
+            padding: 5px;
+            border-radius: 4px;
+            width: 150px;
+        }
+        .add_feedback textarea{
+            border: none;
+            font-family: roboto_medium;
+            width: 100%;
+            height: 100px;
+        }
+        .submit_feedback button{
+            background: #041a2f;
+            color: white;
+            font-family: roboto_bold;
+            padding: 5px 10px;
+            margin-top: 10px;
+            border-radius: 4px;
+            border: none;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        #error_hide{
+            color: green;
+            font-family: roboto_bold;
+            margin-top: 5px;
+        }
+        .close_feedback{
+            background: white;
+            border-radius: 4px;
+            padding: 5px;
+            left: 5px;
+            top: 0px;
+            cursor: pointer;
+            display: none;
+        }
+
+        /* for upload pdf file */
+        /* ================================================================================================================================= */
+        #preview-container{
+            margin-left: 10px;
+            text-align: center;
+        }
+        #upload-dialog {
+            padding: 5px 10px;
+            background: #041a2f;
+            color: white;
+            font-size: inherit;
+            font-family: roboto_bold;
+            outline: none;
+            display: inline-block;
+            cursor: pointer;
+            border-radius: 4px;
+            border: none;
+            width: 100%;
+        }
+        
+        #pdf-file {
+            display: none;
+        }
+        
+        #pdf-loader {
+            display: none;
+            color: #cccccc;
+            font-size: 12px;
+        }
+        
+        #pdf-preview {
+            display: none;
+            border-radius: 5px;
+            height: 190px;
+        }
+        
+        #pdf-name {
+            display: none;
+            color: #041a2f;
+            margin: 0 15px;
+            max-width: 200px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            font-family: roboto_bold;
+        }
+        
+        #upload-button {
+            padding: 5px;
+            border: none;
+            background-color: #08345e;
+            color: white;
+            font-size: inherit;
+            font-family: roboto_bold;
+            outline: none;
+            display: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        
+        #cancel-pdf {
+            display: none;
+            padding: 0px;
+            border: none;
+            color: #777777;
+            background-color: white;
+            font-size: inherit;
+            font-family: inherit;
+            outline: none;
+            vertical-align: middle;
+            cursor: pointer;
+            margin: 0 0 0 15px;
+        }
+
+        /* spinner */
+        .container-spnner {
+            position: relative;
+            width: 30px;
+            height: 30px;
+            border-radius: 15px;
+            -webkit-animation: rotation 1s infinite;
+                    animation: rotation 1s infinite;
+    
+        }
+        .container-spnner .shape {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+        }
+        .container-spnner .shape.shape-1 {
+            left: 0;
+            background-color: #071c2e;
+            border-top-left-radius: 10px;
+        }
+        .container-spnner .shape.shape-2 {
+            right: 0;
+            background-color: #062a4b;
+            border-top-right-radius: 10px;
+        }
+        .container-spnner .shape.shape-3 {
+            bottom: 0;
+            background-color: #071c2e;
+            border-bottom-left-radius: 10px;
+        }
+        .container-spnner .shape.shape-4 {
+            bottom: 0;
+            right: 0;
+            background-color: #071c2e;
+            border-bottom-right-radius: 10px;
+        }
+        
+        @-webkit-keyframes rotation {
+            from {
+                -webkit-transform: rotate(0deg);
+                        transform: rotate(0deg);
+            }
+            to {
+                -webkit-transform: rotate(720deg);
+                        transform: rotate(720deg);
+            }
+        }
+        
+        @keyframes rotation {
+            from {
+                -webkit-transform: rotate(0deg);
+                        transform: rotate(0deg);
+            }
+            to {
+                -webkit-transform: rotate(720deg);
+                        transform: rotate(720deg);
+            }
+        }
+
+        /* ERROR HANDLING */
+        /* ==================================================================================================== */
+        .Display_error {
+            display: block;
+            background: #071c2e;
+            position: fixed;
+            right: 100px;
+            top:  300px;
+            color: #89ff00;
+            font-weight: 570;
+            box-shadow: 0 0 10px rgba(0,0,0, 0.3);
+            line-height: 19px;
+            display: flex;
+            border-radius: 4px;
+        }
+        .Display_error .error-icon{
+            background: #08345e;
+            padding: 10px;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+        .check-word_error{
+            font-family: roboto_bold;
+            padding: 10px;
+            letter-spacing: 0.5px;
+            line-height: 19px;
+            font-weight: 560;
+        }
+        /* =================================================================================================== */
+
+         /* RESPONSIVE RULES */
+         /* ====================================================================================================================================== */
+         /* ============================================================================================================================================= */
+        @media screen and (max-width: 1264px){
+            .user-biography{display: none;}
+            .settings{
+                position: absolute;
+                bottom: 80px;
+                left: 63%;
+            }
+            .user-full-name{
+                font-size: 20px;
+                margin-top: 5px;
+                width: 300px;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+            /* .settings div .user-full-name,.settings-icons,.edit-background-image{
+                cursor: pointer;
+                font-size: 25px;
+                text-transform: capitalize;
+                color: white;
+            } */
+            .settings-alignment{
+                position: relative;
+                flex-direction: column;
+            }
+            .right-section{
+                width: 480px;
+            }
+            .trainer-desc{
+                width: 215px;
+            }
+            #questions{
+                height: 400px;
+                overflow: auto;
+                width: 100%;
+                padding-right: 5px;
+            }
+            .course-full-desc{
+                text-align: left;
+                margin-top: 10px;
+                width: 100%;
+                font-family: roboto_regular;
+            }
+            .course-model .status{
+                font-size: 12.5px;
+                font-family: roboto_bold;
+                text-transform: capitalize;
+                background: #f6f7fd;
+                padding: 7px 10px 7px 11px;
+                border-radius: 4px;
+                margin-top: 5px;
+                cursor: pointer;
+                margin-right: 5px;
+            }
+            .arrangement-section{width: 100%}
+            .poster-img{width: 40px; height: 40px;}
+            .full-post{
+                width: 340px;
+            }
+            .post-caption{
+                font-family: roboto_regular;
+                font-size: 13px;
+                width: 100%;
+            }
+            .add-comment{width: 100%;}
+            .commenter-image{
+                width: 40px;
+                height: 40px;
+            }
+            .commenting,.textarea-section{width: 100%;}
+            .post{width: 100%;}
+            .text-input textarea{width: 100%; height: 100%;}
+            .text-input{
+                padding: 5px;
+                border-radius: 4px;
+                font-size: 13px;
+                margin-left: 8px;
+                margin-top: 4px;
+                width: 220px;
+            }
+            .friend-name div{
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                width: 150px;
+                font-family: roboto_bold;
+                text-transform: capitalize;
+            }
+            .ask-question{
+                top: 25px;
+                left: 5px;
+                width: 350px;
+                z-index: 20;
+            }
+            
+        }
+        @media screen and (max-width: 1074px){
+            .profile-detail{
+                left: 70px;
+                bottom: 70px;
+            }
+            .settings{
+                position: absolute;
+                top: 40px;
+                left: 18%;
+            }
+            .settings-alignment{
+                flex-direction: initial;
+            }
+            .user-full-name{
+                font-size: 15px;
+                margin-top: 5px;
+                width: 350px;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+            /* .videos,.photos{display: none;} */
+            .alignment{flex-direction: column;}
+            .user-biography{display: block;}
+            .written-biography{width: 100%}
+            .right-section{
+                width: 100%;
+            }
+            .full-post{
+                width: 100%;
+            }
+        }
+        @media screen and (max-width: 767px){
+            .settings{
+                position: absolute;
+                top: 40px;
+                left: 8%;
+            }
+            .profile-detail{
+                left: 15px;
+                bottom: 70px;
+            }
+            .profile-image-user{
+                width: 150px;
+                height: 140px;
+            }
+            .user-status-info{display: none;}
+            .user-status-info div{
+                margin-right: 10px;
+                background: #f6f7fd;
+                padding: 4px 10px 4px 10px;
+                border-radius: 4px;
+                margin-right: 5px;
+                margin-top: 3px;
+                text-transform: capitalize;
+                font-family: roboto_bold;
+                width: 200px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                font-size: 12px;
+            }
+            .container-profile-image-loader{
+                position: absolute;
+                bottom: 20px;
+                right: 20px;
+                display: none;
+            }
+            .user-biography{width: 300px;}
+            .written-biography,.photos,.videos{
+                font-size: 13px;
+            }
+            .nav-item-box .nav-link-box{
+                color: #041a2f;
+                font-size: 13px;
+                border: none;
+                text-transform: capitalize;
+                font-family: roboto_bold;
+                text-align: center;
+            }
+            .nav-item-box{
+                padding: 7px;
+            }
+            .nav-item-box .active{
+                border-bottom: 3px solid #041a2f;
+                text-align: center;
+                padding: 3px 5px;
+                text-decoration: none;
+            }
+        }
+
+        @media screen and (max-width: 560px){
+            .profile-detail{
+                left: 15px;
+                bottom: 80px;
+            }
+            .user-biography{width: 295px;}
+            .questioneir-img{width: 40px;height: 40px;}
+            .user-feelings div{
+                background: #f6f7fd;
+                padding: 7px 8px 6px 8px;
+                border-radius: 20px;
+                margin-right: 5px;
+                margin-left: 5px;
+                cursor: pointer;
+                font-size: 11px;
+            }
+        }
+
+        @media screen and (max-width: 500px){
+            .profile-detail{
+                left: 15px;
+                bottom: 70px;
+            }
+            .user-biography{width: 250px;}
+            .questioneir-img{width: 40px;height: 40px;}
+            .user-feelings div{
+                background: #f6f7fd;
+                padding: 7px 8px 6px 8px;
+                border-radius: 20px;
+                margin-right: 5px;
+                margin-left: 5px;
+                cursor: pointer;
+                font-size: 11px;
+            }
+            .settings{
+                position: absolute;
+                bottom: 20px;
+                left: 3%;
+            }
+            .continue-btn button{
+                background: #041a2f;
+                color: white;
+                padding: 5px 10px 5px 10px;
+                border: none;
+                border-radius: 4px;
+                font-size: 12px;
+                cursor: pointer;
+                font-family: roboto_bold;
+            }
+            .smail-desc div{
+                font-size: 12px;
+                font-family: roboto_bold;
+                text-transform: capitalize;
+                background: #f6f7fd;
+                padding: 5px 7px 5px 8px;
+                border-radius: 4px;
+            }
+            .accurancy div .pre-accu{
+                font-family: roboto_bold;
+                display: none;
+            }
+            .trainer-desc{
+                width: 15px;
+            }
+            .trainer-status div{
+                font-size: 12px;
+                font-family: roboto_bold;
+                text-transform: capitalize;
+                background: #f6f7fd;
+                /* padding: 5px 8px 5px 9px; */
+                border-radius: 4px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            .timeline::after {
+                display: none;
+            }
+            .right {
+                left: 0%;
+                width: 100px;
+            }
+            .right::after{
+                display: none;
+            }
+            .right::before{
+                display: none;
+            }
+            .answer-content{
+                border: 1px solid #d3d3d3;
+                padding: 5px;
+                border-radius: 4px;
+                width: 100%;
+            }
+            .user-feelings div{
+                background: #f6f7fd;
+                padding: 5px 10px;
+                border-radius: 4px;
+                margin-right: 5px;
+                margin-left: 5px;
+                cursor: pointer;
+                font-size: 11px;
+            }
+            .full-post{
+                width: 310px;
+            }.duration{display: none;}
+            .text-input{width: 190px;}
+            .ask-question{
+                top: 25px;
+                left: -3px;
+                width: 350px;
+                z-index: 20;
+            }
+            .questions_answer_status{
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+            }
+            .take_look_btn a button{
+                margin-bottom: 20px;
+            }
+        }
+        @media screen and (max-width: 375px){
+             .user-background-image{
+                 height: 250px;
+             }
+             .videos,.photos{display: none;}
+             .user-biography{width: 328px;}
+             .written-biography{
+                 width: 100%;
+                 white-space: nowrap;
+                 text-overflow: ellipsis;
+                 overflow: hidden;
+             }
+             .user-full-name{
+                 font-size: 12px;
+                 width: 250px;
+            }
+            .create-story button{
+                background: #f6f7fd;
+                color: #041a2f;
+                border-radius: 4px;
+                padding: 5px 10px;
+                font-family: roboto_medium;
+                border: none;
+                outline: none;
+                cursor: pointer;
+            }
+            .write-autobio-btn button{
+                background: #f6f7fd;
+                color: #041a2f;
+                border-radius: 4px;
+                padding: 5px 10px;
+                font-family: roboto_medium;
+                border: none;
+                outline: none;
+                cursor: pointer;
+            }
+            .nav-tabs{display: flex;}
+            .course-detail{
+                flex-direction: column;
+            }
+            .course-img{width: 100%;height: 190px;}
+            .course-desc{margin-top: 10px;}
+            .learn-now button{
+                background-color: #041a2f;
+                color: #f6f7fd;
+                border: none;
+                outline: none;
+                padding: 5px;
+                border-radius: 4px;
+                font-family: roboto_medium;
+                font-size: 12px;
+            }
+            .course-model .status{
+                font-size: 12px;
+                font-family: roboto_bold;
+                text-transform: capitalize;
+                background: #f6f7fd;
+                padding: 8px 10px 8px 11px;
+                border-radius: 4px;
+                margin-top: 5px;
+                cursor: pointer;
+            }
+            .nav-item-box{display: flex;}
+            .nav-item-box .nav-link-box{
+                color: #041a2f;
+                font-size: 14px;
+                border: none;
+                text-transform: capitalize;
+                font-family: roboto_bold;
+                text-align: center;
+                padding: 3px 5px;
+            }
+            .right-section{
+                width: 100%;
+            }
+            .user-into{
+                background: white;
+                padding: 10px;
+                color: black;
+                font-family: roboto_regular;
+                border-radius: 3px;
+                text-transform: capitalize;
+                box-shadow: 0 0 5px rgba(0,0,0, 0.3);
+                /* margin: 30px 20px; */
+                overflow: hidden;
+            }
+            .post-creation{
+                top: 20px;
+                z-index: 20;
+                left: 0px;
+                width: 300px;
+            }
+            .create-area-body{
+                flex-direction: column;
+            }
+            .image-preview-post{
+                width: 100%;
+            }
+            .caption-area{
+                margin-top: 10px;
+                margin-left: 2px;
+            }
+            .pre-btn{
+                display: none;
+            }
+            .course-followed{
+                flex-direction: column;
+            }
+            .course-f-img{
+                width: 100%;
+            }
+            .course-f-detail{
+                margin-top: 10%;
+                margin-left: 2px;
+                margin-bottom: 10px;
+            }
+            #pre_accu{
+                display: none;
+            }
+            .pre-defined-setting{
+                top: 40px;
+                right: -50px;
+                width: 280px;
+            }
+            .open_feedback{
+                padding: 10px 10px 5px 10px;
+                display: flex;
+                flex-direction: column;
+                right: 0px;
+                display: none;
+            }
+            .user-full-name{
+                font-size: 18px;
+                width: 200px;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                padding: 5px;
+            }
+            .friend-section{
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+                margin-left: 0;
+                margin-top: 10px;
+            }
+            .middle_detail{
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+            }
+            .dep_detail{
+                flex-direction: column;
+            }
+            .course-image {
+                width: 100%;
+                height: 180px;
+            }
+            .card-posted{
+                display: none;
+            }
+            .edit-background{
+                top: 40px;
+                right: -20px;
+                width: 290px;
+            }
+            .edit-profile{
+                z-index: 20;
+            }
+            .edit-profile-image{
+                width: 300px;
+                z-index: 25;
+                top: 0px;
+                left: -10px;
+            }
+        }
+   
+        /* END MEDIA QUERY */
+        /* ========================================================================================================================= */
+        /* ========================================================================================================================= */

@@ -1,0 +1,2411 @@
+/* 
+    //////////////////////////////////////////////////////
+
+    INTELLIGENT BOX
+    DESIGNED & DEVELOPED by Manirabona Patience
+    
+    author: Mnirabona Patience,
+    Email:  Hseal419@gmail.com,
+    location: Kigali,Rwanda,
+    pro: Intelligent Box E-learning,
+    version: 1.0.0
+    
+    //////////////////////////////////////////////////////
+*/
+
+/* external font family */
+/* ========================================================================================================================================= */
+/* ========================================================================================================================================= */
+
+    @font-face {font-family: 'roboto_bold';src: url('../fonts/Roboto/Roboto-Bold.ttf');} 
+    @font-face{font-family: 'roboto_regular';src: url('../fonts/Roboto/Roboto-Regular.ttf');}
+    @font-face{font-family: 'baskvile';src: url('../fonts/baskerville/BASKVILL.TTF');}
+    @font-face{font-family: 'roboto_medium';src: url('../fonts/Roboto/Roboto-Medium.ttf');}
+    @font-face{font-family: 'roboto_thin';src: url('../fonts/Roboto/Roboto-Black.ttf');}
+
+
+    /* apply on scroll bar */
+    /* ======================================================================================================================================= */
+    /* width */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: white; 
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #041a2f;
+        border-radius: 4px; 
+    }
+
+    /* body style */
+    /* =============================================================================================================================================== */
+    body{
+        padding: 0;
+        margin: 0;
+        font-family: roboto_regular;
+    }
+
+    /* top background and short detail */
+    /* ======================================================================================================================================== */
+    .top-section{
+        box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 3px rgba(0,0,0, 0.4),0 0 15px rgba(0,0,0, 0.4);
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        margin-top: 70px;
+        margin: 0px 30px;
+    }
+    /* profile-detail style */
+     .user-profile-section{
+        position: relative;
+        /* background-color: white; */
+    }
+    .profile-detail{
+        position: absolute;
+        bottom: 10px;
+        left: 50px;
+        font-family: roboto_regular;
+        width: 100%;
+        /* box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 10px rgba(0,0,0, 0.4); */
+    }
+    .settings{
+        position: absolute;
+        bottom: 70px;
+        left: 28%;
+    }
+    .user-full-name{
+        font-size: 20px;
+        margin-top: 5px;
+        letter-spacing: 0.6px;
+        font-family: roboto_thin;
+        color: white;
+    }
+
+    /* section containet much detail */
+    /* ====================================================================================================================================== */
+    .alignment{
+        margin: 0px 30px;
+    }
+    .right-section{
+        margin-right: 30px;
+    }
+    .user-background-image{
+        background: #f6f7fd;
+        height: 400px;
+        position: relative;
+    }
+
+    /* down section user short status */
+    /* ===================================================================================================================== */
+    .user-name-location-email{
+        background: white;
+        padding: 10px;
+        color: black;
+        font-family: roboto_regular;
+        border-radius: 3px;
+        text-transform: capitalize;
+        overflow: hidden;
+        box-shadow: 0 0 10px rgba(0,0,0, 0.3);
+    }
+    .user-status-info div{
+        margin-right: 10px;
+        background: #f6f7fd;
+        padding: 7px 13px 7px 13px;
+        border-radius: 4px;
+        margin-right: 5px;
+        margin-top: 9px;
+        text-transform: capitalize;
+        font-family: roboto_bold;
+        width: auto;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        float: left;
+        letter-spacing: 0.3px;
+        color: #041a2f;
+    }
+    .user-status-info div span{
+        color: #041a2f;
+        font-family: roboto_bold;
+        margin-left: 5px;
+    }
+    .basic-information{
+        font-family: roboto_bold;
+        font-size: 16px;
+        text-transform: capitalize;
+        color: black;
+        padding: 10px;
+    }
+    .profile-image-user{
+        width: 200px;
+        height: 195px;
+        background: white;
+        padding: 4px;
+        position: relative;
+        border-radius: 14px;
+        /* box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 10px rgba(0,0,0, 0.4); */
+    }
+    .profile-image-user img{
+        border-radius: 14px;
+    }
+    .videos{
+        background: #f6f7fd;
+        padding: 8px 10px 8px 10px;
+        font-family: roboto_bold;
+        font-size: 14px;
+        border-radius: 4px;
+        margin-right: 5px;
+        text-transform: capitalize;
+    }
+    .photos{
+        background: #f6f7fd;
+        padding: 8px 10px 8px 10px;
+        font-family: roboto_bold;
+        font-size: 14px;
+        border-radius: 4px;
+        margin-right: 5px;
+        text-transform: capitalize;
+    }
+    .bio-section{
+        border-bottom-right-radius: 4px;
+        border-bottom-left-radius: 4px;
+        background: white;
+        /* padding: 10px; */
+        overflow: hidden;
+    }
+    .user-biography{
+        overflow: hidden;
+    }
+    .written-biography{
+        font-family: roboto_bold;
+        font-size: 14px;
+        background: #f6f7fd;
+        padding: 8px;
+        border-radius: 4px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        text-align: left;
+        position: relative;
+        float: right;
+        line-height: 18px;
+        letter-spacing: 0.4px;
+        width: 400px;
+        margin: 8px 0;
+    }
+    .trainer-count{
+        background: #f6f7fd;
+        float: right;
+        padding: 5.6px;
+        border-radius: 4px;
+        font-family: roboto_bold;
+        margin-left: 10px;
+        margin: 8.5px 6px;
+    }
+    .course-count{
+        background: #f6f7fd;
+        float: right;
+        padding: 5.6px;
+        border-radius: 4px;
+        font-family: roboto_bold;
+        margin-left: 10px;
+        margin: 8.5px 6px;
+    }
+    .level-count{
+        background: #f6f7fd;
+        float: right;
+        padding: 5.6px;
+        border-radius: 4px;
+        font-family: roboto_bold;
+        margin-left: 10px;
+        margin: 8.5px 6px;
+    }
+
+
+
+    /* three circle image on bottom top background */
+    /* =================================================================================================================================== */
+    .friends-cover{
+        position: relative;
+        display: flex;
+        padding: 5px;
+    }
+    .first-friends-image img,.middle-friend-image img,.third-friend-image img{
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    .first-friends-image{
+        border-radius: 50%;
+        background: #f6f7fd;
+        border: 2px solid white;
+        width: 40px;
+        height: 40px;
+    }
+    .middle-friend-image{
+        border-radius: 50%;
+        background: #f6f7fd;
+        border: 2px solid white;
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: 5px;
+        left: 25px;
+    }
+    .third-friend-image{
+        border-radius: 50%;
+        background: #f6f7fd;
+        border: 2px solid white;
+        width: 40px;
+        height: 40px;
+    }
+
+    /* treen flexed on bottom top background */
+    /* ==================================================================================================================================== */
+    .user-followers-list{
+        position: relative;
+        overflow: hidden;
+        margin-top: 5px;
+        width: 100%;
+    }
+    .circular-flexs-1 img,.circular-flexs-2 img{
+        border-radius: 50%;
+        object-fit: cover;        
+    }
+    .circular-flexs-1{
+        width: 40px;
+        height: 40px;
+        background: #f6f7fd;
+        border-radius: 50%;
+        float: left;
+        border: 2px solid white;
+    }
+    .circular-flexs-2{
+        width: 40px;
+        height: 40px;
+        background: #f6f7fd;
+        border-radius: 50%;
+        float: left;
+        border: 2px solid white;
+        position: absolute;
+        left: 20px;
+    }
+
+
+    /* post of the user */
+    /* ====================================================================================================================================== */
+    .post-found{
+        margin-top: 40px;
+        border-radius: 4px;
+    }
+    .card-title-content ul{
+        padding: 0;
+    }
+    .card-title-content ul li{
+        cursor: pointer;
+    }
+    .card-title-content ul li a{
+        padding: 10px 20px;
+        margin-right: 20px;
+        box-shadow: 0 0 5px rgba(0,0,0, 0.3);
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        color: #041a2f;
+        font-family: roboto_bold;
+    }
+    .card-title-content ul li .active{
+        background: white;
+    }
+
+    .card-body-content{
+        box-shadow: 0 0 10px rgba(0,0,0, 0.3);
+        border-radius: 4px;
+        margin-top: 20px;
+        background: #041a2f;
+    }
+    .tab-content{width: 100%;}
+    #courses{
+        width: 100%;
+    }
+    .Last-updates{
+       padding: 10px;
+       width: 100%;
+       background: white;
+       border-radius: 4px;
+    }
+    
+    /* the actual popup div for make visitor follow user */
+    /* ==================================================================================================================================== */
+    .absess-user{
+        box-shadow: 0 0 10px rgba(0,0,0, 0.3);
+        padding: 10px;
+        border-radius: 4px;
+        margin: 30px 23px;
+        justify-content: space-between;
+        background-color: white;
+    }
+    .new-conn{
+        display: flex;
+        justify-content: space-between;
+    }
+    .Intention{
+        font-family: roboto_medium;
+        font-size: 14px;
+        margin-left: 5px;
+        width: 200px;
+    }
+    .absess button{
+        background: #041a2f;
+        color: white;
+        padding: 5px 15px;
+        border-radius: 4px;
+        font-family: roboto_medium;
+        font-size: 13px;
+        cursor: pointer;
+        border: none;
+    }
+    /* end actual popo div for make visitor follow */
+    /* ===================================================================================================================================== */
+
+
+    .friend-list{overflow: auto;}
+    .each-trainer-sec{
+        border-radius: 4px;
+        width: 200px;
+        float: left;
+        margin-left: 7px;
+        margin-right: 7px;
+        margin-bottom: 10px;
+        box-shadow: 0 0 5px rgba(0,0,0, 0.3);
+    }
+    .each-trainer-sec-right{
+        border-radius: 4px;
+        width: 170px;
+        float: left;
+        margin: 10px 8px;
+        box-shadow: 0 0 5px rgba(0,0,0, 0.3);
+    }
+    .image-trainer-sec{
+        background-color: #f6f7fd;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        height: 100px;
+        width: 100%;
+        position: relative;
+    }
+    .image-trainer-sec img{
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+    }
+    .image-pre-trainer{
+        background: white;
+        padding: 3px;
+        border-radius: 50%;
+    }
+    .image-pre-trainer img{
+        border-radius: 50%;
+    }
+    .trainer-pre-detail{
+        position: relative;
+        padding: 14px 10px;
+        font-family: roboto_medium;
+        margin-top: 5px;
+    }
+    .email-trainer{
+        color: #d8c8c8;
+        width: 100%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+    .email-trainer-right{
+        color: #d8c8c8;
+        font-size: 14px;
+        width: 100%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+    .name-trainer-right{
+        font-size: 14px;
+    }
+    .image-pre-trainer{
+        width: 65px;
+        height: 64px;
+        background-color: #f6f7fd;
+        border-radius: 50%;
+        position: absolute;
+        top: -50px;
+        left: 10px;
+    }
+    .Follow-trainers{
+        padding: 3px 10px;
+        border-radius: 4px;
+        outline: none;
+        font-family: roboto_bold;
+        font-size: 13px;
+        position: absolute;
+        right: 5px;
+        bottom: 5px;
+        background-color: white;
+        color: #041a2f;
+        border: none;
+        cursor: pointer;
+    }
+    .current-followed-course{overflow: auto; height: 350px;}
+
+    /* edit user biography */
+    .edit{
+        position: absolute;
+        background: white;
+        padding: 5px;
+        border-radius: 4px;
+        display: none;
+    }
+    .edit-bio-title{
+        background: #f6f7fd;
+        padding: 10px;
+        font-family: roboto_bold;
+        text-transform: capitalize;
+        font-size: 15px;
+    }
+    .type-your-bio textarea{
+        border: none;
+        outline: none;
+        width: 100%;
+        height: 100%;
+        background: white;
+        font-size: 13px;
+    }
+    .type-your-bio {
+        border: 1px solid #d3d3d3;
+        border-radius: 4px;
+        padding: 5px;
+    }
+    .user-option-bio{
+        padding: 2px;
+    }
+    .update-btn-bio button{
+        background: #041a2f;
+        font-size: 13px;
+        font-family: roboto_bold;
+        border-radius: 4px;
+        padding: 5px 20px 5px 20px;
+        color: white;
+        border: none;
+        text-transform: capitalize;
+        font-size: 14px;
+        cursor: pointer;
+        outline: none;
+    }
+    .feeling-smile{
+        background: #f6f7fd;
+        padding: 5px 10px 5px 10px;
+        border-radius: 100%;
+        font-size: 16px;
+        font-family: roboto_bold;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+
+    .edit-profile{
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        font-size: 16px;
+        color: #041a2f;
+        cursor: pointer;
+        background: #f6f7fd;
+        padding: 4px 13px 4px 13px;
+        border-radius: 20px;
+        text-transform: capitalize;
+        font-family: roboto_bold;
+    }
+    .user-name-location-email{
+        color: white;
+        margin-top: 30px;
+    }
+    .user-email{
+        font-size: 17px;
+        margin-top: 5px;
+    }
+    .user-location{
+        font-size: 17px;
+        margin-top: 5px;
+    }
+
+    /* user-creation style */
+    .user-creation{
+        margin-top: 30px;
+        margin-bottom: 10px;
+        padding: 7px 7px 7px 10px;
+        border-radius: 4px;
+        text-transform: capitalize;
+        border: 1px solid #d3d3d3;
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+    .img-pre-user{
+        width: 100%;
+        height: 100%;
+        background: #f6f7fd;
+        border-radius: 4px;
+    }
+    .img-pre-user img{
+        border-radius: 6px;
+    }
+    .create{
+        border-radius: 6px;
+        width: 175px;
+        margin-right: 10px;
+        position: relative;
+        height: 200px;
+    }
+    .create-btn{
+        position: absolute;
+        top: 10px;
+        left: 5px;
+        color: white;
+        font-family: roboto_bold;
+    }
+    .create-btn .fa{
+        background: whitesmoke;
+        color: #041a2f;
+        padding: 5px 6px 5px 7px;
+        border-radius: 100%;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    /* create short story on profile */
+    .create-stoty-prive{
+        position: absolute;
+        background: white;
+        border-radius: 4px;
+        padding: 5px;
+        z-index: 20;
+        top: 20px;
+        left: 40px;
+        width: 500px;
+        display: none;
+    }
+    .section-title{
+        background: #f6f7fd;
+        font-family: roboto_bold;
+        font-size: 15px;
+        padding: 10px;
+    }
+    .create-area{
+        display: flex;
+        margin-top: 10px;
+    }
+    .image-story-preview{
+        background: #f6f7fd;
+        width: 350px;
+        margin-right: 10px;
+        border-radius: 4px;
+        text-align: center;
+        height: 270px;
+    }
+    .image-story-preview .fa{
+        color: #d3d3d3;
+        font-size: 40px;
+        margin-top: 40%;
+    }
+    .title-story textarea{
+        width: 100%;
+        height: 100%;
+        outline: none;
+        border: none;
+    }
+    .title-story{
+        border-radius: 4px;
+        border: 1px solid #d3d3d3;
+        padding: 5px;
+    }
+    .create-story-body textarea{
+        width: 100%;
+        height: 100%;
+        outline: none;
+        border: none;
+    }
+    .create-story-body{
+        border-radius: 4px;
+        border: 1px solid #d3d3d3;
+        padding: 5px;
+        margin-top: 10px;
+    }
+    .sectio-footer{
+        display: flex;
+        margin-top: 10px;
+        background-color: #f6f7fd;
+        padding: 10px;
+        justify-content: space-between;
+    }
+    .send-post{
+        display: flex;
+    }
+    .choose-image-story button{
+        background: #041a2f;
+        border: none;
+        outline: none;
+        border-radius: 4px;
+        font-size: 13px;
+        font-family: roboto_bold;
+        padding: 5px 10px 5px 10px;
+        cursor: pointer;
+        color: white;
+        text-transform: capitalize;
+    }
+    .send-post button{
+        background: #041a2f;
+        border: none;
+        outline: none;
+        border-radius: 4px;
+        font-size: 13px;
+        font-family: roboto_bold;
+        padding: 5px 10px 5px 10px;
+        cursor: pointer;
+        color: white;
+        text-transform: capitalize;
+        margin-right: 20px;
+
+    }
+    .send-post div .fa{
+        background: white;
+        font-size: 16px;
+        padding: 9px 10px 9px 10px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+    /* end creation of short story */
+
+    /* post-creation style area */
+    .post-creation{
+        background: white;
+        border-radius: 4px;
+        padding: 5px;
+        position: absolute;
+        top: 20px;
+        left: 40px;
+        z-index: 20;
+        width: 500px;
+        box-sizing: border-box;
+        display: none;
+    }
+    .title-post-creation{
+        background: #f6f7fd;
+        font-family: roboto_bold;
+        text-transform: capitalize;
+        padding: 10px;
+    }
+    .create-area-body{
+        display: flex;
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+    .image-preview-post{
+        background: #f6f7fd;
+        width: 300px;
+        height: 230px;
+        border-radius: 4px;
+        text-align: center;
+    }
+    .image-preview-post .fa{
+        color: #d3d3d3;
+        font-size: 50px;
+        margin-top: 30%;
+    }
+    .caption-area {
+       margin-left: 10px;
+    }
+    .caption-textarea textarea{
+        width: 100%;
+        height: 100%;
+        outline: none;
+        border: none;
+        font-family: roboto_regular;
+        font-size: 13px;
+    }
+    .caption-textarea{
+        border: 1px solid #d3d3d3;
+        border-radius: 4px;
+        padding: 5px;
+    }
+    .option-creation{
+        display: flex;
+        margin-top: 10px;
+        justify-content: space-between;
+        background: #f6f7fd;
+        padding: 10px
+    }
+    .choose-option-area{
+        display: flex;
+    }
+    .choose-image-btn button{
+        background: white;
+        border: 1px solid #d3d3d3;
+        outline: none;
+        border-radius: 4px;
+        font-size: 13px;
+        font-family: roboto_bold;
+        padding: 5px 10px 5px 10px;
+        cursor: pointer;
+        color: #041a2f;
+        text-transform: capitalize;
+    }
+    .choose-video-btn button{
+        background: #041a2f;
+        border: none;
+        outline: none;
+        border-radius: 4px;
+        font-size: 13px;
+        font-family: roboto_bold;
+        padding: 5px 10px 5px 10px;
+        cursor: pointer;
+        color: white;
+        text-transform: capitalize;
+        margin-left: 10px;
+    }
+    .create-post-btn div button{
+        background: #041a2f;
+        border: none;
+        outline: none;
+        border-radius: 4px;
+        font-size: 13px;
+        font-family: roboto_bold;
+        padding: 5px 20px 5px 20px;
+        cursor: pointer;
+        color: white;
+        text-transform: capitalize;
+        margin-left: 10px;
+    }
+    /* end post-creation stylearea */
+
+    /* create autobiography */
+    .create-biography-option{
+        background: white;
+        padding: 5px;
+        border-radius: 4px;
+        position: absolute;
+        z-index: 20;
+        top: 30px;
+        width: 300px;
+        display: none;
+    }
+    .autobiograpy-title{
+        padding: 10px;
+        font-size: 16px;
+        font-family: roboto_bold;
+        display: flex;
+    }
+    .user-auto-image img{
+        border-radius: 100%;
+    }
+    .user-auto-image{
+        border-radius: 100%;
+        width: 50px;
+        height: 48px;
+        background: #f6f7fd;
+    }
+    .option-bio{
+        border-top: 2px solid #d3d3d3;
+        padding: 10px 5px 10px 5px;
+    }
+    .create-new{
+        background: #f6f7fd;
+        border-radius: 4px;
+        padding: 10px;
+        margin-bottom: 10px;
+        position: relative;
+    }
+    .add-to-exist{
+        background: #f6f7fd;
+        border-radius: 4px;
+        padding: 10px;
+        margin-bottom: 10px;
+        position: relative;
+    }
+    .create-new .option-note{
+        font-family: roboto_regular;
+    }
+    .create-new button{
+        background: #041a2f;
+        color: white;
+        padding: 5px 20px 5px 20px;
+        border: none;
+        outline: none;
+        font-family: roboto_bold;
+        text-transform: capitalize;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 5px;
+    }
+    .add-to-exist .note{
+        font-family: roboto_regular;
+        font-size: 14px;
+    }
+    .add-to-exist button{
+        background: #041a2f;
+        color: white;
+        padding: 5px 20px 5px 20px;
+        border: none;
+        outline: none;
+        font-family: roboto_bold;
+        text-transform: capitalize;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 5px;
+    }
+    .create-new-autobiography{
+        position: absolute;
+        background: white;
+        border-radius: 3px;
+        padding: 5px;
+        width: 300px;
+        top: 10px;
+        left: 300px;
+        display: none;
+    }
+    .create-new-autobiography::before{
+        content: " ";
+        height: 0;
+        position: absolute;
+        top: 18px;
+        width: 0;
+        z-index: 1;
+        left: -10px;
+        border: 1px solid #041a2f;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent #d8c8c8 transparent transparent;
+    }
+    .create-title-autbio{
+        background: #f6f7fd;
+        padding: 10px;
+        font-family: roboto_bold;
+        font-size: 15px;
+        text-transform: capitalize;
+    }
+    .fillout {
+        margin-top: 10px;
+        padding: 10px;
+    }
+    .name-autobio input{
+        border: none;
+        outline: none;
+        width: 100%;
+        height: 100%;
+    }
+    .name-autobio{
+        border: 1px solid #d3d3d3;
+        padding: 5px;
+        border-radius: 3px;
+        font-size: 14px;
+    }
+    .page-name input{
+        border: none;
+        outline: none;
+        width: 100%;
+        height: 100%;
+    }
+    .page-name{
+        border: 1px solid #d3d3d3;
+        padding: 5px;
+        border-radius: 3px;
+        font-size: 14px;
+        margin-top: 10px;
+    }
+
+    .list-all-book-exist{
+        position: absolute;
+        background: white;
+        padding: 5px;
+        border-radius: 4px;
+        width: 250px;
+        top: 20px;
+        left: 300px;
+        display: none;
+    }
+    .list-all-book-exist::before{
+        content: " ";
+        height: 0;
+        position: absolute;
+        top: 18px;
+        width: 0;
+        z-index: 1;
+        left: -10px;
+        border: 1px solid #041a2f;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent #d8c8c8 transparent transparent;
+    }
+    .books-title{
+        background: #f6f7fd;
+        padding: 10px;
+        font-family: roboto_bold;
+        font-size: 15px;
+    }
+    .list-book{
+        margin-top: 10px;
+        border-top: 2px solid #d3d3d3;
+        border-bottom: 2px solid #d3d3d3;
+        padding-bottom: 10px;
+    }
+    .each-book{
+        margin-top: 10px;
+        border: 1px solid #d3d3d3;
+        padding: 5px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .each-book .fa{
+        background: #f6f7fd;
+        padding: 10px;
+        border-radius: 50%;
+    }
+    .each-book div{
+        font-family: roboto_bold;
+        margin-top: 7px;
+    }
+
+    .write-autobiography {
+        background: white;
+        border-radius: 4px;
+        padding: 5px;
+        position: fixed;
+        width: 600px;
+        z-index: 50;
+        top: 130px;
+        left: 350px;
+        display: none;
+    }
+    .autobiography-title{
+        padding: 10px;
+        display: flex;
+        position: relative;
+    }
+    .my-image img{
+        border-radius: 100%;
+    }
+    .my-image{
+        background: #f6f7fd;
+        border-radius: 100%;
+        width: 60px;
+        height: 58px;
+    }
+    .path{
+        font-family: roboto_bold;
+        text-transform: capitalize;
+    }
+    .edit-current input{
+        border: none;
+        font-family: roboto_bold;
+    }
+    .close-autobio{
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        background: #f6f7fd;
+        padding: 5px 10px 5px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .autobiography-type{
+        padding: 10px;
+        border-top: 2px solid #d3d3d3;
+        border-bottom: 2px solid #d3d3d3;
+    }
+    .autobiography-footer{
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .autobiography-footer .add-image button{
+        background: white;
+        color: #041a2f;
+        font-family: roboto_bold;
+        font-size: 14px;
+        border: 1px solid #d3d3d3;
+        outline: none;
+        border-radius: 4px;
+        padding: 5px 20px 5px 20px;
+        cursor: pointer;
+    }
+    .autobiography-footer .save button,.autobiography-footer .save-close button{
+        background: #041a2f;
+        color: white;
+        font-family: roboto_bold;
+        font-size: 14px;
+        border: none;
+        outline: none;
+        border-radius: 4px;
+        padding: 5px 20px 5px 20px;
+        margin-left: 10px;
+        cursor: pointer;
+    }
+    /* end autbiography */
+
+    /* left-section style */
+    .about-supporter{
+        position: relative;
+    }
+    .user-friend{
+        background: white;
+        border-radius: 4px;
+        margin: 30px 0px;
+        overflow: hidden;
+        box-shadow: 0 0 5px rgba(0,0,0, 0.3);
+    }
+    .spacer{
+        margin-top: 30px;
+    }
+    .friend-list{
+        padding: 10px;
+        overflow: auto;
+        height: 300px;
+    }
+    .present-img-friend img{
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+    }
+    .present-img-friend{
+        height: 100px;
+    }
+    .label{
+        font-size: 16px;
+        font-family: roboto_bold;
+        text-transform: capitalize;
+        background: #f6f7fd;
+        padding: 7px 13px 7px 13px;
+        border-radius: 4px;
+        margin-right: 10px;
+        margin-top: 9px;
+        margin-left: 10px;
+        text-transform: capitalize;
+        font-family: roboto_bold;
+    }
+    .friend-section{width: 100%;}
+    .each-user{
+        padding: 10px;
+        border-radius: 4px;
+        margin-bottom: 20px;
+        border: 1px solid #d3d3d3;
+        width: 100%;
+        position: relative;
+    }
+    .friend-image{
+        width: 50px;
+        height: 50px;
+        background: #f6f7fd;
+        border-radius: 100%;
+    }
+    .friend-image img{
+        border-radius: 100%;
+        height: 100%;
+    }
+    .friend-name{
+        width: 100%;
+    }
+    .friend-name div{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 210px;
+        font-family: roboto_bold;
+        text-transform: capitalize;
+    }
+    .friend-name span{
+       font-size: 13px;
+    }
+    .friend-name-course{
+        text-transform: capitalize;
+        font-family: roboto_bold;
+    }
+    .friend-bio{
+        width: 100%;
+        font-family: roboto_regular;
+        font-size: 13px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap; 
+    }
+    .btn-follow {
+        margin-top: 2px;
+        padding: 2px;
+    }
+    .follow-btn{
+        background-color: #041a2f;
+        color: white;
+        font-family: roboto_bold;
+        border: none;
+        outline: none;
+        padding: 5px 10px 5px 10px;
+        border-radius: 6px;
+        font-size: 12px;
+        margin-left: 5px;
+        text-transform: capitalize;
+        cursor: pointer;
+    }
+    .following-btn{
+        background-color: white;
+        color: #041a2f;
+        font-family: roboto_bold;
+        border: 1px solid #d3d3d3;
+        outline: none;
+        padding: 5px 10px 5px 10px;
+        border-radius: 6px;
+        font-size: 12px;
+        margin-left: 5px;
+        text-transform: capitalize;
+        cursor: pointer;
+    }
+    .more{
+        background: #f6f7fd;
+        padding: 5px 0px 5px 15px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-family: roboto_bold;
+        width: 100px;
+        text-transform: capitalize;
+        margin-bottom: 10px;
+        margin-right: 10px;
+        margin-top: 5px;
+        float: right;
+        cursor: pointer;
+    }
+
+    .card-trainer-question{
+        margin-left: 0px;
+    }
+
+    .about-usr{
+        background: white;
+        padding: 6px;
+        border-radius: 4px;
+        position: absolute;
+        top: 60px;
+        margin-left: 10px;
+        left: 30px;
+        background-color: white;
+        z-index: 20;
+        display: none;
+    }
+    .about-specification{
+        display: flex;
+    }
+    .user-about-image img{
+        border-radius: 4px;
+    }    
+    .user-about-image{
+        width: 120px;
+        height: 100px;
+        border-radius: 4px;
+        background: #f6f7fd;
+        margin-top: 3px;
+    }
+    .about-info{
+        margin-left: 10px;
+        font-family: roboto_medium;
+        text-transform: capitalize;
+    }
+    .activity-status{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        font-family: roboto_medium;
+        text-transform: capitalize;
+    }
+    .activity-status div{
+        background: #f6f7fd;
+        border-radius: 4px;
+        padding: 3px 7px 3px 7px;
+    }
+    /* course style */
+    .course-image {
+        width: 100px;
+        height: 90px;
+        border-radius: 4px;
+        background: #f6f7fd;
+    }
+    .course-image img{
+        height: 100%;
+        border-radius: 4px;
+    }
+    .friend-desc{
+        width: 100%;
+    }
+    .course-bio{
+        width: 100%;
+        font-family: roboto_regular;
+        margin-top: 5px;
+    }
+    .btn-course button{
+        background-color: #041a2f;
+        color: white;
+        font-family: roboto_bold;
+        border: none;
+        outline: none;
+        padding: 5px 20px 5px 20px;
+        border-radius: 4px;
+        font-size: 13px;
+        margin-left: 5px;
+        text-transform: capitalize;
+        margin-top: 5px;
+    }
+    .course-count-desc{
+        border-top: 1px solid #d3d3d3;
+        margin-top: 10px;
+        padding-top: 5px;
+        font-family: roboto_regular;
+        text-align: left;
+        text-transform: capitalize;
+    }
+    .course-count-desc div span{
+        color: #041a2f;
+        font-family: roboto_bold;
+        margin-left: 4px;
+    }
+
+    .courses-title{
+        font-size: 17px;
+        font-family: roboto_bold;
+        text-transform: capitalize;
+        background: #f6f7fd;
+        padding: 8px 11px 8px 13px;
+        border-radius: 20px;
+    }
+
+    /* gallery style */
+    .galleries-list{
+        padding: 5px;
+        height: 210px;
+        overflow: auto;
+        margin-bottom: 5px;
+    }
+    .galleries-list .image-found{
+        width: 130px;
+        float: left;
+        display: block;
+        margin-left: 5px;
+        margin-top: 5px;
+        text-align: center;
+        cursor: pointer;
+        background: #f6f7fd;
+        height: 128px;
+        border-radius: 4px;
+    }
+    .galleries-list .image-found:hover{
+        opacity: .8;
+    }
+    .image-found img{
+        border-radius: 4px;
+    }
+
+    /* trainer style */
+    /* ====================================================================================================================================== */
+    .trainer-image img{
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+        height: 100%;
+    }
+    .trainer-image{
+        width: 50px;
+        height: 50px;
+    }
+    /* end trainer style */
+    /* ==================================================================================================================================== */
+
+    /* course style */
+    /* ===================================================================================================================================== */
+    .course-holder{
+        border-radius: 4px;
+        border: 1px solid #d3d3d3;
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+    .course-list{
+        padding: 20px;
+    }
+    .each-course{
+        padding: 10px 10px 5px 10px;
+        border-radius: 4px;
+        border: 1px solid #d3d3d3;
+    }
+    .course-img{
+        width: 123px;
+        height: 118px;
+        border-radius: 4px;
+        background: #f6f7fd;
+    }
+    .course-img img{
+        width: 100%;
+        height: 100%;
+        border-radius: 4px;
+    }
+    .course-name{
+        font-family: roboto_bold;
+        font-size: 17px;
+        text-transform: capitalize;
+    }
+    .course-full-desc{
+        text-align: left;
+        margin-top: 10px;
+        width: 340px;
+        font-family: roboto_regular;
+    }
+    .course-model .status{
+        font-size: 13px;
+        font-family: roboto_bold;
+        text-transform: capitalize;
+        background: #f6f7fd;
+        padding: 8px 11px 8px 13px;
+        border-radius: 20px;
+        margin-top: 5px;
+        cursor: pointer;
+    }
+    .learn{
+        padding: 5px;
+    }
+    .learn-now{
+        padding: 5px;
+    }
+    .learn-now button{
+        background-color: #041a2f;
+        color: #f6f7fd;
+        border: none;
+        outline: none;
+        padding: 5px 20px 5px 20px;
+        border-radius: 4px;
+        font-family: roboto_medium;
+    }
+    .course-status{
+        padding: 10px;
+        border-top: 1px solid #d3d3d3;
+    }
+    .status{
+        color: #041a2f;
+        font-family: roboto_regular;
+        text-transform: capitalize;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 120px;
+    }
+    .status span{
+        font-family: roboto_bold;
+    }
+    /* end course style */
+    /* ===================================================================================================================================== */
+
+   
+    .card-posted{
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+    /* cards */
+    .profile-post-shared{
+        border: 1px solid #d3d3d3;
+    }
+    .card-title-profile ul li a{
+        font-size: 14px;
+    }
+    .course-followed{
+        border: 1px solid #d3d3d3;
+        border-radius: 4px;
+        padding: 2px;
+    }
+    .course-f-img{
+        width: 100px;
+        background: #f6f7fd;
+    }
+    .course-f-name{
+        font-family: roboto_bold;
+        text-transform: capitalize;
+    }
+    .smail-desc{
+        font-family: roboto_regular;
+        text-transform: capitalize;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    .smail-desc div{
+        font-size: 13px;
+        font-family: roboto_bold;
+        text-transform: capitalize;
+        background: #f6f7fd;
+        padding: 5px 12px 5px 13px;
+        border-radius: 20px;
+    }
+    .smail-desc div span{
+        font-family: roboto_bold;
+    }
+    .continue-btn button{
+        background: #041a2f;
+        color: white;
+        padding: 5px 20px 5px 20px;
+        border: none;
+        border-radius: 4px;
+        font-size: 13px;
+        cursor: pointer;
+        font-family: roboto_bold;
+    }
+    .progress-bar{position: relative;}
+    .progress{position: relative;}
+    .progress span{
+        position: absolute;
+        right: 10px;
+        color: #041a2f;
+        font-family: roboto_bold;
+    }
+
+    /* each-trainer style */
+    .question-area-rolls{
+        position: relative;
+    }
+    .ask-question{
+        background: white;
+        padding: 5px;
+        border-radius: 4px;
+        position: absolute;
+        top: 25px;
+        left: 125px;
+        width: 350px;
+        z-index: 20;
+        display: none;
+    }
+    .ask-question::before{
+        content: " ";
+        height: 0;
+        position: absolute;
+        top: 22px;
+        width: 0;
+        z-index: 1;
+        right: -12px;
+        border: medium solid #f6f7fd;
+        border-width: 10px 0 10px 10px;
+        border-color: transparent transparent transparent #f6f7fd;
+    }
+    .title-question{
+        background: #f6f7fd;
+        padding: 10px;
+        font-family: roboto_bold;
+        text-transform: capitalize;
+        font-size: 15px;
+        position: relative;
+    }
+    .close-question{
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        background: white;
+        padding: 1px 3px 1px 3px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .question-area-image{
+        margin-top: 10px;
+        display: flex;
+    }
+    .preview-image-question{
+        background: #f6f7fd;
+        width: 200px;
+        height: 120px;
+        border-radius: 4px;
+    }
+    .preview-image-question img{
+        border-radius: 4px;
+    }
+    .textarea-question textarea{
+        border: none;
+        outline: none;
+        width: 100%;
+        height: 100%;
+        font-size: 13px;
+    }
+    .textarea-question{
+        border: 1px solid #d3d3d3;
+        padding: 5px;
+        border-radius: 4px;
+    }
+    .with-photo button{
+        background: white;
+        border: 1px solid #d3d3d3;
+        border-radius: 4px;
+        outline: none;
+        font-family: roboto_bold;
+        padding: 5px 10px 5px 10px;
+        cursor: pointer;
+    }
+    .send button{
+        background: #041a2f;
+        border: none;
+        border-radius: 4px;
+        outline: none;
+        font-family: roboto_bold;
+        padding: 5px 10px 5px 10px;
+        cursor: pointer;
+        color: white;
+    }
+
+
+    .each-trainer{
+        border: 1px solid #d3d3d3;
+        border-radius: 4px;
+        padding: 2px;
+        margin-bottom: 10px;
+        position: relative;
+    }
+    .tariner-img{
+        width: 130px;
+        height: 118px;
+        background: #f6f7fd;
+        border-radius: 4px;
+    }
+    .trainer-name{
+        font-family: roboto_bold;
+        text-transform: capitalize;
+        text-align: left;
+        font-size: 15px;
+    }
+    .trainer-bio{
+        font-family: roboto_regular;
+        text-align: left;
+        font-size: 13px;
+    }
+    .trainer-bio .empty{
+        width: 2px;
+        padding: 2px;
+        background: #041a2f;
+    }
+    .trainer-status{
+        font-family: roboto_regular;
+        text-transform: capitalize;
+        text-align: left;
+        margin-top: 5px;
+    }
+    .trainer-desc{
+        width: 340px;
+    }
+    .trainer-status div{
+        font-size: 13px;
+        font-family: roboto_bold;
+        text-transform: capitalize;
+        background: #f6f7fd;
+        padding: 5px 10px 5px 11px;
+        border-radius: 20px;
+        width: 100px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .btn-get-trainer button{
+        background-color: #041a2f;
+        color: white;
+        font-family: roboto_regular;
+        border: none;
+        outline: none;
+        margin-top: 5px;
+        border-radius: 4px;
+        padding: 4px 9px 4px 9px;
+        cursor: pointer;
+    }
+
+    /* each-question style */
+    .each-question{
+        border: 2px solid #d3d3d3;
+        padding: 4px;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        padding: 10px;
+    }
+    .each-question label{
+        text-transform: capitalize;
+        font-family: roboto_bold;
+    }
+    .qustionair{
+        border-radius: 4px;
+        padding: 10px;
+    }
+    .questioneir-img{
+        border-radius: 100%;
+        width: 50px;
+        height: 50px;
+        background: #f6f7fd;
+    }
+    .questioneir-img img{
+        border-radius: 100%;
+    }
+    .questionair-name{
+        text-transform: capitalize;
+        font-family: roboto_bold;
+        font-size: 15px;
+        text-align: left;
+    }
+    .question-full{
+        background: #f6f7fd;
+        padding: 5px;
+        border-radius: 4px;
+        text-align: left;
+        font-family: roboto_regular;
+        /* width: 400px; */
+    }
+    .media-type-question img{
+        border-radius: 4px;
+    }
+    .media-type-question{
+        width: 100%;
+        height: 250px;
+        border-radius: 4px;
+        background: #f6f7fd;
+    }
+    .accurancy{
+        margin-top: 5px;
+        padding: 3px;
+        cursor: pointer;
+
+    }
+    .accurancy .fa{
+        font-size: 16px;
+    }
+
+    /* answer style */
+    /* The actual timeline (the vertical ruler) */
+    .timeline {
+        position: relative;
+        margin: 0 auto;
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    /* The actual timeline (the vertical ruler) */
+    .timeline::after {
+        content: '';
+        position: absolute;
+        width: 6px;
+        background-color: #041a2f;
+        top: 0;
+        bottom: 0;
+        left: 0%;
+        margin-left: -3px;
+    }
+
+    /* Container around content */
+    .right{
+        padding: 10px 10px;
+        position: relative;
+        background-color: white;
+    }
+
+    /* The circles on the timeline */
+    .right::after {
+        content: '';
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        right: -9px;
+        background-color: #041a2f;
+        border: 4px solid white;
+        top: 15px;
+        border-radius: 50%;
+        z-index: 1;
+    }
+
+    /* Place the container to the right */
+    .right {
+        left: 0.6%;
+    }
+
+    /* Add arrows to the right container (pointing left) */
+    .right::before {
+        content: " ";
+        height: 0;
+        position: absolute;
+        top: 18px;
+        width: 0;
+        z-index: 1;
+        left: 4px;
+        border: medium solid #041a2f;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent #041a2f transparent transparent;
+    }
+
+    /* Fix the circle for containers on the right side */
+    .right::after {
+        left: -16px;
+    }
+    .answer-content{
+        border: 1px solid #d3d3d3;
+        padding: 5px;
+        border-radius: 4px;
+        width: 350px;
+    }
+    .answerer-image{
+        width: 40px;
+        height: 38px;
+        border-radius: 100%;
+        background: #f6f7fd;
+    }
+    .answerer-image img{
+        border-radius: 100%;
+    }
+    .answerer-name{
+        font-family: roboto_bold;
+        text-align: left;
+        text-transform: capitalize;
+    }
+    .answer{
+        background: #f6f7fd;
+        border-radius: 4px;
+        padding: 7px;
+        text-align: left;
+        font-family: roboto_regular;
+    }
+
+    /* post style */
+    .each-post{
+        padding: 10px;
+        border: 2px solid #d3d3d3;
+        border-radius: 4px;
+        width: 100%;
+        background: white;
+    }
+    .poster-img{
+        background: #f6f7fd;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+    }
+    .poster-img img{
+        border-radius: 100%;
+    }
+    .poster-name{
+        font-family: roboto_bold;
+        font-size: 16px;
+        font-weight: 580;
+        text-transform: capitalize;
+        letter-spacing: 0.6;
+    }
+    .time-update{
+        font-size: 13px;
+    }
+    .post-caption{
+        font-family: roboto_medium;
+        font-size: 14px;
+        line-height: 18px;
+        letter-spacing: 0.3px;
+        line-height: 20px;
+    }
+    .media{
+        border-radius: 16px;
+        background: #f6f7fd;
+    }
+    .media img{
+        border-radius: 14px;
+        width: 100%;
+        height: 100%;
+    }
+    .type-media img{
+        border-radius: 14px;
+        width: 100%;
+        height: 100%;
+    }
+    .type-media{
+        position: relative;
+        background: #f6f7fd;
+        width: 100%;
+        height: 250px;
+        border-radius: 14px;
+    }
+    .type-media video{
+        border-radius: 14px;
+        height: 100%;
+        width: 100%;
+        object-fit: fill;
+    }
+    .video-controls{
+        width: 100%;
+        position: absolute;
+        bottom: 10px;
+        color: white;
+        padding: 10px;
+        font-family: roboto_bold;
+        animation: fade 1000ms ease-in-out forwards;
+    }
+    @keyframes fade{
+        0%{
+            opacity: 0;
+            transform: scale(0.1);
+            transform-origin: bottom;
+        }
+        100%{
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    .video-stream-line{
+        background: #f2f2f2;
+        width: 100%;
+        border-radius: 10px;
+    }
+    .video-stream-line div{
+        background-color: #041a2f;
+        padding: 2px;
+        border-radius: 10px;
+    }
+    .control-video{
+        position: absolute;
+        top: 40%;
+        left: 40%;
+        padding: 16px 20px 15px 20px;
+        border-radius: 50%;
+        color: white;
+        cursor: pointer;
+        font-size: 40px;
+        animation: fade 500ms ease-in-out forwards;
+        /* filter: blur(1px);
+        -webkit-filter: blur(1px); */
+        /* background: rgba(0,0,0, 0.6);
+        border: 2px solid white; */
+    }
+    @keyframes fade{
+        0%{
+            opacity: 0;
+            transform: scale(0.1);
+        }
+        100%{
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    .control-video:hover{
+        animation: fadout 500ms ease-in-out forwards;
+    }
+    .pause-play .fa{
+        color: white;
+    }
+    .mute-unmute{
+        margin-left: 10px;
+        margin-top: 10px;
+        font-size: 15px;
+        cursor: pointer;
+    }
+    .user-accurate-feeling{
+        font-family: roboto_bold;
+    }
+    .time-post{
+        background: #f6f7fd;
+        padding: 7px 8px 6px 8px;
+        border-radius: 20px;
+        font-size: 13px;
+    }
+    .user-feelings div{
+        background: #f6f7fd;
+        padding: 7px 8px 6px 8px;
+        border-radius: 4px;
+        margin-right: 5px;
+        margin-left: 5px;
+        cursor: pointer;
+        font-size: 13px;
+    }
+    .icon-comment{
+        background: #f6f7fd;
+        padding: 7px 8px 6px 8px;
+        border-radius: 10px;
+    }
+    .user-feelings div .fa{
+        font-size: 17px;
+    }
+    .commenter-image{
+        width: 50px;
+        height: 49px;
+        border-radius: 100%;
+        margin-left: 5px;
+        margin-top: 5px;
+    }
+    .commenter-image img{
+        border-radius: 100%;
+    }
+    .textarea-section{
+        width: 100%;
+        margin-right: 10px;
+        margin-top: 3px;
+    }
+    .text-input textarea{
+        border: none;
+        outline: none;
+        width: 100%;
+        height: 100%;
+        font-family: roboto_medium;
+    }
+    .text-input{
+        border: 1px solid #d3d3d3;
+        padding: 5px;
+        border-radius: 4px;
+        font-size: 13px;
+        margin-left: 8px;
+        margin-top: 4px;
+        width: 100%;
+    }
+    .post button{
+        background: #f6f7fd;
+        color: #041a2f;
+        border-radius: 4px;
+        padding: 10px;
+        border: none;
+        margin-left: 5px;
+        font-family: roboto_bold;
+        margin-top: 4px;
+        cursor: pointer;
+    }
+    .list-comments{
+        border: 1px solid #d3d3d3;
+        border-left: none;
+        border-right: none;
+        overflow: auto;
+        height: 280px;
+    }
+    .timeline-image-poster{
+        position: relative;
+        margin: 0 auto;
+        overflow-x: hidden;
+        width: 100%;
+        padding: 10px;
+        height: 100%;
+    }
+    .timeline-image-poster::after{
+        content: '';
+        position: absolute;
+        width: 6px;
+        background-color: #041a2f;
+        top: 0;
+        bottom: 0;
+        margin-left: 15px;
+        height: 200px;
+        padding: 2px
+    }
+
+    /* The actual timeline (the vertical ruler) */
+    .timeline-comment {
+        position: relative;
+        margin: 0 auto;
+        overflow-x: hidden;
+        width: 100%;
+        height: 100%;
+    }
+
+    /* The actual timeline (the vertical ruler) */
+    .timeline-comment::after {
+        content: '';
+        position: absolute;
+        width: 6px;
+        background-color: #041a2f;
+        top: 0;
+        bottom: 0;
+        margin-left: -3px;
+    }
+
+    /* Container around content */
+    .right-comment{
+        padding: 10px 10px;
+        position: relative;
+        background-color: white;
+            
+    }
+
+    /* Place the container to the right */
+    .right-comment {
+        left: 0.8%;
+    }
+    .content{
+        border: 1px solid #d3d3d3;
+        padding: 5px;
+        border-radius: 4px;
+        width: 100%;
+    }
+    .answerer-image{
+        width: 50px;
+        height: 45px;
+        border-radius: 100%;
+    }
+    .answerer-image img{
+        border-radius: 100%;
+    }
+    .answerer-name{
+        font-family: roboto_bold;
+        text-align: left;
+        text-transform: capitalize;
+    }
+    .answer{
+        background: #eaedfa;
+        border-radius: 4px;
+        padding: 5px;
+        text-align: left;
+        font-family: roboto_medium;
+        font-size: 13px;
+    }
+    .accurancy div{
+        background: #f6f7fd;
+        padding: 4px 8px 4px 8px;
+        border-radius: 10px;
+        margin-right: 5px;
+        margin-top: 3px;
+        font-size: 13px;
+        font-family: roboto_medium;
+    }
+    .accurancy div span{
+        font-family: roboto_bold;
+    }
+    .comment-textarea-answer textarea{
+        width: 100%;
+        height: 100%;
+        border: none;
+        font-family: robot_medium;
+    }
+    .comment-textarea-answer{
+        border: 1px solid #d3d3d3;
+        border-radius: 4px;
+        padding: 3px;
+    }
+    .submit-comments-post{
+        background: #f6f7fd;
+        padding: 5px 10px;
+        color: #041a2f;
+        font-family: roboto_bold;
+        border-radius: 4px;
+        border: none;
+        font-family: 12px;
+        cursor: pointer;
+    }
+    .comment-found-answer{
+        padding: 6px;
+    }
+    #comment-found{
+        overflow: auto;
+        height: 200px;
+        overflow-x: hidden;
+    }
+    #comment-found::-webkit-scrollbar {
+        width: 7px;
+    }
+    /* Track */
+    #comment-found::-webkit-scrollbar-track {
+        background: white; 
+    }
+    /* Handle */
+    #comment-found::-webkit-scrollbar-thumb {
+        background: #eaedfa;
+        border-radius: 4px; 
+    }
+    .each-comment-answer{
+        background: white;
+        border-right: 3px solid #041a2f;
+    }
+    .commenter-answer-img img{
+        border-radius: 50%;
+    }
+    .commenter-answer-img{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #f6f7fd;
+        margin-top: 5px;
+    }
+    .inner-section-answer{
+        background: #eaedfa;
+        border-radius: 6px;
+        padding: 7px;
+        font-family: roboto_medium;
+        font-size: 13px;
+        margin-top: 10px;
+    }
+    .comment-add-comment{
+        margin-top: 5px;
+        display: flex;
+    }
+    .commeter-image-down img{
+        border-radius: 50%;
+    }
+    .commeter-image-down{
+        width: 40px;
+        height: 40px;
+        background: #f6f7fd;
+        border-radius: 50%;
+    }
+    .textarea-add-comment textarea{
+        width: 100%;
+        height: 100%;
+        border: none;
+        outline: none;
+        font-family: roboto_medium;
+    }
+    .textarea-add-comment{
+        border-radius: 4px;
+        border: 1px solid #d3d3d3;
+        padding: 5px;
+        margin-left: 5px;
+        width: 100%;
+    }
+    .post-comment-written{
+        margin-left: 5px;
+        margin-right: 3px;
+        margin-top: 5px;
+    }
+    .post-comment-written button{
+        background: #f6f7fd;
+        color: #041a2f;
+        padding: 6px;
+        border-radius: 4px;
+        cursor: pointer;
+        outline: none;
+        font-family: roboto_bold;
+        text-transform: capitalize;
+        border: none;
+    }
+    .comment-found-comment{
+        border: 1px solid #d3d3d3;
+        border-top: none;
+        margin-top: 5px;
+        border-radius: 4px;
+    }
+    .each-comment-found{
+        border-top: 1px solid #d3d3d3;
+        padding: 10px 5px;
+        display: flex;
+    }
+    .commenter-image-found img{
+        border-radius: 50%;
+    }
+    .commenter-image-found{
+        width: 30px;
+        height: 30px;
+        background: #f6f7fd;
+        border-radius: 50%;
+    }
+    .real-comment-found{
+        font-family: roboto_medium;
+        letter-spacing: 0.3px;
+        line-height: 17px;
+        margin-left: 5px;
+        font-size: 12.5px;
+    }
+    .commeter-name_replied{
+        margin-left: 5px;
+        font-size: 13px;
+        letter-spacing: 0.3px;
+        font-family: roboto_bold;
+    }
+    .time-commented{
+        font-family: roboto_bold;
+        font-size: 12px;
+        color: #d3d3d3;
+        margin-left: 5px;
+    }
+    .post{
+        background: #041a2f;
+        padding: 5px 7px;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        outline: none;
+        font-family: roboto_medium;
+    }
+
+    #courses{
+        min-height: 440px;
+        max-height: 550px;
+        overflow: auto;
+        width: 500px;
+        overflow-x: hidden;
+    }
+    .no-data-found{
+        font-family: roboto_black;
+        color: #d3d3d3;
+        letter-spacing: 0.5px;
+        font-size: 18px;
+    }
+    .no-data-found .fa{
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+/* END BASIC CONTENT STYLE */
+/* ======================================================================================================================================= */
+/* ======================================================================================================================================== */
+
+/* MEDIA QUERY APPLY ON SMALL DEVICE */
+/* ====================================================================================================================================================== */
+/* ====================================================================================================================================================== */
+@media screen and (max-width: 991px){
+    .profile-image-user{
+        border-radius: 14px;
+    }
+    .profile-detail{
+        position: absolute;
+        bottom: 140px;
+        left: -50px;
+        font-family: roboto_regular;
+        width: 100%;
+    }
+    .written-biography{
+        width: 250px;
+    }
+    .settings{
+        position: absolute;
+        color: white;
+        bottom: 80px;
+        left: 25%;
+        font-family: roboto_thin;
+        letter-spacing: 0.6px;
+    }
+    .left-section{display: none;}
+    #courses{
+        width: 100%;
+        overflow-x: hidden;
+    }
+    .right-section{
+        width: 100%;
+        margin-right: 0px;
+    }
+    .top-section{
+        margin-top: 60px;
+        margin: 0px 0px;
+    }
+    .alignment{
+        margin: 0px 0px;
+    }
+    .card-body-content{
+        background: white;
+    }
+}
+@media screen and (max-width: 767px){
+    .level-count,.trainer-count{display: none;}
+    .written-biography{
+        width: 270px;
+    }
+    .card-trainer-question{
+        width: 100%;
+    }
+    .post-found{
+        width: 100%;
+    }
+    .post-found div ul .nav-item-card{
+        background: #f6f7fd;
+        padding: 5px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .post-found div ul .nav-item-card a{
+        color: #041a2f;
+        font-family: roboto_bold;
+        font-size: 13px;
+    }
+    .user-background-image{
+        background: #f6f7fd;
+        height: 350px;
+        position: relative;
+    }
+    .profile-detail{
+        position: absolute;
+        bottom: 90px;
+        left: -30px;
+        font-family: roboto_regular;
+        width: 100%;
+    }
+    .profile-image-user{
+        width: 200px;
+        height: 190px;
+        border-radius: 14px;
+    }
+    .settings{
+        position: absolute;
+        color: white;
+        bottom: 60px;
+        left: 25%;
+        font-family: roboto_thin;
+        letter-spacing: 0.6px;
+    }
+    .written-biography{
+        width: 250px;
+    }
+    .user-feelings div{
+        background: #f6f7fd;
+        padding: 7px 8px 6px 8px;
+        border-radius: 4px;
+        margin-right: 5px;
+        cursor: pointer;
+        font-size: 12px;
+    }
+}
+@media screen and (max-width: 500px){
+    .user-feelings div{
+        background: #f6f7fd;
+        padding: 5px 7px 5px 7px;
+        border-radius: 4px;
+        margin-right: 5px;
+        cursor: pointer;
+        font-size: 12px;
+    }
+    .right-section{
+        width: 100%;
+    }
+    .user-name-location-email{
+        width: 100%;
+    }
+    .alignment{
+        width: 100%;
+    }
+    .no-data-found{
+        width: 100%;
+    }
+    .user-accurate-feeling{
+        font-size: 12px;
+        width: 200px;
+    }
+    .Last-updates{
+        width: 100%;
+        padding: 0;
+    }
+    .each-post{
+        border: none;
+        border-top: 2px solid #d3d3d3;
+    }
+    #courses{
+        overflow: auto;
+        width: 100%;
+        overflow-x: hidden;
+    }
+    #pre_accu{
+        display: none;
+    }
+    .time-post{
+       display: none;
+    }
+    .full-post{
+        width: 100%;
+    }
+    .post-caption{
+        width: 200px;
+    }
+    .poster-img{
+        width: 35px;
+        height: 35px;
+    }
+    .commenter-image{
+        width: 35px;
+        height: 35px;
+    }
+    .text-input{
+        width: 100%
+    }
+    .text-input{
+        width: 100px;
+    }
+}
+/* END MEDIA QUERY */
+/* ======================================================================================================================================================= */
+/* ======================================================================================================================================================= */

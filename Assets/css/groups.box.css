@@ -1,0 +1,245 @@
+/* 
+    //////////////////////////////////////////////////////
+
+    INTELLIGENT BOX
+    DESIGNED & DEVELOPED by Manirabona Patience
+    
+    author: Mnirabona Patience,
+    Email:  Hseal419@gmail.com,
+    location: Kigali,Rwanda,
+    pro: Intelligent Box E-learning,
+    version: 1.0.0
+    
+	//////////////////////////////////////////////////////
+*/
+
+ /* external fonts family */
+ /* ======================================================================================= */
+ /* ======================================================================================== */
+    @font-face {font-family: 'roboto_bold';src: url('../fonts/Roboto/Roboto-Bold.ttf');} 
+    @font-face{font-family: 'roboto_regular';src: url('../fonts/Roboto/Roboto-Regular.ttf');}
+    @font-face{font-family: 'baskvile';src: url('../fonts/baskerville/BASKVILL.TTF');}
+    @font-face{font-family: 'roboto_medium';src: url('../fonts/Roboto/Roboto-Medium.ttf');}
+
+/* apply on scroll bar */
+/* ========================================================================================== */
+/* -========================================================================================= */
+/* width */
+ ::-webkit-scrollbar {
+     width: 10px;
+ }
+
+ /* Track */
+ ::-webkit-scrollbar-track {
+     background: white; 
+ }
+
+ /* Handle */
+ ::-webkit-scrollbar-thumb {
+     background: #041a2f;
+     border-radius: 4px; 
+ }
+
+
+/* body style */
+/* ============================================================================================================================= */
+body{
+   padding: 0;
+   margin: 0;
+   font-family: roboto_regular;
+}
+
+/* left side section style */
+/* ================================================================================================================================ */
+.left-side{
+    /* background-color: white; */
+    margin-left: 160px;
+    
+}
+
+/* top background  */
+/* =================================================================================================================================== */
+.top-background{
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    background: white;
+    height: 350px;
+    border: none;
+    box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 15px rgba(0,0,0, 0.4);
+    padding: 0px 3px 3px 3px;
+}
+.top-background img{
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    position: relative;
+}
+.title-background{
+    font-family: roboto_bold;
+    text-transform: capitalize;
+    font-size: 20px;
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    color: white;
+}
+
+/* right side style */
+/* ====================================================================================================================== */
+.right-side{
+    background: white;
+    padding: 15px 0px 15px 0px;
+}
+.department-name-course{
+    box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 15px rgba(0,0,0, 0.4);
+    background: white;
+    border-radius: 4px;
+}
+.course-department{
+    border-radius: 4px;
+    padding: 9px;
+    margin-bottom: 20px;
+}
+.section-title{
+    font-family: roboto_bold;
+    font-size: 15px;
+    background: #f6f7fd;
+    border-radius: 4px;
+    padding: 9px 15px 9px 15px;
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    letter-spacing: 0.5;
+}
+.search_group{
+    display: flex;
+}
+.search_group input{
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: #f6f7fd;
+    font-family: roboto_medium;
+    margin-left: 10px;
+}
+.search_group .fa{
+    margin-top: 2.5px;
+    margin-right: 15px;
+}
+.department-list{
+    overflow: hidden;
+    width: 100%;
+}
+
+/* each department */
+/* ====================================================================================================================================== */
+.eachdepartment{
+    border-radius: 4px;
+    width: 300px;
+    float: left;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 7px rgba(0,0,0, 0.4);
+    height: 300px;
+}
+.department-image{
+    position: relative;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    background: #f6f7fd;
+    width: 100%;
+    height: 150px;
+}
+.department-image img{
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.department-image .department-name{
+    position: absolute;
+    bottom: 5px;
+    color: white;
+    font-family: roboto_bold;
+    font-size: 15px;
+    text-transform: capitalize;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0px 5px 0px 8px;
+}
+.study-now{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: white;
+    border-radius: 4px;
+    border: 1.5px solid white;
+    padding: 5px 20px 5px 20px;
+    cursor: pointer;
+    font-family: roboto_bold;
+}
+.department-bio{
+    padding: 10px;
+    font-family: roboto_regular;
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    letter-spacing: 0.5px;
+    line-height: 17px;
+}
+.department-status{
+    padding: 10px;
+    background-color: white;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.department-status div{
+    text-transform: capitalize;
+    font-family: roboto_regular;
+    margin-right: 5px;
+    text-align: center;
+}
+.department-status div span{
+    text-transform: capitalize;
+    font-family: roboto_bold;
+    margin-left: 2px;
+}
+
+/* end basic style */
+/* ============================================================================================================================= */
+/* ============================================================================================================================= */
+
+/* MEDIA QUERY APPLY ON SMALL DEVICE */
+/* ================================================================================================================================= */
+/* ================================================================================================================================= */
+@media screen and (max-width: 1199px){
+    .section-title{
+        flex-direction: column;
+    }
+    .search_group{
+        border: 1px solid #d3d3d3;
+        padding: 5px;
+        border-radius: 4px;
+        margin-top: 10px;
+    }
+}
+@media screen and (max-width: 375px){
+    .top-background{
+        height: 250px;
+    }
+    .eachdepartment{
+        border-radius: 4px;
+        width: 270px;
+        float: left;
+        margin-right: 20px;
+        margin-top: 10px;
+        margin-left: 10px;
+        margin-bottom: 10px;
+        box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 7px rgba(0,0,0, 0.4);
+    }
+}
+/* end media query */
+/* ================================================================================================================================== */
+/* ================================================================================================================================== */

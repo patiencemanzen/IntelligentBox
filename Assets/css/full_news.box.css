@@ -1,0 +1,280 @@
+/* 
+    //////////////////////////////////////////////////////
+
+    INTELLIGENT BOX
+    DESIGNED & DEVELOPED by Manirabona Patience
+    
+    author: Mnirabona Patience,
+    Email:  Hseal419@gmail.com,
+    location: Kigali,Rwanda,
+    pro: Intelligent Box E-learning,
+    version: 1.0.0
+    
+	//////////////////////////////////////////////////////
+*/
+
+ /* external font family */
+ /* ===================================================================================== */
+ /* ===================================================================================== */
+    @font-face {font-family: 'roboto_bold';src: url('../fonts/Roboto/Roboto-Bold.ttf');} 
+    @font-face{font-family: 'roboto_regular';src: url('../fonts/Roboto/Roboto-Regular.ttf');}
+    @font-face{font-family: 'baskvile';src: url('../fonts/baskerville/BASKVILL.TTF');}
+    @font-face{font-family: 'roboto_medium';src: url('../fonts/Roboto/Roboto-Medium.ttf');}
+
+/* apply on scroll bar */
+/* ======================================================================================= */
+/* ======================================================================================= */
+    /* width */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: white; 
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #041a2f;
+        border-radius: 4px; 
+    }
+
+
+/* body style */
+/* =========================================================================================== */
+/* =========================================================================================== */
+    body{
+        padding: 0;
+        margin: 0;
+        font-family: roboto_regular;
+    }
+    .down-section{
+        margin-top: 100px;
+    }
+
+/* full news section */
+/* ============================================================================================== */
+/* ============================================================================================== */
+    .full-news-section{
+        border-radius: 4px;
+        background-color: white;
+        height: 100%;
+        width: 100%;
+        padding: 10px;
+        box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 10px rgba(0,0,0, 0.4);
+    }
+    .full-story-pre{
+        overflow: hidden;
+    }
+    .full-image-story img{
+        width: 100%;
+        height: 100%;
+        border-radius: 4px;
+        object-fit: fill;
+    }
+    .full-image-story{
+        width: 600px;
+        background: #f6f7fd;
+        border-radius: 4px;
+        margin-right: 10px;
+        object-fit: fill;
+    }
+    .full-story-pre div{
+        float: left;
+    }
+    .full-story-pre p{
+        line-height: 20px;
+    }
+    .story-title{
+        font-family: roboto_bold;
+        font-size: 20px;
+        line-height: 18px;
+        letter-spacing: 0.5px;
+    }
+    .story-type{
+        font-family: roboto_regular;
+        font-size: 15px;
+        margin-top: 10px;
+        line-height: 18px;
+        letter-spacing: 0.5px;
+    }
+    .more-story-related{
+        margin-top: 10px;
+    }
+    .related-story-list{
+        overflow: hidden;
+        border-top: 1.5px solid #041a2f;
+        padding: 20px 0px;
+    }
+    .each-story{
+        width: 300px;
+        border-radius: 4px;
+        float: left;
+        margin-right: 10px;
+        margin-left: 10px;
+        box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 6px rgba(0,0,0, 0.4);
+    }
+    .story-image img{
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+    }
+    .story-image{
+        width: 100%;
+        height: 200px;
+        background: #f6f7fd;
+    }
+    .pre-section{
+        overflow: hidden;
+    }
+    .title-section{
+        padding: 10px 15px;
+        font-family: roboto_bold;
+        text-transform: capitalize;
+        background: #041a2f;
+        width: auto;
+        color: white;
+        float: left;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+    }
+    .story-related-title{
+        font-family: roboto_bold;
+        font-size: 16px;
+        padding: 10px;
+        line-height: 17px;
+        letter-spacing: 0.4px;
+    }
+    .short-desc{
+        font-family: roboto_regular;
+        padding: 10px;
+        letter-spacing: 0.4px;
+        line-height: 18px;
+    }
+    .more-related{
+        padding: 10px 0px;
+        overflow: hidden;
+        display: flex;
+        justify-content: space-between;
+    }
+    .left-short-story{
+        overflow: hidden;
+        width: 100%;
+    }
+    .each-short-story{
+        display: flex;
+        margin-left: 10px;
+        float: left;
+        margin-top: 30px;
+    }
+    .short-image-story{
+        width: 150px;
+        border-radius: 4px;
+        background: #f6f7fd;
+    }
+    .short-image-story img{
+        border-radius: 4px;
+    }
+    .story-short-desc{
+        margin-left: 5px;
+    }
+    .short-story-hi{
+        font-family: roboto_bold;
+        font-size: 17px;
+    }
+    .story-short-desc{
+        width: 150px;
+    }
+    .date-posted{
+        font-family: roboto_bold;
+        font-size: 15px;
+        color: #d3d3d3;
+        margin-top: 5px;
+    }
+    .most-commented{
+        overflow: hidden;
+    }
+    .commented-list{
+        border-top: 1.5px solid #041a2f;
+        padding: 10px 5px;
+    }
+    .each-commented{
+        border-bottom: 1px solid #d3d3d3;
+        padding: 10px 5px;
+    }
+    .content-detail{
+        font-family: roboto_bold;
+        font-size: 16px;
+    }
+    .user-accurated{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 5px;
+    }
+    .name{
+        font-family: roboto_medium;
+        text-transform: capitalize;
+    }
+    .date{
+        color: #d3d3d3;
+        font-family: roboto_medium;
+        text-transform: capitalize;
+    }
+    .comment{
+        font-family: roboto_bold;
+        text-transform: capitalize;
+    }
+    .comment .fa{
+        font-size: 16px;
+    }
+    .right-short-story{
+        width: 100%;
+    }
+/* end basic desine */
+/* ========================================================================================================== */
+/* ========================================================================================================== */
+
+
+/* MEDIA QUERY */
+/* ============================================================================================================= */
+/* ============================================================================================================= */
+    @media screen and (max-width: 991px){
+        .full-image-story{
+            width: 100%;
+        }
+    }
+    @media screen and (max-width: 768px){
+        .full-image-story{
+            width: 100%;
+        }
+    }
+    @media screen and (max-width: 425px){
+        .story-title{
+            font-family: roboto_bold;
+            font-size: 16px;
+            line-height: 17px;
+            letter-spacing: 0.5px;
+            margin-top: 30px;
+        }
+        .story-type{
+            line-height: 17px;
+        }
+        .each-story{
+            margin-bottom: 30px;
+        }
+        .more-related{
+            flex-direction: column;
+        }
+        .right-short-story{
+            margin-top: 30px;
+        }
+        .title-section{
+            width: 100%;
+        }
+        .full-image-story{
+            width: 100%;
+        }
+    }
+/* END MEDIA QUERY */
+/* =============================================================================================================== */
+/* =============================================================================================================== */

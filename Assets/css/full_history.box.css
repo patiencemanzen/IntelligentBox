@@ -1,0 +1,301 @@
+/* 
+    //////////////////////////////////////////////////////
+
+    INTELLIGENT BOX
+    DESIGNED & DEVELOPED by Manirabona Patience
+    
+    author: Mnirabona Patience,
+    Email:  Hseal419@gmail.com,
+    location: Kigali,Rwanda,
+    pro: Intelligent Box E-learning,
+    version: 1.0.0
+    
+	//////////////////////////////////////////////////////
+*/
+
+ /* external font family */
+ /* ====================================================================================================================================== */
+ /* ====================================================================================================================================== */
+ @font-face {font-family: 'roboto_bold';src: url('../fonts/Roboto/Roboto-Bold.ttf');} 
+ @font-face{font-family: 'roboto_regular';src: url('../fonts/Roboto/Roboto-Regular.ttf');}
+ @font-face{font-family: 'baskvile';src: url('../fonts/baskerville/BASKVILL.TTF');}
+ @font-face{font-family: 'roboto_medium';src: url('../fonts/Roboto/Roboto-Medium.ttf');}
+
+/* apply on scroll bar */
+/* ========================================================================================================================================= */
+/* width */
+ ::-webkit-scrollbar {
+     width: 10px;
+ }
+
+ /* Track */
+ ::-webkit-scrollbar-track {
+     background: white; 
+ }
+
+ /* Handle */
+ ::-webkit-scrollbar-thumb {
+     background: #041a2f;
+     border-radius: 4px; 
+ }
+
+/* body style */
+/* ========================================================================================================================================= */
+body{
+   padding: 0;
+   margin: 0;
+   font-family: roboto_regular;
+}
+.down-lord{
+    margin-top: 80px;
+}
+
+/* left side section */
+/* ======================================================================================================================================== */
+.left-side-section{
+    box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 10px rgba(0,0,0, 0.4);
+    background: white;
+    margin: 0 auto;
+}
+.left-side-section{
+    background: white;
+}
+.top-background-image{
+    position: relative;
+    background: #f6f7fd;
+    height: 250px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    box-shadow: 0 0 5px rgba(0,0,0, 0.3);
+}
+.top-background-image img{
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    width: 100%;
+}
+.top-name-pre{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    font-size: 18px;
+    font-family: roboto_bold;
+    text-transform: capitalize;
+}
+
+
+.each-history-post{
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 5px rgba(0,0,0, 0.3);
+}
+.history-image{
+    width: 100%;
+    background: #f6f7fd;
+    position: relative;
+    border-radius: 4px;
+    background: #f6f7fd;
+    object-fit: fill;
+}
+.history-image img{
+    border-radius: 4px;
+}
+.history-image video{
+    border-radius: 4px;
+    object-fit: fill;
+    position: relative;
+}
+.post-desc{
+    margin-top: 2px;
+    width: 100%;
+}
+.post-title{
+    font-size: 20px;
+    font-family: roboto_bold;
+    text-transform: capitalize;
+    width: 100%;
+    line-height: 18px;
+    letter-spacing: 0.5px;
+}
+.post-sub-title{
+    font-size: 15px;
+    font-family: roboto_bold;
+    text-transform: initial; 
+    width: 100%;
+    letter-spacing: 0.5px;
+    line-height: 18px;
+}
+.author{
+    font-size: 13px;
+    font-family: roboto_bold;
+    text-transform: capitalize; 
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    letter-spacing: 0.5px;
+}
+.dedicate{width: 100%;}
+.user-accurate{width: 100%;}
+.user-accurate div{
+    background: #f6f7fd;
+    font-family: roboto_bold;
+    text-transform: capitalize;
+    border-radius: 20px;
+    padding: 7px 9px 7px 9px;
+    font-size: 13px;
+    cursor: pointer;
+}
+.sub-full-desc{
+    font-family: roboto_regular;
+    width: 100%;
+    letter-spacing: 0.5px;
+    line-height: 19px;
+}
+.make-direction{
+    overflow: hidden;
+}
+.arouse-usr{
+    background: #041a2f;
+    color: white;
+    font-family: roboto_bold;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    padding: 10px 15px;
+    width: auto;
+    float: left;
+}
+.related-list{
+    overflow: hidden;
+    border-top: 1.5px solid #041a2f;
+    padding: 10px 3px;
+}
+.each-story-related{
+    width: 290px;
+    border-radius: 4px;
+    box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 5px rgba(0,0,0, 0.4);
+    float: left;
+    margin: 10px 5px;
+    cursor: pointer;
+}
+.related-img img{
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.related-img{
+    height: 200px;
+}
+.story-title-related{
+    padding: 10px;
+    font-family: roboto_bold;
+    font-size: 17px;
+    border-bottom: 1px solid #d3d3d3;
+    letter-spacing: 0.5px;
+    line-height: 20px;
+}
+.sub-full-desc{
+    padding: 10px;
+    font-family: roboto_medium;
+    letter-spacing: 0.4px;
+    line-height: 18px;
+}
+.video-controls{
+    width: 100%;
+    position: absolute;
+    bottom: 5px;
+    color: white;
+    padding: 10px;
+    font-family: roboto_bold;
+    animation: fade 1000ms ease-in-out forwards;
+    background: rgba(0,0,0, 0.3);
+}
+@keyframes fade{
+    0%{
+        opacity: 0;
+        transform: scale(0.1);
+        transform-origin: bottom;
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+.video-stream-line{
+    background: #f2f2f2;
+    width: 100%;
+    border-radius: 4px;
+}
+.video-stream-line div{
+    background-color: #041a2f;
+    padding: 2px;
+    border-radius: 4px;
+}
+.control-video{
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    padding: 16px 20px 15px 20px;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    font-size: 40px;
+    animation: fade 500ms ease-in-out forwards;
+    /* filter: blur(1px);
+    -webkit-filter: blur(1px); */
+    /* background: rgba(0,0,0, 0.6);
+    border: 2px solid white; */
+}
+@keyframes fade{
+    0%{
+        opacity: 0;
+        transform: scale(0.1);
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+.control-video:hover{
+    animation: fadout 500ms ease-in-out forwards;
+}
+.pause-play .fa{
+    color: white;
+}
+.mute-unmute{
+    margin-left: 10px;
+    margin-top: 10px;
+    font-size: 15px;
+    cursor: pointer;
+}
+/* end left side section */
+/* ========================================================================================================================================= */
+
+/* MEDIA QUERY APPLY ON SMALL DEVICE */
+/* ======================================================================================================================================== */
+/* ========================================================================================================================================== */
+@media screen and (max-width: 375px){
+    .control-video{
+        position: absolute;
+        top: 25%;
+        left: 40%;
+        padding: 16px 20px 15px 20px;
+        border-radius: 50%;
+        color: white;
+        cursor: pointer;
+        font-size: 40px;
+        animation: fade 500ms ease-in-out forwards;
+    }
+    .video-controls{
+        width: 100%;
+        position: absolute;
+        bottom: 5px;
+        color: white;
+        padding: 10px;
+        font-family: roboto_bold;
+        animation: fade 1000ms ease-in-out forwards;
+        background: none;
+    }
+}
+/* ========================================================================================================================================== */
+/* ========================================================================================================================================== */

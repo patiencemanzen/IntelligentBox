@@ -269,7 +269,8 @@
                 }                   ?>
                     <!-- each trainer -->
                     <!-- =============== -->
-                    <div class="position-relative" onmouseover="about_user(this)" onmouseout="about_user(this)">
+                    <!-- if you want to hover on user and display about of user use 'onmouseover="about_user(this)" onmouseout="about_user(this)"' -->
+                    <div class="position-relative">
                         <div class="each-learner">
                             <div class="d-flex">
                                 <div class="learner-image">

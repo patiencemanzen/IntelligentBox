@@ -134,6 +134,7 @@ function show_image_name(){
             const reader = new FileReader();
             reader.addEventListener("load",function(){
                 name.innerHTML = "You choose "+ file.name;
+                document.getElementById("submit_class").style.display = "block";
             });
             reader.readAsDataURL(file);
         }
@@ -198,3 +199,4 @@ function support_image(obj){
 function submit_que_trainer(obj){
    obj.innerHTML = "Sending..."
 }
+

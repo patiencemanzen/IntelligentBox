@@ -101,6 +101,7 @@ body{
     margin-left: 10px;
     width: 100%;
     margin-top: 7px;
+    position: ;
 }
 .group-name{
     font-family: roboto_bold;
@@ -467,7 +468,7 @@ body{
     padding: 5px;
     margin-left: 10px;
 }
-.submit-info{overflow: hidden;}
+.submit-info{overflow: hidden; align-items: center;}
 .submit-info button{
     background: #041a2f;
     color: white;
@@ -475,7 +476,21 @@ body{
     border: none;
     border-radius: 4px;
     font-family: roboto_medium;
+    cursor: pointer;
     float: right;
+}
+.error{
+    color: white;
+    font-family: roboto_bold;
+    font-weight: 590;
+    letter-spacing: 0.6px;
+    background: #041a2f;
+    border-radius: 4px;
+    padding: 5px;
+    width: 100px;
+    display: none;
+    float: right;
+    margin-left: 10px;
 }
 .present-action-table{
     font-family: roboto_bold;
@@ -1025,6 +1040,9 @@ td{font-family: roboto_regular;}
     .poster-img img{
         border-radius: 100%;
     }
+    .full-post{
+        width: 100%;
+    }
     .poster-name{
         font-family: roboto_bold;
         font-size: 15px;
@@ -1039,7 +1057,6 @@ td{font-family: roboto_regular;}
         letter-spacing: 0.3px;
     }
     .media{
-        padding: 0 5px 0px 0px;
         width: 100%;
     }
     .type-media{
@@ -1047,18 +1064,12 @@ td{font-family: roboto_regular;}
         border-radius: 4px;
         height: 250px;
         width: 100%;
+        position: relative;
     }
     .type-media img{
         border-radius: 4px;
         width: 100%;
         height: 100%;
-    }
-    .type-media{
-        position: relative;
-        background: #f6f7fd;
-        width: 100%;
-        height: 250px;
-        border-radius: 4px;
     }
     .type-media video{
         border-radius: 4px;

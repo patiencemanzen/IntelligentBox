@@ -223,6 +223,41 @@ function update_Account_info(obj){
     });
 }
 
+function New_password(obj){
+    var password_inputted = document.getElementById("password_inputted").value;
+    var comfirm_password = document.getElementById("comfirm_password_inputted").value;
+    var email = document.getElementById("hiddenEmail").value;
+
+    if(password_inputted == ""){
+        document.getElementById("errror").style.display = "block";
+        document.getElementById("new_password").style.border = "1px solid red";
+        document.querySelector(".error").innerHTML = "Input new Password!"
+    }else if(password_inputted.length < 6){
+        document.getElementById("new_password").style.border = "1px solid red";
+        document.getElementById("errror").style.display = "block";
+        document.querySelector(".error").innerHTML = "At least greater than 6 character, letters and number";
+    }else if(comfirm_password == ""){
+        document.getElementById("comfirm_password").style.border = "1px solid red";
+        document.getElementById("errror").style.display = "block";
+        document.querySelector(".error").innerHTML = "Comfirm Password!"
+    }else if(password_inputted != comfirm_password){
+        document.getElementById("new_password").style.border = "1px solid red";
+        document.getElementById("comfirm_password").style.border = "1px solid red";
+        document.getElementById("errror").style.display = "block";
+        document.querySelector(".error").innerHTML = "Password not Match!"
+    }else{
+        $(document).ready(function(){
+            $(this).load("profile_updates.php", {
+                personal_email: email,
+                new_password_inputted: password_inputted
+            }, function(){
+                document.getElementById("errror").style.display = "block";
+                document.querySelector(".error").innerHTML = "Updated";
+            });
+        });
+    }
+}
+
 // update setting
 // ================================================================================================================
 function update_location_setting(obj){

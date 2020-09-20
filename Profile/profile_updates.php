@@ -185,6 +185,12 @@
             $_SESSION['Lastname'] = $lastName;
        }
 
+       public function update_password($personal_email, $new_password){
+           $ency_password = sha1($new_password);
+           $update_password = "UPDATE intelligent_users SET password='$ency_password' WHERE email='$personal_email'";
+           $execute_updates = mysqli_query($this->Frequency(), $update_password);
+       }
+
        public function location_visibility($email, $location_enable){
             $check_exists = "SELECT * FROM more_account_info WHERE email='$email'";
             $execute_check = mysqli_query($this->Frequency(), $check_exists);
@@ -414,6 +420,12 @@
     // =========================================================================================================================================
     if(isset($_POST['account_email'])){
         $newMigration->update_account_data($_POST['account_email'], $_POST['get_firstname'], $_POST['get_lastname']);
+    }
+
+    // if request is to update password
+    // ===============================================================================================================================================================================================
+    if(isset($_POST['new_password_inputted'])){
+        $newMigration->update_password($_POST['personal_email'], $_POST['new_password_inputted']);
     }
 
     // if request is toupdate setting

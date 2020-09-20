@@ -76,13 +76,14 @@
 
             $group_savior = new Create_group($group_name_init, $group_bio_init, $creater_email, $group_img_make, $url_encode, $group_privacy);
             if($group_savior->save_group()){
-                echo "group successfully saved";
                 header("location: ../Group-discusion/Group_admin.php?group=".$url_encode);
             }else{
-                echo "group fail to be created";
+                header("location: profile.php?fail_create_group");
+                exit();
             }
         }else{
-            echo "File upload fail";
+            header("location: profile.php?transfer_fail");
+            exit();
         }
     }
 ?>

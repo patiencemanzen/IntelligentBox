@@ -389,7 +389,7 @@
                                                         <input type="hidden" name="user_email" value="<?php echo $Session_email_call; ?>">
                                                         <input type="file" name="class_image" id="class_image" style="display: none;">
                                                         <button class="submit_class" type="button" onclick="getClassImage(this)">Choose photo</button>
-                                                        <button class="submit_class" type="submit" name="submit_class">Start class</button>
+                                                        <button class="submit_class" id="submit_class" type="submit" name="submit_class">Start class</button>
                                                     </div> 
                                                     </form>
                                                 </div>
@@ -749,7 +749,7 @@
                                 <!-- course user may like next -->
                                 <!-- =========================================================================================================================================== -->
                                 <!-- =========================================================================================================================================== -->
-                                <div class="user-friend">
+                                <div class="user-friend mt-3">
                                     <div class="label_tab"> Departments you might like </div>
                                     <div class="friend-list mt-2" id="separtment_list">
                                         <div class="container-spnner">

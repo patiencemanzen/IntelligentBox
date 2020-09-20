@@ -171,7 +171,9 @@ body{
 .poster-name{
     font-family: roboto_bold;
     text-transform: capitalize;
-    font-size: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
 }
 .time-pos{
     font-family: roboto_medium;
@@ -182,9 +184,11 @@ body{
 }
 .post-caption{
     font-family: roboto_medium;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.5px;
     line-height: 19px;
     font-weight: 570;
+    margin-top: 3px;
+    font-size: 15px;
 }
 .media{
     padding: 0 2px 0px 0px;
@@ -922,6 +926,7 @@ body{
     text-transform: capitalize;
     padding: 10px;
     position: relative;
+    font-size: 15px;
 }
 .close-creation-room{
     position: absolute;
@@ -984,8 +989,11 @@ body{
     height: 100%;
     outline: none;
     border: none;
-    font-family: roboto_medium;
-    font-size: 13px;
+    font-family: roboto_bold;
+    font-size: 14px;
+   font-weight: 590;
+   line-height: 20px;
+   letter-spacing: 0.6px;
 }
 .caption-textarea{
     border: 1px solid #d3d3d3;

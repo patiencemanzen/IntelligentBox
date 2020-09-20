@@ -268,7 +268,7 @@
                                                 <li><a class="" data-toggle="tab" href="#Privacy" role="tab">  
                                                     <div class="each-conf">
                                                         <div class="icon-pre-conf-type"><i class="fa fa-shield"></i></div>
-                                                        <div class="conf-title">Privacy</div>
+                                                        <div class="conf-title">Privacy & Safety</div>
                                                     </div>
                                                 </a></li>
                                                 <li><a class="" data-toggle="tab" href="#Notifications" role="tab">  
@@ -480,6 +480,27 @@
                                                     <button type="button" id="update_data" onclick="update_Account_info(this)">Update</button>
                                                 </div>
                                             </div>
+                                            <div class="title-group-desc">Change password</div>
+                                            <div class="short-desc-account">You can change password by fill new password and comfirm it.</div>
+                                            <div class="input-field mt-2">
+                                                <table class="table table-borderless">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="present-action-table">New Password</td>
+                                                            <td class="edit-field" id="new_password"><input type="password" name="" id="password_inputted" placeholder="Type New Password"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="present-action-table">Comfirm Password</td>
+                                                            <td class="edit-field" id="comfirm_password"><input type="password" name="" id="comfirm_password_inputted" placeholder="Comfirm Password"></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <div class="submit-info">
+                                                    <div class="error" id="errror"></div>
+                                                    <button type="button" id="update_data" onclick="New_password(this)">Update</button>
+                                                </div>
+                                            </div>
+
                                         </div>
                                     </div>
                                     <!-- end Account settings -->

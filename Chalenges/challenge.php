@@ -134,7 +134,7 @@
                <!-- ====================================================================================================================== -->
                <!-- ====================================================================================================================== -->
                <div class="top-background">
-                   <div class="top-pre-background"><img src="../Images/group-challenge/72651.jpg" alt="" width="100%" height="100%"></div>
+                   <div class="top-pre-background"><img src="../Images/group-challenge/group-challenge.jpg" alt="" width="100%" height="100%"></div>
                    
                    <div class="group-discusion-detal d-flex justify-content-between">
                        <div class="challenger">
@@ -262,7 +262,7 @@
                                                     <input type="file" name="chosen_file" id="chosen_file" style="display: none;">
                                                     <input type="hidden" name="challenge_url" value="<?php echo $challenge_url; ?>">
                                                     <input type="hidden" name="user_email" id="hiddenEmail" value="<?php echo $Session_email_call; ?>">
-                                                    <div class="choose-video-btn"><button type="button" onclick="choose_file(this)"><i class="fa fa-photo mr-2"></i> <i class="fa fa-video-camera mr-2"></i> Choose media</button></div>
+                                                    <div class="choose-video-btn"><button type="button" onclick="choose_file(this)"><i class="fa fa-photo mr-2"></i> Choose media</button></div>
                                                 </div>
                                                 <div class="create-post-btn">
                                                     <div class=""><button type="submit" name="submit_post">create now</button></div>

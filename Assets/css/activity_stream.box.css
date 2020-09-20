@@ -62,7 +62,7 @@
     }
 
     .side_content {
-        height: auto;
+        height: 85vh;
         width: 26rem;
         position: fixed;
         z-index: 1;
@@ -71,6 +71,8 @@
         background: var(--BoxPrimary);
         padding: 10px;
         border-radius: 4px;
+        overflow: auto;
+        overflow-x: hidden;
     }
     .main {
         margin-right: 27rem; /* Same as the width of the sidenav */

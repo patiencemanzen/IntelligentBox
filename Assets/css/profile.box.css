@@ -1427,6 +1427,9 @@
             border-radius: 4px;
             color: white;
         }
+        #submit_class{
+            display: none;
+        }
 
 
         .each_class{
@@ -4648,6 +4651,21 @@
                 text-align: center;
                 padding: 3px 5px;
                 text-decoration: none;
+            }
+            .hold_two_section{
+                display: flex;
+                flex-direction: column;
+            }
+            .class_dashboard{
+                margin-left: 0px;
+                width: 100%;
+            }
+            .each_class{
+                margin-bottom: 30px;
+            }
+            .class_status{
+                width: 200px;
+                margin-bottom: 5px;
             }
         }
 

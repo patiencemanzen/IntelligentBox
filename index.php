@@ -121,7 +121,7 @@
         <!-- ====================================================================================================================== -->
 
         
-        <!-- image corsous -->
+        <!-- TOP BACKGROUND IMAGE -->
         <!-- ====================================================================================================== -->
         <!-- ====================================================================================================== -->
         <div class="carousel slide shadow-none" data-ride="carousel" id="slides">
@@ -696,12 +696,19 @@
                                                         <span class="title-company">&copy; MicroBox Founder</span><br>
                                                         <span class="sub-title"> Manirabona Patience </span><br><br>
                                                         <span class="company-desc mt-3">
-                                                        Manirabona is software developer who has 2+ of expirience in computer programing
-                                                        from world mission school and also want to develope more computing technologies around.
-                                                        this site may help you at some point in you realy commit to know some thing different, i hightly recommend to focus 
+                                                        Manirabona is software developer who has 2+ of expirience in computer programing and web building
+                                                        from world mission school.this site may help you at some point in you realy commit to know some thing different, i hightly recommend to focus 
                                                         on what realy like more then share what you got or better help from our trainer or nearby trainer.
                                                         </span>
                                                     </p>
+                                                </div>
+                                                <hr>
+                                                <div class="mapouter">
+                                                    <div class="gmap_canvas">
+                                                        <iframe width="100%" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q=fawe&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                                                        <a href="https://2torrentz.net">edraw max torrent</a>
+                                                    </div>
+                                                    <style>.mapouter{position:relative;text-align:right;height:300px;width:100%;}.gmap_canvas {overflow:hidden;background:none!important;height:300px;width:100%;}</style>
                                                 </div>
                                             </div>
                                             <!-- end about us -->
@@ -780,7 +787,7 @@
                                                         <!-- <div class="function-user">Fullstack Developer</div>
                                                         <div class="function-user">Founder, MicroBox lab</div> -->
                                                         <div class="developer-desc">                                               
-                                                            Manirabona has more than 2 years of experience as a Developer and programmer. He founder of intelligent box website and works on intelligent 
+                                                            Manirabona has more than 2 years of experience as a Developer and programmer. He is the founder of intelligentBox website and works on intelligent 
                                                             box as full stack developer. With best knwoledge from world mission school and online coding websites
                                                         </div>
                                                         <div class="find-social-network">
@@ -797,7 +804,7 @@
                                                         <div class="developer-name">Jean Chrisostom</div>
                                                         <div class="function-user">Fullstack Developer</div>
                                                         <div class="developer-desc">
-                                                            Chrisostome is developer, programer with 3+ years of expirience from world mission school and online web school. 
+                                                            Chrisostome is developer and web builder with 3+ years of expirience from world mission school and online web school. 
                                                         </div>
                                                         <div class="find-social-network">
                                                             <a href="#"><i class="fa fa-facebook-f"></i></a>
@@ -813,7 +820,7 @@
                                                         <div class="developer-name">Rubagumya Remy</div>
                                                         <div class="function-user">Fullstack Developer</div>
                                                         <div class="developer-desc">
-                                                            Remy is programer with 3+ years of expirience from world mission school and online coding school. 
+                                                            Remy is programer and Web builder with 3+ years of expirience from world mission school and online coding schools. 
                                                         </div>
                                                         <div class="find-social-network">
                                                             <a href="#"><i class="fa fa-facebook-f"></i></a>
@@ -901,7 +908,6 @@
                 </div>
             </div>
             <!-- ============================================================================================================================================= -->
-
 
             <!-- footer -->
             <!-- ===================================================================================================================================================================== -->

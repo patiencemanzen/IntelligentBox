@@ -513,9 +513,11 @@
         width: 100%;
         font-family: roboto_bold;
         letter-spacing: 0.6px;
+        font-weight: 590;
+        text-align: center;
     }
     .carousel-item{
-        height: 345px;
+        height: 60vh;
         background: #f6f7fd;
         box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 6px rgba(0,0,0, 0.4);
         background-size: cover;

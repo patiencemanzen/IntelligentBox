@@ -76,7 +76,7 @@
             $mail->Host = "smtp.gmail.com";
             $mail->SMTPAuth = true;
             $mail->Username = "intelligentbox732@gmail.com";
-            $mail->Password = 'intelligentBox2020';
+            $mail->Password = 'Homo_sapience@intelligentbox';
             $mail->Port = 465;    //587
             $mail->SMTPSecure = "ssl";   // tls
             

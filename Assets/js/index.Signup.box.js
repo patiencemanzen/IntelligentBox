@@ -79,7 +79,7 @@ function checkInput(obj){
             },function(response){
                 $("#Preloader").css("display","none");
                 var obj = JSON.parse(response);
-                if(obj == "Check out code sent to this E-mail" || obj == "Fail to send code, try again!"){
+                if(obj == "Check code we sent to this E-mail" || obj == "Fail to send code, try again!"){
 
                     var currTab = 2;     // Current tab is set to be the first tab (0)
                     showTabPane(currTab);   // Display the current tab

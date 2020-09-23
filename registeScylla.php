@@ -27,7 +27,6 @@
         public function saveData();
         public function updateProfileImage();
         public function extraInformation();
-        public function ReloadInfo($email);
         public function sendEmail();
     }
     // ============================================================================================================
@@ -154,20 +153,19 @@
                 $get_device = $ip_address->get_device();
                 $get_os = $ip_address->get_os();
             // ==============================================================================================================================
-
-            // GET user location detail
-            // ==============================================================================================================================
-            // $user_location = new Geo();
-            //     $user_location->request($get_ip_address);
-                $get_country = ""; //$user_location->country;
-                $get_city = ""; //$user_location->city;
-                $get_timezone = ""; //$user_location->timezone;
-            // ================================================================================================  ============================= 
+     
+            $country = "";
+            $city = "";
+            $query = @unserialize (file_get_contents('http://ip-api.com/php/'));
+            if ($query && $query['status'] == 'success') {
+                $country = $query['country'];
+                $city = $query['city'];
+            }
 
             // insert user anonymous information 
             // ===============================================================================================================================
             $created_on = Date("Y-m-d h:m:s");
-            $insertInfo = "INSERT INTO user_auto_detection VALUE ('','$this->_firstname','$this->_lastname','$this->_email','$get_city','$get_country','$get_timezone','$get_browser','$get_device','$get_os','$get_ip_address','$created_on')";
+            $insertInfo = "INSERT INTO user_auto_detection VALUE ('','$this->_firstname','$this->_lastname','$this->_email','$city','$country','Complete','$get_browser','$get_device','$get_os','$get_ip_address','$created_on')";
             $executeInfo = mysqli_query($this->Frequency(),$insertInfo);
             // ===============================================================================================================================
 
@@ -178,43 +176,40 @@
             $execute_new = mysqli_query($this->Frequency(), $insert_new);
         }
 
-        // METHOD RETRIEVE DATA THAT SAVE FROM DATABASE
-        // ==================================================================================================
-        public function ReloadInfo($email){
-            $RequestCode = "SELECT * FROM intelligent_users WHERE email='$email'";
-            $executeCode = mysqli_query($this->Frequency(),$RequestCode);
-            $code = mysqli_fetch_assoc($executeCode);
-            $name = $code['firstName'];
-            $lastname = $code['lastName'];
-            $digital = $code['verification_Code']; 
-
-            return "Hello {$name} {$lastname}, Here is your code IBox-- {$digital}, Please do not shared this code";    
-        }
-
         // METHOD SEND EMAIL TO EMAIL PROVIDED
         // ===========================================================================================================
         public function sendEmail(){
             $subject = "Verification code From Intelligent box";
-            $sender = "intelligentbox@gmail.com";
+            $sender = "create_sapience@intelligentbox.rw";
             $sender_name = "Intelligent box";
+
+            $RequestCode = "SELECT * FROM intelligent_users WHERE email='$this->_email'";
+            $executeCode = mysqli_query($this->Frequency(),$RequestCode);
+            $code = mysqli_fetch_assoc($executeCode);
+                $name = $code['firstName'];
+                $lastname = $code['lastName'];
+                $digital = $code['verification_Code']; 
+
+            $body =  "Hello {$name} {$lastname}, Here is your intelligentbox activate code as IBox-- {$digital}, Please do not shared this code"; 
 
             $mail = new PHPMailer();
 
             // SMTP settings
             $mail->isSMTP();
-            $mail->Host = "smtp.gmail.com";
+            $mail->Host = "mail.intelligentbox.rw";
             $mail->SMTPAuth = true;
-            $mail->Username = "intelligentbox732@gmail.com";
-            $mail->Password = 'intelligentBox2020';
+            $mail->Username = "create_sapience@intelligentbox.rw";
+            // current password 'Homo_sapience@intelligentbox'
+            $mail->Password = 'human_sapience@2020';
             $mail->Port = 465;    //587
             $mail->SMTPSecure = "ssl";   // tls
             
             // Email settings
             $mail->isHTML(true);       
             $mail->setFrom($sender, $sender_name);      // specify who sending email (sender)
-            $mail->addAddress($this->_email);    // specify where email sended (reciever)
+            $mail->addAddress("$this->_email");    // specify where email sended (reciever)
             $mail->Subject = $subject;
-            $mail->Body = $this->ReloadInfo($this->_email);;
+            $mail->Body = $body;
 
             if($mail->send()){
                 return true;

@@ -20,8 +20,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-        <meta name="description" content="intelligentBox is The system that help the tvet school or any other kind of Person who want to learn the lessons of tvet Rwanda and others related to intellectual skills through online and meet up with many other student who also is learning the related thing and get challenge with them" />
-        <meta name="keywords" content="social network,social media, learning, e-learning, share, friends, challenge, tvet, lessons, schools, create, skills, account, signin, online charting, online learning, courses, groups" />
+        <meta name="description" content="E-learning website that help everyone who want to learn intellectual skills like software development, share what you're about and challenge with other connection and become profession in it. intelligent box is good website for you to become what you dream about and it connect you around the world with many other professions student and teacher." />
+        <meta name="keywords" content="social network,social media, learning, e-learning, share, friends, challenges, e-tvet, courses, schools, create, skills, account, signin, online charting, online learning, courses, groups, intelligentbox rwanda, e-learning rwanda, connect, intelligentbox, microbox, box rwanda, help" />
         <meta name="author" content="Manirabona Patience" />
         <meta name="robots" content="index, follow"/>
         <meta name="apple-mobile-web-app-capable" content="yes">
@@ -139,15 +139,15 @@
                 <div class="carousel-inner shadow-sm">
                     <!-- start carousel items -->
                     <div class="carousel-item shadow-sm">
-                        <img src="Images/index-img/slides/slide-1.jpg" class="shadow-none" height="100%" width="100%">
+                        <img src="Images/index-img/slides/slide-1.jpg" alt="active_slides" class="shadow-none" height="100%" width="100%">
                     </div>
-                    <div class="carousel-item"><img src="Images/index-img/slides/slide-4.jpg" alt="" height="100%" width="100%"></div>
-                    <div class="carousel-item"><img src="Images/index-img/slides/slide-5.jpg" alt="" height="100%" width="100%"></div>
-                    <div class="carousel-item"><img src="Images/index-img/slides/slide-6.jpg" alt="" height="100%" width="100%"></div>
-                    <div class="carousel-item"><img src="Images/index-img/slides/slide-7.jpg" alt="" height="100%" width="100%"></div>
-                    <div class="carousel-item"><img src="Images/index-img/slides/slide-8.jpg" alt="" height="100%" width="100%"></div>
-                    <div class="carousel-item active"><img src="Images/index-img/slides/slide-9.jpg" alt="" height="100%" width="100%"></div>
-                    <div class="carousel-item"><img src="Images/index-img/slides/slide-10.jpg" alt="" height="100%" width="100%"></div>
+                    <div class="carousel-item"><img src="Images/index-img/slides/slide-4.jpg" alt="second_slide" height="100%" width="100%"></div>
+                    <div class="carousel-item"><img src="Images/index-img/slides/slide-5.jpg" alt="third_slide" height="100%" width="100%"></div>
+                    <div class="carousel-item"><img src="Images/index-img/slides/slide-6.jpg" alt="fouth_Slide" height="100%" width="100%"></div>
+                    <div class="carousel-item"><img src="Images/index-img/slides/slide-7.jpg" alt="fifth_slide" height="100%" width="100%"></div>
+                    <div class="carousel-item"><img src="Images/index-img/slides/slide-8.jpg" alt="sixth_slide" height="100%" width="100%"></div>
+                    <div class="carousel-item active"><img src="Images/index-img/slides/slide-9.jpg" alt="seventh_slide" height="100%" width="100%"></div>
+                    <div class="carousel-item"><img src="Images/index-img/slides/slide-10.jpg" alt="eigth_slide" height="100%" width="100%"></div>
                     <!-- end carousel items -->
                 </div>
             </div>
@@ -181,15 +181,15 @@
                             <!-- =============================================================================================================== -->
                             <div>
                                 <div class="active-column wow fadeInUp">
-                                    <div class="img-full"><img src="images/index-img/world-1.jpg" alt="" width="100%" height="100%"></div>
+                                    <div class="img-full"><img src="Images/index-img/world-1.jpg" alt="universe_education" width="100%" height="100%"></div>
                                     <div class="over-img-full">World required people who read and mantain thier future in mental way.</div>
                                 </div>
                                 <div class="active-column mt-4 wow fadeInUp">
-                                    <div class="img-full"><img src="images/index-img/knowledge.jpg" alt="" width="100%" height="100%"></div>
+                                    <div class="img-full"><img src="Images/index-img/knowledge.jpg" alt="knowledge" width="100%" height="100%"></div>
                                     <div class="over-img-full">knowledge is not to know many things, Is to know who you are and what you deserve.</div>
                                 </div>
                                 <div class="connect_world mt-3 wow fadeInUp">
-                                    <div class="img-full"><img src="images/index-img/connect.jpg" alt="" width="100%" height="100%"></div>
+                                    <div class="img-full"><img src="Images/index-img/connect.jpg" alt="world_connect" width="100%" height="100%"></div>
                                     <div class="over-img-full">Connect World's Education</div>
                                 </div>
                             </div>
@@ -206,7 +206,7 @@
                             <!-- ========================================================================================================================== -->
                             <div>
                                 <div class="thumbnail-items thumb-1 wow fadeInUp">
-                                    <div class="thumbnail-images"><img src="images/index-img/thumbnail/thumbnail-2.jpg" alt="" width="100%" height="100%"></div>
+                                    <div class="thumbnail-images"><img src="Images/index-img/thumbnail/thumbnail-2.jpg" alt="world_history" width="100%" height="100%"></div>
                                     <div class="course-desc"> The history of specific area as your daily story</div>
                                     <div class="course-sub-desc">
                                         World history and topics to what you 
@@ -216,7 +216,7 @@
                                     </div>
                                 </div>
                                 <div class="middle_img_pre wow fadeInUp">
-                                    <div class=""><img src="images/index-img/thumbnail/thumbnail-8.jpg" alt="" width="100%" height="100%"></div>
+                                    <div class=""><img src="Images/index-img/thumbnail/thumbnail-8.jpg" alt="world_news" width="100%" height="100%"></div>
                                 </div>
                                 <div class="thumbnail-items mt-3 thumb-1 wow fadeInUp">
                                     <div class="course-desc">Globle news from everywhere you want</div>
@@ -233,7 +233,7 @@
                             <!-- ================================================================================================================================= -->
                             <div class="sep-dep-ex wow fadeInUp">
                                 <div class="thumbnail-items">
-                                    <div class="thumbnail-images"><img src="images/index-img/thumbnail/thumbnail-3.jpg" alt="" width="100%" height="100%"></div>
+                                    <div class="thumbnail-images"><img src="Images/index-img/thumbnail/thumbnail-3.jpg" alt="world_religion" width="100%" height="100%"></div>
                                     <div class="course-desc">The world religions and their ancient culture </div>
                                     <div class="course-sub-desc">
                                         Big and many content about main world religion and it short history for
@@ -241,7 +241,7 @@
                                     </div>
                                 </div>
                                 <div class="middle_img_pre wow fadeInUp">
-                                    <div class=""><img src="images/index-img/thumbnail/thumbnail-7.jpg" alt="" width="100%" height="100%"></div>
+                                    <div class=""><img src="Images/index-img/thumbnail/thumbnail-7.jpg" alt="world_story" width="100%" height="100%"></div>
                                 </div>
                                 <div class="thumbnail-items mt-3 wow fadeInUp">
                                     <div class="course-desc"> 
@@ -313,7 +313,7 @@
                                                 <!-- background image -->
                                                 <!-- =================================================================== -->
                                                 <div class="sign-me-up-backimage">
-                                                    <img src="images/index-img/sign-me-up-1.jpg" width="100%" height="100%">
+                                                    <img src="images/index-img/sign-me-up-1.jpg" alt="background_image" width="100%" height="100%">
                                                 </div>
                                                 <!-- end background image -->
                                                 <!-- ===================================================================== -->
@@ -383,7 +383,7 @@
                                                                         <input type="text" name="Email" class="form-input" id="email-input" placeholder="E-mail" autocomplete="off">
                                                                     </div>
                                                                     <div class="select_position mb-2">
-                                                                        <select name="class" id="section">
+                                                                        <select name="choosen_class" id="section">
                                                                             <option value="student" id="account">Student Account</option>
                                                                             <option value="trainer" id="account">Trainer Account</option>
                                                                         </select>
@@ -469,21 +469,21 @@
                                                                     <div class="noticed-word">
                                                                         <p>
                                                                             Welcome to intelligent box we little bit customize your profile but soon you can do it yourself,
-                                                                            you can get what people shared on you home timeline and choose which course and department you want to attend.
+                                                                            you can get what people shared on your timeline and choose which course and department you want to attend.
                                                                         </p>
                                                                     </div>
                                                                     <div class="welcome-word">you are Welcome !!</div>
                                                                     <div class="get-started-btn-welcome">
-                                                                        <button type="submit" name="submit-form">Get started</button>
+                                                                        <button type="submit" name="submit-form-navigation">Get started</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                             <!-- end welcome section  -->
                                                             <!-- ============================================================================================================================================================== -->
+                                                        </form>
                                                     </div>
                                                     <!-- end step and user input -->
                                                     <!-- ============================================================================================================== -->
-                                                    </form>
                                                 </div>
                                             </div>
                                             <!-- end sign me up tab -->
@@ -500,7 +500,7 @@
                                                 <!-- sign in background image -->
                                                 <!-- ========================================================================================================================= -->
                                                 <div class="sign-me-up-backimage">
-                                                    <img src="images/index-img/sign-me-up-1.jpg" width="100%" height="100%">
+                                                    <img src="images/index-img/sign-me-up-1.jpg" alt="background_image" width="100%" height="100%">
                                                 </div>
                                                 <!-- end sign in background -->
                                                 <!-- ======================================================================================================================== -->
@@ -546,7 +546,7 @@
                                                         <div class="email-verification-area">
                                                             <div class="email-verification-title">Email verification</div>
                                                             <div class="subtitle-verification" id="holdMsg">
-                                                                Input your current email and Firstname we kept on last logs, so we can send a code to your email
+                                                                Enter your current email and Firstname we kept on last logs, we sent a code to your email
                                                             </div>
                                                             <div class="input-verification">
                                                                 <div class="firstname-verify" id="firstname-verify"><input type="text" name="" id="Firstname_forget" placeholder="Firstname" autocomplete="off"></div>
@@ -661,7 +661,7 @@
                                             <!-- ======================================================================================================================================================== -->
                                             <div class="tab-pane" id="aboutus" role="tabpanel">
                                                 <div class="about-detail">
-                                                    <div class="logo-about"><img src="Images/microbox.png" alt="" width="100%" height="100%"></div>
+                                                    <div class="logo-about"><img src="Images/microbox.png" alt="microbox_image" width="100%" height="100%"></div>
                                                     <p class="full-desc ml-2">
                                                         <span class="title-company"> MicroBox </span><br>
                                                         <span class="sub-title">MicroBox Developers</span><br><br>
@@ -677,7 +677,7 @@
                                                 </div>
                                                 <hr>
                                                 <div class="about-detail">
-                                                    <div class="logo-about"><img src="Images/intelligent_box_brand.png" alt="" width="100%" height="100%"></div>
+                                                    <div class="logo-about"><img src="Images/intelligent_box_brand.png" alt="intlligentbox_image" width="100%" height="100%"></div>
                                                     <p class="full-desc ml-2">
                                                         <span class="title-company"> Intelligent box </span><br>
                                                         <span class="sub-title"> Online leaning website</span><br><br>
@@ -691,7 +691,7 @@
                                                 </div>
                                                 <hr>
                                                 <div class="about-detail">
-                                                    <div class="logo-about"><img src="Images/index-img/founder.jpg" alt="" width="100%" height="100%"></div>
+                                                    <div class="logo-about"><img src="Images/index-img/founder.jpg" alt="founder_image" width="100%" height="100%"></div>
                                                     <p class="full-desc ml-2">
                                                         <span class="title-company">&copy; MicroBox Founder</span><br>
                                                         <span class="sub-title"> Manirabona Patience </span><br><br>
@@ -780,7 +780,7 @@
                                                     <div class="meet-team">Meet the Team</div>
                                                     <div class="each-developer">
                                                         <div class="developer-img position-relative">
-                                                            <img src="Images/index-img/logo.png" alt="" width="100%" class="backgroundImage">
+                                                            <img src="Images/index-img/logo.png" alt="Manirabona_Patience" width="100%" class="backgroundImage">
                                                             <div class="profile_image"><img src="Images/index-img/developer/founder.jpg" alt="" height="100%" width="100%"></div>
                                                         </div>
                                                         <div class="developer-name">Manirabona Patience</div>
@@ -798,7 +798,7 @@
                                                     </div>
                                                     <div class="each-developer">
                                                         <div class="developer-img position-relative">
-                                                            <img src="Images/index-img/logo.png" alt="" class="backgroundImage">
+                                                            <img src="Images/index-img/logo.png" alt="Jean_Chrisostom" class="backgroundImage">
                                                             <div class="profile_image"><img src="Images/index-img/developer/Chrisostome.jpg" alt="" height="100%" width="100%"></div>
                                                         </div>
                                                         <div class="developer-name">Jean Chrisostom</div>
@@ -814,7 +814,7 @@
                                                     </div>
                                                     <div class="each-developer">
                                                         <div class="developer-img position-relative">
-                                                            <img src="Images/index-img/logo.png" alt="" class="backgroundImage">
+                                                            <img src="Images/index-img/logo.png" alt="Rubagumya_Remy" class="backgroundImage">
                                                             <div class="profile_image"><img src="Images/index-img/developer/rubagumya-remy.jpg" alt="" height="100%" width="100%"></div>
                                                         </div>
                                                         <div class="developer-name">Rubagumya Remy</div>

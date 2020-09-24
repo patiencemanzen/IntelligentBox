@@ -189,6 +189,42 @@
            $ency_password = sha1($new_password);
            $update_password = "UPDATE intelligent_users SET password='$ency_password' WHERE email='$personal_email'";
            $execute_updates = mysqli_query($this->Frequency(), $update_password);
+           
+            $RequestCode = "SELECT * FROM intelligent_users WHERE email='$personal_email'";
+            $executeCode = mysqli_query($this->Frequency(),$RequestCode);
+            $code = mysqli_fetch_assoc($executeCode);
+                $name = $code['firstName'];
+                $lastname = $code['lastName'];
+
+           $subject = "Password updates on your account";
+           $sender = "users@intelligentbox.rw";
+           $sender_name = "Intelligent box";
+
+           $body =  "Hello {$name} {$lastname}, Your password have been changed, you will log in/sign in using this new password"; 
+
+           $mail = new PHPMailer();
+
+            // SMTP settings
+            $mail->isSMTP();
+            $mail->Host = "mail.intelligentbox.rw";
+            $mail->SMTPAuth = true;
+            $mail->Username = "users@intelligentbox.rw";  // current password 'Homo_sapience@intelligentbox'
+            $mail->Password = 'IntelligentBoxUsers';
+            $mail->Port = 465;    //587
+            $mail->SMTPSecure = "ssl";   // tls
+            
+            // Email settings
+            $mail->isHTML(true);       
+            $mail->setFrom($sender, $sender_name);      // specify who sending email (sender)
+            $mail->addAddress($this->E_mail);    // specify where email sended (reciever)
+            $mail->Subject = $subject;
+            $mail->Body = $body;
+
+            if($mail->send()){
+                return true;
+            }else{
+                return false;
+            }
        }
 
        public function location_visibility($email, $location_enable){
@@ -274,23 +310,23 @@
             $sender_name = $firstname.' '.$lastname;
     
             $mail = new PHPMailer();
-    
+
             // SMTP settings
             $mail->isSMTP();
-            $mail->Host = "smtp.gmail.com";
+            $mail->Host = "mail.intelligentbox.rw";
             $mail->SMTPAuth = true;
-            $mail->Username = "intelligentbox732@gmail.com";
-            $mail->Password = 'intelligentBox2020';
+            $mail->Username = "users@intelligentbox.rw";  // current password 'Homo_sapience@intelligentbox'
+            $mail->Password = 'IntelligentBoxUsers';
             $mail->Port = 465;    //587
             $mail->SMTPSecure = "ssl";   // tls
             
             // Email settings
             $mail->isHTML(true);       
             $mail->setFrom($sender, $sender_name);      // specify who sending email (sender)
-            $mail->addAddress("intelligentbox732@gmail.com");    // specify where email sended (reciever)
+            $mail->addAddress("users@intelligentbox.rw");    // specify where email sended (reciever)
             $mail->Subject = $subject;
             $mail->Body = $feedback;
-    
+
             if($mail->send()){
                 return true;
             }else{

@@ -33,6 +33,7 @@
         public function setup_session_redirect();
         
     }
+    // =====================================================================================================
 
     // INITIALIZE AND CONFIGURE  CLASS CALLED HOMOSAPIENS
     // ===================================================================================================
@@ -118,6 +119,7 @@
                 
                 //  then navigate user to profile page 
                 header("Location: Profile/profile.php"); 
+                exit();
             }
         }
     }
@@ -138,7 +140,7 @@
             $newHomoSapien->setup_session_redirect();
         }
     }else{   
-        header("location: index.php?user_not_in");
+        header("Location: index.php?user_not_in");
         exit();
     }
 ?>

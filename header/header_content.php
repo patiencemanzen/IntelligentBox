@@ -77,6 +77,18 @@
                                         <div class="present-noti-type"><i class="fa fa-comment-o"></i></div>
                                     <?php }else if($notification_type == "follow"){ ?>
                                         <div class="present-noti-type"><i class="fa fa-rss"></i></div>
+                                    <?php }else if($notification_type == "question"){ ?>
+                                        <div class="present-noti-type"><i class="fa fa-question"></i></div>
+                                    <?php }else if($notification_type == "group"){ ?>
+                                        <div class="present-noti-type"><i class="fa fa-group"></i></div>
+                                    <?php }else if($notification_type == "invitation"){ ?>
+                                        <div class="present-noti-type"><i class="fa fa-envelope-open-text"></i></div>
+                                    <?php }else if($notification_type == "challenge_request"){ ?>
+                                        <div class="present-noti-type"><i class="fa fa-superpowers"></i></div>
+                                    <?php }else if($notification_type == "rejection"){ ?>
+                                        <div class="present-noti-type"><i class="fa fa-minus-square-o"></i></div>
+                                    <?php }else if($notification_type == "class"){ ?>
+                                        <div class="present-noti-type"><i class="fa fa-layer-group"></i></div>
                                     <?php } ?>
                                 </div>
                             <?php }else{ ?>
@@ -101,6 +113,18 @@
                                         <div class="present-noti-type"><i class="fa fa-comment-o"></i></div>
                                     <?php }else if($notification_type == "follow"){ ?>
                                         <div class="present-noti-type"><i class="fa fa-rss"></i></div>
+                                    <?php }else if($notification_type == "question"){ ?>
+                                        <div class="present-noti-type"><i class="fa fa-question"></i></div>
+                                    <?php }else if($notification_type == "group"){ ?>
+                                        <div class="present-noti-type"><i class="fa fa-group"></i></div>
+                                    <?php }else if($notification_type == "invitation"){ ?>
+                                        <div class="present-noti-type"><i class="fa fa-envelope-open-text"></i></div>
+                                    <?php }else if($notification_type == "challenge_request"){ ?>
+                                        <div class="present-noti-type"><i class="fa fa-superpowers"></i></div>
+                                    <?php }else if($notification_type == "rejection"){ ?>
+                                        <div class="present-noti-type"><i class="fa fa-minus-square-o"></i></div>
+                                    <?php }else if($notification_type == "class"){ ?>
+                                        <div class="present-noti-type"><i class="fa fa-layer-group"></i></div>
                                     <?php } ?>
                                 </div>
                             <?php } 

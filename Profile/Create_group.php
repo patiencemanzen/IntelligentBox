@@ -44,6 +44,10 @@
             $save_group = "INSERT INTO user_groups VALUE ('','$this->code','$user_identity','$firstName','$lastName','$this->Creater','$this->Group_name','$this->Group_img','$this->Group_bio','$this->Group_privacy','1','0','$create_on')";
             $execute_group_creation = mysqli_query($this->Frequency(), $save_group);
             if($execute_group_creation){
+                $notification = "{$lastName} you successfully create your group, Now you can manage, share and invite your friend";
+                $date_created = Date("Y-m-d h:m:s");
+                $insert_notification = "INSERT INTO notifications VALUES ('','nowhere','$this->Creater', '$this->code','$notification','group','0','new','on','$date_created')";
+                $execute_notification = mysqli_query($this->Frequency(), $insert_notification);
                 return true;
             }else{
                 return false;

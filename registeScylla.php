@@ -190,7 +190,7 @@
                 $lastname = $code['lastName'];
                 $digital = $code['verification_Code']; 
 
-            $body =  "Hello {$name} {$lastname}, Here is your intelligentbox activate code as IBox-- {$digital}, Please do not shared this code"; 
+            $body =  "Hello <b>{$name} {$lastname}</b>, Here is your intelligentbox activate code as IBox-- <b>{$digital} </b>, Please do not share this code for your account security!"; 
 
             $mail = new PHPMailer();
 

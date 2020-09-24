@@ -340,7 +340,7 @@
                 $notification = $firstName.' '.$lastName.' invite you to join group';
                 $created_on = Date("Y-m-d h:m:s");
 
-            $insert_invitation = "INSERT INTO `notifications` (`identity`, `notification_from_email`, `notification_to_email`, `notification`, `notification_type`, `notification_read_status`, `notification_visibility`, `notification_quite`, `created_on`) VALUES ('', '$inviter', '$invite', '$notification', 'invitation', '0', 'new', 'on', '$created_on')";
+            $insert_invitation = "INSERT INTO `notifications` (`identity`, `notification_from_email`, `notification_to_email`, `notification_link`,`notification`, `notification_type`, `notification_read_status`, `notification_visibility`, `notification_quite`, `created_on`) VALUES ('', '$inviter', '$invite', '','$notification', 'invitation', '0', 'new', 'on', '$created_on')";
             $execute_invitation = mysqli_query($this->Frequency(), $insert_invitation);
             if($execute_invitation){
                return true;
@@ -401,7 +401,7 @@
 
             $notification = $group_name.' Send challenge request';  
             $created_on = Date("Y-m-d h:m:s");  
-            $insert_request = "INSERT INTO `notifications` (`identity`, `notification_from_email`, `notification_to_email`, `notification`, `notification_type`, `notification_read_status`, `notification_visibility`, `notification_quite`, `created_on`) VALUES ('', '$url_code_inviter', '$url_invite_code', '$notification', 'challenge_request', '0', 'new', 'on', '$created_on')";
+            $insert_request = "INSERT INTO `notifications` (`identity`, `notification_from_email`, `notification_to_email`, `notification_link`, `notification`, `notification_type`, `notification_read_status`, `notification_visibility`, `notification_quite`, `created_on`) VALUES ('', '$url_code_inviter', '$url_invite_code', '$url_code_inviter', '$notification', 'challenge_request', '0', 'new', 'on', '$created_on')";
             $execute_request = mysqli_query($this->Frequency(), $insert_request);
             if($execute_request){
                 return true;
@@ -537,7 +537,7 @@
             $update = "DELETE FROM notifications WHERE notification_from_email='$challenge_from' AND notification_to_email='$url_code_inviter'";
             $execute_rejection = mysqli_query($this->Frequency(), $update);
 
-            $insert_rejection = "INSERT INTO `notifications` (`identity`, `notification_from_email`, `notification_to_email`, `notification`, `notification_type`, `notification_read_status`, `notification_visibility`, `notification_quite`, `created_on`) VALUES ('', '$url_code_inviter', '$challenge_from', '$notification', 'rejection', '0', 'new', 'on', '$created_on')";
+            $insert_rejection = "INSERT INTO `notifications` (`identity`, `notification_from_email`, `notification_to_email`, `notification_link`,`notification`, `notification_type`, `notification_read_status`, `notification_visibility`, `notification_quite`, `created_on`) VALUES ('', '$url_code_inviter', '$challenge_from', '$url_code_inviter', '$notification', 'rejection', '0', 'new', 'on', '$created_on')";
             $execute_rejection = mysqli_query($this->Frequency(), $insert_rejection);
        }
 

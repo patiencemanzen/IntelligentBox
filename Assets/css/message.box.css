@@ -204,7 +204,7 @@
         margin-top: 5px;
     }
     .user-name div{
-        width: 150px;
+        width: 110px;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;

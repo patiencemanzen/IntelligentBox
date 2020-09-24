@@ -337,6 +337,7 @@
             $selectProfileDetail = "SELECT * FROM intelligent_users WHERE email='$user_mail'";
             $executeDetail = mysqli_query($this->Frequency(), $selectProfileDetail);
             $fetchDetail = mysqli_fetch_assoc($executeDetail); 
+                $lastName = $fetchDetail['lastName'];
                 $user_identity = $fetchDetail['identity']; 
                 $created_on = Date("Y-m-d h:m:s");
 

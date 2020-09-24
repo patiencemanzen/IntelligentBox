@@ -99,10 +99,8 @@ display_post();
 function display_post(){
     $(document).ready(function(){
         var global_mail = document.getElementById("hiddenEmail").value;
-        var post_type = "feeds";
         $("#show_posts").load("show_posts.php",{
           getPost_email: global_mail,
-          getpost_type: post_type,
           getPhotoPath: "../Images/activity_stream/",
           getVideoPath: "../videos/activity_stream-vd/"
         });

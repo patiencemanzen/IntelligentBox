@@ -481,93 +481,189 @@
         // SHOW ALL MY TRAINER 
         // ========================================================================================================================================
         public function show_my_trainers($email){
-              $select_my_trainers = "SELECT * FROM intelligent_users WHERE email IN (SELECT DISTINCT host_email FROM user_follow_board WHERE reciever_email ='$email') OR email IN (SELECT DISTINCT reciever_email FROM user_follow_board WHERE host_email='$email') AND title='trainer'";
+              $select_my_trainers = "SELECT * FROM user_follow_board WHERE host_email='$email' OR reciever_email='$email'";
+            //   $select_my_trainers = "SELECT * FROM intelligent_users WHERE email IN (SELECT DISTINCT host_email FROM user_follow_board WHERE reciever_email ='$email') OR email IN (SELECT DISTINCT reciever_email FROM user_follow_board WHERE host_email='$email') AND title='trainer'";
               $execute_my_trainer = mysqli_query($this->Frequency(), $select_my_trainers);
               if(mysqli_num_rows($execute_my_trainer) > 0){
                 while($fetch_my_trainer = mysqli_fetch_assoc($execute_my_trainer)){
-                  $firstname_trainer = $fetch_my_trainer['firstName'];
-                  $lastName = $fetch_my_trainer['lastName'];
-                  $email_trainer = $fetch_my_trainer['email'];
-                  $user_identity = $fetch_my_trainer['identity'];
+                    $host_email = $fetch_my_trainer['host_email'];
+                    $host_title = $fetch_my_trainer['host_title'];
 
-                  $select_user_image = "SELECT profile_image FROM user_profile_image WHERE usr_email='$email_trainer' AND status_image='1'";
-                  $execute_image = mysqli_query($this->Frequency(), $select_user_image);
-                  $fetch_image = mysqli_fetch_assoc($execute_image); 
+                    $reciever_email = $fetch_my_trainer['reciever_email'];
+                    $reciever_title = $fetch_my_trainer['reciever_title'];
 
-                  $select_bio = "SELECT bio FROM user_bio WHERE email='$email_trainer'";
-                  $execute_bio = mysqli_query($this->Frequency(), $select_bio);
-                  $fetch_bio = mysqli_fetch_assoc($execute_bio); 
-
-                  $followers = 0;
-                  $selectFollowers = "SELECT * FROM user_follow_board WHERE reciever_email='$email_trainer'";
-                  $executeFollowers = mysqli_query($this->Frequency(),$selectFollowers);
-                  while($fetchFollowers = mysqli_fetch_assoc($executeFollowers)){
-                      $followers = $followers + 1;
-                  }
-
-                  $Following = 0;
-                  $selectFollowing = "SELECT * FROM user_follow_board WHERE host_email='$email_trainer'";
-                  $execute_following = mysqli_query($this->Frequency(),$selectFollowing);
-                  while($fetchFollowing = mysqli_fetch_assoc($execute_following)){
-                      $Following = $Following + 1;
-                  }
-
-                  $courses = 0;
-                  $selectCourse = "SELECT * FROM class_tracks WHERE student_identity='$user_identity'";
-                  $executeCourse = mysqli_query($this->Frequency(),$selectCourse);
-                  while($fetch_course = mysqli_fetch_assoc($executeCourse)){
-                      $courses = $courses + 1;
-                  } ?>
-
-                    <!-- each trainer -->
-                    <!-- ============================================================================================================ -->
-                    <div class="each-trainer">
-                        <div class="trainers d-flex position-relative">
-                            <div><div class="tariner-img"><img src="<?php echo '../Images/profile-img/profile-image/'.$fetch_image['profile_image']; ?>" alt="" width="100%" height="100%"></div></div>
-                            <div class="trainer-desc ml-2">
-                                <div class="trainer-name"><?php echo $firstname_trainer; ?> <?php echo $lastName; ?></div>
-                                <div class="trainer-email"><?php echo $email_trainer; ?></div>
-                                <div class="trainer-bio mt-1"> <?php echo $fetch_bio['bio']; ?> </div>
-                                <div class="trainer-status d-flex justify-content-between">
-                                    <div class="followers"><?php echo $followers; ?> Followers </div>
-                                    <div class="followers ml-2"><?php echo $Following; ?> following </div>
-                                    <div class="course ml-2"><?php echo $courses; ?> courses</div>
-                                </div>
-                            </div>
-                            <div class="btn-get-trainer ml-3">
-                                <button class="ask" onclick="askQuestion(this)"><i class="fa fa-question-circle-o"></i></button>
-                            </div>
-                        </div>
-                        <!-- by the time user want to ask trainer -->
-                        <div class="ask-question">
-                            <div class="title-question">
-                                <div>question with <?php echo $firstname_trainer; ?> <?php echo $lastName; ?></div>
-                                <div class="close-question"><i class="fa fa-close" onclick="closeTabs(this)"></i></div>
-                            </div>
-                            <form action="profile_updates.php" method="POST" enctype="multipart/form-data">
-                                <div class="question-area-image">
-                                    <div class="preview-image-question" id="preview_que_image">
-                                        <img src="" id="preview_image" alt="" width="100%" height="100%">
-                                    </div>
-                                    <div class="type-question ml-2">
-                                        <div class="textarea-question"><textarea name="que_provided" id="" cols="30" rows="5" placeholder="Type question" autocomplete="off"></textarea></div>
+                    if($host_title == "trainer" && $reciever_email == $email){
+                        $select_trainer_info = "SELECT * FROM intelligent_users WHERE email='$host_email'";
+                        $execute_host = mysqli_query($this->Frequency(), $select_trainer_info);
+                        $fetch_host = mysqli_fetch_assoc($execute_host);
+                            $firstname_trainer = $fetch_host['firstName'];
+                            $lastName = $fetch_host['lastName'];
+                            $email_trainer = $fetch_host['email'];
+                            $user_identity = $fetch_host['identity'];
+      
+                        $select_user_image = "SELECT profile_image FROM user_profile_image WHERE usr_email='$host_email' AND status_image='1'";
+                        $execute_image = mysqli_query($this->Frequency(), $select_user_image);
+                        $fetch_image = mysqli_fetch_assoc($execute_image); 
+      
+                        $select_bio = "SELECT bio FROM user_bio WHERE email='$host_email'";
+                        $execute_bio = mysqli_query($this->Frequency(), $select_bio);
+                        $fetch_bio = mysqli_fetch_assoc($execute_bio); 
+      
+                        $followers = 0;
+                        $selectFollowers = "SELECT * FROM user_follow_board WHERE reciever_email='$host_email'";
+                        $executeFollowers = mysqli_query($this->Frequency(),$selectFollowers);
+                        while($fetchFollowers = mysqli_fetch_assoc($executeFollowers)){
+                            $followers = $followers + 1;
+                        }
+      
+                        $Following = 0;
+                        $selectFollowing = "SELECT * FROM user_follow_board WHERE host_email='$host_email'";
+                        $execute_following = mysqli_query($this->Frequency(),$selectFollowing);
+                        while($fetchFollowing = mysqli_fetch_assoc($execute_following)){
+                            $Following = $Following + 1;
+                        }
+      
+                        $courses = 0;
+                        $selectCourse = "SELECT * FROM class_tracks WHERE student_identity='$user_identity'";
+                        $executeCourse = mysqli_query($this->Frequency(),$selectCourse);
+                        while($fetch_course = mysqli_fetch_assoc($executeCourse)){
+                            $courses = $courses + 1;
+                        } ?>
+                        <!-- each trainer -->
+                        <!-- ============================================================================================================ -->
+                        <div class="each-trainer">
+                            <div class="trainers d-flex position-relative">
+                                <div><div class="tariner-img"><img src="<?php echo '../Images/profile-img/profile-image/'.$fetch_image['profile_image']; ?>" alt="" width="100%" height="100%"></div></div>
+                                <div class="trainer-desc ml-2">
+                                    <div class="trainer-name"><?php echo $firstname_trainer; ?> <?php echo $lastName; ?></div>
+                                    <div class="trainer-email"><?php echo $email_trainer; ?></div>
+                                    <div class="trainer-bio mt-1"> <?php echo $fetch_bio['bio']; ?> </div>
+                                    <div class="trainer-status d-flex justify-content-between">
+                                        <div class="followers"><?php echo $followers; ?> Followers </div>
+                                        <div class="followers ml-2"><?php echo $Following; ?> following </div>
+                                        <div class="course ml-2"><?php echo $courses; ?> courses</div>
                                     </div>
                                 </div>
-                                <div class="send-question mt-2 d-flex justify-content-between">
-                                    <input type="hidden" name="trainer_email" value="<?php echo $email_trainer; ?>">
-                                    <input type="hidden" name="my_email_in" value="<?php echo $email; ?>">
-                                    <input type="file" name="que_image" id="question_image" style="display: none;">
-                                    <div class="with-photo"><button type="button" onclick="support_image(this)"><i class="fa fa-image mr-2"></i> with image</button></div>
-                                    <div class="send" id="<?php echo $email_trainer; ?>"><button type="submit" name="submit_trainer_que" id="<?php echo $user_identity; ?>" onclick="submit_que_trainer(this)">send</button></div>
+                                <div class="btn-get-trainer ml-3">
+                                    <button class="ask" onclick="askQuestion(this)"><i class="fa fa-question-circle-o"></i></button>
                                 </div>
-                            </form>
+                            </div>
+                            <!-- by the time user want to ask trainer -->
+                            <div class="ask-question">
+                                <div class="title-question">
+                                    <div>question with <?php echo $firstname_trainer; ?> <?php echo $lastName; ?></div>
+                                    <div class="close-question"><i class="fa fa-close" onclick="closeTabs(this)"></i></div>
+                                </div>
+                                <form action="profile_updates.php" method="POST" enctype="multipart/form-data">
+                                    <div class="question-area-image">
+                                        <div class="preview-image-question" id="preview_que_image">
+                                            <img src="" id="preview_image" alt="" width="100%" height="100%">
+                                        </div>
+                                        <div class="type-question ml-2">
+                                            <div class="textarea-question"><textarea name="que_provided" id="" cols="30" rows="5" placeholder="Type question" autocomplete="off"></textarea></div>
+                                        </div>
+                                    </div>
+                                    <div class="send-question mt-2 d-flex justify-content-between">
+                                        <input type="hidden" name="trainer_email" value="<?php echo $email_trainer; ?>">
+                                        <input type="hidden" name="my_email_in" value="<?php echo $email; ?>">
+                                        <input type="file" name="que_image" id="question_image" style="display: none;">
+                                        <div class="with-photo"><button type="button" onclick="support_image(this)"><i class="fa fa-image mr-2"></i> with image</button></div>
+                                        <div class="send" id="<?php echo $email_trainer; ?>"><button type="submit" name="submit_trainer_que" id="<?php echo $user_identity; ?>" onclick="submit_que_trainer(this)">send</button></div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- end asking question -->
                         </div>
-                        <!-- end asking question -->
-                    </div>
-                    <!-- end each trainer -->
-                    <!-- =================================================================================================================================== -->
+                        <!-- end each trainer -->
+                        <!-- =================================================================================================================================== -->
+                    <?php }else if($reciever_title == "trainer" && $host_email == $email){
+                        $select_trainer_info = "SELECT * FROM intelligent_users WHERE email='$reciever_email'";
+                        $execute_host = mysqli_query($this->Frequency(), $select_trainer_info);
+                        $fetch_reciever = mysqli_fetch_assoc($execute_host);
+                            $firstname_trainer = $fetch_reciever['firstName'];
+                            $lastName = $fetch_reciever['lastName'];
+                            $email_trainer = $fetch_reciever['email'];
+                            $user_identity = $fetch_reciever['identity'];
+       
+                        $select_user_image = "SELECT profile_image FROM user_profile_image WHERE usr_email='$reciever_email' AND status_image='1'";
+                        $execute_image = mysqli_query($this->Frequency(), $select_user_image);
+                        $fetch_image = mysqli_fetch_assoc($execute_image); 
+    
+                        $select_bio = "SELECT bio FROM user_bio WHERE email='$reciever_email'";
+                        $execute_bio = mysqli_query($this->Frequency(), $select_bio);
+                        $fetch_bio = mysqli_fetch_assoc($execute_bio); 
+    
+                        $followers = 0;
+                        $selectFollowers = "SELECT * FROM user_follow_board WHERE reciever_email='$reciever_email'";
+                        $executeFollowers = mysqli_query($this->Frequency(),$selectFollowers);
+                        while($fetchFollowers = mysqli_fetch_assoc($executeFollowers)){
+                            $followers = $followers + 1;
+                        }
+    
+                        $Following = 0;
+                        $selectFollowing = "SELECT * FROM user_follow_board WHERE host_email='$reciever_email'";
+                        $execute_following = mysqli_query($this->Frequency(),$selectFollowing);
+                        while($fetchFollowing = mysqli_fetch_assoc($execute_following)){
+                            $Following = $Following + 1;
+                        }
+       
+                        $courses = 0;
+                        $selectCourse = "SELECT * FROM class_tracks WHERE student_identity='$user_identity'";
+                        $executeCourse = mysqli_query($this->Frequency(),$selectCourse);
+                        while($fetch_course = mysqli_fetch_assoc($executeCourse)){
+                            $courses = $courses + 1;
+                        } ?>
+                        <!-- each trainer -->
+                        <!-- ============================================================================================================ -->
+                        <div class="each-trainer">
+                            <div class="trainers d-flex position-relative">
+                                <div><div class="tariner-img"><img src="<?php echo '../Images/profile-img/profile-image/'.$fetch_image['profile_image']; ?>" alt="" width="100%" height="100%"></div></div>
+                                <div class="trainer-desc ml-2">
+                                    <div class="trainer-name"><?php echo $firstname_trainer; ?> <?php echo $lastName; ?></div>
+                                    <div class="trainer-email"><?php echo $email_trainer; ?></div>
+                                    <div class="trainer-bio mt-1"> <?php echo $fetch_bio['bio']; ?> </div>
+                                    <div class="trainer-status d-flex justify-content-between">
+                                        <div class="followers"><?php echo $followers; ?> Followers </div>
+                                        <div class="followers ml-2"><?php echo $Following; ?> following </div>
+                                        <div class="course ml-2"><?php echo $courses; ?> courses</div>
+                                    </div>
+                                </div>
+                                <div class="btn-get-trainer ml-3">
+                                    <button class="ask" onclick="askQuestion(this)"><i class="fa fa-question-circle-o"></i></button>
+                                </div>
+                            </div>
+                            <!-- by the time user want to ask trainer -->
+                            <div class="ask-question">
+                                <div class="title-question">
+                                    <div>question with <?php echo $firstname_trainer; ?> <?php echo $lastName; ?></div>
+                                    <div class="close-question"><i class="fa fa-close" onclick="closeTabs(this)"></i></div>
+                                </div>
+                                <form action="profile_updates.php" method="POST" enctype="multipart/form-data">
+                                    <div class="question-area-image">
+                                        <div class="preview-image-question" id="preview_que_image">
+                                            <img src="" id="preview_image" alt="" width="100%" height="100%">
+                                        </div>
+                                        <div class="type-question ml-2">
+                                            <div class="textarea-question"><textarea name="que_provided" id="" cols="30" rows="5" placeholder="Type question" autocomplete="off"></textarea></div>
+                                        </div>
+                                    </div>
+                                    <div class="send-question mt-2 d-flex justify-content-between">
+                                        <input type="hidden" name="trainer_email" value="<?php echo $email_trainer; ?>">
+                                        <input type="hidden" name="my_email_in" value="<?php echo $email; ?>">
+                                        <input type="file" name="que_image" id="question_image" style="display: none;">
+                                        <div class="with-photo"><button type="button" onclick="support_image(this)"><i class="fa fa-image mr-2"></i> with image</button></div>
+                                        <div class="send" id="<?php echo $email_trainer; ?>"><button type="submit" name="submit_trainer_que" id="<?php echo $user_identity; ?>" onclick="submit_que_trainer(this)">send</button></div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- end asking question -->
+                        </div>
+                        <!-- end each trainer -->
+                        <!-- =================================================================================================================================== -->
+                       <?php }else{
 
-              <?php }
+                    } 
+                }
             }else{?>
                 <div class="when_no_trainer">
                     <div class="no-data-found d-flex flex-column text-center">

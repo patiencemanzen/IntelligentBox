@@ -34,9 +34,9 @@
 
             // insert notification
             // ===========================
-            $notification = $fetch_usr_identity['firstName']." Create new class, be first to join";
+            $notification = $fetch_usr_identity['firstName']."you successfully create new class, invite what you're about on this class";
             $date_created = Date("Y-m-d h:m:s");
-            $insert_notification = "INSERT INTO notifications VALUE ('','$user_email','$notification','class','0','new','on','$date_created')";
+            $insert_notification = "INSERT INTO notifications VALUE ('', 'nowhere', '$user_email','$notification','class','0','new','on','$date_created')";
             $execute_notification = mysqli_query($this->Frequency(), $insert_notification); 
             
             if($execute_class){

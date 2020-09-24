@@ -267,7 +267,7 @@
     /* ================================================================================================================================================ */
     /* ================================================================================================================================================ */
     .each-post{
-        padding: 5px 10px;
+        padding: 10px 5px;
         border-top: 2px solid var(--BoxLines);
     }
     .poster-img{
@@ -283,8 +283,8 @@
     .poster-name{
         font-family: roboto_bold;
         text-transform: capitalize;
-        letter-spacing: 0.6px;
-        font-weight: 600;
+        letter-spacing: 0.7px;
+        font-weight: 570;
         margin-top: 5px;
         line-height: 18px;
         font-size: 15px;
@@ -301,6 +301,7 @@
 
     .full-post {
         width: 100%;
+        margin-left: 5px;
     }
     .media{
         background: var(--BoxSecondary);

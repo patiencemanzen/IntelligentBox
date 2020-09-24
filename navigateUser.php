@@ -32,6 +32,7 @@
         public function updateExtraInfo($local,$ipAddress);
         public function session_setup($email);
     }
+    // ==================================================================================================================
 
     // INITIALIZE CLASS CALLED MONARCH
     // ========================================================================================================================
@@ -85,6 +86,7 @@
                 
                 //  then navigate user to profile page 
                 header("Location: Profile/profile.php");  
+                exit();
             }else{ 
                 header("Location: index.php?emailMissed");
                 exit();
@@ -116,6 +118,7 @@
 
     // PLATFORM INFORMATION
     // ==========================================================
+    
     // user ip address
     function get_client_ip(){
         $ipaddress = '';

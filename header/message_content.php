@@ -111,7 +111,7 @@
                             <div class="image-holder">
                                 <div class="reciever-image">
                                     <img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%">
-                                    <div class="online-user-full-conv"><div class="inner-full-conv"></div></div>
+                                    <!-- <div class="online-user-full-conv"><div class="inner-full-conv"></div></div> -->
                                 </div>
                             </div>
                             <div class="user-name ml-2">

@@ -257,7 +257,7 @@
             }else{
                 $notification = $get_firstname.' '.$get_lastname.' comment on your post';
                 $create_on = Date("Y-m-d h:m:s");
-                $insert_noti_setting = "INSERT INTO notifications VALUE ('','$this->E_mail','$poster_email','$notification','comment','0','new','on','$create_on')";
+                $insert_noti_setting = "INSERT INTO notifications VALUE ('','$this->E_mail','$poster_email','','$notification','comment','0','new','on','$create_on')";
                 $execute_new_noti = mysqli_query($this->Frequency, $insert_noti_setting);
             }    
         }
@@ -374,7 +374,7 @@
             }else{
                 $notification = $getFirstname.' '.$getLastname.' reply to your comments';
                 $create_on = Date("Y-m-d h:m:s");
-                $insert_noti_setting = "INSERT INTO notifications VALUE ('','$this->E_mail','$poster_email','$notification','comment','0','new','on','$create_on')";
+                $insert_noti_setting = "INSERT INTO notifications VALUE ('','$this->E_mail','$poster_email','','$notification','comment','0','new','on','$create_on')";
                 $execute_new_noti = mysqli_query($this->Frequency, $insert_noti_setting);
             } 
 
@@ -475,7 +475,7 @@
                 }else{
                     $notification = $get_firstname.' '.$get_lastname.' likes your comment';
                     $create_on = Date("Y-m-d h:m:s");
-                    $insert_noti_setting = "INSERT INTO notifications VALUE ('','$this->E_mail','$poster_email','$notification','comment','0','new','on','$create_on')";
+                    $insert_noti_setting = "INSERT INTO notifications VALUE ('','$this->E_mail','$poster_email','','$notification','comment','0','new','on','$create_on')";
                     $execute_new_noti = mysqli_query($this->Frequency, $insert_noti_setting);
                 } 
                 if($execute_saving){
@@ -558,7 +558,7 @@
                 }else{
                     $notification = $get_firstname.' '.$get_lastname.' likes your post';
                     $create_on = Date("Y-m-d h:m:s");
-                    $insert_noti_setting = "INSERT INTO notifications VALUE ('','$this->E_mail','$poster_email','$notification','like','0','new','on','$create_on')";
+                    $insert_noti_setting = "INSERT INTO notifications VALUE ('','$this->E_mail','$poster_email','','$notification','like','0','new','on','$create_on')";
                     $execute_new_noti = mysqli_query($this->Frequency, $insert_noti_setting);
                 }   
 

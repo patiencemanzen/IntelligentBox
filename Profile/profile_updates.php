@@ -338,6 +338,17 @@
            $created_on = Date("Y-m-d h:m:s");
            $save_que = "INSERT INTO user_question VALUE ('','$from','$email_to','personal','$image','$que','new','$created_on')";
            $execute_que = mysqli_query($this->Frequency(), $save_que);
+
+           $select_basic_info = "SELECT * FROM intelligent_users WHERE email='$from'";
+           $execute_info = mysqli_query($this->Frequency(), $select_basic_info);
+           $fetch_info = mysqli_fetch_assoc($execute_info);
+               $getFirstname = $fetch_info['firstName'];
+               $getLastname = $fetch_info['lastName'];
+
+           $notification = "{$getFirstname} {$getLastname} Send asked you a question about something!";
+           $date_created = Date("Y-m-d h:m:s");
+           $insert_notification = "INSERT INTO notifications VALUES ('','$from','$email_to','$notification','question','0','new','on','$date_created')";
+           $execute_notification = mysqli_query($this->Frequency(), $insert_notification);
        }
 
     }  

@@ -180,7 +180,7 @@
         // ===========================================================================================================
         public function sendEmail(){
             $subject = "Verification code From Intelligent box";
-            $sender = "create_sapience@intelligentbox.rw";
+            $sender = "users@intelligentbox.rw";
             $sender_name = "Intelligent box";
 
             $RequestCode = "SELECT * FROM intelligent_users WHERE email='$this->_email'";
@@ -198,16 +198,15 @@
             $mail->isSMTP();
             $mail->Host = "mail.intelligentbox.rw";
             $mail->SMTPAuth = true;
-            $mail->Username = "create_sapience@intelligentbox.rw";
-            // current password 'Homo_sapience@intelligentbox'
-            $mail->Password = 'human_sapience@2020';
+            $mail->Username = "users@intelligentbox.rw";  // current password 'Homo_sapience@intelligentbox'
+            $mail->Password = 'IntelligentBoxUsers';
             $mail->Port = 465;    //587
             $mail->SMTPSecure = "ssl";   // tls
             
             // Email settings
             $mail->isHTML(true);       
             $mail->setFrom($sender, $sender_name);      // specify who sending email (sender)
-            $mail->addAddress("$this->_email");    // specify where email sended (reciever)
+            $mail->addAddress($this->_email);    // specify where email sended (reciever)
             $mail->Subject = $subject;
             $mail->Body = $body;
 

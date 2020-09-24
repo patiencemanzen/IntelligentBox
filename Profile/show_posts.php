@@ -41,8 +41,8 @@
 
         // DISPLAY POST THAT HAVE BEEN POSTED EARLIER
         // =====================================================================================================
-        public function show_posts($post_type,$videoPath,$photoPath){
-            $select_posts = "SELECT * FROM user_common_post WHERE poster_email IN (SELECT reciever_email FROM user_follow_board WHERE host_email = '$this->E_mail') OR poster_email IN (SELECT host_email FROM user_follow_board WHERE reciever_email = '$this->E_mail') OR poster_email = '$this->E_mail' AND post_type='$post_type' ORDER BY created_on DESC";
+        public function show_posts($post_type_in,$videoPath,$photoPath){
+            $select_posts = "SELECT * FROM user_common_post WHERE poster_email IN (SELECT reciever_email FROM user_follow_board WHERE host_email = '$this->E_mail') OR poster_email IN (SELECT host_email FROM user_follow_board WHERE reciever_email = '$this->E_mail') OR poster_email = '$this->E_mail' AND post_type='$post_type_in' ORDER BY created_on DESC";
             $execute_posts = mysqli_query($this->Frequency(), $select_posts);
             if(mysqli_num_rows($execute_posts) > 0){
                 while($fetch_posts = mysqli_fetch_assoc($execute_posts)){
@@ -51,6 +51,7 @@
                     $select_media_type = $fetch_posts['media_type'];
                     $poster_email = $fetch_posts['poster_email'];
                     $post_identity = $fetch_posts['identity'];
+                    $type = $fetch_posts['post_type'];
 
                     // count date
                     // =============================
@@ -61,24 +62,30 @@
                     $select_basic_info = "SELECT * FROM intelligent_users WHERE email='$poster_email'";
                     $execute_basic_info = mysqli_query($this->Frequency(), $select_basic_info);
                     $fetch_basic_info = mysqli_fetch_assoc($execute_basic_info);
-                    $getFirstname = $fetch_basic_info['firstName'];
-                    $getLastname = $fetch_basic_info['lastName'];
+                        $getFirstname = $fetch_basic_info['firstName'];
+                        $getLastname = $fetch_basic_info['lastName'];
 
                     $select_poster_img = "SELECT profile_image FROM user_profile_image WHERE usr_email='$poster_email' AND status_image='1'";
-                    $execute_profile_image = mysqli_query($this->Frequency(),$select_poster_img);
-                    $fetch_image = mysqli_fetch_assoc($execute_profile_image);
-                    $profile_image = $fetch_image['profile_image'];  
+                    $execute_poster_profile_image = mysqli_query($this->Frequency(),$select_poster_img);
+                    $fetch_poster_image = mysqli_fetch_assoc($execute_poster_profile_image);
+                        $poster_profile_image = $fetch_poster_image['profile_image'];  
                     
                     $select_my_profile_image = "SELECT profile_image FROM user_profile_image WHERE usr_email='$this->E_mail' AND status_image='1'";
                     $execute_my_image = mysqli_query($this->Frequency(), $select_my_profile_image);
                     $fetch_my_image = mysqli_fetch_assoc($execute_my_image);
-                    $my_profile_image = $fetch_my_image['profile_image'];  ?>
+                        $my_profile_image = $fetch_my_image['profile_image'];  ?>
 
                         <!-- profile last updated view // each post -->
                         <!-- ========================================================================================================= -->
                         <div class="each-post mt-3">
                             <div class="arrangement-section d-flex" style="width: 100%">
-                                <div class="poster-identity"><a href="public_profile.box.php" ><div class="poster-img" id="load_profile_post" data-toggle="tooltip" data-placement="bottom" title="<?php echo $getFirstname; ?> <?php echo $getLastname; ?>' profile" ><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" width="100%" height="100%"></div></a></div>
+                                <div class="poster-identity">
+                                    <a href="public_profile.box.php" >
+                                        <div class="poster-img" id="load_profile_post" data-toggle="tooltip" data-placement="bottom" title="<?php echo $getFirstname; ?> <?php echo $getLastname; ?>' profile" >
+                                            <img src="<?php echo '../Images/profile-img/profile-image/'.$poster_profile_image; ?>" width="100%" height="100%">
+                                        </div>
+                                    </a>
+                                </div>
                                 <div class="full-post ml-2">
                                     <!-- poster name -->
                                     <div class="poster-name"><?php echo $getFirstname; ?> <?php echo $getLastname; ?></div>
@@ -104,10 +111,22 @@
                                                 </div>
                                             </div>
                                         <?php }else{?>
-                                            <!-- if post is photo -->
-                                            <div class="media mt-2">
-                                                <img src="<?php echo $photoPath.$select_media_posted; ?>" width="100%" height="100%">
-                                            </div>
+                                            <?php if($type == "profile"){?>
+                                                <!-- if post is photo -->
+                                                <div class="media mt-2">
+                                                    <img src="<?php echo '../Images/profile-img/profile-image/'.$select_media_posted; ?>" width="100%" height="100%">
+                                                </div>
+                                            <?php }else if($type == "feeds"){?>
+                                                <!-- if post is photo -->
+                                                <div class="media mt-2">
+                                                    <img src="<?php echo '../Images/activity_stream/'.$select_media_posted; ?>" width="100%" height="100%">
+                                                </div>
+                                            <?php }else{?>
+                                                <!-- if post is photo -->
+                                                <div class="media mt-2">
+                                                    <img src="<?php echo $photoPath.$select_media_posted; ?>" width="100%" height="100%">
+                                                </div>
+                                            <?php } ?>
                                         <?php } ?>
                                     <?php } ?>
 
@@ -568,7 +587,7 @@
     // =====================================================================================================================================
     if(isset($_POST['getPost_email'])){
         $newFames = new Post_Illumination($_POST['getPost_email']);
-        $newFames->show_posts($_POST['getpost_type'],$_POST['getVideoPath'], $_POST['getPhotoPath']);
+        $newFames->show_posts($_POST['getCommonPost_type'],$_POST['getPostVideoPath'], $_POST['getPostPhotoPath']);
     }
 
     // if isset add comment request
@@ -661,6 +680,6 @@
     // ======================================================================================
     if(isset($_POST['getProfile_post_email'])){
         $newFames = new Post_Illumination($_POST['getProfile_post_email']);
-        $newFames->show_posts($_POST['getPost_type'],$_POST['getVideoPath'],$_POST['getPath']);
+        $newFames->show_posts($_POST['getPost_profile_type'],$_POST['getVideoPath'],$_POST['getPath']);
     }
 ?>

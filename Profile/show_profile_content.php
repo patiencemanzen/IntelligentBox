@@ -933,6 +933,17 @@
             <?php }
         }
 
+        public function envite_client($inviter, $invited){
+            $discover_people = "SELECT * FROM intelligent_users WHERE email='$inviter'";
+            $execute_people = mysqli_query($this->Frequency(), $discover_people);
+            $fetch_people = mysqli_fetch_assoc($execute_people);
+                $firstName = $fetch_people['firstName'];
+                $lastName = $fetch_people['lastName'];
+
+            $notification = "{$firstName} {$lastName}, Invite you to attend and use class";
+            $add_notification = "INSERT INTO notifications ('','$inviter','$invited','')";
+        }
+
         public function discover_people($user_email, $title){
             $discover_people = "SELECT * FROM intelligent_users WHERE email NOT IN (SELECT DISTINCT reciever_email FROM user_follow_board WHERE host_email='$user_email') AND email NOT IN (SELECT DISTINCT host_email FROM user_follow_board WHERE reciever_email='$user_email') AND email != '$this->E_mail' AND title='$title' AND Verified='complete' LIMIT 3";
             $execute_people = mysqli_query($this->Frequency(), $discover_people);

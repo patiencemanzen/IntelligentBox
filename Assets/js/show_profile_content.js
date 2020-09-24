@@ -161,13 +161,12 @@ function getprofile_image_on(){
 display_post();
 function display_post(){
     $(document).ready(function(){
-        var global_mail = document.getElementById("hiddenEmail").value;
-        var post_type = "feeds";
+        var email = document.getElementById("hiddenEmail").value;
         $("#hold_last_post").load("show_posts.php",{
-          getPost_email: global_mail,
-          getpost_type: post_type,
-          getPhotoPath: "../Images/activity_stream/",
-          getVideoPath: "../videos/activity_stream-vd/"
+            getPost_email: email,
+            getCommonPost_type: "feeds",
+            getPostPhotoPath: "../Images/activity_stream/",
+            getPostVideoPath: "../videos/activity_stream-vd/"
         });
     });
 }
@@ -319,13 +318,12 @@ function like_dislike_comment(obj){
 Display_current_profile_post();
 function Display_current_profile_post(){
     $(document).ready(function(){
-        var global_mail = document.getElementById("hiddenEmail").value;
-        var post_type = "profile";
+        var user_email = document.getElementById("hiddenEmail").value;
         $("#hold_profile_image_post").load("show_posts.php",{
-          getProfile_post_email: global_mail,
-          getPost_type: post_type,
-          getPath: "../Images/profile-img/profile-image/",
-          getVideoPath: "../videos/activity_stream-vd/"
+            getProfile_post_email: user_email,
+            getPost_profile_type: "profile",
+            getPath: "../Images/profile-img/profile-image/",
+            getVideoPath: "../videos/activity_stream-vd/"
         });
     });
 }

@@ -439,7 +439,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="for-image" id="when_photo">
-                                                            <img src="" class="preview_photo" width="100%" height="100%">
+                                                            <img class="preview_photo" width="100%" height="100%">
                                                         </div>
                                                     </div>
                                                     <form action="profile_create_post.php" method="POST" enctype="multipart/form-data">
@@ -450,7 +450,7 @@
                                                 <div class="option-creation">
                                                     <div class="choose-option-area">
                                                         <input type="file" name="file_media" id="post_photo" style="display: none;">
-                                                        <div class="choose-image-btn"><button type="button" onclick="triggerInputFile_post()"><i class="fa fa-image mr-2"></i> <i class="fa fa-video-camera mr-2"></i> <span class="pre-btn"> choose media </span> </button></div>
+                                                        <div class="choose-image-btn"><button type="button" onclick="triggerInputFile_post()"><i class="fa fa-image mr-2"></i> <span class="pre-btn"> choose media </span> </button></div>
                                                     </div>
                                                     <div class="create-post-btn">
                                                         <div class=""><button type="submit" name="submit_file" onclick="getPostLink(this)">create now</button></div>
@@ -657,10 +657,10 @@
                                         <div class="card-title-content">
                                             <ul class="nav" role="tablist">
                                                 <li class="nav-item-box">
-                                                    <a class="nav-link-box active" data-toggle="tab" href="#home1" role="tab"><i class="fa fa-street-view mr-2"></i>posts </a>
+                                                    <a class="nav-link-box active" data-toggle="tab" href="#home1" role="tab"><i class="fa fa-tree mr-2"></i>Current posts </a>
                                                 </li>
                                                 <li class="nav-item-box">
-                                                    <a class="nav-link-box" data-toggle="tab" href="#profile1" role="tab"><i class="fa fa-steam mr-2"></i> Last profile image updates</a>
+                                                    <a class="nav-link-box" data-toggle="tab" href="#profile1" role="tab"><i class="fa fa-calendar-o"></i> Last updates</a>
                                                 </li>
                                             </ul>
                                         </div>

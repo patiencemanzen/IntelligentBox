@@ -1,17 +1,3 @@
-<!-- 
-	//////////////////////////////////////////////////////
-
-    INTELLIGENT BOX
-    DESIGNED & DEVELOPED by Manirabona Patience
-    
-    author: Mnirabona Patience,
-    Email:  Hseal419@gmail.com,
-    location: Kigali,Rwanda,
-    pro: Intelligent Box E-learning,
-    version: 1.0.0
-    
-	//////////////////////////////////////////////////////
--->
 <?php 
   session_start();
   if(isset($_SESSION['Email'])){
@@ -19,8 +5,7 @@
       $firstName = $_SESSION['Firstname'];
       $lastName = $_SESSION['Lastname'];
       $user_title = $_SESSION['title'];
-?>
-    <!DOCTYPE html>
+?><!DOCTYPE html>
     <html lang="en">
     <head>
         <!-- meta tags -->
@@ -158,7 +143,7 @@
                                                 <div class="choose-image-profile">
                                                     <input type="file" name="profileImage" id="profileImageFile" accept="image/png,image/jpg,image/jpeg" style="display: none;">
                                                     <div class="choose-profile-image"><button type="button" onclick="trigger_profile_image()">choose profile image</button></div>
-                                                    <div class="update-profile"><button type="button" name="submitprofileImage" onclick="submit_profile_image()">update</button></div>
+                                                    <div class="update-profile"><button type="button" name="submitprofileImage" onclick="submit_profile_image(this)">update</button></div>
                                                     <div class="update-profile" id="error_found"></div>
                                                 </div>
                                             </div>
@@ -318,7 +303,7 @@
                                                 <form enctype="multipart/form-data">
                                                     <div class="choose-image">
                                                         <input type="file" name="backgroundImage" id="profileImage" accept='image/png,image/jpeg,image/jpg' style="display: none;">
-                                                        <div class="update-btn"><button type="button" id="btn_upload" onclick="submit_background_image()">update</button></div>
+                                                        <div class="update-btn"><button type="button" id="btn_upload" onclick="submit_background_image(this)">update</button></div>
                                                         <div class="choose-file"><button type="button" onclick="triggerInputFile_background()">choose image</button></div>
                                                         <div class="choose-file" id="error_foud"></div>
                                                     </div>
@@ -1073,5 +1058,5 @@
     </body>
     </html>
 <?php }else{
-    echo "session not recognized";
- }?>
+    echo "session not recognized, please use right way";
+}?>

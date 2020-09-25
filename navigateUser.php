@@ -1,24 +1,4 @@
-<!-- 
-	//////////////////////////////////////////////////////
-
-    INTELLIGENT BOX
-    DESIGNED & DEVELOPED by Manirabona Patience
-    
-    author: Mnirabona Patience,
-    Email:  Hseal419@gmail.com,
-    location: Kigali,Rwanda,
-    pro: Intelligent Box E-learning,
-    version: 1.0.0
-    
-	//////////////////////////////////////////////////////
--->
-
 <?php 
-    // INITIALIZE SESSION
-    // ======================================================================================================================
-    session_start();
-    // ======================================================================================================================
-    
     // INITIALIZE DATABASE CONNECTION
     // ==============================================================================================================
     require_once ("Scyllar.php");
@@ -70,7 +50,12 @@
             if(mysqli_num_rows($executeCurrentInfo) > 0){
                 $rows = mysqli_fetch_assoc($executeCurrentInfo);
 
-                //    initialize varibles for sessions    
+                // INITIALIZE SESSION
+                // ======================================================================================================================
+                session_start();
+                // ======================================================================================================================
+                
+                // initialize varibles for sessions    
                 $identity = $rows['identity'];
                 $firstname = $rows['firstName'];
                 $lastname = $rows['lastName'];
@@ -85,11 +70,9 @@
                 $_SESSION['title'] = $user_title;
                 
                 //  then navigate user to profile page 
-                header("Location: Profile/profile.php");  
-                exit();
+                header("Location: Profile/profile.php"); 
             }else{ 
                 header("Location: index.php?emailMissed");
-                exit();
             }
         }
 
@@ -111,46 +94,48 @@
         }
     }
     
-    // INITIALIZE FORM VALIABLES
-    // =========================================================
-    $oldtitle = $_POST['choosen_class'];
-    $currentE = $_POST['Email'];
+    if(isset($_POST['submit-form-navigation'])){
+        // INITIALIZE FORM VALIABLES
+        // =========================================================
+        $oldtitle = $_POST['choosen_class'];
+        $currentE = $_POST['Email'];
 
-    // PLATFORM INFORMATION
-    // ==========================================================
-    
-    // user ip address
-    function get_client_ip(){
-        $ipaddress = '';
-        if (isset($_SERVER['HTTP_CLIENT_IP'])) {
-            $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
-        } else if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-            $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
-        } else if (isset($_SERVER['HTTP_X_FORWARDED'])) {
-            $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
-        } else if (isset($_SERVER['HTTP_FORWARDED_FOR'])) {
-            $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
-        } else if (isset($_SERVER['HTTP_FORWARDED'])) {
-            $ipaddress = $_SERVER['HTTP_FORWARDED'];
-        } else if (isset($_SERVER['REMOTE_ADDR'])) {
-            $ipaddress = $_SERVER['REMOTE_ADDR'];
-        } else {
-            $ipaddress = 'UNKNOWN';
+        // PLATFORM INFORMATION
+        // ==========================================================
+        
+        // user ip address
+        function get_client_ip(){
+            $ipaddress = '';
+            if (isset($_SERVER['HTTP_CLIENT_IP'])) {
+                $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
+            } else if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+                $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
+            } else if (isset($_SERVER['HTTP_X_FORWARDED'])) {
+                $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
+            } else if (isset($_SERVER['HTTP_FORWARDED_FOR'])) {
+                $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
+            } else if (isset($_SERVER['HTTP_FORWARDED'])) {
+                $ipaddress = $_SERVER['HTTP_FORWARDED'];
+            } else if (isset($_SERVER['REMOTE_ADDR'])) {
+                $ipaddress = $_SERVER['REMOTE_ADDR'];
+            } else {
+                $ipaddress = 'UNKNOWN';
+            }
+
+            return $ipaddress;
         }
 
-        return $ipaddress;
-    }
+        $PublicIP = get_client_ip();
 
-    $PublicIP = get_client_ip();
-
-    // IMPLEMENT CLASS MONARCH
-    $newMonarch = new Monarch($oldtitle,$currentE);
-    if($newMonarch->updateCurrentInfo()){
-        $newMonarch->updateBackgroundImage();
-        $newMonarch->updateExtraInfo($fullLocation,$PublicIP);
-        $newMonarch->session_setup($currentE);
-    }else{        
-        header("Location: index.php?updateDatabaseFail");
-        exit();
+        // IMPLEMENT CLASS MONARCH
+        $newMonarch = new Monarch($oldtitle,$currentE);
+        if($newMonarch->updateCurrentInfo()){
+            $newMonarch->updateBackgroundImage();
+            $newMonarch->updateExtraInfo($fullLocation,$PublicIP);
+            $newMonarch->session_setup($currentE);
+            ob_start();
+        }else{        
+            header("Location: index.php?updateDatabaseFail");
+        }
     }
 ?>

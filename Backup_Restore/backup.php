@@ -1,4 +1,3 @@
-
 <?php
 
     // INITILAZE DATABASE CONNECTION

@@ -1,17 +1,3 @@
-<!-- 
-	//////////////////////////////////////////////////////
-
-    INTELLIGENT BOX
-    DESIGNED & DEVELOPED by Manirabona Patience
-    
-    author: Mnirabona Patience,
-    Email:  Hseal419@gmail.com,
-    location: Kigali,Rwanda,
-    pro: Intelligent Box E-learning,
-    version: 1.0.0
-    
-	//////////////////////////////////////////////////////
--->
 <?php 
   session_start();
   if(isset($_SESSION['Email'])){
@@ -40,8 +26,7 @@
             while($fetch_learner = mysqli_fetch_assoc($execute_learner)){
                 $learner = $learner + 1;
             }
-?>
-<!DOCTYPE html>
+?><!DOCTYPE html>
 <html lang="en">
    <head>
        <!-- meta tags -->

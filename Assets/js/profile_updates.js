@@ -23,8 +23,9 @@ function previewBackgroundImage(){
 
 // THEN SUBMIT GIVEN PHOTO FOR BACKGROUND IMAGE
 // ============================================================================================================================
-function submit_background_image(){    
+function submit_background_image(obj){    
     $(document).ready(function(){
+        obj.innerHTML = "updating...";
         var fd = new FormData();
         var files = $('#profileImage')[0].files[0];
         fd.append('backgroundImage',files);
@@ -37,6 +38,7 @@ function submit_background_image(){
             processData: false,
             success: function(data){
                 document.getElementById("error_foud").innerHTML = data;
+                obj.innerHTML = "Update";
             }
         });
     });
@@ -91,8 +93,9 @@ function submit_bio(){
 
 // WHEN USER SUBMIT PROFILE IMAGE
 // ==============================================================================================================================
-function submit_profile_image(){
+function submit_profile_image(obj){
     $(document).ready(function(){
+        obj.innerHTML = "updating...";
         var fd = new FormData();
         var files = $('#profileImageFile')[0].files[0];
         fd.append('profileImage',files);
@@ -104,6 +107,7 @@ function submit_profile_image(){
             processData: false,
             success: function(data){
                 document.getElementById("error_found").innerHTML = data;
+                obj.innerHTML = "update";
             }
         });
     });

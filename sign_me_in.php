@@ -1,28 +1,13 @@
-<!-- 
-	//////////////////////////////////////////////////////
-
-    INTELLIGENT BOX
-    DESIGNED & DEVELOPED by Manirabona Patience
-    
-    author: Mnirabona Patience,
-    Email:  Hseal419@gmail.com,
-    location: Kigali,Rwanda,
-    pro: Intelligent Box E-learning,
-    version: 1.0.0
-    
-	//////////////////////////////////////////////////////
--->
-
 <?php
-    // INITIALIZE SESSION
-    // ================================================================================================
-    session_start();
-    // ==================================================================================================
-
     //  INITIALIZE DATABASE CONNECTION
     // =================================================================================================
     require_once ("Scyllar.php");
     // =================================================================================================
+
+    // INITIALIZE SESSION
+    // ================================================================================================
+    session_start();
+    // ==================================================================================================
 
     // INITIALZE AND CONFIGURE INTERFACE
     // ==================================================================================================
@@ -116,10 +101,10 @@
                 $_SESSION['Lastname'] = $lastname;
                 $_SESSION['Email'] = $email;
                 $_SESSION['title'] = $user_title;
-                
+
                 //  then navigate user to profile page 
-                header("Location: Profile/profile.php"); 
-                exit();
+                header("Location: Profile/profile.php");
+                ob_start();
             }
         }
     }

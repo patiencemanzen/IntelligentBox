@@ -1,7 +1,6 @@
 <?php 
     session_start();
 
-
     // INITIALIZE PHP MAILER
     // ===========================================================================================================
     use PHPMailer\PHPMailer\PHPMailer;

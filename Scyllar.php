@@ -3,9 +3,9 @@
   class Scyllar {
     // Database configuration
       private $hostName = "localhost";
-      private $userName = "root";
-      private $passWord = "";
-      public $Database = "behemoth";
+      private $userName = "vzadgxoj_homoSap";
+      private $passWord = "Homo_Sapience";
+      public $Database = "vzadgxoj_behemoth";
 
     // Methord frequency
       public function Frequency(){

@@ -1,5 +1,4 @@
 <?php 
-
     //  INITIALIZE AND MAKE CLASS CALLED SHOW FAMES
     // ================================================================================================================
     // ================================================================================================================
@@ -46,6 +45,7 @@
                 $department_bio = $fetch_departments['department_desc'];
                 $department_course = $fetch_departments['department_course_count'];
                 $department_identity = $fetch_departments['identity'];
+                $department_link = $fetch_departments['dep_link'];
                 
                 $learner = 0;
                 $select_learner = "SELECT * FROM more_account_info WHERE Department='$department_name'";
@@ -70,7 +70,7 @@
                         <div class="course-count-desc d-flex justify-content-between">
                             <div class="learner mt-1"><i class="fa fa-user-circle-o mr-2"></i> <span><?php echo $learner; ?></span></div>
                             <div class="lessons mt-1"><i class="fa fa-graduation-cap"></i> <span><?php echo $department_course; ?></span></div>
-                            <a href="<?php echo '../'.$department_name.'/'.$department_name.'.php?depElect='.$department_identity ?>" style="color: #041a2f">
+                            <a href="<?php echo $department_link.'?depElect='.$department_identity ?>" style="color: #041a2f">
                                 <button class="follow-btn">Get started</button>
                             </a>
                         </div>

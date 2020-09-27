@@ -516,18 +516,33 @@
         $imageFileType = pathinfo($location,PATHINFO_EXTENSION);
         $valid_extensions = array("jpg","jpeg","png","");
 
-        if(empty($que)){
-            header("location: profile.php?empty");
-        }else{
-            // check extension
-            if(!in_array(strtolower($imageFileType), $valid_extensions)) {
-                header("location: profile.php?Check extentension");
+        if($_FILES['que_image']['name'] == ""){
+            $empty = "";
+            if($newMigration->save_que_trainer($empty, $from, $to, $que)){
+                header("location: profile.php?success");
+                exit();
             }else{
-                move_uploaded_file($_FILES['que_image']['tmp_name'],$location);
-                if($newMigration->save_que_trainer($filename, $from, $to, $que)){
-                    header("location: profile.php?success");
+                header("location: profile.php?fail to insert");
+                exit();
+            }
+        }else{
+            if(empty($que)){
+                header("location: profile.php?empty");
+                exit();
+            }else{
+                // check extension
+                if(!in_array(strtolower($imageFileType), $valid_extensions)) {
+                    header("location: profile.php?Check extentension");
+                    exit();
                 }else{
-                    header("location: profile.php?fail to insert");
+                    move_uploaded_file($_FILES['que_image']['tmp_name'],$location);
+                    if($newMigration->save_que_trainer($filename, $from, $to, $que)){
+                        header("location: profile.php?success");
+                        exit();
+                    }else{
+                        header("location: profile.php?fail to insert");
+                        exit();
+                    }
                 }
             }
         }

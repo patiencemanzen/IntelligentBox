@@ -877,11 +877,11 @@
             padding: 10px;
             color: black;
             font-family: roboto_regular;
-            border-radius: 3px;
+            border-radius: 6px;
             text-transform: capitalize;
             box-shadow: 0 0 2px rgba(0,0,0, 0.3);
         }
-        .user-status-info div{
+        .user-status-info .followers-count-profile{
             margin-right: 10px;
             background: #f6f7fd;
             padding: 7px 13px 7px 13px;
@@ -894,26 +894,37 @@
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
+            font-size: 15px;
         }
         .user-status-info div span{
             color: #041a2f;
             font-family: roboto_bold;
             margin-left: 5px;
         }
-        #my_time{
+        .user-location{
             margin-left: 0px;
+            font-family: roboto_bold;
+            font-size: 16px;
+            font-weight: 590;
+            margin-right: 10px;
+            background: #f6f7fd;
+            padding: 7px 13px 7px 13px;
+            border-radius: 4px;
+            margin-right: 5px;
+            margin-top: 3px;
+            text-transform: capitalize;
         }
         .profile-image-user{
             width: 250px;
-            height: 240px;
+            height: 250px;
             background: white;
             padding: 4px;
             position: relative;
-            border-radius: 4px;
+            border-radius: 14px;
             box-shadow: 0 0 2px rgba(0,0,0, 0.3);
         }
         #getProfileimage img{
-            border-radius: 4px;
+            border-radius: 14px;
             object-fit: fill;
         }
         #getProfileimage{
@@ -934,11 +945,12 @@
             background: #f6f7fd;
             padding: 8px 10px 8px 10px;
             font-family: roboto_bold;
-            font-size: 13px;
+            font-size: 15px;
             border-radius: 4px;
             margin-right: 5px;
             text-transform: capitalize;
             font-weight: 570;
+            letter-spacing: 0.6px;
         }
         .bio-section{
             border-bottom-right-radius: 4px;
@@ -1277,7 +1289,10 @@
         }
         .title-setup{
             font-family: roboto_bold;
-            margin-left: 10px;
+            padding: 5px 10px;
+            font-size: 17px;
+            letter-spacing: 0.6px;
+            font-weight: 580;
         }
         .user_add_info{
             padding: 10px;
@@ -2370,6 +2385,8 @@
             border-radius: 4px;
             font-family: roboto_bold;
             cursor: pointer;
+            letter-spacing: 0.6px;
+            font-size: 14px;
         }
         .card-user-status{
             /* box-shadow: 0 0 5px rgba(0,0,0, 0.3); */

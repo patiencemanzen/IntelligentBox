@@ -17,6 +17,17 @@
                 <img src="<?php echo '../Images/profile-img/profile-image/'.$fetchImage['profile_image'] ?>" width="100%" height="100%">
         <?php }
 
+        public function popularNewsConv($word){
+            if(strlen($word)<= 90){
+                $word= $word."";
+            }else{
+                $word= substr($word, 0, 90);
+                $word= $word."...";
+            }
+            
+            return $word;
+        }
+
         // FUNCTION LOAD CONETNT ACCORDING TO CONTINET
         // ===================================================================================================================================================
         public function Continental_news($continet, $user_email){ ?>
@@ -56,7 +67,7 @@
                                             <a href="full_news.php?news=<?php echo $news_identity?>" style="color:black;"><div class="read-more">read more</div></a>
                                         </div>
                                         <div class="story-desc mt-2 mtdesc">
-                                        <?php echo $news_title; ?>
+                                        <?php echo $this->popularNewsConv($news_description); ?>
                                         </div>
                                     </div>
                             <?php } ?>

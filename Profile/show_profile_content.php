@@ -411,7 +411,7 @@
                 <!-- =================================================================================================== -->
             <?php }else{ ?>
                 <div class="user_add_info">
-                    <div class="title-setup mb-3">Setup more account to categorize yourself</div>
+                    <div class="title-setup mb-3">Add more informations</div>
                     <div class="set setup_level" id="set_up_location">
                         <select name="" id="location_set">
                             <script>
@@ -481,7 +481,7 @@
         // SHOW ALL MY TRAINER 
         // ========================================================================================================================================
         public function show_my_trainers($email){
-              $select_my_trainers = "SELECT * FROM user_follow_board WHERE host_email='$email' OR reciever_email='$email'";
+            $select_my_trainers = "SELECT * FROM user_follow_board WHERE host_email='$email' OR reciever_email='$email'";
             //   $select_my_trainers = "SELECT * FROM intelligent_users WHERE email IN (SELECT DISTINCT host_email FROM user_follow_board WHERE reciever_email ='$email') OR email IN (SELECT DISTINCT reciever_email FROM user_follow_board WHERE host_email='$email') AND title='trainer'";
               $execute_my_trainer = mysqli_query($this->Frequency(), $select_my_trainers);
               if(mysqli_num_rows($execute_my_trainer) > 0){

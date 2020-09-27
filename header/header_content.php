@@ -409,6 +409,52 @@
                 echo "Logen first time";
             }
         }
+
+        public function count_posts($email){
+            $update_session = "SELECT * FROM post_sessions WHERE user_email='$email'";
+            $execute_sessions = mysqli_query($this->Frequency(), $update_session);
+            if(mysqli_num_rows($execute_sessions) > 0){
+                $fetch_session = mysqli_fetch_assoc($execute_sessions);
+                    $created_session = $fetch_session['created_session'];
+
+                $select_posts = "SELECT * FROM user_common_post WHERE poster_email IN (SELECT reciever_email FROM user_follow_board WHERE host_email = '$email') AND post_type='feeds' AND status_view='0' AND created_on > '$created_session' ORDER BY created_on DESC";
+                $execute_posts = mysqli_query($this->Frequency(), $select_posts);
+                $count_post = 0;
+                while($fetch_post_count = mysqli_fetch_assoc($execute_posts)){
+                    $count_post = $count_post + 1;
+                } ?>
+                <?php if($count_post == 0){?>
+                <?php }else{ ?>
+                    <div class="counter p-2 mt-2 mr-2" ></div>
+                <?php  } 
+            }else{
+                $select_posts = "SELECT * FROM user_common_post WHERE poster_email IN (SELECT reciever_email FROM user_follow_board WHERE host_email = '$email') AND post_type='feeds' AND status_view='0' ORDER BY created_on DESC";
+                $execute_posts = mysqli_query($this->Frequency(), $select_posts);
+                $count_post = 0;
+                while($fetch_post_count = mysqli_fetch_assoc($execute_posts)){
+                    $count_post = $count_post + 1;
+                } ?>
+                <?php if($count_post == 0){?>
+                <?php }else{ ?>
+                    <div class="counter p-2 mt-2 mr-2" ></div>
+                <?php  } 
+            } ?>
+        <?php }
+
+
+        public function unsetPostSession($email){
+            $update_sessions = "SELECT user_email FROM post_sessions WHERE user_email='$email'";
+            $execute_user_session = mysqli_query($this->Frequency(), $update_sessions);
+            if(mysqli_num_rows($execute_user_session) > 0){
+                $date = Date("Y-m-d h:m:s");
+                $update_real_session = "UPDATE post_sessions SET created_session='$date' WHERE user_email='$email'";
+                $execute_update_session = mysqli_query($this->Frequency(), $update_real_session);
+            }else{
+                $date = Date("Y-m-d h:m:s");
+                $insert_new_user_session = "INSERT INTO post_sessions VALUES ('','$email','$date')";
+                $executre_insert_session = mysqli_query($this->Frequency(), $insert_new_user_session);
+            }
+        }
         
     }
 
@@ -483,5 +529,19 @@
     if(isset($_POST['getLine_user_on'])){
         $new_session = new Notification_pop();
         $new_session->getLine($_POST['getLine_user_on']);
+    }
+
+    // if request is to count post
+    // ============================================================================================================================
+    if(isset($_POST['get_all_post_count'])){
+        $new_post = new Notification_pop();
+        $new_post->count_posts($_POST['get_all_post_count']);
+    }
+
+    // if request is to unsetPostSssion
+    // ================================================================================================================================
+    if(isset($_POST['unsetPostSession'])){
+        $setPost = new Notification_pop();
+        $setPost->unsetPostSession($_POST['unsetPostSession']);
     }
 ?>

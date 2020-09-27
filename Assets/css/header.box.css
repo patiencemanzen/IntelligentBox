@@ -123,20 +123,26 @@
         width: 100%;
     }
     .nav-icons .nav-item{
-        /* float: left; */
         background: #f6f7fd;
         margin-right: 5px;
         position: relative;
+        padding: 6px 13px 5px 13px;
+        cursor: pointer;
     }
     .nav-icons .nav-item a{
         color: #041a2f;
         font-family: roboto_bold;
         cursor: pointer;
-        letter-spacing: 0.3px;
+        letter-spacing: 0.6px;
         line-height: 18px;
+        text-transform: capitalize;
+        font-weight: 580;
+        font-size: 15px;
+        margin-top: 2px;
     }
     .nav-icons .nav-item a .fa{
-        font-size: 15px;
+        font-size: 16px;
+        margin-right: 5px;
     }
  
     .counter{
@@ -147,8 +153,8 @@
         position: absolute;
         top: 3px;
         right: 0px;
-        border-radius: 50%;
-        padding: 2px 5px;
+        border-radius: 6px;
+        padding: 2px 6px;
     }
     .popup-notification-nav{
         background: white;
@@ -277,6 +283,7 @@
         height: 30px;
         border-radius: 50%;
         background-color: #f6f7fd;
+        margin-top: 1.7px;
     }
 
     .navbar-nav-icons{
@@ -331,7 +338,7 @@
     .search-everything{
         width: 100%; 
         margin-right: 10px;
-        padding: 3px;
+        padding: 3px 3px;
     }
     .search-student-control{
         border: none;
@@ -342,11 +349,12 @@
     }
     .search-student-form input{
         font-family: roboto_medium;
+        letter-spacing: 0.6px;
     }
     .search-student-form{
-        padding: 4px 15px 4px 15px;
+        padding: 5px 10px;
         font-family: roboto_regular;
-        border-radius: 20px;
+        border-radius: 6px;
         width: 100%;
         background-color: #f6f7fd;
         -webkit-transition: width 0.4s ease-in-out;
@@ -355,7 +363,7 @@
         margin-left: 5px;
     }
     .search-student-form .fa{
-        margin-top: 2.5px;
+        margin-top: 3px;
         cursor: pointer;
     }
     .search-user-student{position: relative;}

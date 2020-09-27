@@ -112,11 +112,11 @@
                         ?>
                     </span>
                 </div>
-                <div class="email"><i class="fa fa-envelope-o mr-2"></i><?php echo $user_email; ?></div>
+                <div class="followers-count-profile"><i class="fa fa-envelope-o mr-2"></i><?php echo $user_email; ?></div>
                 <div class="followers-count-profile"> followers <span><?php echo $followers; ?></span></div>
-                <div class="following-count-profile">following <span><?php echo $Following; ?></span></div>
-                <div class="trainer-count-profile">Trainer <span><?php echo $total_trainer; ?></span></div>
-                <div class="courses-count-profile">Classes <span><?php echo $courses; ?></span></div>
+                <div class="followers-count-profile">following <span><?php echo $Following; ?></span></div>
+                <div class="followers-count-profile">Trainer <span><?php echo $total_trainer; ?></span></div>
+                <div class="followers-count-profile">Classes <span><?php echo $courses; ?></span></div>
             </div>
         <?php }
 

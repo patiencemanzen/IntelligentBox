@@ -189,7 +189,7 @@
                     <!-- bell icon notification -->
                     <!-- ======================================================================================================================================== -->
                     <div class="nav-item">
-                        <a class="nav-link" onclick="openNotificationArea()"><i class="fa fa-bell-o" id="notification_icon" data-toggle="tooltip" data-placement="bottom" title="Notifications"></i> <span class="pre-top"> Notifications </span> </a>
+                        <a class="" onclick="openNotificationArea()"><i class="fa fa-bell-o" id="notification_icon" data-toggle="tooltip" data-placement="bottom" title="Notifications"></i> <span class="pre-top"> Notifications </span> </a>
                         <div id="count_notification"></div>
                         <div class="popup-notification-nav none" id="notification_popUp">
                             <div class="div-title">Notifications</div>
@@ -204,7 +204,7 @@
                     <!-- message icon notification -->
                     <!-- ============================================================================================================================================== -->
                     <div class="nav-item">
-                        <a class="nav-link" onclick="openMessageArea()"><i class="fa fa-envelope-o" data-toggle="tooltip" data-placement="bottom" title="Messages"></i> <span class="pre-top"> Messages </span></a>
+                        <a class="" onclick="openMessageArea()"><i class="fa fa-envelope-o" data-toggle="tooltip" data-placement="bottom" title="Messages"></i> <span class="pre-top"> Messages </span></a>
                         <div id="count_message"></div>
                         <div class="popup-notification-nav none" id="messages_popUp">
                             <div class="div-title">Messages</div>
@@ -219,7 +219,7 @@
                     <!-- news notification icon -->
                     <!-- ======================================================================================================================================= -->
                     <div class="nav-item">
-                        <a class="nav-link" href="../World-News/"><i class="fa fa-newspaper-o" data-toggle="tooltip" data-placement="bottom" title="News"></i> <span class="pre-top"> News </span></a>
+                        <a class="" href="../World-News/"><i class="fa fa-newspaper-o" data-toggle="tooltip" data-placement="bottom" title="News"></i> <span class="pre-top"> News </span></a>
                         <!-- <div class="counter">9+</div> -->
                     </div>
                     <!-- end news -->
@@ -228,7 +228,7 @@
                     <!-- personal or group challenge notification icon -->
                     <!-- ======================================================================================================================================== -->
                     <div class="nav-item">
-                        <a class="nav-link" onclick="openChallenge()"><i class="fa fa-superpowers" data-toggle="tooltip" data-placement="bottom" title="Group Challenges"></i> <span class="pre-top"> GC </span></a>
+                        <a class="" onclick="openChallenge()"><i class="fa fa-superpowers" data-toggle="tooltip" data-placement="bottom" title="Group Challenges"></i> <span class="pre-top"> GC </span></a>
                         <!-- <div class="counter">9+</div> -->
                         <div class="popup-notification-nav none" id="challenges_popUp">
                             <div class="div-title">Group challenges</div>
@@ -247,16 +247,16 @@
 
                     <!-- home notification icon -->
                     <!-- =============================================================================================================================================== -->
-                    <div class="nav-item">
-                        <a class="nav-link" href="../Home/"> <i class="fa fa-home" data-toggle="tooltip" data-placement="bottom" title="Home"></i> <span class="pre-top"> Home </span></a>
-                        <!-- <div class="counter">9+</div> -->
+                    <div class="nav-item" id="nav-item" onclick="unsetPosts(this)">
+                        <a class="" href="../Home/"> <i class="fa fa-home" data-toggle="tooltip" data-placement="bottom" title="Home"></i> <span class="pre-top"> Home </span></a>
+                        <div id="count_posts"></div>
                     </div>
                     <!-- end hone -->
                     <!-- ================================================================================================================================================= -->
 
                     <!-- =========================================================================== -->
                     <div class="nav-item">
-                        <a class="nav-link" href="../History/"><i class="fa fa-clock-o" data-toggle="tooltip" data-placement="bottom" title="History"></i> <span class="pre-top"> History </span></a>
+                        <a class="" href="../History/"><i class="fa fa-clock-o" data-toggle="tooltip" data-placement="bottom" title="History"></i> <span class="pre-top"> History </span></a>
                         <!-- <div class="counter">9+</div> -->
                     </div>
                     <!-- end history -->
@@ -265,7 +265,7 @@
                     <!-- history notification icon -->
                     <!-- ============================================================================== -->
                     <div class="nav-item">
-                        <a class="nav-link" href="../Religion/"><i class="fa fa-navicon" data-toggle="tooltip" data-placement="bottom" title="History"></i> <span class="pre-top"> Religions </span></a>
+                        <a class="" href="../Religion/"><i class="fa fa-navicon" data-toggle="tooltip" data-placement="bottom" title="History"></i> <span class="pre-top"> Religions </span></a>
                         <!-- <div class="counter">9+</div> -->
                     </div>
                     <!-- end history -->

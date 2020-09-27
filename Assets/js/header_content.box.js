@@ -159,3 +159,24 @@ function get_challenges_request(){
         });
     });
 }
+
+function count_posts(){
+    var requestPostsCount = document.getElementById("user_mail").value;
+    $(document).ready(function(){
+        $("#count_posts").load("../header/header_content.php", {
+            get_all_post_count: requestPostsCount
+        });
+    });
+}
+setInterval(() => {
+    count_posts();
+}, 1000);
+
+function unsetPosts(obj){
+    var unsetPostEmail = document.getElementById("user_mail").value;
+    $(document).ready(function(){
+        $(this).load("../header/header_content.php", {
+            unsetPostSession: unsetPostEmail
+        });
+    });
+}

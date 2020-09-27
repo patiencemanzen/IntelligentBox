@@ -369,7 +369,7 @@
                             <!-- name of the user-->
                             <!-- ===================================================================================================================================== -->
                             <div class="settings">
-                                <div class="settings-alignment d-flex">
+                                <div class="settings-alignment">
                                     <div class="user-full-name"><?php $virtual_page->user_name($url_code); ?></div>
                                 </div>
                             </div>

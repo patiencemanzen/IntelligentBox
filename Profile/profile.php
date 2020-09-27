@@ -1,10 +1,10 @@
 <?php 
-  session_start();
-  if(isset($_SESSION['Email'])){
-      $Session_email_call = $_SESSION['Email'];
-      $firstName = $_SESSION['Firstname'];
-      $lastName = $_SESSION['Lastname'];
-      $user_title = $_SESSION['title'];
+    session_start();
+    if(isset($_SESSION['Email'])){
+        $Session_email_call = $_SESSION['Email'];
+        $firstName = $_SESSION['Firstname'];
+        $lastName = $_SESSION['Lastname'];
+        $user_title = $_SESSION['title'];
 ?><!DOCTYPE html>
     <html lang="en">
     <head>
@@ -712,7 +712,7 @@
                                     <div class="take_look_btn">
                                         <a href="../Questions&Answers/">
                                             <button> 
-                                                <div>Recieved Questions (<span id="count_recieved_question"></span>), <i class="fa fa-question-circle-o"></i> Show room</div>
+                                                <div>Recieved Questions (<span id="count_recieved_question"></span>), Show room</div>
                                             </button>
                                         </a>
                                     </div>
@@ -735,7 +735,7 @@
                                 <!-- =========================================================================================================================================== -->
                                 <!-- =========================================================================================================================================== -->
                                 <div class="user-friend mt-3">
-                                    <div class="label_tab"> Departments you might like </div>
+                                    <div class="label_tab"><i class="fa fa-graduation-cap mr-2"></i> Learn more about </div>
                                     <div class="friend-list mt-2" id="separtment_list">
                                         <div class="container-spnner">
                                             <div class="shape shape-1"></div>
@@ -755,7 +755,7 @@
                                 <!-- ======================================================================================================================================== -->
                                 <!-- =========================================================================================================================================== -->
                                 <div class="user-friend">
-                                    <div class="label_tab"> Photos </div>
+                                    <div class="label_tab">My Photos </div>
                                     <div class="galleries-list mt-2" id="get_all_photos">                                       
                                         <div class="container-spnner">
                                             <div class="shape shape-1"></div>
@@ -775,7 +775,7 @@
                                 <!-- ================================================================================================================================================== -->
                                 <div class="about-supporter">
                                     <div class="user-friend">
-                                        <div class="label_tab"> Follow More </div>
+                                        <div class="label_tab"> <i class="fa fa-connectdevelop mr-2"></i> Follow More </div>
                                         <span id="follow_error"></span>
                                         <div class="friend-list mt-2" id="friendList">
                                             <div class="container-spnner">
@@ -1059,4 +1059,5 @@
     </html>
 <?php }else{
     echo "session not recognized, please use right way";
+    header("Location: ../index.php");
 }?>

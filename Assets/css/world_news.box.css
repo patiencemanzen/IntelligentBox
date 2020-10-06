@@ -426,12 +426,10 @@
     .list-continet ul li a .each-continet{
         border-radius: 4px;
         position: relative;
-        width: 180px;
+        width: 170px;
         float: left;
-        margin-left: 2px;
-        margin-right: 2px;
-        height: 188px;
-        margin-top: 5px;
+        margin: 10px 10px;
+        height: 150px;
         margin-bottom: 5px;
         background: white;
         padding: 5px;

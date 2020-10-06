@@ -139,80 +139,63 @@
                     <!-- all member images -->
                     <!-- ============================================================================================================================== -->
                     <!-- ============================================================================================================================== -->
-                    <div class="group-member d-flex justify-content-between">
-                        <div class="friends-cover position-relative" id="most_used">
-                            
-                        </div>
+                    <div class="group-member">
+                        <div class="friends-cover position-relative" id="most_used"> </div>
 
                         <!-- all group detail -->
                         <!-- ================================================================================================================================ -->
-                        <!-- ================================================================================================================================ -->
                         <div class="group-detail">
-                            <div class="detail-list d-flex justify-content-between">
-                                <!-- <div class="detail"><i class="fa fa-user-circle-o"></i><span class="pre-accu">member</span> <span>478</span></div> -->
-                                <!-- <div class="detail"><i class="fa fa-thumbs-o-up"></i> <span class="pre-accu"> likes </span> <span>35K</span></div>
-                                <div class="detail"><i class="fa fa-graduation-cap"></i><span class="pre-accu"> courses </span> <span>46</span></div> -->
-                                <div class="detail"><i class="fa fa-support"></i> <span class="pre-accu">trainer</span> <span><?php echo $Trainer; ?></span></div>
-                                <div class="detail d-flex">
-                                    <i class="fa fa-search "></i>
-                                    <input type="text" name="" id="search_member" class="search" placeholder="seach member E_mail.." autocomplete="off" onkeyup="openResult()">
-                                    <div class="searched-result" id="searched-results">
-                                        <div class="list-result" id="result_search">
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- popup discovery -->
-                                <!-- ============================================================================================================================================ -->
-                                <div class="position-relative">
-                                    <div onclick="document.getElementById('discover').style.display = 'block'"><button class="invite-friend"><i class="fa fa-plus mr-1"></i>Envite People</button></div>
-
-                                    <!-- popup disocver section -->
-                                    <!-- ================================================================================================================================================== -->
-                                    <div class="settings-and-info" id="discover">
-                                        <div class="settings-pre">
-                                            Envite
-                                            <i onclick="document.getElementById('discover').style.display = 'none'" class="fa fa-times"></i>
-                                        </div>
-                                        <div class="setting-list">
-
-                                            <!-- each discovery holder -->
-                                            <!-- =================================================================================================================== -->
-                                            <!-- =================================================================================================================== -->
-                                            <div class="each-setting">
-                                                <div class="title-settings">Students</div>
-                                                <div class="reply-setting" id="discover-student">
-
-                                                </div>
-                                            </div>
-                                            <!-- end discovery holder -->
-                                            <!-- ===================================================================================================================================== -->
-                                            <!-- ===================================================================================================================================== -->
+                            <div class="detail"><i class="fa fa-support"></i> <span class="pre-accu">trainer</span> <span><?php echo $Trainer; ?></span></div>
+                            <div class="detail d-flex">
+                                <i class="fa fa-search "></i>
+                                <input type="text" name="" id="search_member" class="search" placeholder="seach member E_mail.." autocomplete="off" onkeyup="openResult()">
+                                <div class="searched-result" id="searched-results">
+                                    <div class="list-result" id="result_search">
                                         
-                                            <!-- discver trainers -->
-                                            <!-- ============================================================================================================================================= -->
-                                            <!-- ============================================================================================================================================= -->
-                                            <div class="each-setting">
-                                                <div class="title-settings">Trainers</div>
-                                                <div class="reply-setting" id="discover-trainer">
-
-                                                </div>
-                                            </div>
-                                            <!-- end discovery trainer -->
-                                            <!-- =========================================================================================================================================================== -->
-                                            <!-- ================================================================================================================================================================ -->
-                                            
-                                        </div>
                                     </div>
-                                    <!-- end popup discoevry -->
-                                    <!-- ================================================================================================================================ -->
-
                                 </div>
-                                <!-- end top popup discovry -->
-                                <!-- ================================================================================================================================================================================= -->
-                                <!-- ================================================================================================================================================================================= -->
-
                             </div>
+
+                            <!-- popup discovery -->
+                            <!-- ============================================================================================================================================ -->
+                            <div class="position-relative">
+                                <div onclick="document.getElementById('discover').style.display = 'block'"><button class="invite-friend"><i class="fa fa-plus mr-1"></i>Invite People</button></div>
+
+                                <!-- popup disocver section -->
+                                <!-- ================================================================================================================================================== -->
+                                <div class="settings-and-info" id="discover">
+                                    <div class="settings-pre">
+                                        Invite your friends to join
+                                        <i onclick="document.getElementById('discover').style.display = 'none'" class="fa fa-times"></i>
+                                    </div>
+                                    <div class="setting-list">
+
+                                        <!-- each discovery holder -->
+                                        <!-- =================================================================================================================== -->
+                                        <div class="each-setting">
+                                            <div class="title-settings">Students</div>
+                                            <div class="reply-setting" id="discover-student">
+
+                                            </div>
+                                        </div>
+                                        <!-- end discovery holder -->
+                                        <!-- ===================================================================================================================================== -->
+                                    
+                                        <!-- discver trainers -->
+                                        <!-- ============================================================================================================================================= -->
+                                        <div class="each-setting">
+                                            <div class="title-settings">Trainers</div>
+                                            <div class="reply-setting" id="discover-trainer">
+
+                                            </div>
+                                        </div>
+                                        <!-- ================================================================================================================================================================ -->
+                                        
+                                    </div>
+                                </div>
+                                <!-- ================================================================================================================================ -->
+                            </div>
+                            <!-- ================================================================================================================================================================================= -->
                         </div>
                         <!-- end group detail -->
                         <!-- ============================================================================================================================ -->
@@ -254,7 +237,7 @@
                                     <div class="position-relative ml-2 mr-2">
                                         <!-- give user ability to create post -->
                                         <div class="create-short-story mt-3 shadow-sm">
-                                            <div class="title-short-story">Define your own post</div>
+                                            <div class="title-short-story"><i class="fa fa-share-alt"></i> Share what you think!</div>
                                             <div class="user-typer d-flex">
                                                 <div>
                                                     <div class="user-image"><img src="../Images/history-img/final-image-of-rainforest-800x445.jpg" alt="" width="100%" height="100%"></div>
@@ -270,7 +253,7 @@
                                         <!-- ===================================================== -->
                                         <div class="create-stoty-prive" id="create-post">
                                             <div class="section-title">
-                                                <div>Define your post</div>
+                                                <div><i class="fa fa-share-alt"></i> Share what you think!</div>
                                                 <div class="close-post-creation" onclick="this.parentNode.parentNode.style.display = 'none'"><i class="fa fa-times"></i></div>
                                             </div>
                                             <form action="group_discussion_posts.php" method="POST" enctype="multipart/form-data">
@@ -389,15 +372,15 @@
                                 <!-- ========================================================================================================================================================== -->
                                 <div class="position-relative">
                                     <!-- give user ability to create post -->
-                                    <div class="create-short-story mt-3 shadow-sm">
-                                        <div class="title-short-story">Define your own post</div>
+                                    <div class="create-short-story mt-3">
+                                        <div class="title-short-story"><i class="fa fa-share-alt"></i> Share what you think!</div>
                                         <div class="user-typer d-flex">
                                             <div><div class="user-image" id="poster_image">
                                                 
                                             </div></div>
                                             <div class="usr-textarea ml-2">
                                                 <div class="type-something">
-                                                    <textarea name="" id="" cols="30" rows="2" placeholder="write something.." onclick="createPost(this)"></textarea>
+                                                    <textarea name="" id="" cols="30" rows="1" placeholder="write something.." onclick="createPost(this)"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -429,9 +412,9 @@
                                             <input type="hidden" name="group_identity" value="<?php echo $group_identity; ?>">
                                             <input type="hidden" name="url_code" value="<?php echo $url_encode; ?>">
                                             <input type="file" name="file_media" id="group_posts" style="display: none;">
-                                            <div class="choose-image-story"><button type="button" onclick="triggerInputFile_post(this)">choose file</button></div>
+                                            <div class="choose-image-story"><button type="button" onclick="triggerInputFile_post(this)"><i class="fa fa-photo"></i> choose image file</button></div>
                                             <div class="send-post">
-                                                <button name="submit_file_disc" type="submit_posts">create</button>
+                                                <button name="submit_file_disc" type="submit_posts">create Now</button>
                                             </div>
                                         </div>
                                         </form>
@@ -579,5 +562,8 @@
 </html>
 <?php  
     }
+  }else{
+    header("Location: ../account_shortcut.box.php?session");
+    exit();
   }
 ?>

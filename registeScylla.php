@@ -172,7 +172,7 @@
             // INsert notification settings
             // ==============================================================================================================================
             $created_on = Date("Y-m-d h:m:s");
-            $insert_new = "INSERT INTO notification_settings VALUE ('','$this->_email','Badge_on','Off','Off','Off','Off','$created_on')";
+            $insert_new = "INSERT INTO notification_settings VALUE ('','$this->_email','Badge_on','On','Off','Off','On','$created_on')";
             $execute_new = mysqli_query($this->Frequency(), $insert_new);
         }
 

@@ -8,6 +8,17 @@
     // =========================================================================================================
     class Course_interface extends Scyllar {
 
+        public function popularWords($word){
+            if(strlen($word)<= 150){
+                $word= $word."";
+            }else{
+                $word= substr($word, 0, 150);
+                $word= $word."...";
+            }
+            
+            return $word;
+        }
+
         public function show_classes ($user_email){
             $select_identity = "SELECT * FROM intelligent_users WHERE email='$user_email'";
             $execute_identity = mysqli_query($this->Frequency(), $select_identity);
@@ -16,7 +27,7 @@
                 $getFirstName = $fetch_identity['firstName'];
                 $getLastName = $fetch_identity['lastName'];
 
-            $select_classes = "SELECT * FROM trainer_class WHERE user_identity != '$get_Identity' AND class_name !='Intelligent_class' AND Live='on'";
+            $select_classes = "SELECT * FROM trainer_class WHERE Live='on' AND identity NOT IN (SELECT DISTINCT class_identity FROM class_tracks WHERE student_identity='$get_Identity')";
             $execute_classes = mysqli_query($this->Frequency(), $select_classes);
             while($fetch_class = mysqli_fetch_assoc($execute_classes)){ 
                 $getProfileImage = $fetch_class['class_profile_image'];
@@ -46,10 +57,10 @@
                         <div class="department-name"><?php echo $getClassName; ?></div>
                         <div class="study-now" id="<?php echo $getClass_identity; ?>" onclick="join_class(this)">join now</div>
                     </div>
-                    <div class="department-bio"><?php echo $getClass_desc; ?></div>
+                    <div class="department-bio"><?php echo $this->popularWords($getClass_desc); ?></div>
                     <div class="department-status d-flex justify-content-between">
-                        <div class="members"><i class="fa fa-user-circle-o"></i> <span><?php echo $count_learner; ?></span></div>
-                        <div class="courses"><i class="fa fa-graduation-cap"></i> <span><?php echo $countCourse; ?></span></div>
+                        <div class="members"><i class="fa fa-user-circle-o"></i> Learners <span><?php echo $count_learner; ?></span></div>
+                        <div class="courses"><i class="fa fa-graduation-cap"></i> Lessons <span><?php echo $countCourse; ?></span></div>
                     </div>
                 </div>
                 <!-- end each department -->
@@ -68,7 +79,13 @@
         }
 
         public function all_groups ($user_email){
-            $select_all_groups = "SELECT * FROM user_groups WHERE group_name NOT IN (SELECT DISTINCT group_name FROM user_group_member WHERE User_email='$user_email') AND group_name NOT IN (SELECT DISTINCT group_name FROM user_group_member WHERE approval='yes' AND approval='no')";
+            $select_identity = "SELECT * FROM intelligent_users WHERE email='$user_email'";
+            $execute_identity = mysqli_query($this->Frequency(), $select_identity);
+            $fetch_identity = mysqli_fetch_assoc($execute_identity);
+                $get_Identity = $fetch_identity['identity'];
+
+            // $select_all_groups = " SELECT user_groups.*, user_group_member.* FROM user_groups INNER JOIN user_group_member ON user_groups.identity != user_group_member.group_identity AND user_group_member.user_identity != '$get_Identity' AND user_groups.email != '$user_email'";
+            $select_all_groups = "SELECT * FROM user_groups WHERE user_identity != '$get_Identity' AND user_identity NOT IN (SELECT DISTINCT user_identity FROM user_group_member WHERE user_identity = '$get_Identity')";
             $execute_all_groups = mysqli_query($this->Frequency(), $select_all_groups);
             while($fetch_all_groups = mysqli_fetch_assoc($execute_all_groups)){
                 $groups_profile_image = $fetch_all_groups['group_profile_image'];
@@ -94,7 +111,7 @@
                             </div>
                             <div class="group-name"><?php echo $group_name; ?></div>
                         </div>
-                        <div class="department-bio-group mt-3"><?php echo $group_bio; ?></div>
+                        <div class="department-bio-group mt-3"><?php echo $this->popularWords($group_bio); ?></div>
                         <div class="group-status d-flex justify-content-between">
                             <div class="members"><i class="fa fa-user-circle-o"></i> <span><?php echo $this->count_member($group_identity); ?></span></div>
                             <div class="trainer" id="<?php echo $group_identity; ?>" onclick="join_goup(this)"><i class="fa fa-plus"></i> join now</div>
@@ -164,7 +181,7 @@
                             <div class="trade-name ml-2"><?php echo $deptment_name; ?></div>
                         </div>
                     </div>
-                    <div class="trade-bio"><?php echo $department_bio; ?></div>
+                    <div class="trade-bio"><?php echo $this->popularWords($department_bio); ?></div>
                     <div class="user-accurate justify-content-between">
                         <div class="member mt-2">Learners <span><?php echo $learner; ?></span></div>
                         <div class="challenge mt-2">courses <span><?php echo $departme_count_course; ?></span></div>
@@ -218,7 +235,7 @@
                                 <div class="trade-name ml-2"><?php echo $deptment_name; ?></div>
                             </div>
                         </div>
-                        <div class="trade-bio"><?php echo $department_bio; ?></div>
+                        <div class="trade-bio"><?php echo $this->popularWords($department_bio); ?></div>
                         <div class="user-accurate justify-content-between">
                             <div class="member">Learners <span><?php echo $learner; ?></span></div>
                             <div class="challenge">courses <span><?php echo $departme_count_course; ?></span></div>

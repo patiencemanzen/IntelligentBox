@@ -317,7 +317,7 @@
                             </div></div>
                             <div class="discovery-detail">
                                 <div class="dis-name"><?php echo $firstName; ?> <?php echo $lastName; ?></div>
-                                <div class="dis-dep">& <?php echo $people_email; ?></div>
+                                <div class="dis-dep"><?php echo $people_email; ?></div>
                             </div>
                         </div>
                         <div class="follow-over"><button class="follow-discovery" id="<?php echo $people_email; ?>" onclick="invite(this)">Invite</button></div>
@@ -409,27 +409,69 @@
             }
         }
 
-        private function count_date($selected_date){
-            $PostedDate = $selected_date;
-            $currDate = Date("Y-m-d h:i:s");
-
-            $date1 = strtotime($PostedDate);  
-            $date2 = strtotime($currDate);  
-            
-            $diff = abs($date2 - $date1); 
-            $years = floor($diff / (365*60*60*24));  
-            $months = floor(($diff - $years * 365*60*60*24) / (30*60*60*24));
-            $days = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24)/ (60*60*24)); 
-            $hours = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24 - $days*60*60*24) / (60*60)); 
-            $minutes = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24 - $days*60*60*24 - $hours*60*60)/ 60);
-            $seconds = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24 - $days*60*60*24 - $hours*60*60 - $minutes*60)); 
-
-            if($days > 30){
-               return $PostedDate;
-            }if($days < 30){
-                return $days." Day(s) ago";
-            }if($days < 0){
-                return $hours." Hour(s) ago";
+        public function timeAgo($time_ago){
+            $time_ago = strtotime($time_ago);
+            $cur_time   = time();
+            $time_elapsed   = $cur_time - $time_ago;
+            $seconds    = $time_elapsed ;
+            $minutes    = round($time_elapsed / 60 );
+            $hours      = round($time_elapsed / 3600);
+            $days       = round($time_elapsed / 86400 );
+            $weeks      = round($time_elapsed / 604800);
+            $months     = round($time_elapsed / 2600640 );
+            $years      = round($time_elapsed / 31207680 );
+            // Seconds
+            if($seconds <= 60){
+                return "just now";
+            }
+            //Minutes
+            else if($minutes <=60){
+                if($minutes==1){
+                    return "one minute ago";
+                }
+                else{
+                    return "$minutes minutes ago";
+                }
+            }
+            //Hours
+            else if($hours <=24){
+                if($hours==1){
+                    return "an hour ago";
+                }else{
+                    return "$hours hrs ago";
+                }
+            }
+            //Days
+            else if($days <= 7){
+                if($days==1){
+                    return "yesterday";
+                }else{
+                    return "$days days ago";
+                }
+            }
+            //Weeks
+            else if($weeks <= 4.3){
+                if($weeks==1){
+                    return "a week ago";
+                }else{
+                    return "$weeks weeks ago";
+                }
+            }
+            //Months
+            else if($months <=12){
+                if($months==1){
+                    return "a month ago";
+                }else{
+                    return "$months months ago";
+                }
+            }
+            //Years
+            else{
+                if($years==1){
+                    return "one year ago";
+                }else{
+                    return "$years years ago";
+                }
             }
         }
 
@@ -471,7 +513,7 @@
                                 <div class="group-type"><?php if($group_privacy == "Private"){?> <i class="fa fa-lock mr-1"></i> Private group <?php }else{ ?> <i class="fa fa-unlock mr-1"></i> Public group <?php } ?></div>
                                 <div class="member-group-count"><?php echo $member; ?> Mmebers</div>
                             </div>
-                            <div><div class="time-sended-not"><?php echo $fetch_notification['notification'];?> <?php echo $this->count_date($get_current_titme); ?></div></div>
+                            <div><div class="time-sended-not"><?php echo $fetch_notification['notification'];?> <?php echo $this->timeAgo($get_current_titme); ?></div></div>
                         </div>
                     </div>
                 <?php }else if($get_notification_type == "accepted"){ ?>
@@ -483,7 +525,7 @@
                                 <div class="group-type"><?php if($group_privacy == "Private"){?> <i class="fa fa-lock mr-1"></i> Private group <?php }else{ ?> <i class="fa fa-unlock mr-1"></i> Public group <?php } ?></div>
                                 <div class="member-group-count"><?php echo $member; ?> Mmebers</div>
                             </div>
-                            <div><div class="time-sended-not"><?php echo $fetch_notification['notification'];?> <?php echo $this->count_date($get_current_titme); ?></div></div>
+                            <div><div class="time-sended-not"><?php echo $fetch_notification['notification'];?> <?php echo $this->timeAgo($get_current_titme); ?></div></div>
                         </div>
                     </div>
                 <?php  }else{ ?>
@@ -495,7 +537,7 @@
                                 <div class="group-type"><?php if($group_privacy == "Private"){?> <i class="fa fa-lock mr-1"></i> Private group <?php }else{ ?> <i class="fa fa-unlock mr-1"></i> Public group <?php } ?></div>
                                 <div class="member-group-count"><?php echo $member; ?> Mmebers</div>
                             </div>
-                            <div><div class="time-sended-not"><?php echo $fetch_notification['notification'];?> <?php echo $this->count_date($get_current_titme); ?></div></div>
+                            <div><div class="time-sended-not"><?php echo $fetch_notification['notification'];?> <?php echo $this->timeAgo($get_current_titme); ?></div></div>
                         </div>
                         <div class="accurate-challenge">
                             <div><button class="reject" id="<?php echo  $get_group_url; ?>" onclick="reject_challenge(this)">Reject</button></div>

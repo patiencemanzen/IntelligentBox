@@ -15,6 +15,8 @@ function followUser(obj){
     var followingEmail = obj.id;   // who i going to follow
     var followersEmail =  document.getElementById("hiddenEmail").value;  // const me 
     $(document).ready(function(){
+        obj.innerHTML = "Process...";
+        obj.style.opacity = ".7";
         $(this).load("follow_user.php",{
             followingEmail: followingEmail,
             followersEmail: followersEmail        
@@ -105,6 +107,17 @@ function display_post(){
           getVideoPath: "../videos/activity_stream-vd/"
         });
     });
+}
+
+function search_post(obj){
+   var inputed_search = obj.value;
+   var globale_mail = document.getElementById("hiddenEmail").value;
+   $(document).ready(function(){
+       $("#show_posts").load("show_posts.php", {
+           user_search: inputed_search,
+           myMail: globale_mail
+       });
+   });
 }
 
 setInterval(() => {

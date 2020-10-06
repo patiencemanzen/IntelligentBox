@@ -36,8 +36,8 @@
             $select_detail = "SELECT * FROM intelligent_users WHERE email='$Email'";
             $execute_detail = mysqli_query($this->Frequency(),$select_detail);
             $fetch_detail = mysqli_fetch_assoc($execute_detail);
-            $identity = $fetch_detail['identity'];
-            $created_on = Date("Y-m-d h:m:s");
+                $identity = $fetch_detail['identity'];
+                $created_on = Date("Y-m-d h:m:s");
 
             // update current images to off
             // =============================================================================
@@ -45,7 +45,7 @@
             $execute_update = mysqli_query($this->Frequency(), $update_current_image);
 
             // insert background image
-            $insert_image = "INSERT INTO $backgroundsTable VALUE ('','$identity','$Email','$backgroundImage','on','$created_on')";
+            $insert_image = "INSERT INTO $backgroundsTable VALUES ('','$identity','$Email','$backgroundImage','on','$created_on')";
             $execute_image = mysqli_query($this->Frequency(),$insert_image);
             if($execute_image){
                 return true;
@@ -372,18 +372,14 @@
         if(!in_array(strtolower($imageFileType), $valid_extensions)) {
             $response = "Check extentension";
         }else{
-            if($file_size > 20971520){
-                $response = "Too big size file, try another";
-            }else{
-                if(move_uploaded_file($_FILES['backgroundImage']['tmp_name'],$location)){
-                    if($newMigration->updateBackground_image($email,$tableImages,$filename)){
-                        $response = "success";
-                    }else{
-                        $response = $newMigration->updateBackground_image($email,$tableImages,$filename);
-                    }
+            if(move_uploaded_file($_FILES['backgroundImage']['tmp_name'],$location)){
+                if($newMigration->updateBackground_image($email,$tableImages,$filename)){
+                    $response = "successfully updated!";
                 }else{
-                    $response = "Fail to move";
+                    $response = "Fail to update it, try again later";
                 }
+            }else{
+                $response = "Fail to move file, try again later";
             }
         }
         exit(json_encode($response));
@@ -407,9 +403,9 @@
         }else{
             if(move_uploaded_file($_FILES['profileImage']['tmp_name'],$location)){
                 if($newMigration->update_Profile_image($Email,$profileTble,$filename)){
-                    $response = "success";
+                    $response = "successfully updated!";
                 }else{
-                    $response = "fail to insert";
+                    $response = "Fail to update photo, try again later";
                 }
             }else{
                 $response = "Fail to move";

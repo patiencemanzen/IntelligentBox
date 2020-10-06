@@ -387,13 +387,13 @@
                                             <!-- popup discovery -->
                                             <!-- ============================================================================================================================================ -->
                                             <div class="position-relative">
-                                                <div onclick="document.getElementById('discover').style.display = 'block'"><button class="invite-friend"><i class="fa fa-plus mr-1"></i>Envite People</button></div>
+                                                <div onclick="document.getElementById('discover').style.display = 'block'"><button class="invite-friend"><i class="fa fa-plus mr-1"></i>Invite People</button></div>
 
                                                 <!-- popup disocver section -->
                                                 <!-- ================================================================================================================================================== -->
                                                 <div class="settings-and-info" id="discover">
                                                     <div class="settings-pre">
-                                                        Envite
+                                                        Invite Your Neighbour
                                                         <i onclick="document.getElementById('discover').style.display = 'none'" class="fa fa-times"></i>
                                                     </div>
                                                     <div class="setting-list">
@@ -607,10 +607,10 @@
                             <!-- ============================================================================================================================================== -->
                             <div class="position-relative">
                                 <div class="create-post mt-4">
-                                    <div class="create-title">create post</div>
+                                    <div class="create-title">Create post</div>
                                     <div class="ask mt-2 mb-2">
                                         <div><div class="owner-image-pre"><img src="<?php echo '../Images/groups/'.$group_image; ?>" alt="" width="100%" height="100%"></div></div>
-                                        <div class="what-going-on" onclick="createPostLeft(this)"> what going on there?</div>
+                                        <div class="what-going-on" onclick="createPostLeft(this)"> What going on there?</div>
                                     </div>
                                 </div>
                                 <!-- popup of create post -->
@@ -868,5 +868,8 @@
 </html>
 <?php }else{
         echo "not assigned"; 
-   }
+     }
+   }else{
+        header("Location: ../account_shortcut.box.php?session");
+        exit();
    } ?>

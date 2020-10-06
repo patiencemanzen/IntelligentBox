@@ -83,7 +83,7 @@
             border-radius: 100%;
             background-color: white;
             padding: 2px;
-            margin-top: 2px;
+            margin-top: 5px;
         }
         .title-religion{
             margin-left: 10px;
@@ -93,8 +93,9 @@
             font-family: roboto_bold;
             width: 300px;
             line-height: 19px;
-            font-weight: 570;
-            letter-spacing: 0.6;
+            font-weight: 590;
+            letter-spacing: 0.6px;
+            font-size: 15px;
         }
         .title-religion .quota{
             background: white;

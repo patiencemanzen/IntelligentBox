@@ -178,4 +178,7 @@
 
    </body>
 </html>
-<?php } ?>
+<?php }else{
+    header("Location: ../account_shortcut.box.php?session");
+    exit();
+} ?>

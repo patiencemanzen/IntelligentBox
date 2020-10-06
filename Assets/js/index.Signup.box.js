@@ -1,48 +1,3 @@
-// get all interest items of the sport
-// =======================================================================================
-// =======================================================================================
-function getdataResponse(){
-    $("#sport").load("interest.php",{
-        interestItems: "interest_sport"
-    });
-}
-
-// get interest items of news
-// =======================================================================================
-// ======================================================================================
-function getNewsItems(){
-    $("#news").load("interest.php",{
-        interestItems: "interest_news"
-    });
-}
-
-// get interest items for music
-// ========================================================================================
-// ========================================================================================
-function getMusicItems(){
-    $("#music").load("interest.php",{
-        interestItems: "interest_music"
-    });
-}
-
-// get interest items for religion
-// =======================================================================================
-// =======================================================================================
-function getReligionsItems(){
-    $("#religion").load("interest.php",{
-        interestItems: "interest_religion"
-    });
-}
-
-// get interest items for culture and art
-// =====================================================================================
-// =====================================================================================
-function getCultureItems(){
-    $("#art").load("interest.php",{
-        interestItems: "interest_art_culture"
-    });
-}
-
 // trigger input radio when user click on student or trainer
 // =====================================================================================
 // =====================================================================================
@@ -181,36 +136,9 @@ function verifyMe(obj){
 }
 // END VALIDATION OF CODE SENDED THROUGH EMAIL
 // ====================================================================================================================================
-// ====================================================================================================================================
 
-// APPLY ON CHECK BOX WHEN USER CLICK BOX
-// =====================================================================================================================================
-// =====================================================================================================================================
-var sport_interest = [];
-var news_interest = [];
-var religion_interest = [];
-var music_interest = [];
-var artculture_interest = [];
-
-function takeidentity(obj){
-    var name = obj.parentNode.id;
-    var location = obj.id;
-    
-    if(location == "sport"){
-        sport_interest.push(name);
-    }else if(location == "news"){
-        news_interest.push(name);
-    }else if(location == "religion"){
-        religion_interest.push(name);
-    }else if(location == "music"){
-        music_interest.push(name);
-    }else if(location == "culture"){
-        artculture_interest.push(name);
-    }
-}
 
 // FETCH USR STUDENT AND PRESENT TO SCYLLA
-// =========================================================================================================================================
 // =========================================================================================================================================
  // RUN FUNCTION
 setInterval(() => {
@@ -249,6 +177,8 @@ function followUser(obj){
     var followingEmail = obj.id;
     var followersEmail = GlobalValiable;
     $(document).ready(function(){
+        obj.innerHTML = "Process...";
+        obj.style.opacity = ".7";
         $(".subtitle").load("followScylla.php",{
             followingEmail: followingEmail,
             followersEmail: followersEmail        

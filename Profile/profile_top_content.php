@@ -146,7 +146,7 @@
         // ==========================================================================================================
         public function countPhoto($email){
             $Photos = 0;
-            $selectPhotos = "SELECT * FROM user_common_post WHERE poster_email='$email'";
+            $selectPhotos = "SELECT * FROM user_common_post WHERE poster_email='$email' AND media_type='image'";
             $execute_Photo = mysqli_query($this->Frequency(),$selectPhotos);
             while($fetchPhoto = mysqli_fetch_assoc($execute_Photo)){
                 $Photos = $Photos + 1;
@@ -159,7 +159,14 @@
                 $profile_image = $profile_image + 1;
             }
 
-            $total_image =  $Photos + $profile_image;
+            $background_image = 0;
+            $select_background_image = "SELECT * FROM user_profile_background_image WHERE user_email='$email' AND background_image != 'default.jpg'";
+            $execute_image = mysqli_query($this->Frequency(), $select_background_image);
+            while($fetch_back_image = mysqli_fetch_assoc($execute_image)){
+                $background_image = $background_image + 1;
+            }
+
+            $total_image =  $Photos + $profile_image + $background_image;
             echo $total_image;
         }
 

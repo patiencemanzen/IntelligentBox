@@ -110,6 +110,8 @@
         font-size: 24px;
         text-transform: capitalize;
         padding: 15px;
+        letter-spacing: 0.8px;
+        text-align: center;
     }
 
     /* nav-icons style */
@@ -127,7 +129,6 @@
         margin-right: 5px;
         position: relative;
         padding: 6px 13px 5px 13px;
-        cursor: pointer;
     }
     .nav-icons .nav-item a{
         color: #041a2f;
@@ -206,6 +207,10 @@
         position: relative;
         background: white;
         border-top: 2px solid #d3d3d3;
+        cursor: pointer;
+    }
+    .each-notification:hover{
+        background: #f6f7fd;
     }
     .present-noti-type{
         position: absolute;
@@ -213,8 +218,8 @@
         top: 7px;
         background: #041a2f;
         color: white;
-        padding: 2px 6px;
-        border-radius: 50%;
+        padding: 4px 0px 4px 5px;
+        border-radius: 6px;
         font-size: 13px;
     }
     .present-msg-type{
@@ -250,14 +255,19 @@
         font-family: roboto_medium;
     }
     .noti-detali .noti-lesson{
-        text-transform: capitalize;
-        font-size: 13px;
-        font-family: roboto_regular;
+        font-size: 14px;
+        font-family: roboto_medium;
+        letter-spacing: 0.6px;
+        line-height: 20px;
+        text-transform: none;
     }
     .name-noti{
-        font-family: roboto_medium;
+        font-family: roboto_bold;
         font-size: 14px;
         text-transform: capitalize;
+        font-weight: 590;
+        letter-spacing: 0.7px;
+        line-height: 20px;
     }
     .error_occur{
         text-align: center;
@@ -274,7 +284,9 @@
         margin-top: 5px;
     }
 
-
+    .user-nav-image a{
+        display: flex;
+    }
     .pre-nav-image img{
         border-radius: 50%;
     }
@@ -284,6 +296,14 @@
         border-radius: 50%;
         background-color: #f6f7fd;
         margin-top: 1.7px;
+    }
+    .user_top_name{
+        font-family: roboto_bold;
+        font-size: 14px;
+        letter-spacing: 0.7px;
+        color: #041a2f;
+        margin: 7px 5px 0px 5px;
+        text-transform: capitalize;
     }
 
     .navbar-nav-icons{

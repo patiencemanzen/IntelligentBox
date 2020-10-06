@@ -34,6 +34,72 @@
             $this->E_mail = $mail;
         }
 
+        function timeAgo($time_ago){
+            $time_ago = strtotime($time_ago);
+            $cur_time   = time();
+            $time_elapsed   = $cur_time - $time_ago;
+            $seconds    = $time_elapsed ;
+            $minutes    = round($time_elapsed / 60 );
+            $hours      = round($time_elapsed / 3600);
+            $days       = round($time_elapsed / 86400 );
+            $weeks      = round($time_elapsed / 604800);
+            $months     = round($time_elapsed / 2600640 );
+            $years      = round($time_elapsed / 31207680 );
+            // Seconds
+            if($seconds <= 60){
+                return "just now";
+            }
+            //Minutes
+            else if($minutes <=60){
+                if($minutes==1){
+                    return "one minute ago";
+                }
+                else{
+                    return "$minutes minutes ago";
+                }
+            }
+            //Hours
+            else if($hours <=24){
+                if($hours==1){
+                    return "an hour ago";
+                }else{
+                    return "$hours hrs ago";
+                }
+            }
+            //Days
+            else if($days <= 7){
+                if($days==1){
+                    return "yesterday";
+                }else{
+                    return "$days days ago";
+                }
+            }
+            //Weeks
+            else if($weeks <= 4.3){
+                if($weeks==1){
+                    return "a week ago";
+                }else{
+                    return "$weeks weeks ago";
+                }
+            }
+            //Months
+            else if($months <=12){
+                if($months==1){
+                    return "a month ago";
+                }else{
+                    return "$months months ago";
+                }
+            }
+            //Years
+            else{
+                if($years==1){
+                    return "one year ago";
+                }else{
+                    return "$years years ago";
+                }
+            }
+        }
+
         // SHOW DEPARTMES
         // ====================================================
         public function show_departments(){
@@ -84,7 +150,7 @@
         // get all photos
         // =================================================================================================================================
         public function all_photos(){
-            $select_all_photos = "SELECT * FROM user_profile_image WHERE usr_email='$this->E_mail' AND profile_image != 'defaultProfileImage.png'";
+            $select_all_photos = "SELECT * FROM user_profile_image WHERE usr_email='$this->E_mail' AND profile_image != 'defaultProfileImage.png' ORDER BY identity DESC";
             $execute_photos = mysqli_query($this->Frequency(),$select_all_photos);
             if(mysqli_num_rows($execute_photos) > 0){
                 $select_more_trainer = "SELECT * FROM intelligent_users WHERE email='$this->E_mail'";
@@ -94,7 +160,7 @@
                     $getLastname = $fetch_trainer['lastName'];
 
                 while($fetch_photos = mysqli_fetch_assoc($execute_photos)){?>
-                    <a href="<?php echo '../Images/profile-img/profile-image/'. $fetch_photos['profile_image']; ?>" data-lightbox="mygallery" data-title="profile image of <?php echo $getFirstname; ?> <?php echo $getLastname?>"><div class="image-found"><img src="<?php echo '../Images/profile-img/profile-image/'. $fetch_photos['profile_image']; ?>" alt="" width="100%" height="100%"></div></a>
+                    <a href="<?php echo '../Images/profile-img/profile-image/'. $fetch_photos['profile_image']; ?>" data-lightbox="mygallery" data-title="profile image of <?php echo $getFirstname; ?> <?php echo $getLastname?>"><div class="image-found"><img src="<?php echo '../Images/profile-img/profile-image/'. $fetch_photos['profile_image']; ?>" alt="<?php echo "image of {$getFirstname} {$getLastname}"; ?>" width="100%" height="100%"></div></a>
                 <?php }
             }else{ ?>
                 <div class="no-data-found d-flex flex-column text-center">
@@ -110,107 +176,137 @@
         public function nearBy_user(){
             // get user location
             // ===================
-            $select_loaction = "SELECT location FROM more_account_info WHERE email='$this->E_mail'";
+            $select_loaction = "SELECT location FROM user_auto_detection WHERE email='$this->E_mail'";
             $execute_location = mysqli_query($this->Frequency(), $select_loaction);
             $fetch_location = mysqli_fetch_assoc($execute_location);
-            $location = $fetch_location['location'];
+                $location = $fetch_location['location'];
 
-            // then fetch nearby user
-            // ========================
-            $select_user = "SELECT * FROM intelligent_users WHERE email NOT IN (SELECT DISTINCT reciever_email FROM user_follow_board WHERE host_email='$this->E_mail') AND email NOT IN (SELECT DISTINCT host_email FROM user_follow_board WHERE reciever_email='$this->E_mail') AND email != '$this->E_mail' AND Verified='complete' AND email IN (SELECT DISTINCT email FROM more_account_info WHERE location='$location') LIMIT 2";
-            $execute_user = mysqli_query($this->Frequency(), $select_user);
-            if(mysqli_num_rows($execute_user) > 2){
-               while($fetch_user = mysqli_fetch_assoc($execute_user)){
-                   $usr_firstname = $fetch_user['firstName'];
-                   $usr_lastname = $fetch_user['lastName'];
-                   $usr_email = $fetch_user['email'];
-                   $user_title = $fetch_user["title"];
+            $select_school = "SELECT * FROM more_account_info WHERE email='$this->E_mail'";
+            $execute_school = mysqli_query($this->Frequency(), $select_school);
+            $fetch_school = mysqli_fetch_assoc($execute_school);
+                $school = $fetch_school['School'];
+                $level = $fetch_school['level'];
+                $date_of_birth = $fetch_school['date_of_birth'];
+                $gender = $fetch_school['gender'];
+                $department = $fetch_school['Department'];
+
+            $select_last_option = "SELECT intelligent_users.email,user_auto_detection.email FROM intelligent_users INNER JOIN user_auto_detection on intelligent_users.email = user_auto_detection.email and user_auto_detection.location = '$location' AND user_auto_detection.email != '$this->E_mail' AND intelligent_users.email NOT IN (SELECT DISTINCT reciever_email FROM user_follow_board WHERE host_email = '$this->E_mail') AND intelligent_users.email NOT IN (SELECT DISTINCT host_email FROM user_follow_board WHERE reciever_email='$this->E_mail') AND intelligent_users.title != 'trainer'";
+            // $select_last_option = "SELECT * FROM user_auto_detection WHERE email NOT IN (SELECT DISTINCT reciever_email FROM user_follow_board WHERE host_email='$this->E_mail') AND email NOT IN (SELECT DISTINCT host_email FROM user_follow_board WHERE reciever_email='$this->E_mail') AND email != '$this->E_mail' AND location = '$location'"; 
+            $execute_last_option = mysqli_query($this->Frequency(), $select_last_option);
+            if(mysqli_num_rows($execute_last_option) > 5){
+                while($fetch_nearby = mysqli_fetch_assoc($execute_last_option)){
+                    $Email = $fetch_nearby['email'];
+
+                    $select_info = "SELECT * FROM intelligent_users WHERE email = '$Email'";
+                    $execute_info = mysqli_query($this->Frequency(), $select_info);
+                    $fetch_info = mysqli_fetch_assoc($execute_info);
+
+                        $usr_firstname = $fetch_info['firstName'];
+                        $usr_lastname = $fetch_info['lastName'];
+                        $usr_email = $fetch_info['email'];
+                        $getIdentity = $fetch_info['identity'];
+                        $user_title = $fetch_info["title"];
+
+                    $select_bio = "SELECT * FROM user_bio WHERE email = '$usr_email'";
+                    $execute_bio = mysqli_query($this->Frequency(), $select_bio);
+                    $fetch_bio = mysqli_fetch_assoc($execute_bio);
+                        $bio = $fetch_bio['bio'];
 
                     $select_user_image = "SELECT profile_image FROM user_profile_image WHERE usr_email='$usr_email' AND status_image='1'";
                     $execute_image = mysqli_query($this->Frequency(), $select_user_image);
                     $fetch_image = mysqli_fetch_assoc($execute_image); ?>
-
-                        <!-- each near user -->
-                        <!-- ============================================================================================================================== -->
-                        <div class="position-relative">
-                            <div class="each-user">
-                                <div class="friend-section_firends d-flex justify-content-between">
-                                    <div class="d-flex">
-                                        <div onmouseover="about_user(this)" onmouseout="about_user(this)">
-                                            <div class="friend-image"><img src="<?php echo '../Images/profile-img/profile-image/'.$fetch_image['profile_image']; ?>" alt=""></div>
-                                        </div>
-                                        <div class="friend-name ml-2 mt-1">
-                                            <div><?php echo $usr_firstname; ?> <?php echo $usr_lastname; ?> @<?php echo $user_title; ?></div>
-                                            <div><?php echo $usr_email; ?></div>
-                                        </div>
+            
+                    <!-- each near user -->
+                    <!-- ============================================================================================================================== -->
+                    <div class="position-relative">
+                        <div class="each-user">
+                            <div class="friend-section_friends justify-content-between">
+                                <div class="middle_detail">
+                                    <div onmouseover="about_user(this)" onmouseout="about_user(this)">
+                                        <div class="friend-image"><img src="<?php echo '../Images/profile-img/profile-image/'.$fetch_image['profile_image']; ?>" alt=""></div>
                                     </div>
-                                    <div class="btn-follow ml-2">
-                                        <button id="<?php echo $usr_email; ?>"  class="follow-btn">follow</button>
+                                    <div class="friend-name ml-2 mt-1">
+                                        <div><?php echo $usr_firstname; ?> <?php echo $usr_lastname; ?> <span class="ero_title">@<?php echo $user_title; ?></span></div>
+                                        <div><?php echo $usr_email; ?></div>
                                     </div>
+                                </div>
+                                <div class="btn-follow ml-2">
+                                    <button id="<?php echo $usr_email; ?>" class="follow-btn"  onclick="followUser(this)">follow</button>
                                 </div>
                             </div>
-                            <!-- about user -->
-                            <div class="about-usr">
-                                <div class="about-specification">
-                                    <div><div class="user-about-image"><img src="<?php echo '../Images/profile-img/profile-image/'.$fetch_image['profile_image']; ?>" alt="" width="100%" height="100%"></div></div>
-                                    <div class="activity-status">
-                                        <?php 
-                                            // STATISTIC ON USER DETAIL
-                                            // ==========================================================================================================================================
-                                            $followers = 0;
-                                            $selectFollowers = "SELECT * FROM user_follow_board WHERE reciever_email='$usr_email'";
-                                            $executeFollowers = mysqli_query($this->Frequency(),$selectFollowers);
-                                            while($fetchFollowers = mysqli_fetch_assoc($executeFollowers)){
-                                                $followers = $followers + 1;
-                                            }
-
-                                            $Following = 0;
-                                            $selectFollowing = "SELECT * FROM user_follow_board WHERE host_email='$usr_email'";
-                                            $execute_following = mysqli_query($this->Frequency(),$selectFollowing);
-                                            while($fetchFollowing = mysqli_fetch_assoc($execute_following)){
-                                                $Following = $Following + 1;
-                                            }
-
-                                            $courses = 0;
-                                            $selectCourse = "SELECT * FROM class_tracks WHERE student_email='$usr_email'";
-                                            $executeCourse = mysqli_query($this->Frequency(),$selectCourse);
-                                            while($fetch_course = mysqli_fetch_assoc($executeCourse)){
-                                                $courses = $courses + 1;
-                                            }
-                                                                
-                                        ?>
-                                        <div class="followers">followers <span><?php echo $followers; ?></span></div>
-                                        <div class="following">Following <span><?php echo $Following; ?></span></div>
-                                        <div class="trainer">Courses <span><?php echo $courses; ?></span></div>
-                                    </div>
-                                </div>
-                                <div class="about-info">
-                                    <div class="firstname"><span><?php echo $usr_firstname; ?> <?php echo $usr_lastname; ?></span></div>
-                                    <div class="email"><span><?php echo $usr_email; ?></span></div>
-                                    <!-- <div class="department"><span>software development</span></div>
-                                    <div class="schools">world mission school</div> -->
-                                </div>
-                            </div>
-                            <!-- end about user -->
                         </div>
-                        <!-- end each near user -->
-                        <!-- ================================================================================================================================= -->
+                        <!-- about user -->
+                        <div class="about-usr">
+                            <div class="about-specification">
+                                <div><div class="user-about-image"><img src="<?php echo '../Images/profile-img/profile-image/'.$fetch_image['profile_image']; ?>" alt="" width="100%" height="100%"></div></div>
+                                <div class="activity-status">
+                                    <?php 
+                                        // STATISTIC ON USER DETAIL
+                                        // ==========================================================================================================================================
+                                        $followers = 0;
+                                        $selectFollowers = "SELECT * FROM user_follow_board WHERE reciever_email='$usr_email'";
+                                        $executeFollowers = mysqli_query($this->Frequency(),$selectFollowers);
+                                        while($fetchFollowers = mysqli_fetch_assoc($executeFollowers)){
+                                            $followers = $followers + 1;
+                                        }
 
-              <?php }
+                                        $Following = 0;
+                                        $selectFollowing = "SELECT * FROM user_follow_board WHERE host_email='$usr_email'";
+                                        $execute_following = mysqli_query($this->Frequency(),$selectFollowing);
+                                        while($fetchFollowing = mysqli_fetch_assoc($execute_following)){
+                                            $Following = $Following + 1;
+                                        }
+                                            
+                                        $courses = 0;
+                                        $selectCourse = "SELECT * FROM class_tracks WHERE student_identity='$getIdentity'";
+                                        $executeCourse = mysqli_query($this->Frequency(),$selectCourse);
+                                        while($fetch_course = mysqli_fetch_assoc($executeCourse)){
+                                            $courses = $courses + 1;
+                                        }
+                                    ?>
+                                    <div class="followers">followers <span><?php echo $followers; ?></span></div>
+                                    <div class="following">Following <span><?php echo $Following; ?></span></div>
+                                    <div class="trainer">Courses <span><?php echo $courses; ?></span></div>
+                                </div>
+                            </div>
+                            <div class="about-info">
+                                <div class="firstname"><span><?php echo $usr_firstname; ?> <?php echo $usr_lastname; ?></span> <span class="ero_title">@<?php echo $user_title; ?></span></div>
+                                <div class="email"><span><?php echo $usr_email; ?></span></div>
+                                <div class="department"><span><?php echo $bio; ?></span></div>
+                                <!-- <div class="schools">world mission school</div> -->
+                            </div>
+                        </div>
+                        <!-- end about user -->
+                    </div>
+                    <!-- end each near user -->
+                    <!-- ================================================================================================================================= -->
+            <?php }
             }else{
-                $select_last_option = "SELECT * FROM intelligent_users WHERE email != '$this->E_mail' AND email NOT IN (SELECT DISTINCT reciever_email FROM user_follow_board WHERE host_email='$this->E_mail') AND email NOT IN (SELECT DISTINCT host_email FROM user_follow_board WHERE reciever_email='$this->E_mail') AND title='student' AND Verified='complete' LIMIT 3";
+                $select_last_option = "SELECT intelligent_users.email,more_account_info.email FROM intelligent_users INNER JOIN more_account_info ON intelligent_users.email = more_account_info.email AND more_account_info.Department = '$department' AND intelligent_users.email NOT IN (SELECT DISTINCT reciever_email FROM user_follow_board WHERE host_email = '$this->E_mail') AND intelligent_users.email NOT IN (SELECT DISTINCT host_email FROM user_follow_board WHERE reciever_email='$this->E_mail') AND intelligent_users.title = 'student' AND intelligent_users.email != '$this->E_mail'";
                 $execute_last_option = mysqli_query($this->Frequency(), $select_last_option);
-                while($fetch_option = mysqli_fetch_assoc($execute_last_option)){
-                    $usr_firstname = $fetch_option['firstName'];
-                    $usr_lastname = $fetch_option['lastName'];
-                    $usr_email = $fetch_option['email'];
-                    $getIdentity = $fetch_option['identity'];
-                    $user_title = $fetch_option["title"];
- 
-                    $select_user_image = "SELECT profile_image FROM user_profile_image WHERE usr_email='$usr_email' AND status_image='1'";
-                    $execute_image = mysqli_query($this->Frequency(), $select_user_image);
-                    $fetch_image = mysqli_fetch_assoc($execute_image); ?>
- 
+                if(mysqli_num_rows($execute_last_option) > 5){
+                    while($fetch_nearby = mysqli_fetch_assoc($execute_last_option)){
+                        $Email = $fetch_nearby['email'];
+    
+                        $select_info = "SELECT * FROM intelligent_users WHERE email = '$Email'";
+                        $execute_info = mysqli_query($this->Frequency(), $select_info);
+                        $fetch_info = mysqli_fetch_assoc($execute_info);
+    
+                            $usr_firstname = $fetch_info['firstName'];
+                            $usr_lastname = $fetch_info['lastName'];
+                            $usr_email = $fetch_info['email'];
+                            $getIdentity = $fetch_info['identity'];
+                            $user_title = $fetch_info["title"];
+    
+                        $select_bio = "SELECT * FROM user_bio WHERE email = '$usr_email'";
+                        $execute_bio = mysqli_query($this->Frequency(), $select_bio);
+                        $fetch_bio = mysqli_fetch_assoc($execute_bio);
+                            $bio = $fetch_bio['bio'];
+    
+                        $select_user_image = "SELECT profile_image FROM user_profile_image WHERE usr_email='$usr_email' AND status_image='1'";
+                        $execute_image = mysqli_query($this->Frequency(), $select_user_image);
+                        $fetch_image = mysqli_fetch_assoc($execute_image); ?>
+                
                         <!-- each near user -->
                         <!-- ============================================================================================================================== -->
                         <div class="position-relative">
@@ -244,7 +340,7 @@
                                             while($fetchFollowers = mysqli_fetch_assoc($executeFollowers)){
                                                 $followers = $followers + 1;
                                             }
-
+    
                                             $Following = 0;
                                             $selectFollowing = "SELECT * FROM user_follow_board WHERE host_email='$usr_email'";
                                             $execute_following = mysqli_query($this->Frequency(),$selectFollowing);
@@ -265,34 +361,232 @@
                                     </div>
                                 </div>
                                 <div class="about-info">
-                                    <div class="firstname"><span><?php echo $usr_firstname; ?> <?php echo $usr_lastname; ?></span></div>
+                                    <div class="firstname"><span><?php echo $usr_firstname; ?> <?php echo $usr_lastname; ?></span> <span class="ero_title">@<?php echo $user_title; ?></span></div>
                                     <div class="email"><span><?php echo $usr_email; ?></span></div>
-                                    <!-- <div class="department"><span>software development</span></div>
-                                    <div class="schools">world mission school</div> -->
+                                    <div class="department"><span><?php echo $bio; ?></span></div>
+                                    <!-- <div class="schools">world mission school</div> -->
                                 </div>
                             </div>
                             <!-- end about user -->
                         </div>
                         <!-- end each near user -->
                         <!-- ================================================================================================================================= -->
+              <?php }
+                }else{
+                    $select_last_option = "SELECT intelligent_users.email,more_account_info.email FROM intelligent_users INNER JOIN more_account_info ON intelligent_users.email = more_account_info.email AND more_account_info.Department = '$department' AND intelligent_users.email NOT IN (SELECT DISTINCT reciever_email FROM user_follow_board WHERE host_email = '$this->E_mail') AND intelligent_users.email NOT IN (SELECT DISTINCT host_email FROM user_follow_board WHERE reciever_email='$this->E_mail') AND intelligent_users.title = 'student' AND intelligent_users.email != '$this->E_mail'";
+                    $execute_last_option = mysqli_query($this->Frequency(), $select_last_option);
+                    if(mysqli_num_rows($execute_last_option) > 5){
+                        while($fetch_nearby = mysqli_fetch_assoc($execute_last_option)){
+                            $Email = $fetch_nearby['email'];
+        
+                            $select_info = "SELECT * FROM intelligent_users WHERE email = '$Email'";
+                            $execute_info = mysqli_query($this->Frequency(), $select_info);
+                            $fetch_info = mysqli_fetch_assoc($execute_info);
+        
+                                $usr_firstname = $fetch_info['firstName'];
+                                $usr_lastname = $fetch_info['lastName'];
+                                $usr_email = $fetch_info['email'];
+                                $getIdentity = $fetch_info['identity'];
+                                $user_title = $fetch_info["title"];
+        
+                            $select_bio = "SELECT * FROM user_bio WHERE email = '$usr_email'";
+                            $execute_bio = mysqli_query($this->Frequency(), $select_bio);
+                            $fetch_bio = mysqli_fetch_assoc($execute_bio);
+                                $bio = $fetch_bio['bio'];
+        
+                            $select_user_image = "SELECT profile_image FROM user_profile_image WHERE usr_email='$usr_email' AND status_image='1'";
+                            $execute_image = mysqli_query($this->Frequency(), $select_user_image);
+                            $fetch_image = mysqli_fetch_assoc($execute_image); ?>
+                    
+                            <!-- each near user -->
+                            <!-- ============================================================================================================================== -->
+                            <div class="position-relative">
+                                <div class="each-user">
+                                    <div class="friend-section_friends justify-content-between">
+                                        <div class="middle_detail">
+                                            <div onmouseover="about_user(this)" onmouseout="about_user(this)">
+                                                <div class="friend-image"><img src="<?php echo '../Images/profile-img/profile-image/'.$fetch_image['profile_image']; ?>" alt=""></div>
+                                            </div>
+                                            <div class="friend-name ml-2 mt-1">
+                                                <div><?php echo $usr_firstname; ?> <?php echo $usr_lastname; ?> <span class="ero_title">@<?php echo $user_title; ?></span></div>
+                                                <div><?php echo $usr_email; ?></div>
+                                            </div>
+                                        </div>
+                                        <div class="btn-follow ml-2">
+                                            <button id="<?php echo $usr_email; ?>" class="follow-btn"  onclick="followUser(this)">follow</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- about user -->
+                                <div class="about-usr">
+                                    <div class="about-specification">
+                                        <div><div class="user-about-image"><img src="<?php echo '../Images/profile-img/profile-image/'.$fetch_image['profile_image']; ?>" alt="" width="100%" height="100%"></div></div>
+                                        <div class="activity-status">
+                                            <?php 
+                                                // STATISTIC ON USER DETAIL
+                                                // ==========================================================================================================================================
+                                                $followers = 0;
+                                                $selectFollowers = "SELECT * FROM user_follow_board WHERE reciever_email='$usr_email'";
+                                                $executeFollowers = mysqli_query($this->Frequency(),$selectFollowers);
+                                                while($fetchFollowers = mysqli_fetch_assoc($executeFollowers)){
+                                                    $followers = $followers + 1;
+                                                }
+        
+                                                $Following = 0;
+                                                $selectFollowing = "SELECT * FROM user_follow_board WHERE host_email='$usr_email'";
+                                                $execute_following = mysqli_query($this->Frequency(),$selectFollowing);
+                                                while($fetchFollowing = mysqli_fetch_assoc($execute_following)){
+                                                    $Following = $Following + 1;
+                                                }
+                                                    
+                                                $courses = 0;
+                                                $selectCourse = "SELECT * FROM class_tracks WHERE student_identity='$getIdentity'";
+                                                $executeCourse = mysqli_query($this->Frequency(),$selectCourse);
+                                                while($fetch_course = mysqli_fetch_assoc($executeCourse)){
+                                                    $courses = $courses + 1;
+                                                }
+                                            ?>
+                                            <div class="followers">followers <span><?php echo $followers; ?></span></div>
+                                            <div class="following">Following <span><?php echo $Following; ?></span></div>
+                                            <div class="trainer">Courses <span><?php echo $courses; ?></span></div>
+                                        </div>
+                                    </div>
+                                    <div class="about-info">
+                                        <div class="firstname"><span><?php echo $usr_firstname; ?> <?php echo $usr_lastname; ?></span> <span class="ero_title">@<?php echo $user_title; ?></span></div>
+                                        <div class="email"><span><?php echo $usr_email; ?></span></div>
+                                        <div class="department"><span><?php echo $bio; ?></span></div>
+                                        <!-- <div class="schools">world mission school</div> -->
+                                    </div>
+                                </div>
+                                <!-- end about user -->
+                            </div>
+                            <!-- end each near user -->
+                            <!-- ================================================================================================================================= -->
+                  <?php }
+                    }else{
+                        $select_last_option = "SELECT * FROM intelligent_users WHERE email NOT IN (SELECT DISTINCT reciever_email FROM user_follow_board WHERE host_email='$this->E_mail') AND email NOT IN (SELECT DISTINCT host_email FROM user_follow_board WHERE reciever_email='$this->E_mail') AND email != '$this->E_mail' AND title='student' AND Verified='complete' LIMIT 3";
+                        $execute_last_option = mysqli_query($this->Frequency(), $select_last_option);
+                        while($fetch_nearby = mysqli_fetch_assoc($execute_last_option)){
+                            $usr_firstname = $fetch_nearby['firstName'];
+                            $usr_lastname = $fetch_nearby['lastName'];
+                            $usr_email = $fetch_nearby['email'];
+                            $getIdentity = $fetch_nearby['identity'];
+                            $user_title = $fetch_nearby["title"];
 
-               <?php }
-            } 
+                            $select_bio = "SELECT * FROM user_bio WHERE email = '$usr_email'";
+                            $execute_bio = mysqli_query($this->Frequency(), $select_bio);
+                            $fetch_bio = mysqli_fetch_assoc($execute_bio);
+                                $bio = $fetch_bio['bio'];
 
+                            $select_user_image = "SELECT profile_image FROM user_profile_image WHERE usr_email='$usr_email' AND status_image='1'";
+                            $execute_image = mysqli_query($this->Frequency(), $select_user_image);
+                            $fetch_image = mysqli_fetch_assoc($execute_image); ?>
+                
+                            <!-- each near user -->
+                            <!-- ============================================================================================================================== -->
+                            <div class="position-relative">
+                                <div class="each-user">
+                                    <div class="friend-section_friends justify-content-between">
+                                        <div class="middle_detail">
+                                            <div onmouseover="about_user(this)" onmouseout="about_user(this)">
+                                                <div class="friend-image"><img src="<?php echo '../Images/profile-img/profile-image/'.$fetch_image['profile_image']; ?>" alt=""></div>
+                                            </div>
+                                            <div class="friend-name ml-2 mt-1">
+                                                <div><?php echo $usr_firstname; ?> <?php echo $usr_lastname; ?> <span class="ero_title">@<?php echo $user_title; ?></span></div>
+                                                <div><?php echo $usr_email; ?></div>
+                                            </div>
+                                        </div>
+                                        <div class="btn-follow ml-2">
+                                            <button id="<?php echo $usr_email; ?>" class="follow-btn" onclick="followUser(this)">follow</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- about user -->
+                                <div class="about-usr">
+                                    <div class="about-specification">
+                                        <div><div class="user-about-image"><img src="<?php echo '../Images/profile-img/profile-image/'.$fetch_image['profile_image']; ?>" alt="" width="100%" height="100%"></div></div>
+                                        <div class="activity-status">
+                                            <?php 
+                                                // STATISTIC ON USER DETAIL
+                                                // ==========================================================================================================================================
+                                                $followers = 0;
+                                                $selectFollowers = "SELECT * FROM user_follow_board WHERE reciever_email='$usr_email'";
+                                                $executeFollowers = mysqli_query($this->Frequency(),$selectFollowers);
+                                                while($fetchFollowers = mysqli_fetch_assoc($executeFollowers)){
+                                                    $followers = $followers + 1;
+                                                }
+
+                                                $Following = 0;
+                                                $selectFollowing = "SELECT * FROM user_follow_board WHERE host_email='$usr_email'";
+                                                $execute_following = mysqli_query($this->Frequency(),$selectFollowing);
+                                                while($fetchFollowing = mysqli_fetch_assoc($execute_following)){
+                                                    $Following = $Following + 1;
+                                                }
+                                                    
+                                                $courses = 0;
+                                                $selectCourse = "SELECT * FROM class_tracks WHERE student_identity='$getIdentity'";
+                                                $executeCourse = mysqli_query($this->Frequency(),$selectCourse);
+                                                while($fetch_course = mysqli_fetch_assoc($executeCourse)){
+                                                    $courses = $courses + 1;
+                                                }
+                                            ?>
+                                            <div class="followers">followers <span><?php echo $followers; ?></span></div>
+                                            <div class="following">Following <span><?php echo $Following; ?></span></div>
+                                            <div class="trainer">Courses <span><?php echo $courses; ?></span></div>
+                                        </div>
+                                    </div>
+                                    <div class="about-info">
+                                        <div class="firstname"><span><?php echo $usr_firstname; ?> <?php echo $usr_lastname; ?></span><span class="ero_title">@<?php echo $user_title; ?></span>m</div>
+                                        <div class="email"><span><?php echo $usr_email; ?></span></div>
+                                        <div class="department"><span><?php echo $bio; ?></span></div>
+                                        <!-- <div class="schools">world mission school</div> -->
+                                    </div>
+                                </div>
+                                <!-- end about user -->
+                            </div>
+                            <!-- end each near user -->
+                            <!-- ================================================================================================================================= -->
+                <?php }
+                    }
+                }
+            }
         }
+        // ===================================================================================================================================================
 
 
         // show more trainer
         // ===================================================================================================================================================
         public function more_trainer(){
-            $select_more_trainer = "SELECT * FROM intelligent_users WHERE email NOT IN (SELECT DISTINCT reciever_email FROM user_follow_board WHERE host_email='$this->E_mail') AND email NOT IN (SELECT DISTINCT host_email FROM user_follow_board WHERE reciever_email='$this->E_mail') AND email != '$this->E_mail' AND title='trainer' AND Verified='complete' LIMIT 10";
+            // get user worker
+            // ========================================================================================
+            $select_loaction = "SELECT location FROM user_auto_detection WHERE email='$this->E_mail'";
+            $execute_location = mysqli_query($this->Frequency(), $select_loaction);
+            $fetch_location = mysqli_fetch_assoc($execute_location);
+                $location = $fetch_location['location'];
+
+            $select_school = "SELECT * FROM more_account_info WHERE email='$this->E_mail'";
+            $execute_school = mysqli_query($this->Frequency(), $select_school);
+            $fetch_school = mysqli_fetch_assoc($execute_school);
+                $school = $fetch_school['School'];
+                $level = $fetch_school['level'];
+                $date_of_birth = $fetch_school['date_of_birth'];
+                $gender = $fetch_school['gender'];
+                $department = $fetch_school['Department'];
+
+            $select_more_trainer = "SELECT intelligent_users.email,user_auto_detection.email FROM intelligent_users INNER JOIN user_auto_detection on intelligent_users.email = user_auto_detection.email and user_auto_detection.location = '$location' AND user_auto_detection.email != '$this->E_mail' AND intelligent_users.email NOT IN (SELECT DISTINCT reciever_email FROM user_follow_board WHERE host_email = '$this->E_mail') AND intelligent_users.email NOT IN (SELECT DISTINCT host_email FROM user_follow_board WHERE reciever_email='$this->E_mail') AND intelligent_users.title = 'trainer'";    
+            // $select_more_trainer = "SELECT * FROM intelligent_users WHERE email NOT IN (SELECT DISTINCT reciever_email FROM user_follow_board WHERE host_email='$this->E_mail') AND email NOT IN (SELECT DISTINCT host_email FROM user_follow_board WHERE reciever_email='$this->E_mail') AND email != '$this->E_mail' AND title='trainer' AND Verified='complete' LIMIT 10";
             $execute_trainer = mysqli_query($this->Frequency(),$select_more_trainer);
-            if(mysqli_num_rows($execute_trainer) > 0){
+            if(mysqli_num_rows($execute_trainer) > 5){
                 while($fetch_trainer = mysqli_fetch_assoc($execute_trainer)){
-                    $getFirstname = $fetch_trainer['firstName'];
-                    $getLastname = $fetch_trainer['lastName'];
-                    $getEmail = $fetch_trainer['email'];
-                    $getIdentity = $fetch_trainer['identity'];
+                    $getmail = $fetch_trainer['email'];
+
+                    $select_info = "SELECT * FROM intelligent_users WHERE email = '$getmail'";
+                    $execute_info = mysqli_query($this->Frequency(), $select_info);
+                    $fetch_info = mysqli_fetch_assoc($execute_info);
+                        $getFirstname = $fetch_info['firstName'];
+                        $getLastname = $fetch_info['lastName'];
+                        $getEmail = $fetch_info['email'];
+                        $getIdentity = $fetch_info['identity'];
 
                     $select_user_image = "SELECT profile_image FROM user_profile_image WHERE usr_email='$getEmail' AND status_image='1'";
                     $execute_image = mysqli_query($this->Frequency(), $select_user_image);
@@ -329,8 +623,104 @@
                     <!-- =========================================================================================================== -->
 
                 <?php }
+            }else{
+                $select_more_trainer = "SELECT intelligent_users.email,more_account_info.email FROM intelligent_users INNER JOIN more_account_info ON intelligent_users.email = more_account_info.email AND more_account_info.Department = '$department' AND intelligent_users.email NOT IN (SELECT DISTINCT reciever_email FROM user_follow_board WHERE host_email = '$this->E_mail') AND intelligent_users.email NOT IN (SELECT DISTINCT host_email FROM user_follow_board WHERE reciever_email='$this->E_mail') AND intelligent_users.title = 'trainer' AND intelligent_users.email != '$this->E_mail'";
+                $execute_trainer = mysqli_query($this->Frequency(),$select_more_trainer);
+                if(mysqli_num_rows($execute_trainer) > 7){
+                    while($fetch_trainer = mysqli_fetch_assoc($execute_trainer)){
+                        $getmail = $fetch_trainer['email'];
+
+                        $select_info = "SELECT * FROM intelligent_users WHERE email = '$getmail'";
+                        $execute_info = mysqli_query($this->Frequency(), $select_info);
+                        $fetch_info = mysqli_fetch_assoc($execute_info);
+                            $getFirstname = $fetch_info['firstName'];
+                            $getLastname = $fetch_info['lastName'];
+                            $getEmail = $fetch_info['email'];
+                            $getIdentity = $fetch_info['identity'];
+
+                        $select_user_image = "SELECT profile_image FROM user_profile_image WHERE usr_email='$getEmail' AND status_image='1'";
+                        $execute_image = mysqli_query($this->Frequency(), $select_user_image);
+                        $fetch_image = mysqli_fetch_assoc($execute_image);
+
+                        $followers = 0;
+                        $selectFollowers = "SELECT * FROM user_follow_board WHERE reciever_email='$getEmail'";
+                        $executeFollowers = mysqli_query($this->Frequency(),$selectFollowers);
+                        while($fetchFollowers = mysqli_fetch_assoc($executeFollowers)){
+                            $followers = $followers + 1;
+                        }
+
+                        $gestBackgroundImage = "SELECT background_image FROM user_profile_background_image WHERE user_email='$getEmail' AND background_status='on'";
+                        $execute_background_image = mysqli_query($this->Frequency(), $gestBackgroundImage);
+                        $fetch_background_image = mysqli_fetch_assoc($execute_background_image); ?>
+
+                        <!-- each trainer -->
+                        <!-- =============================================================================================== -->
+                        <div class="each-trainer-sec">
+                            <div class="trainer-background-pre"><div class="image-trainer-sec">
+                                <img src="<?php echo '../Images/profile-img/background-img/'.$fetch_background_image['background_image'] ?>" alt="" width="100%" height="100%">
+                                <button id="<?php echo $getEmail; ?>" class="Follow-trainers" onclick="followUser(this)">Follow</button>
+                            </div></div>
+                            <div class="trainer-pre-detail">
+                                <div class="image-pre-trainer"><img src="<?php echo '../Images/profile-img/profile-image/'.$fetch_image['profile_image'] ?>" alt="" width="100%" height="100%"></div>
+                                <div class="">
+                                    <div class="name-trainer"><?php echo $getFirstname; ?> <?php echo $getLastname; ?></div>
+                                    <div class="trainer-title">@Trainer, <?php echo $followers; ?> Followers</div>
+                                    <div class="email-trainer"><?php echo $getEmail; ?></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end each trainer -->
+                        <!-- =========================================================================================================== -->
+
+                    <?php }
+                }else{
+                    $select_more_trainer = "SELECT * FROM intelligent_users WHERE email NOT IN (SELECT DISTINCT reciever_email FROM user_follow_board WHERE host_email='$this->E_mail') AND email NOT IN (SELECT DISTINCT host_email FROM user_follow_board WHERE reciever_email='$this->E_mail') AND email != '$this->E_mail' AND title='trainer' AND Verified='complete' LIMIT 10";
+                    $execute_trainer = mysqli_query($this->Frequency(),$select_more_trainer);
+                    while($fetch_trainer = mysqli_fetch_assoc($execute_trainer)){
+                        $getFirstname = $fetch_trainer['firstName'];
+                        $getLastname = $fetch_trainer['lastName'];
+                        $getEmail = $fetch_trainer['email'];
+                        $getIdentity = $fetch_trainer['identity'];
+
+                        $select_user_image = "SELECT profile_image FROM user_profile_image WHERE usr_email='$getEmail' AND status_image='1'";
+                        $execute_image = mysqli_query($this->Frequency(), $select_user_image);
+                        $fetch_image = mysqli_fetch_assoc($execute_image);
+
+                        $followers = 0;
+                        $selectFollowers = "SELECT * FROM user_follow_board WHERE reciever_email='$getEmail'";
+                        $executeFollowers = mysqli_query($this->Frequency(),$selectFollowers);
+                        while($fetchFollowers = mysqli_fetch_assoc($executeFollowers)){
+                            $followers = $followers + 1;
+                        }
+
+                        $gestBackgroundImage = "SELECT background_image FROM user_profile_background_image WHERE user_email='$getEmail' AND background_status='on'";
+                        $execute_background_image = mysqli_query($this->Frequency(), $gestBackgroundImage);
+                        $fetch_background_image = mysqli_fetch_assoc($execute_background_image); ?>
+
+                        <!-- each trainer -->
+                        <!-- =============================================================================================== -->
+                        <div class="each-trainer-sec">
+                            <div class="trainer-background-pre"><div class="image-trainer-sec">
+                                <img src="<?php echo '../Images/profile-img/background-img/'.$fetch_background_image['background_image'] ?>" alt="" width="100%" height="100%">
+                                <button id="<?php echo $getEmail; ?>" class="Follow-trainers" onclick="followUser(this)">Follow</button>
+                            </div></div>
+                            <div class="trainer-pre-detail">
+                                <div class="image-pre-trainer"><img src="<?php echo '../Images/profile-img/profile-image/'.$fetch_image['profile_image'] ?>" alt="" width="100%" height="100%"></div>
+                                <div class="">
+                                    <div class="name-trainer"><?php echo $getFirstname; ?> <?php echo $getLastname; ?></div>
+                                    <div class="trainer-title">@Trainer, <?php echo $followers; ?> Followers</div>
+                                    <div class="email-trainer"><?php echo $getEmail; ?></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end each trainer -->
+                        <!-- =========================================================================================================== -->
+                    <?php }
+                }
             }
         }
+        // ===================================================================================================================================================================
+
 
         // FETCH ALL DEPARTMENT AS LIST
         // =======================================================================================================================
@@ -385,18 +775,20 @@
         <!-- END LIST OF COUNTRY -->
         <?php }
 
+
         public function show_user_info(){
             $check_if_exist = "SELECT * FROM more_account_info WHERE email='$this->E_mail'";
             $excute_check = mysqli_query($this->Frequency(), $check_if_exist);
             if(mysqli_num_rows($excute_check) > 0){
-               $fetch_info = mysqli_fetch_assoc($excute_check);
+                $fetch_info = mysqli_fetch_assoc($excute_check);
 
-               $school = $fetch_info['School'];
-               $Department = $fetch_info['Department'];
-               $level = $fetch_info['level'];
-               $contact = $fetch_info['contact'];
-               $date_of_birth = $fetch_info['date_of_birth'];
-               $gender = $fetch_info['gender']; ?>
+                $school = $fetch_info['School'];
+                $Department = $fetch_info['Department'];
+                $level = $fetch_info['level'];
+                $contact = $fetch_info['contact'];
+                $date_of_birth = $fetch_info['date_of_birth'];
+                $gender = $fetch_info['gender']; ?>
+
                 <!-- user intoduction -->
                 <!-- ================================================================================================== -->
                 <div class="user-into">
@@ -481,186 +873,186 @@
         // SHOW ALL MY TRAINER 
         // ========================================================================================================================================
         public function show_my_trainers($email){
-            $select_my_trainers = "SELECT * FROM user_follow_board WHERE host_email='$email' OR reciever_email='$email'";
-            //   $select_my_trainers = "SELECT * FROM intelligent_users WHERE email IN (SELECT DISTINCT host_email FROM user_follow_board WHERE reciever_email ='$email') OR email IN (SELECT DISTINCT reciever_email FROM user_follow_board WHERE host_email='$email') AND title='trainer'";
-              $execute_my_trainer = mysqli_query($this->Frequency(), $select_my_trainers);
-              if(mysqli_num_rows($execute_my_trainer) > 0){
-                while($fetch_my_trainer = mysqli_fetch_assoc($execute_my_trainer)){
-                    $host_email = $fetch_my_trainer['host_email'];
-                    $host_title = $fetch_my_trainer['host_title'];
+            // $select_my_trainers = "SELECT * FROM user_follow_board WHERE host_email='$email' OR reciever_email='$email'";
+            $select_my_trainers = " SELECT intelligent_users.email,user_follow_board.host_email,user_follow_board.reciever_email,user_follow_board.host_title,user_follow_board.reciever_title FROM intelligent_users INNER JOIN user_follow_board ON intelligent_users.email = user_follow_board.host_email OR intelligent_users.email = user_follow_board.reciever_email AND intelligent_users.title = 'trainer' AND intelligent_users.email = '$this->E_mail'";
+            $execute_my_trainer = mysqli_query($this->Frequency(), $select_my_trainers);
+            if(mysqli_num_rows($execute_my_trainer) > 0){
+            while($fetch_my_trainer = mysqli_fetch_assoc($execute_my_trainer)){
+                $host_email = $fetch_my_trainer['host_email'];
+                $host_title = $fetch_my_trainer['host_title'];
 
-                    $reciever_email = $fetch_my_trainer['reciever_email'];
-                    $reciever_title = $fetch_my_trainer['reciever_title'];
+                $reciever_email = $fetch_my_trainer['reciever_email'];
+                $reciever_title = $fetch_my_trainer['reciever_title'];
 
-                    if($host_title == "trainer" && $reciever_email == $email){
-                        $select_trainer_info = "SELECT * FROM intelligent_users WHERE email='$host_email'";
-                        $execute_host = mysqli_query($this->Frequency(), $select_trainer_info);
-                        $fetch_host = mysqli_fetch_assoc($execute_host);
-                            $firstname_trainer = $fetch_host['firstName'];
-                            $lastName = $fetch_host['lastName'];
-                            $email_trainer = $fetch_host['email'];
-                            $user_identity = $fetch_host['identity'];
+                if($host_title == "trainer" && $reciever_email == $email){
+                    $select_trainer_info = "SELECT * FROM intelligent_users WHERE email='$host_email'";
+                    $execute_host = mysqli_query($this->Frequency(), $select_trainer_info);
+                    $fetch_host = mysqli_fetch_assoc($execute_host);
+                        $firstname_trainer = $fetch_host['firstName'];
+                        $lastName = $fetch_host['lastName'];
+                        $email_trainer = $fetch_host['email'];
+                        $user_identity = $fetch_host['identity'];
+    
+                    $select_user_image = "SELECT profile_image FROM user_profile_image WHERE usr_email='$host_email' AND status_image='1'";
+                    $execute_image = mysqli_query($this->Frequency(), $select_user_image);
+                    $fetch_image = mysqli_fetch_assoc($execute_image); 
+    
+                    $select_bio = "SELECT bio FROM user_bio WHERE email='$host_email'";
+                    $execute_bio = mysqli_query($this->Frequency(), $select_bio);
+                    $fetch_bio = mysqli_fetch_assoc($execute_bio); 
       
-                        $select_user_image = "SELECT profile_image FROM user_profile_image WHERE usr_email='$host_email' AND status_image='1'";
-                        $execute_image = mysqli_query($this->Frequency(), $select_user_image);
-                        $fetch_image = mysqli_fetch_assoc($execute_image); 
-      
-                        $select_bio = "SELECT bio FROM user_bio WHERE email='$host_email'";
-                        $execute_bio = mysqli_query($this->Frequency(), $select_bio);
-                        $fetch_bio = mysqli_fetch_assoc($execute_bio); 
-      
-                        $followers = 0;
-                        $selectFollowers = "SELECT * FROM user_follow_board WHERE reciever_email='$host_email'";
-                        $executeFollowers = mysqli_query($this->Frequency(),$selectFollowers);
-                        while($fetchFollowers = mysqli_fetch_assoc($executeFollowers)){
-                            $followers = $followers + 1;
-                        }
-      
-                        $Following = 0;
-                        $selectFollowing = "SELECT * FROM user_follow_board WHERE host_email='$host_email'";
-                        $execute_following = mysqli_query($this->Frequency(),$selectFollowing);
-                        while($fetchFollowing = mysqli_fetch_assoc($execute_following)){
-                            $Following = $Following + 1;
-                        }
-      
-                        $courses = 0;
-                        $selectCourse = "SELECT * FROM class_tracks WHERE student_identity='$user_identity'";
-                        $executeCourse = mysqli_query($this->Frequency(),$selectCourse);
-                        while($fetch_course = mysqli_fetch_assoc($executeCourse)){
-                            $courses = $courses + 1;
-                        } ?>
-                        <!-- each trainer -->
-                        <!-- ============================================================================================================ -->
-                        <div class="each-trainer">
-                            <div class="trainers d-flex position-relative">
-                                <div><div class="tariner-img"><img src="<?php echo '../Images/profile-img/profile-image/'.$fetch_image['profile_image']; ?>" alt="" width="100%" height="100%"></div></div>
-                                <div class="trainer-desc ml-2">
-                                    <div class="trainer-name"><?php echo $firstname_trainer; ?> <?php echo $lastName; ?></div>
-                                    <div class="trainer-email"><?php echo $email_trainer; ?></div>
-                                    <div class="trainer-bio mt-1"> <?php echo $fetch_bio['bio']; ?> </div>
-                                    <div class="trainer-status d-flex justify-content-between">
-                                        <div class="followers"><?php echo $followers; ?> Followers </div>
-                                        <div class="followers ml-2"><?php echo $Following; ?> following </div>
-                                        <div class="course ml-2"><?php echo $courses; ?> courses</div>
-                                    </div>
-                                </div>
-                                <div class="btn-get-trainer ml-3">
-                                    <button class="ask" onclick="askQuestion(this)"><i class="fa fa-question-circle-o"></i></button>
+                    $followers = 0;
+                    $selectFollowers = "SELECT * FROM user_follow_board WHERE reciever_email='$host_email'";
+                    $executeFollowers = mysqli_query($this->Frequency(),$selectFollowers);
+                    while($fetchFollowers = mysqli_fetch_assoc($executeFollowers)){
+                        $followers = $followers + 1;
+                    }
+    
+                    $Following = 0;
+                    $selectFollowing = "SELECT * FROM user_follow_board WHERE host_email='$host_email'";
+                    $execute_following = mysqli_query($this->Frequency(),$selectFollowing);
+                    while($fetchFollowing = mysqli_fetch_assoc($execute_following)){
+                        $Following = $Following + 1;
+                    }
+    
+                    $courses = 0;
+                    $selectCourse = "SELECT * FROM class_tracks WHERE student_identity='$user_identity'";
+                    $executeCourse = mysqli_query($this->Frequency(),$selectCourse);
+                    while($fetch_course = mysqli_fetch_assoc($executeCourse)){
+                        $courses = $courses + 1;
+                    } ?>
+                    <!-- each trainer -->
+                    <!-- ============================================================================================================ -->
+                    <div class="each-trainer">
+                        <div class="trainers d-flex position-relative">
+                            <div><div class="tariner-img"><img src="<?php echo '../Images/profile-img/profile-image/'.$fetch_image['profile_image']; ?>" alt="" width="100%" height="100%"></div></div>
+                            <div class="trainer-desc ml-2">
+                                <div class="trainer-name"><?php echo $firstname_trainer; ?> <?php echo $lastName; ?></div>
+                                <div class="trainer-email"><?php echo $email_trainer; ?></div>
+                                <div class="trainer-bio mt-1"> <?php echo $fetch_bio['bio']; ?> </div>
+                                <div class="trainer-status d-flex justify-content-between">
+                                    <div class="followers"><?php echo $followers; ?> Followers </div>
+                                    <div class="followers ml-2"><?php echo $Following; ?> following </div>
+                                    <div class="course ml-2"><?php echo $courses; ?> courses</div>
                                 </div>
                             </div>
-                            <!-- by the time user want to ask trainer -->
-                            <div class="ask-question">
-                                <div class="title-question">
-                                    <div>question with <?php echo $firstname_trainer; ?> <?php echo $lastName; ?></div>
-                                    <div class="close-question"><i class="fa fa-close" onclick="closeTabs(this)"></i></div>
-                                </div>
-                                <form action="profile_updates.php" method="POST" enctype="multipart/form-data">
-                                    <div class="question-area-image">
-                                        <div class="preview-image-question" id="preview_que_image">
-                                            <img src="" id="preview_image" alt="" width="100%" height="100%">
-                                        </div>
-                                        <div class="type-question ml-2">
-                                            <div class="textarea-question"><textarea name="que_provided" id="" cols="30" rows="5" placeholder="Type question" autocomplete="off"></textarea></div>
-                                        </div>
-                                    </div>
-                                    <div class="send-question mt-2 d-flex justify-content-between">
-                                        <input type="hidden" name="trainer_email" value="<?php echo $email_trainer; ?>">
-                                        <input type="hidden" name="my_email_in" value="<?php echo $email; ?>">
-                                        <input type="file" name="que_image" id="question_image" style="display: none;">
-                                        <div class="with-photo"><button type="button" onclick="support_image(this)"><i class="fa fa-image mr-2"></i> with image</button></div>
-                                        <div class="send" id="<?php echo $email_trainer; ?>"><button type="submit" name="submit_trainer_que" id="<?php echo $user_identity; ?>" onclick="submit_que_trainer(this)">send</button></div>
-                                    </div>
-                                </form>
+                            <div class="btn-get-trainer ml-3">
+                                <button class="ask" onclick="askQuestion(this)"><i class="fa fa-question-circle-o"></i></button>
                             </div>
-                            <!-- end asking question -->
                         </div>
-                        <!-- end each trainer -->
-                        <!-- =================================================================================================================================== -->
-                    <?php }else if($reciever_title == "trainer" && $host_email == $email){
-                        $select_trainer_info = "SELECT * FROM intelligent_users WHERE email='$reciever_email'";
-                        $execute_host = mysqli_query($this->Frequency(), $select_trainer_info);
-                        $fetch_reciever = mysqli_fetch_assoc($execute_host);
-                            $firstname_trainer = $fetch_reciever['firstName'];
-                            $lastName = $fetch_reciever['lastName'];
-                            $email_trainer = $fetch_reciever['email'];
-                            $user_identity = $fetch_reciever['identity'];
-       
-                        $select_user_image = "SELECT profile_image FROM user_profile_image WHERE usr_email='$reciever_email' AND status_image='1'";
-                        $execute_image = mysqli_query($this->Frequency(), $select_user_image);
-                        $fetch_image = mysqli_fetch_assoc($execute_image); 
-    
-                        $select_bio = "SELECT bio FROM user_bio WHERE email='$reciever_email'";
-                        $execute_bio = mysqli_query($this->Frequency(), $select_bio);
-                        $fetch_bio = mysqli_fetch_assoc($execute_bio); 
-    
-                        $followers = 0;
-                        $selectFollowers = "SELECT * FROM user_follow_board WHERE reciever_email='$reciever_email'";
-                        $executeFollowers = mysqli_query($this->Frequency(),$selectFollowers);
-                        while($fetchFollowers = mysqli_fetch_assoc($executeFollowers)){
-                            $followers = $followers + 1;
-                        }
-    
-                        $Following = 0;
-                        $selectFollowing = "SELECT * FROM user_follow_board WHERE host_email='$reciever_email'";
-                        $execute_following = mysqli_query($this->Frequency(),$selectFollowing);
-                        while($fetchFollowing = mysqli_fetch_assoc($execute_following)){
-                            $Following = $Following + 1;
-                        }
-       
-                        $courses = 0;
-                        $selectCourse = "SELECT * FROM class_tracks WHERE student_identity='$user_identity'";
-                        $executeCourse = mysqli_query($this->Frequency(),$selectCourse);
-                        while($fetch_course = mysqli_fetch_assoc($executeCourse)){
-                            $courses = $courses + 1;
-                        } ?>
-                        <!-- each trainer -->
-                        <!-- ============================================================================================================ -->
-                        <div class="each-trainer">
-                            <div class="trainers d-flex position-relative">
-                                <div><div class="tariner-img"><img src="<?php echo '../Images/profile-img/profile-image/'.$fetch_image['profile_image']; ?>" alt="" width="100%" height="100%"></div></div>
-                                <div class="trainer-desc ml-2">
-                                    <div class="trainer-name"><?php echo $firstname_trainer; ?> <?php echo $lastName; ?></div>
-                                    <div class="trainer-email"><?php echo $email_trainer; ?></div>
-                                    <div class="trainer-bio mt-1"> <?php echo $fetch_bio['bio']; ?> </div>
-                                    <div class="trainer-status d-flex justify-content-between">
-                                        <div class="followers"><?php echo $followers; ?> Followers </div>
-                                        <div class="followers ml-2"><?php echo $Following; ?> following </div>
-                                        <div class="course ml-2"><?php echo $courses; ?> courses</div>
-                                    </div>
-                                </div>
-                                <div class="btn-get-trainer ml-3">
-                                    <button class="ask" onclick="askQuestion(this)"><i class="fa fa-question-circle-o"></i></button>
-                                </div>
+                        <!-- by the time user want to ask trainer -->
+                        <div class="ask-question">
+                            <div class="title-question">
+                                <div>question with <?php echo $firstname_trainer; ?> <?php echo $lastName; ?></div>
+                                <div class="close-question"><i class="fa fa-close" onclick="closeTabs(this)"></i></div>
                             </div>
-                            <!-- by the time user want to ask trainer -->
-                            <div class="ask-question">
-                                <div class="title-question">
-                                    <div>question with <?php echo $firstname_trainer; ?> <?php echo $lastName; ?></div>
-                                    <div class="close-question"><i class="fa fa-close" onclick="closeTabs(this)"></i></div>
+                            <form action="profile_updates.php" method="POST" enctype="multipart/form-data">
+                                <div class="question-area-image">
+                                    <div class="preview-image-question" id="preview_que_image">
+                                        <img src="" id="preview_image" alt="" width="100%" height="100%">
+                                    </div>
+                                    <div class="type-question ml-2">
+                                        <div class="textarea-question"><textarea name="que_provided" id="" cols="30" rows="5" placeholder="Type question" autocomplete="off"></textarea></div>
+                                    </div>
                                 </div>
-                                <form action="profile_updates.php" method="POST" enctype="multipart/form-data">
-                                    <div class="question-area-image">
-                                        <div class="preview-image-question" id="preview_que_image">
-                                            <img src="" id="preview_image" alt="" width="100%" height="100%">
-                                        </div>
-                                        <div class="type-question ml-2">
-                                            <div class="textarea-question"><textarea name="que_provided" id="" cols="30" rows="5" placeholder="Type question" autocomplete="off"></textarea></div>
-                                        </div>
-                                    </div>
-                                    <div class="send-question mt-2 d-flex justify-content-between">
-                                        <input type="hidden" name="trainer_email" value="<?php echo $email_trainer; ?>">
-                                        <input type="hidden" name="my_email_in" value="<?php echo $email; ?>">
-                                        <input type="file" name="que_image" id="question_image" style="display: none;">
-                                        <div class="with-photo"><button type="button" onclick="support_image(this)"><i class="fa fa-image mr-2"></i> with image</button></div>
-                                        <div class="send" id="<?php echo $email_trainer; ?>"><button type="submit" name="submit_trainer_que" id="<?php echo $user_identity; ?>" onclick="submit_que_trainer(this)">send</button></div>
-                                    </div>
-                                </form>
-                            </div>
-                            <!-- end asking question -->
+                                <div class="send-question mt-2 d-flex justify-content-between">
+                                    <input type="hidden" name="trainer_email" value="<?php echo $email_trainer; ?>">
+                                    <input type="hidden" name="my_email_in" value="<?php echo $email; ?>">
+                                    <input type="file" name="que_image" id="question_image" style="display: none;">
+                                    <div class="with-photo"><button type="button" onclick="support_image(this)"><i class="fa fa-image mr-2"></i> with image</button></div>
+                                    <div class="send" id="<?php echo $email_trainer; ?>"><button type="submit" name="submit_trainer_que" id="<?php echo $user_identity; ?>" onclick="submit_que_trainer(this)">send</button></div>
+                                </div>
+                            </form>
                         </div>
-                        <!-- end each trainer -->
-                        <!-- =================================================================================================================================== -->
-                       <?php }else{
+                        <!-- end asking question -->
+                    </div>
+                    <!-- end each trainer -->
+                    <!-- =================================================================================================================================== -->
+                <?php }else if($reciever_title == "trainer" && $host_email == $email){
+                    $select_trainer_info = "SELECT * FROM intelligent_users WHERE email='$reciever_email'";
+                    $execute_host = mysqli_query($this->Frequency(), $select_trainer_info);
+                    $fetch_reciever = mysqli_fetch_assoc($execute_host);
+                        $firstname_trainer = $fetch_reciever['firstName'];
+                        $lastName = $fetch_reciever['lastName'];
+                        $email_trainer = $fetch_reciever['email'];
+                        $user_identity = $fetch_reciever['identity'];
+       
+                    $select_user_image = "SELECT profile_image FROM user_profile_image WHERE usr_email='$reciever_email' AND status_image='1'";
+                    $execute_image = mysqli_query($this->Frequency(), $select_user_image);
+                    $fetch_image = mysqli_fetch_assoc($execute_image); 
+
+                    $select_bio = "SELECT bio FROM user_bio WHERE email='$reciever_email'";
+                    $execute_bio = mysqli_query($this->Frequency(), $select_bio);
+                    $fetch_bio = mysqli_fetch_assoc($execute_bio); 
+
+                    $followers = 0;
+                    $selectFollowers = "SELECT * FROM user_follow_board WHERE reciever_email='$reciever_email'";
+                    $executeFollowers = mysqli_query($this->Frequency(),$selectFollowers);
+                    while($fetchFollowers = mysqli_fetch_assoc($executeFollowers)){
+                        $followers = $followers + 1;
+                    }
+
+                    $Following = 0;
+                    $selectFollowing = "SELECT * FROM user_follow_board WHERE host_email='$reciever_email'";
+                    $execute_following = mysqli_query($this->Frequency(),$selectFollowing);
+                    while($fetchFollowing = mysqli_fetch_assoc($execute_following)){
+                        $Following = $Following + 1;
+                    }
+       
+                    $courses = 0;
+                    $selectCourse = "SELECT * FROM class_tracks WHERE student_identity='$user_identity'";
+                    $executeCourse = mysqli_query($this->Frequency(),$selectCourse);
+                    while($fetch_course = mysqli_fetch_assoc($executeCourse)){
+                        $courses = $courses + 1;
+                    } ?>
+                    <!-- each trainer -->
+                    <!-- ============================================================================================================ -->
+                    <div class="each-trainer">
+                        <div class="trainers d-flex position-relative">
+                            <div><div class="tariner-img"><img src="<?php echo '../Images/profile-img/profile-image/'.$fetch_image['profile_image']; ?>" alt="" width="100%" height="100%"></div></div>
+                            <div class="trainer-desc ml-2">
+                                <div class="trainer-name"><?php echo $firstname_trainer; ?> <?php echo $lastName; ?></div>
+                                <div class="trainer-email"><?php echo $email_trainer; ?></div>
+                                <div class="trainer-bio mt-1"> <?php echo $fetch_bio['bio']; ?> </div>
+                                <div class="trainer-status d-flex justify-content-between">
+                                    <div class="followers"><?php echo $followers; ?> Followers </div>
+                                    <div class="followers ml-2"><?php echo $Following; ?> following </div>
+                                    <div class="course ml-2"><?php echo $courses; ?> courses</div>
+                                </div>
+                            </div>
+                            <div class="btn-get-trainer ml-3">
+                                <button class="ask" onclick="askQuestion(this)"><i class="fa fa-question-circle-o"></i></button>
+                            </div>
+                        </div>
+                        <!-- by the time user want to ask trainer -->
+                        <div class="ask-question">
+                            <div class="title-question">
+                                <div>question with <?php echo $firstname_trainer; ?> <?php echo $lastName; ?></div>
+                                <div class="close-question"><i class="fa fa-close" onclick="closeTabs(this)"></i></div>
+                            </div>
+                            <form action="profile_updates.php" method="POST" enctype="multipart/form-data">
+                                <div class="question-area-image">
+                                    <div class="preview-image-question" id="preview_que_image">
+                                        <img src="" id="preview_image" alt="" width="100%" height="100%">
+                                    </div>
+                                    <div class="type-question ml-2">
+                                        <div class="textarea-question"><textarea name="que_provided" id="" cols="30" rows="5" placeholder="Type question" autocomplete="off"></textarea></div>
+                                    </div>
+                                </div>
+                                <div class="send-question mt-2 d-flex justify-content-between">
+                                    <input type="hidden" name="trainer_email" value="<?php echo $email_trainer; ?>">
+                                    <input type="hidden" name="my_email_in" value="<?php echo $email; ?>">
+                                    <input type="file" name="que_image" id="question_image" style="display: none;">
+                                    <div class="with-photo"><button type="button" onclick="support_image(this)"><i class="fa fa-image mr-2"></i> with image</button></div>
+                                    <div class="send" id="<?php echo $email_trainer; ?>"><button type="submit" name="submit_trainer_que" id="<?php echo $user_identity; ?>" onclick="submit_que_trainer(this)">send</button></div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- end asking question -->
+                    </div>
+                    <!-- end each trainer -->
+                    <!-- =================================================================================================================================== -->
+                    <?php }else{
 
                     } 
                 }
@@ -670,9 +1062,11 @@
                         <img src="../Images/Illustrator_img/professor_8lrt.png" alt="" width="100%">
                         <span>Follow more trainers to get what they shared</span>
                     </div>
+                    <div class="mt-3" id="find-more-trainer"></div>
                 </div>
            <?php }
         }
+        // ===================================================================================================================================================================
 
 
         // method to display all course of department depend on user trade 
@@ -867,14 +1261,68 @@
                 while($fetch_all_group = mysqli_fetch_assoc($execute_group)){ 
                     $getprofile_image = $fetch_all_group['group_profile_image'];
                     $getName = $fetch_all_group['group_name'];
-                    $getUrl = $fetch_all_group['url_encode']; ?>
-                    <a href="<?php echo '../Group-discusion/Group_admin.php?group='.$getUrl; ?>" class="each-show_group"><div class="d-flex mt-2">
-                        <div><div class="group_image"><img src="<?php echo '../Images/groups/'.$getprofile_image; ?>" alt="" width="100%" height="100%"></div></div>
-                        <div class="group_name_show"><?php echo $getName; ?></div>
-                    </div></a>
+                    $getUrl = $fetch_all_group['url_encode']; 
+                    $group_identity = $fetch_all_group['identity']; ?>
+                    <a href="<?php echo '../Group-discusion/Group_admin.php?group='.$getUrl; ?>">
+                        <div class="each-show_group d-flex mt-2">
+                            <div><div class="group_image"><img src="<?php echo '../Images/groups/'.$getprofile_image; ?>" alt="" width="100%" height="100%"></div></div>
+                            <div class="group_name_show">
+                                <?php echo $getName; ?>
+                            </div>
+                            <span class="count_notification_group_<?php echo $group_identity; ?>"></span>
+                        </div>
+                    </a>
+                    <script>
+                       setInterval(() => {
+                            $(document).ready(function(){
+                                var group_identity = "<?php echo $group_identity; ?>";
+                                var global_mail = document.getElementById("hiddenEmail").value;
+                                $("#count_notification_group_<?php echo $group_identity; ?>").load("show_profile_content.php", {
+                                    get_noti_group: group_identity,
+                                    getGMail: global_mail
+                                });
+                            });
+                       }, 3000);
+                    </script>
                 <?php }
             }
         }
+
+        public function count_notification_group($group_identity){
+            $select_basic_info = "SELECT * FROM user_groups WHERE identity='$group_identity'";
+            $execute_basic_info = mysqli_query($this->Frequency(), $select_basic_info);
+            $fetch_basic_info = mysqli_fetch_assoc($execute_basic_info);
+                $url_code = $fetch_basic_info['url_encode'];
+                
+            $noti_request = 0;
+            $select_notification = "SELECT * FROM notifications WHERE notification_to_email='$url_code' AND notification_read_status='0'";
+            $execute_notification = mysqli_query($this->Frequency(), $select_notification);
+            while($fetch_notification = mysqli_fetch_assoc($execute_notification)){
+                $noti_request = $noti_request + 1;
+            } 
+            if($noti_request == '0'){
+
+            }else{ ?>
+            <div class="count_group_noti"><span><?php echo $noti_request; ?></span></div>
+        <?php } }
+
+        public function my_notification_group($group_identity){
+            $select_basic_info = "SELECT * FROM user_groups WHERE identity='$group_identity'";
+            $execute_basic_info = mysqli_query($this->Frequency(), $select_basic_info);
+            $fetch_basic_info = mysqli_fetch_assoc($execute_basic_info);
+                $url_code = $fetch_basic_info['url_encode'];
+                
+            $noti_request = 0;
+            $select_notification = "SELECT * FROM notifications WHERE notification_to_email='$url_code' AND notification_read_status='0' AND notification_type != 'challenge'";
+            $execute_notification = mysqli_query($this->Frequency(), $select_notification);
+            while($fetch_notification = mysqli_fetch_assoc($execute_notification)){
+                $noti_request = $noti_request + 1;
+            } 
+            if($noti_request == '0'){
+
+            }else{ ?>
+            <div class="count_group_noti"><span><?php echo $noti_request; ?></span></div>
+        <?php } }
 
 
         // SHOW GROUP I HAVE CREATED
@@ -889,11 +1337,27 @@
                         <?php while($fetch_all_group = mysqli_fetch_assoc($execute_group)){ 
                             $getprofile_image = $fetch_all_group['group_profile_image'];
                             $getName = $fetch_all_group['group_name'];
-                            $getUrl = $fetch_all_group['url_encode']; ?>
-                            <a href="<?php echo '../Group-discusion/index.php?group='.$getUrl; ?>" class="each-show_group"><div class="d-flex mt-2">
-                                <div><div class="group_image"><img src="<?php echo '../Images/groups/'.$getprofile_image; ?>" alt="" width="100%" height="100%"></div></div>
-                                <div class="group_name_show mt-2 ml-2"><?php echo $getName; ?></div>
-                            </div></a>
+                            $getUrl = $fetch_all_group['url_encode']; 
+                            $group_identity = $fetch_all_group['identity']; ?>
+                            <a href="<?php echo '../Group-discusion/index.php?group='.$getUrl; ?>">
+                                <div class="each-show_group d-flex mt-2" style="border-radius: 4px; margin-bottom: 5px;">
+                                    <div><div class="group_image"><img src="<?php echo '../Images/groups/'.$getprofile_image; ?>" alt="" width="100%" height="100%"></div></div>
+                                    <div class="group_name_show mt-2 ml-2"><?php echo $getName; ?></div>
+                                    <span id="count_my_group_noti_<?php echo $group_identity; ?>"></span>
+                                </div>
+                            </a>
+                            <script>
+                                setInterval(() => {
+                                    $(document).ready(function(){
+                                        var my_group_identity = "<?php echo $group_identity; ?>";
+                                        var my_global_mail = document.getElementById("hiddenEmail").value;
+                                        $("#count_my_group_noti_<?php echo $group_identity; ?>").load("show_profile_content.php", {
+                                            get_my_group_noti: my_group_identity,
+                                            getMyBMail: my_global_mail
+                                        });
+                                    });
+                                }, 3000);
+                            </script>
                         <?php } ?>
                     </div>
                 </div>
@@ -918,12 +1382,25 @@
                 $getClassName = $fetch_class['class_name'];
                 $getClass_identity = $fetch_class['identity'];
                 $get_class_url = $fetch_class['class_url'];
+                $department_id = $fetch_class['department_identity'];
+
+                $select_identity = "SELECT * FROM departments WHERE identity = '$department_id'";
+                $execute_identity_dep = mysqli_query($this->Frequency(), $select_identity);
+                $fetch_name = mysqli_fetch_assoc($execute_identity_dep);
+                    $dep_name = $fetch_name['department_name'];
 
                 $countCourse = 0;
                 $select_course = "SELECT * FROM courses WHERE class_identity='$getClass_identity'";
                 $execute_course_count = mysqli_query($this->Frequency(), $select_course);
                 while($fetch_course = mysqli_fetch_assoc($execute_course_count)){
                     $countCourse = $countCourse + 1;
+                }
+
+                $countFollower = 0;
+                $select_follow = "SELECT * FROM class_tracks WHERE class_identity = '$getClass_identity'";
+                $execute_follow = mysqli_query($this->Frequency(), $select_follow);
+                while($fetch_follow = mysqli_fetch_assoc($execute_follow)){
+                    $countFollower = $countFollower + 1;
                 }
 
                 $select_user_image = "SELECT profile_image FROM user_profile_image WHERE usr_email='$this->E_mail' AND status_image='1'";
@@ -938,8 +1415,8 @@
                                 <div><div class="class_image"><img src="<?php echo '../Images/class_img/'.$getProfileImage; ?>" alt="" width="100%" height="100%"></div></div>
                                 <div class="class_short_detail">
                                     <div class="class_status_activity">
-                                        <div>Course <?php echo $countCourse; ?></div>
-                                        <!-- <div>Followers 4678</div> -->
+                                        <div>Course <?php echo $countCourse; ?>, Member <?php echo $countFollower; ?></div>
+                                        <div><?php echo $dep_name; ?></div>
                                     </div>
                                     <div class="class_name"><?php echo $getClassName; ?></div>
                                 </div>
@@ -985,9 +1462,23 @@
                                         </div> 
                                     </div>
                                     <div class="create_course tab-pane" role="tabpanel" id="invite">
-                                        <div id="invite_people">
+                                        <div id="<?php echo $getClass_identity; ?>" class="invite_people">
                                             
                                         </div>
+                                        <script>
+                                            show_invitable_users();
+                                            function show_invitable_users(){
+                                                $(document).ready(function(){
+                                                    var requestUsers = document.getElementById("hiddenEmail").value;
+                                                    var class_identity = "<?php echo $getClass_identity; ?>";
+
+                                                    $(".invite_people").load("show_profile_content.php", {
+                                                        get_invite: requestUsers,
+                                                        getclass_identity: class_identity
+                                                    });
+                                                });
+                                            }
+                                        </script>
                                     </div>
                                 </div>
                             </div>
@@ -997,7 +1488,7 @@
             <?php }
         }
 
-        public function invite_people(){
+        public function invite_people($class_identity){
             $discover_people = "SELECT * FROM intelligent_users WHERE email IN (SELECT DISTINCT reciever_email FROM user_follow_board WHERE host_email='$this->E_mail') OR email IN (SELECT DISTINCT host_email FROM user_follow_board WHERE reciever_email='$this->E_mail') AND email != '$this->E_mail' AND Verified='complete'";
             $execute_people = mysqli_query($this->Frequency(), $discover_people);
             while($fetch_people = mysqli_fetch_assoc($execute_people)){
@@ -1009,35 +1500,67 @@
                 $execute_image = mysqli_query($this->Frequency(), $select_user_image);
                     $fetch_image = mysqli_fetch_assoc($execute_image); ?>
                     
-                    <!-- each disc0ver -->
-                    <!-- ================================================================================================================================== -->
-                    <div class="each-discovery">
-                        <div class="d-flex">
-                            <div><div class="discover-image">
-                                <img src="<?php echo '../Images/profile-img/profile-image/'.$fetch_image['profile_image']; ?>" alt="" width="100%" height="100%">
-                            </div></div>
-                            <div class="discovery-detail">
-                                <div class="dis-name"><?php echo $firstName; ?> <?php echo $lastName; ?></div>
-                                <div class="dis-dep">& <?php echo $people_email; ?></div>
-                            </div>
+                <!-- each disc0ver -->
+                <!-- ================================================================================================================================== -->
+                <div class="each-discovery">
+                    <div class="d-flex" id="<?php echo $class_identity; ?>">
+                        <div><div class="discover-image">
+                            <img src="<?php echo '../Images/profile-img/profile-image/'.$fetch_image['profile_image']; ?>" alt="" width="100%" height="100%">
+                        </div></div>
+                        <div class="discovery-detail">
+                            <div class="dis-name"><?php echo $firstName; ?> <?php echo $lastName; ?></div>
+                            <div class="dis-dep">& <?php echo $people_email; ?></div>
                         </div>
-                        <div class="follow-over"><button class="follow-discovery" id="<?php echo $people_email; ?>" onclick="invite(this)">Invite</button></div>
                     </div>
-                    <!-- end discover -->
-                    <!-- ========================================================================================================================================== -->
+                    <div class="follow-over"><button class="follow-discovery" id="<?php echo $people_email; ?>" onclick="invite(this)">Invite</button></div>
+                </div>
+                <script>
+                    function invite(obj){
+                        var invitedEmail = obj.id;   // who i going to follow
+                        var inviterEmail =  document.getElementById("hiddenEmail").value;  // const me 
+                        var class_identity = obj.parentNode.previousElementSibling.id;
+                        alert(class_identity);
+
+                        $(document).ready(function(){
+                            $(this).load("show_profile_content.php",{
+                                getinvitedEmail: invitedEmail,
+                                getinviterEmail: inviterEmail,
+                                class_identity_invite: class_identity
+                            },function(data){
+                                console.log(data);
+                                obj.style.border = "1px solid #d3d3d3";
+                                obj.style.background = "white";
+                                obj.style.color = "#041a2f";
+                                obj.innerHTML = "Invited";
+                            });
+                        });
+                    }
+                </script>
+                <!-- end discover -->
+                <!-- ========================================================================================================================================== -->
                                                         
             <?php }
         }
 
-        public function envite_client($inviter, $invited){
+        public function envite_client($inviter, $invited, $class_identity){
             $discover_people = "SELECT * FROM intelligent_users WHERE email='$inviter'";
             $execute_people = mysqli_query($this->Frequency(), $discover_people);
             $fetch_people = mysqli_fetch_assoc($execute_people);
                 $firstName = $fetch_people['firstName'];
                 $lastName = $fetch_people['lastName'];
 
-            $notification = "{$firstName} {$lastName}, Invite you to attend and use class";
-            $add_notification = "INSERT INTO notifications ('','$inviter','$invited','')";
+            $select_class_info = "SELECT * FROM trainer_class WHERE identity = '$class_identity'";
+            $execute_class_identity = mysqli_query($this->Frequency(), $select_class_info);
+            $fetch_class_info = mysqli_fetch_assoc($execute_class_identity);
+                $class_name = $fetch_class_info['class_name'];
+                $class_url = $fetch_class_info['class_url'];
+             
+            $class_url_info = "../Course/Class_course.php?class={$class_url}";    
+            $notification = "{$firstName} {$lastName}, Invite you to attend and use class <b>{$class_name}</b>";
+            $date_done = Date("Y-m-d h:m:s");
+
+            $add_notification = "INSERT INTO notifications VALUES ('','$inviter','$invited','$class_url_info','$notification','invite','0','new','0','$date_done')";
+            $execute_notification = mysqli_query($this->Frequency(), $add_notification);
         }
 
         public function discover_people($user_email, $title){
@@ -1373,12 +1896,12 @@
 
        public function send_fil($chosen_file_share, $reciever_email, $sender_email, $file_type){
             $created_on = Date("Y-m-d h:m:s");
-            $insert_file = "INSERT INTO shared_contents VALUE ('','$sender_email','$reciever_email','$chosen_file_share','$file_type','none','$created_on')";
+            $insert_file = "INSERT INTO shared_contents VALUE ('','$sender_email','$reciever_email','$chosen_file_share','$file_type','none','false','$created_on')";
             $execute_file = mysqli_query($this->Frequency(), $insert_file);
        }
 
        public function shared_notes($email){
-           $select_all_notes = "SELECT * FROM shared_contents WHERE user_email_to='$email' AND file_type != 'jpg' AND file_type != 'png' AND file_type != 'jpeg'";
+           $select_all_notes = "SELECT * FROM shared_contents WHERE user_email_to='$email' AND delete_file = 'false' AND file_type != 'jpg' AND file_type != 'png' AND file_type != 'jpeg' ORDER BY created_on DESC";
            $execute_file = mysqli_query($this->Frequency(), $select_all_notes);
            if(mysqli_num_rows($execute_file) > 0 ){
               while($fetch_file = mysqli_fetch_assoc($execute_file)){
@@ -1387,6 +1910,7 @@
                   $sender = $fetch_file['user_email_from'];
                   $date = date_create($fetch_file['created_on']);
                   $form_data = date_format($date, "M d, Y");
+                  $file_identity = $fetch_file['identity'];
 
                 $select_identity = "SELECT * FROM intelligent_users WHERE email='$sender'";
                 $execute_identity = mysqli_query($this->Frequency(), $select_identity);
@@ -1399,11 +1923,14 @@
                             <div><div class="file_type"><?php echo $file_type; ?></div></div>
                             <div class="file_description">
                                 <div class="file_name"><?php echo $filename; ?></div>
-                                <div class="file_size"><?php echo $form_data; ?></div>
+                                <div class="file_size"><?php echo $form_data; ?>, <i class="fa fa-globe"></i> <?php echo $this->timeAgo($fetch_file['created_on']); ?></div>
                                 <div class="from_user"><?php echo $getFirstName; ?> <?php echo $getLastName; ?>, <?php echo $title; ?></div>
                             </div>
                         </div>
-                        <div><a href="<?php echo '../Images/shared_file/'.$filename; ?>" download="<?php echo '../Images/shared_file/'.$filename; ?>"><div class="downlord_file">downlord</div></a></div>
+                        <div>
+                            <a href="<?php echo '../Images/shared_file/'.$filename; ?>" download="<?php echo '../Images/shared_file/'.$filename; ?>" id="downlor_file"><div class="downlord_file"><i class="fa fa-file-download"></i> downlord</div></a>
+                            <a onclick="delete_file(this)" id="<?php echo $file_identity; ?>"><div class="trash_file"><i class="fa fa-trash-o"></i> Delete</div></a>
+                        </div>
                     </div>
             <?php }
            }else{ ?>
@@ -1415,7 +1942,7 @@
        }
 
        public function shared_image_file($email){
-            $select_all_notes = "SELECT * FROM shared_contents WHERE user_email_to='$email' AND file_type='jpg' OR file_type = 'png' OR file_type = 'jpeg'";
+            $select_all_notes = "SELECT * FROM shared_contents WHERE user_email_to='$email' AND delete_file='false' AND file_type='jpg' OR file_type = 'png' OR file_type = 'jpeg'  ORDER BY created_on DESC";
             $execute_file = mysqli_query($this->Frequency(), $select_all_notes);
             if(mysqli_num_rows($execute_file) > 0 ){
             while($fetch_file = mysqli_fetch_assoc($execute_file)){
@@ -1423,6 +1950,7 @@
                 $sender = $fetch_file['user_email_from'];
                 $date = date_create($fetch_file['created_on']);
                 $form_data = date_format($date, "M d, Y");
+                $file_identity = $fetch_file['identity'];
 
                 $select_identity = "SELECT * FROM intelligent_users WHERE email='$sender'";
                 $execute_identity = mysqli_query($this->Frequency(), $select_identity);
@@ -1435,11 +1963,14 @@
                             <div><div class="image_file_shared"><img src="<?php echo '../Images/shared_file/'.$filename; ?>" alt="" width="100%" height="100%"></div></div>
                             <div class="file_description">
                                 <div class="file_name"><?php echo $filename; ?></div>
-                                <div class="from_user"><?php echo $getFirstName; ?> <?php echo $getLastName; ?></div>
+                                <div class="from_user"><?php echo $getFirstName; ?> <?php echo $getLastName; ?>, <i class="fa fa-globe"></i> <?php echo $this->timeAgo($fetch_file['created_on']); ?></div>
                                 <div class="shared_from_title"><?php echo $title; ?>, <?php echo $form_data; ?></div>
                             </div>
                         </div>
-                        <div><a href="<?php echo '../Images/shared_file/'.$filename; ?>" download="<?php echo '../Images/shared_file/'.$filename; ?>"><div class="View_file">Downlord</div></a></div>
+                        <div>
+                            <a href="<?php echo '../Images/shared_file/'.$filename; ?>" download="<?php echo '../Images/shared_file/'.$filename; ?>"><div class="View_file">Downlord</div></a>
+                            <a onclick="delete_file(this)" id="<?php echo $file_identity; ?>"><div class="trash_file"><i class="fa fa-trash-o"></i> Delete</div></a>
+                        </div>
                     </div>
             <?php }
             }else{ ?>
@@ -1448,6 +1979,11 @@
                     <span>No shared Posts, Photos</span>
                 </div>
         <?php }
+        }
+
+        public function delete_file($email, $file_identity){
+           $update_delete = "UPDATE shared_contents SET delete_file='true' WHERE identity='$file_identity'";
+           $execute_file_deletion = mysqli_query($this->Frequency(), $update_delete);
         }
 
     }
@@ -1477,6 +2013,13 @@
     // ============================================================================================================================
     if(isset($_POST['more_trainer_email'])){
         $newFames = new Fames($_POST['more_trainer_email']);
+        $newFames->more_trainer();
+    }
+
+    // IF REQUEST IS TO SHOW MORE TRAIN ON TRAINER
+    // ============================================================================================================================
+    if(isset($_POST['more_trainer_on_trainer'])){
+        $newFames = new Fames($_POST['more_trainer_on_trainer']);
         $newFames->more_trainer();
     }
 
@@ -1617,7 +2160,14 @@
     // ============================================================================================================================
     if(isset($_POST['get_invite'])){
         $display_class = new Fames($_POST['get_invite']);
-        $display_class->invite_people();
+        $display_class->invite_people($_POST['getclass_identity']);
+    }
+
+    // if request is to invite each people
+    // ====================================================================================================
+    if(isset($_POST['getinvitedEmail'])){
+        $invite = new Fames($_POST['getinviterEmail']);
+        $invite->envite_client($_POST['getinviterEmail'], $_POST['getinvitedEmail'], $_POST['class_identity_invite']);
     }
 
     // if request is to show class on setting spage
@@ -1693,5 +2243,27 @@
         $new_location_set = new Fames($_POST['get_option_loaction']);
         $new_location_set->all_countries();
     }
+
+    // if request is to delete the file
+    // =================================================================================================================================================
+    if(isset($_POST['delete_email'])){
+        $delete_file = new Fames($_POST['delete_email']);
+        $delete_file->delete_file($_POST['delete_email'], $_POST['delete_file']);
+    }
+
+    // if request is to count group notification
+    // ===========================================================================================================================================================
+    if(isset($_POST['get_noti_group'])){
+        $new_count = new Fames($_POST['getGMail']);
+        $new_count->count_notification_group($_POST['get_noti_group']);
+    }
+
+     // if request is to count  my group notification
+    // ===========================================================================================================================================================
+    if(isset($_POST['get_my_group_noti'])){
+        $new_count = new Fames($_POST['getMyBMail']);
+        $new_count->count_notification_group($_POST['get_my_group_noti']);
+    }
+
 
 ?>

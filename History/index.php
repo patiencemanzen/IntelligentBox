@@ -35,11 +35,7 @@
        <link rel="stylesheet" href="../Lib/now-ui-kit/now-ui-kit.css?v=1.3.0">
        <link rel="stylesheet" href="../Lib/animate/animate.min.css">
        <link rel="stylesheet" href="../Lib/font-awesome/css/font-awesome.min.css">
-       <link rel="stylesheet" href="../Lib/jquery/jquery.fancybox.css">
        <link rel="stylesheet" href="../Lib/lightbox/css/lightbox.min.css">
-       <link rel="stylesheet" href="../Lib/owlcarousel/assets/owl.carousel.min.css">
-       <link rel="stylesheet" href="../Lib/slick/slick.css">
-       <link rel="stylesheet" href="../Lib/theme-color/violet-theme.css">
        <link rel="stylesheet" href="../Lib/venobox/venobox.css">
    
    </head>
@@ -184,12 +180,12 @@
                             <!-- ============================================================================================================================================================================================ -->
                             <div class="position-relative">
                                 <div class="create-short-story">
-                                    <div class="title-short-story">define your short story</div>
+                                    <div class="title-short-story">Define your short story</div>
                                     <div class="user-typer d-flex">
                                         <div><div class="user-image" id="getProfileimage"></div></div>
                                         <div class="usr-textarea ml-2">
                                             <div class="type-something">
-                                                <textarea name="" id="" cols="30" rows="2" placeholder="write something.." onfocus="openPostCreation()"></textarea>
+                                                <textarea name="" id="" cols="30" rows="2" placeholder="write something..." onfocus="openPostCreation()"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -306,22 +302,9 @@
        <script src="../Lib/date-picker/nouislider.min.js"></script>
        <script src="../Lib/easing/easing.min.js"></script>
        <script src="../Lib/jquery/jquery-migrate.min.js"></script>
-       <script src="../Lib/jquery/jquery.bootstrap-wizard.js"></script>
-       <script src="../Lib/jquery/jquery.counterup.js"></script>
-       <script src="../Lib/jquery/jquery.fancybox.pack.js"></script>
-       <script src="../Lib/jquery/jquery.min.js"></script>
-       <script src="../Lib/jquery/jquery.mixitup.js"></script>
-       <script src="../Lib/jquery/jquery.poptrox.min.js"></script>
-       <script src="../Lib/jquery/jquery.validate.min.js"></script>
-       <script src="../Lib/jquery/perfect-scrollbar.jquery.min.js"></script>
        <script src="../Lib/lightbox/js/lightbox-plus-jquery.min.js"></script>
        <script src="../Lib/material/js/material-dashboard?v=2.1.1.js"></script>
        <script src="../Lib/now-ui-kit/now-ui-kit.js"></script>
-       <script src="../Lib/owlcarousel/owl.carousel.js"></script>
-       <script src="../Lib/popper/popper.min.js"></script>
-       <script src="../Lib/skel/skel.min.js"></script>
-       <script src="../Lib/slick/slick.js"></script>
-       <script src="../Lib/superfish/superfish.js"></script>
        <script src="../Lib/venobox/venobox.js"></script>
        <script src="../Lib/wow/wow.min.js"></script>
        <script src="../Lib/bootstrap/js/bootstrap-material-design.min.js"></script>
@@ -352,4 +335,7 @@
 
    </body>
 </html>
-<?php } ?>
+<?php }else{
+    header("Location: ../account_shortcut.box.php?session");
+    exit();
+} ?>

@@ -28,35 +28,27 @@
         <link rel="stylesheet" href="Lib/now-ui-kit/now-ui-kit.css?v=1.3.0">
         <link rel="stylesheet" href="Lib/animate/animate.min.css">
         <link rel="stylesheet" href="Lib/font-awesome/css/font-awesome.min.css">
-        <link rel="stylesheet" href="Lib/jquery/jquery.fancybox.css">
         <link rel="stylesheet" href="Lib/lightbox/css/lightbox.min.css">
         <link rel="stylesheet" href="Lib/owlcarousel/assets/owl.carousel.min.css">
-        <link rel="stylesheet" href="Lib/slick/slick.css">
-        <link rel="stylesheet" href="Lib/theme-color/violet-theme.css">
         <link rel="stylesheet" href="Lib/venobox/venobox.css">
     
     </head>
     <body>
         <!-- Top navbar present -->
         <!-- ============================================================================================================ -->
-        <!-- ============================================================================================================ -->
-        <!-- ============================================================================================================ -->
         <nav class="header-fixed">
             <div class="inner-header-1">
                 <!-- container intelligent box title -->
                 <!-- =================================================================================================== -->
-                <!-- ==================================================================================================== -->
                 <div class="container d-flex">
-                    <div class="intelligent-box-logo"> intelligent box </div>
+                    <div class="intelligent-box-logo"> intelligentBox </div>
                 </div>
                 <!-- end container -->
-                <!-- =================================================================================================== -->
                 <!-- =================================================================================================== -->
             </div>
 
             <!-- second navbar -->
             <!-- =============================================================================================================== -->
-            <!-- ================================================================================================================ -->
             <div class="sub-nav">
                 <div class="container">
                     <div class="position-relative all-trades-section">
@@ -80,8 +72,8 @@
                         <div class="sign-in-btn create-account">
                             <ul>
                                 <li class="all_trades_found" onclick="openTrade()"><a>All trades</a></li>
-                                <li class="dis_short_devs"><a class="" data-toggle="tab" href="#signmeup" role="tab">
-                                     I don't have account?, Sign me up
+                                <li class="dis_short_devs"><a href="account_shortcut.box.php">
+                                    <i class="fa fa-sign-in"></i> I have account!, Sign me In
                                 </a></li>
                             </ul>
                         </div>
@@ -103,7 +95,6 @@
             <!-- =================================================================================================================== -->
         </nav>
         <!-- end top navbar present -->
-        <!-- ====================================================================================================================== -->
         <!-- ====================================================================================================================== -->
 
         
@@ -142,7 +133,7 @@
                     <p> 
                         Education opens up the mind, Expands it and allows you to improve your life for future, for tomorrow
                         belongs to those who prepare for it today.so, "start where you are. Use what you have. Do what you can". 
-                        We never fail, We success or learn.
+                        Course We never fail, We success or learn.
                     </p>
                 </div>
            </div>  
@@ -176,7 +167,7 @@
                                 </div>
                                 <div class="connect_world mt-3 wow fadeInUp">
                                     <div class="img-full"><img src="Images/index-img/connect.jpg" alt="world_connect" width="100%" height="100%"></div>
-                                    <div class="over-img-full">Connect World's Education</div>
+                                    <div class="over-img-full">Connect yourself with World's Educations</div>
                                 </div>
                             </div>
                             <!-- get started intro -->
@@ -222,8 +213,8 @@
                                     <div class="thumbnail-images"><img src="Images/index-img/thumbnail/thumbnail-3.jpg" alt="world_religion" width="100%" height="100%"></div>
                                     <div class="course-desc">The world religions and their ancient culture </div>
                                     <div class="course-sub-desc">
-                                        Big and many content about main world religion and it short history for
-                                        intellectual people to mantain our believe among our religions culture.
+                                        Many and interest content about main world religions and it short history for
+                                        intellectual people to mantain our believes among our religions culture.
                                     </div>
                                 </div>
                                 <div class="middle_img_pre wow fadeInUp">
@@ -231,7 +222,7 @@
                                 </div>
                                 <div class="thumbnail-items mt-3 wow fadeInUp">
                                     <div class="course-desc"> 
-                                        World story on religions and news as updates.
+                                        World stories on religions and news as updates.
                                     </div>
                                     <div class="course-sub-desc">
                                         Get more updates and thread on world religion
@@ -346,8 +337,8 @@
                                                                 <div class="inputs-form tab">
                                                                     <div class="present-section">
                                                                         <div>
-                                                                            Thank you for Using intelligent box, you will learn more thing about from history, religions and read more news from everywhere, explore many new connections and people you may like to share things. 
-                                                                            Build up your mind and be the one you wish to be in another words be different in this wrestle world, Just join us Today.
+                                                                            Thank you for Using intelligent box, you will learn more things about history, religions and read more news from everywhere, explore many new connections and people you may like to share things. 
+                                                                            Build up your mind and be the one you wish to be, in another words be different, Just join us Today.
                                                                         </div>
                                                                     </div>
                                                                     <div class="student-choise" onclick="nextPrev(1)">Get stated</div>
@@ -454,7 +445,7 @@
                                                                     </div>
                                                                     <div class="noticed-word">
                                                                         <p>
-                                                                            Welcome to intelligent box we little bit customize your profile but soon you can do it yourself,
+                                                                            Welcome to intelligentbox, we little bit customize your profile but soon you can do it yourself,
                                                                             you can get what people shared on your timeline and choose which course and department you want to attend.
                                                                         </p>
                                                                     </div>
@@ -838,7 +829,7 @@
                                                     <a class="nav-link-footer" style="font-size: 16px;" data-toggle="tab" href="#aboutus" role="tab" style="font-size: 12px;">About us</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link-footer" style="font-size: 16px;" data-toggle="tab" href="#contuctus" role="tab" style="font-size: 12px;">Contuct us</a>
+                                                    <a class="nav-link-footer" style="font-size: 16px;" data-toggle="tab" href="#contuctus" role="tab" style="font-size: 12px;">Contact us</a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link-footer" style="font-size: 16px;" data-toggle="tab" href="#developer" role="tab" style="font-size: 12px;">MicroBox Team</a>
@@ -973,30 +964,18 @@
             <script src="Assets/js/index.show_trades.box.js"></script>
 
             <script src="Lib/bootstrap/js/bootstrap.min.js" type="text/javascript"></script> 
-            <script src="Lib/bootstrap/js/bootstrap-datepicker.js"></script> 
+            <!-- <script src="Lib/bootstrap/js/bootstrap-datepicker.js"></script>  -->
             <script src="Lib/custom/custom.js"></script>
-            <script src="Lib/date-picker/bootstrap-switch.js"></script>
-            <script src="Lib/date-picker/nouislider.min.js"></script>
+            <!-- <script src="Lib/date-picker/bootstrap-switch.js"></script> -->
+            <!-- <script src="Lib/date-picker/nouislider.min.js"></script> -->
             <script src="Lib/easing/easing.min.js"></script>
             <script src="Lib/jquery/jquery-migrate.min.js"></script>
-            <script src="Lib/jquery/jquery.bootstrap-wizard.js"></script>
-            <script src="Lib/jquery/jquery.counterup.js"></script>
-            <script src="Lib/jquery/jquery.fancybox.pack.js"></script>
             <script src="Lib/jquery/jquery.min.js"></script>
             <script src="Lib/jquery/jquery-3.3.1.min"></script>
-            <script src="Lib/jquery/jquery.mixitup.js"></script>
-            <script src="Lib/jquery/jquery.poptrox.min.js"></script>
-            <script src="Lib/jquery/jquery.validate.min.js"></script>
-            <script src="Lib/jquery/perfect-scrollbar.jquery.min.js"></script>
-            <script src="Lib/lightbox/js/lightbox-plus-jquery.min.js"></script>
+            <!-- <script src="Lib/lightbox/js/lightbox-plus-jquery.min.js"></script> -->
             <script src="Lib/material/js/material-dashboard?v=2.1.1.js"></script>
             <script src="Lib/now-ui-kit/now-ui-kit.js"></script>
-            <script src="Lib/owlcarousel/owl.carousel.js"></script>
-            <script src="Lib/popper/popper.min.js"></script>
-            <script src="Lib/skel/skel.min.js"></script>
-            <script src="Lib/slick/slick.js"></script>
-            <script src="Lib/superfish/superfish.js"></script>
-            <script src="Lib/venobox/venobox.js"></script>
+            <!-- <script src="Lib/venobox/venobox.js"></script> -->
             <script src="Lib/wow/wow.min.js"></script>
             <script src="Lib/bootstrap/js/bootstrap-material-design.min.js"></script>
             <script>
@@ -1011,14 +990,6 @@
                     nowuiKit.initSliders();
                 });
             
-                function scrollToDownload() {
-            
-                if ($('.section-download').length != 0) {
-                    $("html, body").animate({
-                    scrollTop: $('.section-download').offset().top
-                    }, 1000);
-                }
-                }
                 // Initiate the wowjs animation library
                 new WOW().init();
             </script>

@@ -32,6 +32,8 @@ function followUser(obj){
     var followingEmail = obj.id;   // who i going to follow
     var followersEmail =  document.getElementById("hiddenEmail").value;  // const me 
     $(document).ready(function(){
+        obj.innerHTML = "Process...";
+        obj.style.opacity = ".7";
         $(this).load("follow_user.php",{
             followingEmail: followingEmail,
             followersEmail: followersEmail        

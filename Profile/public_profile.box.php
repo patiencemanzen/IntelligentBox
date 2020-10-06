@@ -55,21 +55,29 @@
 
             public function countPhoto($email){
                 $Photos = 0;
-                $selectPhotos = "SELECT * FROM user_common_post WHERE poster_email='$email'";
+                $selectPhotos = "SELECT * FROM user_common_post WHERE poster_email='$email' AND media_type='image'";
                 $execute_Photo = mysqli_query($this->Frequency(),$selectPhotos);
                 while($fetchPhoto = mysqli_fetch_assoc($execute_Photo)){
                     $Photos = $Photos + 1;
                 }
 
                 $profile_image = 0;
-                $selectImage = "SELECT * FROM user_profile_image WHERE usr_email='$email'";
+                $selectImage = "SELECT * FROM user_profile_image WHERE usr_email='$email' AND profile_image !='defaultProfileImage.png'";
                 $executeImage = mysqli_query($this->Frequency(),$selectImage);
                 while($fetchImage = mysqli_fetch_assoc($executeImage)){
                     $profile_image = $profile_image + 1;
                 }
 
-                $total_image =  $Photos + $profile_image;
+                $background_image = 0;
+                $select_background_image = "SELECT * FROM user_profile_background_image WHERE user_email='$email' AND background_image != 'default.jpg'";
+                $execute_image = mysqli_query($this->Frequency(), $select_background_image);
+                while($fetch_back_image = mysqli_fetch_assoc($execute_image)){
+                    $background_image = $background_image + 1;
+                }
+
+                $total_image =  $Photos + $profile_image + $background_image;
                 echo $total_image;
+
             }
 
             // GET DETAIL ON TOP PROFILE IMAGE
@@ -188,6 +196,22 @@
                     $Photos = $Photos + 1;
                 }
 
+                $profile_image = 0;
+                $selectImage = "SELECT * FROM user_profile_image WHERE usr_email='$user_email' AND profile_image !='defaultProfileImage.png'";
+                $executeImage = mysqli_query($this->Frequency(),$selectImage);
+                while($fetchImage = mysqli_fetch_assoc($executeImage)){
+                    $profile_image = $profile_image + 1;
+                }
+
+                $background_image = 0;
+                $select_background_image = "SELECT * FROM user_profile_background_image WHERE user_email='$user_email' AND background_image != 'default.jpg'";
+                $execute_image = mysqli_query($this->Frequency(), $select_background_image);
+                while($fetch_back_image = mysqli_fetch_assoc($execute_image)){
+                    $background_image = $background_image + 1;
+                }
+
+                $total_image =  $Photos + $profile_image + $background_image;
+
                 $video = 0;
                 $selectVideo = "SELECT * FROM user_common_post WHERE poster_email='$user_email' AND media_type='video'";
                 $executeVideo = mysqli_query($this->Frequency(),$selectVideo);
@@ -227,7 +251,7 @@
                         <div class="followers-count-profile"> followers <span><?php echo $followers; ?></span></div>
                         <div class="following-count-profile">following <span><?php echo $Following; ?></span></div>
                         <div class="courses-count-profile">Videos <span><?php echo $video; ?></span></div>
-                        <div class="courses-count-profile">Photos <span><?php echo $Photos; ?></span></div>
+                        <div class="courses-count-profile">Photos <span><?php echo $total_image; ?></span></div>
                     </div>
                 <?php } ?>
             <?php }

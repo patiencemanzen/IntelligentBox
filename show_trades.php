@@ -167,11 +167,8 @@
                     <div class="user-name mt-2 mb-1" id="user_name_cookie"><?php echo $getFirstname; ?> <?php echo $getLastname; ?></div>
                     <form action="sign-in-cookie.php" method="POST" id="formCookie">
                         <input type="hidden" name="submit_email" value="<?php echo $user_email; ?>">
-                        <!-- <div class="mt-1 ckeckForgetme">
-                            <input type="checkbox" name="rememberUser" class="mt-2" value="forgetMe" > Foreget Me
-                        </div> -->
                         <div class="submit-btn-session">
-                            <button type="submit" name="submitSignin" id="submit-cookie" class="submit-co_user"><i class="fa fa-sign-in"></i> Login as <?php echo $getLastname; ?> </button>
+                            <button type="submit" name="submitSignin" id="submit-cookie" class="submit-co_user"><i class="fa fa-sign-in mr-1"></i> Login as <?php echo $getLastname; ?> </button>
                         </div>
                     </form>
                 </div>

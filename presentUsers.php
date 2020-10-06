@@ -9,6 +9,7 @@
     interface Asteroid {
         public function showEchinoderms ();
         public function showEchinoderms_trainers();
+        public function userBio($word);
     }
 
     // INITIALIZE AND CONFIGURE CLASS CALLED TAXONOMIC
@@ -21,6 +22,18 @@
         public function __construct($particle,$getEmail){
             $this->atmosphere = $particle;
             $this->email = $getEmail;
+        }
+
+        
+        public function userBio($word){
+            if(strlen($word)<= 80){
+                $word= $word."";
+            }else{
+                $word= substr($word, 0, 80);
+                $word= $word."...";
+            }
+            
+            return $word;
         }
 
         // FETCHING  PARTICLES
@@ -43,21 +56,21 @@
                 $selectBio = "SELECT bio FROM user_bio WHERE email='$user_email' AND bio_status='on'";
                 $executeBio = mysqli_query($this->Frequency(),$selectBio);
                 $fetchBio = mysqli_fetch_assoc($executeBio);
-                $bio = $fetchBio['bio']; ?>
+                    $bio = $fetchBio['bio']; ?>
 
                 <div class="each-suggestion">
                     <div class="user-image-sug"><div class="display-sug-img"><img src="<?php echo 'Images/profile-img/profile-image/'.$result; ?>" alt="" width="100%" height="100%"></div></div>
-                    <div class="user-detail-sug ml-2 mt-1">
+                    <div class="user-detail-sug ml-2 mt-2">
                         <div class="user-sug-name d-flex">
                             <div class="user-email-name">
-                                <span><?php echo $parts['firstName']; ?> <?php echo $parts['lastName']; ?></span>
-                                <span><?php echo $parts['email']; ?></span>
+                                <div><?php echo $parts['firstName']; ?> <?php echo $parts['lastName']; ?></div>
+                                <div><?php echo $parts['email']; ?></div>
                             </div>
-                            <div class="follow-btn" id="<?php echo $parts['title']; ?>">
+                            <div class="follow-btn ml-2" id="<?php echo $parts['title']; ?>">
                                 <button type="button" id="<?php echo $user_email; ?>" onclick="followUser(this)">Follow</button>
                             </div>
                         </div>
-                        <div class="user-sug-bio"><?php echo $bio; ?></div>
+                        <div class="user-sug-bio"><?php echo $this->userBio($bio); ?></div>
                     </div>
                 </div>
 
@@ -91,10 +104,10 @@
                     <div class="user-detail-sug ml-2 mt-1">
                         <div class="user-sug-name d-flex">
                             <div class="user-email-name">
-                                <span><?php echo $rowTrainer['firstName']; ?> <?php echo $rowTrainer['lastName']; ?></span>
-                                <span><?php echo $rowTrainer['email']; ?></span>
+                                <div><?php echo $rowTrainer['firstName']; ?> <?php echo $rowTrainer['lastName']; ?></div>
+                                <div><?php echo $rowTrainer['email']; ?></div>
                             </div>
-                            <div class="following-btn" id="<?php echo $rowTrainer['title']; ?>">
+                            <div class="following-btn ml-2" id="<?php echo $rowTrainer['title']; ?>">
                                 <button type="button" id="<?php echo $user_email; ?>" onclick="followUser(this)">Follow</button>
                             </div>
                         </div>

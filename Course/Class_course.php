@@ -99,38 +99,16 @@
 
                     <!-- search result -->
                     <!-- ================================================================================================== -->
-                    <div class="position-relative bg-white">
+                    <!-- <div class="position-relative bg-white">
                         <div class="search-department"><input type="text" name="" id="" placeholder="Search Intelligent Course..." oninput="getSearch()"></div>
                         <div class="seach-result-department" id="display-search">
                             <div class="close-search" onclick="document.getElementById('display-search').style.display = 'none'"><i class="fa fa-times"></i></div>
                             <div class="department-list-searched">
 
-                                <!-- each department-searched -->
-                                <!-- ========================================================== -->
-                                <div class="eachdepartment">
-                                    <div class="department-image">
-                                        <img src="../Images/course-img/software_development/thisisengineering-raeng-hoivM01c-vg-unsplash.jpg" alt="" width="100%" height="100%">
-                                        <div class="department-name">software development</div>
-                                        <div class="study-now">join now</div>
-                                    </div>
-                                    <div class="department-bio">
-                                        This qualification provides the skills,
-                                        knowledge and attitudes for a learner to be
-                                        competent in a range of routine tasks and
-                                        activities that require the application
-                                    </div>
-                                    <div class="department-status d-flex justify-content-between">
-                                        <div class="members"><i class="fa fa-user-circle-o"></i> <br><span>2K</span></div>
-                                        <div class="courses"><i class="fa fa-graduation-cap"></i> <br><span>15</span></div>
-                                        <div class="trainer"><i class="fa fa-assistive-listening-systems"></i> <br><span>2K</span></div>
-                                        <div class="likes"><i class="fa fa-thumbs-o-up"></i> <br><span>3K</span></div>                                  
-                                    </div>
-                                </div>
-                                <!-- end each department search -->
-                                <!-- ============================================================================ -->
+                               
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- end each result -->
                     <!-- ==================================================================================================== -->
                 </div>
@@ -179,7 +157,7 @@
                                                 </div>
                                                 <div class="user-option d-flex justify-content-between mt-2">
                                                     <div class="course-status mt-2">
-                                                        <div class="likes">Comments <span>38M</span></div>
+                                                        <!-- <div class="likes">Comments <span>38M</span></div> -->
                                                     </div>
                                                 </div>
                                             </div>

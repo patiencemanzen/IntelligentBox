@@ -128,7 +128,7 @@
                                <img src="<?php echo '../Images/groups/'.$get_profile_image; ?>" alt="" width="100%" height="100%">
                             </div>
                        </div>
-
+                       <div class="vs">VS</div>
                        <div class="defender">
                             <div><div class="group-2-img">
                                <img src="<?php echo '../Images/groups/'.$get_defender_profile_image; ?>" alt="" width="100%" height="100%">
@@ -216,12 +216,12 @@
                                 <!-- ======================================================================================================================================== -->
                                 <div class="position-relative">
                                     <div class="create-short-story mt-3">
-                                        <div class="title-short-story">create your post</div>
+                                        <div class="title-short-story"><i class="fa fa-share-alt"></i> Share your thoughts!</div>
                                         <div class="user-typer d-flex">
                                             <div><div class="user-image"><?php $new_page->getProfileImage($Session_email_call); ?></div></div>
                                             <div class="usr-textarea ml-2">
                                                 <div class="type-something">
-                                                    <textarea name="" id="" cols="30" rows="2" onclick="createPost(this)" placeholder="your thoughts can challenge them..."></textarea>
+                                                    <textarea name="" id="" cols="30" rows="2" onclick="createPost(this)" placeholder="Your thoughts can challenge them..."></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -507,4 +507,7 @@
 
    </body>
 </html>
-<?php } } ?>
+<?php } }else{
+    header("Location: ../account_shortcut.box.php?session");
+    exit();
+} ?>

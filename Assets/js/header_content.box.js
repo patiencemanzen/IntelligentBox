@@ -3,11 +3,18 @@
 setInterval(() => {
     notification_illu();
 }, 1000);
-function notification_illu (){
+function notification_illu(){
+    var user_mail = document.getElementById("user_mail").value;
+    $("#notification_holder").load("../header/header_content.php", {
+        getNotification: user_mail
+    });
+}
+
+function unset_notification_quality(obj){
+    var noti_identity = obj.id;
     $(document).ready(function(){
-        var user_mail = document.getElementById("user_mail").value;
-        $("#notification_holder").load("../header/header_content.php", {
-           getNotification: user_mail
+        $(this).load("../header/header_content.php", {
+            unset_noti_identity: noti_identity
         });
     });
 }
@@ -92,20 +99,6 @@ function count_messages (){
     $(document).ready(function(){
         var user_mail = document.getElementById("user_mail").value;
         $("#count_message").load("../header/header_content.php", {
-            countMessage: user_mail
-        });
-    });
-}
-
-// count message on small device
-// =========================================================================================================================
-setInterval(() => {
-    count_messages_small();
-}, 1000);
-function count_messages_small(){
-    $(document).ready(function(){
-        var user_mail = document.getElementById("user_mail").value;
-        $("#count_message_small").load("../header/header_content.php", {
             countMessage: user_mail
         });
     });

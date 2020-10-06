@@ -5,7 +5,6 @@
       $firstName = $_SESSION['Firstname'];
       $lastName = $_SESSION['Lastname'];
       $user_title = $_SESSION['title'];
-
       require_once ("../Scyllar.php");
       $new_connection = new Scyllar();
 
@@ -54,14 +53,7 @@
        <link rel="stylesheet" href="../Lib/material/css/material-dashboard.css?v=2.1.1">
        <link rel="stylesheet" href="../Lib/now-ui-kit/now-ui-kit.css?v=1.3.0">
        <link rel="stylesheet" href="../Lib/animate/animate.min.css">
-       <link rel="stylesheet" href="../Lib/font-awesome/css/font-awesome.min.css">
-       <link rel="stylesheet" href="../Lib/jquery/jquery.fancybox.css">
-       <link rel="stylesheet" href="../Lib/lightbox/css/lightbox.min.css">
-       <link rel="stylesheet" href="../Lib/owlcarousel/assets/owl.carousel.min.css">
-       <link rel="stylesheet" href="../Lib/slick/slick.css">
-       <link rel="stylesheet" href="../Lib/theme-color/violet-theme.css">
-       <link rel="stylesheet" href="../Lib/venobox/venobox.css">
-   
+       <link rel="stylesheet" href="../Lib/font-awesome/css/font-awesome.min.css">   
    </head>
    <body>
         
@@ -127,7 +119,7 @@
 
                                <!--  Apply Basic algebra and trigonometry section and learn -->
                                <!-- ========================================================================================================== -->
-                               <div class="course-lessons  mb-3">
+                               <div class="course-lessons wow fadeInUp mb-3">
                                     <div class="course-name-get d-flex" data-toggle="collapse" data-target="#trigonometric-section"> 
                                         <div class="icon-left">
                                             <i class="fa fa-angle-right"></i>
@@ -140,7 +132,7 @@
                                            
                                             <!-- course introduction -->
                                             <li><a class="active" data-toggle="tab" href="#Course-introduction" role="tab">
-                                                <div class="each-lessons">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 1</div>
                                                     <div class="lesson-name d-flex justify-content-between">
                                                         <div class="lessons-name-right">introduction</div>
@@ -152,7 +144,7 @@
 
                                             <!-- course feature engineering -->
                                             <li><a class="" data-toggle="tab" href="#engineering" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 2</div>
                                                     <div class="lesson-name">
                                                         <div class="lessons-name-right"> Trigonometry concepts </div>
@@ -164,7 +156,7 @@
 
                                             <!-- course feature engineering -->
                                             <li><a class="" data-toggle="tab" href="#Application" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 3</div>
                                                     <div class="lesson-name">
                                                         <div class="lessons-name-right"> Triangle and applications </div>
@@ -182,7 +174,7 @@
 
                                 <!-- apply general phyisics -->
                                 <!-- ============================================================================================================== -->
-                                <div class="course-lessons  mb-3">
+                                <div class="course-lessons wow fadeInUp mb-3">
                                     <div class="course-name-get d-flex" data-toggle="collapse" data-target="#general-phyisics"> 
                                         <div class="icon-left">
                                             <i class="fa fa-angle-right"></i>
@@ -195,7 +187,7 @@
                                            
                                             <!-- course introduction -->
                                             <li><a class="" data-toggle="tab" href="#phyisics-intro" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 1</div>
                                                     <div class="lesson-name d-flex justify-content-between">
                                                         <div class="lessons-name-right">introduction</div>
@@ -206,7 +198,7 @@
                                             <!-- end introduction -->
                                             <!-- course introduction -->
                                             <li><a class="" data-toggle="tab" href="#source-of-energy" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 2</div>
                                                     <div class="lesson-name d-flex justify-content-between">
                                                         <div class="lessons-name-right">sources of energy in the world </div>
@@ -217,7 +209,7 @@
                                             <!-- end introduction -->
                                             <!-- course introduction -->
                                             <li><a class="" data-toggle="tab" href="#motion-in-orbits" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 3</div>
                                                     <div class="lesson-name d-flex justify-content-between">
                                                         <div class="lessons-name-right">motion in orbits </div>
@@ -228,7 +220,7 @@
                                             <!-- end introduction -->
                                             <!-- course introduction -->
                                             <li><a class="" data-toggle="tab" href="#radio-communication" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 4</div>
                                                     <div class="lesson-name d-flex justify-content-between">
                                                         <div class="lessons-name-right">Mobile phone and radio communication</div>
@@ -239,7 +231,7 @@
                                             <!-- end introduction -->
                                             <!-- course introduction -->
                                             <li><a class="" data-toggle="tab" href="#climate-change" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 5</div>
                                                     <div class="lesson-name d-flex justify-content-between">
                                                         <div class="lessons-name-right">Climate change and Greenhouse effect</div>
@@ -257,7 +249,7 @@
 
                                 <!-- secure database -->
                                 <!-- ==================================================================================================================================================== -->
-                                <div class="course-lessons  mb-3">
+                                <div class="course-lessons wow fadeInUp mb-3">
                                     <div class="course-name-get d-flex" data-toggle="collapse" data-target="#secure-database"> 
                                         <div class="icon-left">
                                             <i class="fa fa-angle-right"></i>
@@ -270,7 +262,7 @@
                                            
                                             <!-- course introduction -->
                                             <li><a class="" data-toggle="tab" href="#security-introduction" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 1</div>
                                                     <div class="lesson-name d-flex justify-content-between">
                                                         <div class="lessons-name-right">introduction</div>
@@ -281,7 +273,7 @@
                                             <!-- end introduction -->
                                             <!-- course lessons -->
                                             <li><a class="" data-toggle="tab" href="#security_concepts" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 2</div>
                                                     <div class="lesson-name d-flex justify-content-between">
                                                         <div class="lessons-name-right">Describe database security concepts and standards</div>
@@ -292,7 +284,7 @@
                                             <!-- end lessons -->
                                             <!-- course lessons -->
                                             <li><a class="" data-toggle="tab" href="#system-security" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 3</div>
                                                     <div class="lesson-name d-flex justify-content-between">
                                                         <div class="lessons-name-right">Perform system security</div>
@@ -303,7 +295,7 @@
                                             <!-- end lessons -->
                                             <!-- course lessons -->
                                             <li><a class="" data-toggle="tab" href="#access-control" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 4</div>
                                                     <div class="lesson-name d-flex justify-content-between">
                                                         <div class="lessons-name-right">Database access control</div>
@@ -314,7 +306,7 @@
                                             <!-- end lessons -->
                                             <!-- course lessons -->
                                             <li><a class="" data-toggle="tab" href="#Encryption" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 5</div>
                                                     <div class="lesson-name d-flex justify-content-between">
                                                         <div class="lessons-name-right">Encryption</div>
@@ -325,7 +317,7 @@
                                             <!-- end lessons -->
                                             <!-- course lessons -->
                                             <li><a class="" data-toggle="tab" href="#security-internet" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 6</div>
                                                     <div class="lesson-name d-flex justify-content-between">
                                                         <div class="lessons-name-right">Database Security and the Internet </div>
@@ -343,7 +335,7 @@
 
                                 <!-- systems analysis -->
                                 <!-- ======================================================================================================================================= -->
-                                <div class="course-lessons  mb-3">
+                                <div class="course-lessons wow fadeInUp mb-3">
                                     <div class="course-name-get d-flex" data-toggle="collapse" data-target="#system-analysis"> 
                                         <div class="icon-left">
                                             <i class="fa fa-angle-right"></i>
@@ -356,7 +348,7 @@
                                            
                                             <!-- course introduction -->
                                             <li><a class="" data-toggle="tab" href="#system-introduction" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 1</div>
                                                     <div class="lesson-name d-flex justify-content-between">
                                                         <div class="lessons-name-right">introduction to system</div>
@@ -367,7 +359,7 @@
                                             <!-- end introduction -->
                                             <!-- course introduction -->
                                             <li><a class="" data-toggle="tab" href="#Development-Life-Cycle" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 2</div>
                                                     <div class="lesson-name d-flex justify-content-between">
                                                         <div class="lessons-name-right">System Development Life Cycle</div>
@@ -378,7 +370,7 @@
                                             <!-- end introduction -->
                                             <!-- course introduction -->
                                             <li><a class="" data-toggle="tab" href="#System-Planning" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 3</div>
                                                     <div class="lesson-name d-flex justify-content-between">
                                                         <div class="lessons-name-right">System Planning</div>
@@ -389,7 +381,7 @@
                                             <!-- end introduction -->
                                             <!-- course introduction -->
                                             <li><a class="" data-toggle="tab" href="#System-Design" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 4</div>
                                                     <div class="lesson-name d-flex justify-content-between">
                                                         <div class="lessons-name-right">System Design</div>
@@ -400,7 +392,7 @@
                                             <!-- end introduction -->
                                             <!-- course introduction -->
                                             <li><a class="" data-toggle="tab" href="#Quality-Assurance" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 5</div>
                                                     <div class="lesson-name d-flex justify-content-between">
                                                         <div class="lessons-name-right">Testing and Quality Assurance</div>
@@ -411,7 +403,7 @@
                                             <!-- end introduction -->
                                             <!-- course introduction -->
                                             <li><a class="" data-toggle="tab" href="#System-Implementation" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 6</div>
                                                     <div class="lesson-name d-flex justify-content-between">
                                                         <div class="lessons-name-right">System Implementation and Maintenance</div>
@@ -422,7 +414,7 @@
                                             <!-- end introduction -->
                                             <!-- course introduction -->
                                             <li><a class="" data-toggle="tab" href="#System-Security" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 7</div>
                                                     <div class="lesson-name d-flex justify-content-between">
                                                         <div class="lessons-name-right">System Security and Audit</div>
@@ -433,7 +425,7 @@
                                             <!-- end introduction -->
                                             <!-- course introduction -->
                                             <li><a class="" data-toggle="tab" href="#Object-Oriented" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 8</div>
                                                     <div class="lesson-name d-flex justify-content-between">
                                                         <div class="lessons-name-right">Object Oriented Approach</div>
@@ -451,7 +443,7 @@
 
                                 <!-- support small scale project -->
                                 <!-- ====================================================================================================================================== -->
-                                <div class="course-lessons  mb-3">
+                                <div class="course-lessons wow fadeInUp mb-3">
                                     <div class="course-name-get d-flex" data-toggle="collapse" data-target="#small-scale"> 
                                         <div class="icon-left">
                                             <i class="fa fa-angle-right"></i>
@@ -464,7 +456,7 @@
                                             
                                             <!-- course introduction -->
                                             <li><a class="" data-toggle="tab" href="#Commencement" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 1</div>
                                                     <div class="lesson-name d-flex justify-content-between">
                                                         <div class="lessons-name-right">Support Project Commencement</div>
@@ -475,7 +467,7 @@
                                             <!-- end introduction -->
                                             <!-- course introduction -->
                                             <li><a class="" data-toggle="tab" href="#PROJECT_PHASE" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 2</div>
                                                     <div class="lesson-name d-flex justify-content-between">
                                                         <div class="lessons-name-right">Closing a Project or Phase </div>
@@ -492,7 +484,7 @@
 
                                 <!-- develop backend -->
                                 <!-- =========================================================================================================================================== -->
-                                <div class="course-lessons  mb-4">
+                                <div class="course-lessons wow fadeInUp mb-4">
                                     <div class="course-name-get d-flex" data-toggle="collapse" data-target="#backed-devel"> 
                                         <div class="icon-left">
                                             <i class="fa fa-angle-right"></i>
@@ -505,7 +497,7 @@
                                                 
                                             <!-- course introduction -->
                                             <li><a class="" data-toggle="tab" href="#python_introduction" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 1</div>
                                                     <div class="lesson-name d-flex justify-content-between">
                                                         <div class="lessons-name-right">Python introduction</div>
@@ -516,7 +508,7 @@
                                             <!-- end introduction -->
                                             <!-- course introduction -->
                                             <li><a class="" data-toggle="tab" href="#Syntax_Python" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 2</div>
                                                     <div class="lesson-name d-flex justify-content-between">
                                                         <div class="lessons-name-right">Basic Syntax of Python</div>
@@ -527,7 +519,7 @@
                                             <!-- end introduction -->
                                             <!-- course introduction -->
                                             <li><a class="" data-toggle="tab" href="#Python_Variables" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 3</div>
                                                     <div class="lesson-name d-flex justify-content-between">
                                                         <div class="lessons-name-right">Python Variables, Numbers, Strings and Corrections</div>
@@ -538,7 +530,7 @@
                                             <!-- end introduction -->
                                             <!-- course introduction -->
                                             <li><a class="" data-toggle="tab" href="#basic_Operators" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 4</div>
                                                     <div class="lesson-name d-flex justify-content-between">
                                                         <div class="lessons-name-right">Python basic Operators</div>
@@ -549,7 +541,7 @@
                                             <!-- end introduction -->
                                             <!-- course introduction -->
                                             <li><a class="" data-toggle="tab" href="#Python_Algorithm" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 5</div>
                                                     <div class="lesson-name d-flex justify-content-between">
                                                         <div class="lessons-name-right">Python Algorithm</div>
@@ -560,7 +552,7 @@
                                             <!-- end introduction -->
                                             <!-- course introduction -->
                                             <li><a class="" data-toggle="tab" href="#Decision_Making" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 6</div>
                                                     <div class="lesson-name d-flex justify-content-between">
                                                         <div class="lessons-name-right">Decision Making</div>
@@ -571,7 +563,7 @@
                                             <!-- end introduction -->
                                             <!-- course introduction -->
                                             <li><a class="" data-toggle="tab" href="#Python_loop" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 7</div>
                                                     <div class="lesson-name d-flex justify-content-between">
                                                         <div class="lessons-name-right">Python Loop</div>
@@ -589,7 +581,7 @@
 
                                 <!-- develop database -->
                                 <!-- ===================================================================================================================================== -->
-                                <div class="course-lessons  mb-4">
+                                <div class="course-lessons wow fadeInUp mb-4">
                                     <div class="course-name-get d-flex" data-toggle="collapse" data-target="#database-devel"> 
                                         <div class="icon-left">
                                             <i class="fa fa-angle-right"></i>
@@ -602,7 +594,7 @@
                                                 
                                                 <!-- course introduction -->
                                                 <li><a class="" data-toggle="tab" href="#Database_Structure" role="tab">
-                                                    <div class="each-lessons ">
+                                                    <div class="each-lessons wow fadeInUp">
                                                         <div class="lessons-number">lesson 1</div>
                                                         <div class="lesson-name d-flex justify-content-between">
                                                             <div class="lessons-name-right">Database Structure</div>
@@ -613,7 +605,7 @@
                                                 <!-- end introduction -->
                                                 <!-- course introduction -->
                                                 <li><a class="" data-toggle="tab" href="#Apply_DML" role="tab">
-                                                    <div class="each-lessons ">
+                                                    <div class="each-lessons wow fadeInUp">
                                                         <div class="lessons-number">lesson 2</div>
                                                         <div class="lesson-name d-flex justify-content-between">
                                                             <div class="lessons-name-right">Apply DML Queries</div>
@@ -624,7 +616,7 @@
                                                 <!-- end introduction -->
                                                 <!-- course introduction -->
                                                 <li><a class="" data-toggle="tab" href="#Interact_With_Database" role="tab">
-                                                    <div class="each-lessons ">
+                                                    <div class="each-lessons wow fadeInUp">
                                                         <div class="lessons-number">lesson 3</div>
                                                         <div class="lesson-name d-flex justify-content-between">
                                                             <div class="lessons-name-right">Interact With Database </div>
@@ -642,7 +634,7 @@
 
                                 <!-- setup database server -->
                                 <!-- ================================================================================================================================================== -->
-                                <div class="course-lessons  mb-4">
+                                <div class="course-lessons wow fadeInUp mb-4">
                                     <div class="course-name-get d-flex" data-toggle="collapse" data-target="#database-server"> 
                                         <div class="icon-left">
                                             <i class="fa fa-angle-right"></i>
@@ -654,7 +646,7 @@
                                         <ul class="nav nav-tabs lessons-link" role="tablist">
                                             <!-- course introduction -->
                                             <li><a class="" data-toggle="tab" href="#operating_system" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 1</div>
                                                     <div class="lesson-name d-flex justify-content-between">
                                                         <div class="lessons-name-right">Choose suitable operating system features and network (server) services</div>
@@ -665,7 +657,7 @@
                                             <!-- end introduction -->
                                             <!-- course introduction -->
                                             <li><a class="" data-toggle="tab" href="#installation_options" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 2</div>
                                                     <div class="lesson-name d-flex justify-content-between">
                                                         <div class="lessons-name-right">Analyze data migration requirement</div>
@@ -677,7 +669,7 @@
                                          
                                             <!-- course introduction -->
                                             <li><a class="" data-toggle="tab" href="#network_operating" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 3</div>
                                                     <div class="lesson-name d-flex justify-content-between">
                                                         <div class="lessons-name-right">Install server Network Operating System</div>
@@ -688,7 +680,7 @@
                                             <!-- end introduction -->
                                             <!-- course introduction -->
                                             <li><a class="" data-toggle="tab" href="#Post-Install" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 4</div>
                                                     <div class="lesson-name d-flex justify-content-between">
                                                         <div class="lessons-name-right">Post-Install And Configure The Server</div>
@@ -699,7 +691,7 @@
                                             <!-- end introduction -->
                                             <!-- course introduction -->
                                             <li><a class="" data-toggle="tab" href="#administer_active" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 5</div>
                                                     <div class="lesson-name d-flex justify-content-between">
                                                         <div class="lessons-name-right">Configure and administer the server</div>
@@ -710,7 +702,7 @@
                                             <!-- end introduction -->
                                             <!-- course introduction -->
                                             <li><a class="" data-toggle="tab" href="#Deploy_and" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 6</div>
                                                     <div class="lesson-name d-flex justify-content-between">
                                                         <div class="lessons-name-right">Deploy and configure server roles</div>
@@ -721,7 +713,7 @@
                                             <!-- end introduction -->
                                              <!-- course introduction -->
                                              <li><a class="" data-toggle="tab" href="#Monitor_and_test" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 7</div>
                                                     <div class="lesson-name d-flex justify-content-between">
                                                         <div class="lessons-name-right">Monitor and test the server</div>
@@ -738,7 +730,7 @@
 
                                 <!-- deploy web application -->
                                 <!-- ========================================================================================================================================= -->
-                                <div class="course-lessons  mb-4">
+                                <div class="course-lessons wow fadeInUp mb-4">
                                     <div class="course-name-get d-flex" data-toggle="collapse" data-target="#web-application"> 
                                         <div class="icon-left">
                                             <i class="fa fa-angle-right"></i>
@@ -750,7 +742,7 @@
                                         <ul class="nav nav-tabs lessons-link" role="tablist">
                                             <!-- course introduction -->
                                             <li><a class="" data-toggle="tab" href="#deployment_concepts" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 1</div>
                                                     <div class="lesson-name d-flex justify-content-between">
                                                         <div class="lessons-name-right">Introduce software deployment concepts</div>
@@ -761,7 +753,7 @@
                                             <!-- end introduction -->
                                             <!-- course introduction -->
                                             <li><a class="" data-toggle="tab" href="#deployment_requirements" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 2</div>
                                                     <div class="lesson-name d-flex justify-content-between">
                                                         <div class="lessons-name-right">Analyze web application deployment requirements</div>
@@ -772,7 +764,7 @@
                                             <!-- end introduction -->
                                             <!-- course introduction -->
                                             <li><a class="" data-toggle="tab" href="#Distribute_application" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 3</div>
                                                     <div class="lesson-name d-flex justify-content-between">
                                                         <div class="lessons-name-right">Distribute the application</div>
@@ -789,7 +781,7 @@
 
                                 <!-- develop web application -->
                                 <!-- ============================================================================================================================================================ -->
-                                <div class="course-lessons  mb-4" data-toggle="collapse" data-target="#workplace-web">
+                                <div class="course-lessons wow fadeInUp mb-4" data-toggle="collapse" data-target="#workplace-web">
                                     <div class="course-name-get d-flex"> 
                                         <div class="icon-left">
                                             <i class="fa fa-angle-right"></i>
@@ -801,7 +793,7 @@
                                         <ul class="nav nav-tabs lessons-link" role="tablist">
                                             <!-- course introduction -->
                                             <li><a class="" data-toggle="tab" href="#PHP_Fundamentals" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 1</div>
                                                     <div class="lesson-name d-flex justify-content-between">
                                                         <div class="lessons-name-right">Introduce PHP Fundamentals</div>
@@ -812,7 +804,7 @@
                                             <!-- end introduction -->
                                             <!-- course introduction -->
                                             <li><a class="" data-toggle="tab" href="#PHP_Logic" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 2</div>
                                                     <div class="lesson-name d-flex justify-content-between">
                                                         <div class="lessons-name-right"> Implement PHP Logic </div>
@@ -823,7 +815,7 @@
                                             <!-- end introduction -->
                                             <!-- course introduction -->
                                             <li><a class="" data-toggle="tab" href="#MySQL_Database" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 3</div>
                                                     <div class="lesson-name d-flex justify-content-between">
                                                         <div class="lessons-name-right">Perform PHP MySQL Database interactions </div>
@@ -834,7 +826,7 @@
                                             <!-- end introduction -->
                                             <!-- course introduction -->
                                             <li><a class="" data-toggle="tab" href="#PHP_Frameworks" role="tab">
-                                                <div class="each-lessons ">
+                                                <div class="each-lessons wow fadeInUp">
                                                     <div class="lessons-number">lesson 4</div>
                                                     <div class="lesson-name d-flex justify-content-between">
                                                         <div class="lessons-name-right">PHP Frameworks</div>
@@ -1068,7 +1060,7 @@
                                                 <div class="examples-title">Example 2</div>
                                                 <p class="mt-2">Calculate angle B</p>
                                                 <img src="img_SFDLT_5/example-7.png" alt="example2 of calculate angle b">    
-                                                <img src="img_SFDLT_5/sub-example-7.png" alt="">
+                                                <img src="img_SFDLT_5/sub-example-7.png" alt="sub-example-7" >
                                             </p>
                                             <div class="exercise mb-3">
                                                 <div class="exercise-title">Exercise 2</div>
@@ -5008,7 +5000,7 @@
                                                 <p>Python variables do not need explicit declaration to reserve memory space. The declaration
                                                     happens automatically when you assign a value to a variable. The equal sign (=) is used to
                                                     assign values to variables</p>
-                                                <img src="img_SFDLT_5/backend-1.png" alt="">
+                                                <img src="img_SFDLT_5/backend-1.png" alt="ASSIGNING VALUES TO VARIABLES">
                                                 <span class="title-ph">MULTIPLE ASSIGNMENT</span> 
                                                 <p>Python allows you to assign a single value to several variables simultaneously. For example</p>  
                                                 <br><code>a = b = c = 1</code>  <br>
@@ -5048,7 +5040,7 @@
                                                 <p>All integers in Python 3 are represented as long integers. Hence, there is no separate number type as long.</p>
                                                 <span class="title-ph">Examples</span>
                                                 <p>Here are some examples of numbers</p>
-                                                <img src="img_SFDLT_5/backend-2.png" alt="">
+                                                <img src="img_SFDLT_5/backend-2.png" alt="examples of numbers">
                                                 <p> A complex number consists of an ordered pair of real floating-point numbers denoted by x +
                                                     yj, where x and y are real numbers and j is the imaginary unit.</p>
                                             </div>
@@ -5218,18 +5210,18 @@
                                                     <br><code>txt = "We are the so-called "Vikings" from the north."</code> 
                                                     <p>To fix this problem, use the escape character \":</p>
                                                     <p>Other escape characters used in Python:</p>
-                                                    <img src="img_SFDLT_5/backend-3.png" alt="">
-                                                    <img src="img_SFDLT_5/backend-4.png" alt="">
+                                                    <img src="img_SFDLT_5/backend-3.png" alt="escape">
+                                                    <img src="img_SFDLT_5/backend-4.png" alt="escape">
                                                 </div>   
                                                 <div class="mt-3">
                                                     <span class="title-ph">String Methods</span>
                                                     <p>Python has a set of built-in methods that you can use on strings.</p>
-                                                    <img src="img_SFDLT_5/backend-5.png" alt="">
-                                                    <img src="img_SFDLT_5/backend-6.png" alt="">
-                                                    <img src="img_SFDLT_5/backend-7.png" alt="">
-                                                    <img src="img_SFDLT_5/backend-8.png" alt="">
-                                                    <img src="img_SFDLT_5/backend-9.png" alt="">
-                                                    <img src="img_SFDLT_5/backend-10.png" alt="">
+                                                    <img src="img_SFDLT_5/backend-5.png" alt="built-in methods that you can use on strings">
+                                                    <img src="img_SFDLT_5/backend-6.png" alt="built-in methods that you can use on strings">
+                                                    <img src="img_SFDLT_5/backend-7.png" alt="built-in methods that you can use on strings">
+                                                    <img src="img_SFDLT_5/backend-8.png" alt="built-in methods that you can use on strings">
+                                                    <img src="img_SFDLT_5/backend-9.png" alt="built-in methods that you can use on strings">
+                                                    <img src="img_SFDLT_5/backend-10.png" alt="built-in methods that you can use on strings">
                                                 </div>                                                  
                                             </div>
                                             <div class="mt-3">
@@ -5307,9 +5299,9 @@
 
                                                 <span class="title-ph"><b>List Methods</b></span>
                                                 <p>Python has a set of built-in methods that you can use on lists.</p>
-                                                <img src="img_SFDLT_5/backend-11.png" alt="">
-                                                <img src="img_SFDLT_5/backend-12.png" alt="">
-                                                <img src="img_SFDLT_5/backend-13.png" alt="">
+                                                <img src="img_SFDLT_5/backend-11.png" alt=" built-in methods that you can use on lists.">
+                                                <img src="img_SFDLT_5/backend-12.png" alt=" built-in methods that you can use on lists.">
+                                                <img src="img_SFDLT_5/backend-13.png" alt=" built-in methods that you can use on lists.">
                                             </div>
                                             <div class="mt-3">
                                                 <span class="title-ph">PYTHON TUPLES </span>
@@ -5556,9 +5548,9 @@
                                                     print(thisset)
                                                 </code>
                                                 <p>Python has a set of built-in methods that you can use on sets.</p>
-                                                <img src="img_SFDLT_5/backend-15.png" alt="">
-                                                <img src="img_SFDLT_5/backend-16.png" alt="">
-                                                <img src="img_SFDLT_5/backend-17.png" alt="">
+                                                <img src="img_SFDLT_5/backend-15.png" alt="built-in methods that you can use on sets">
+                                                <img src="img_SFDLT_5/backend-16.png" alt="built-in methods that you can use on sets">
+                                                <img src="img_SFDLT_5/backend-17.png" alt="built-in methods that you can use on sets">
                                             </div>
                                             <div class="mt-3">
                                                 <span class="title-ph">PYTHON DICTIONARY</span>
@@ -5669,8 +5661,8 @@
 
                                                 <span class="title-ph">Dictionary method</span>
                                                 <p>Python has a set of built-in methods that you can use on dictionaries</p>
-                                                <img src="img_SFDLT_5/backend-18.png" alt="">
-                                                <img src="img_SFDLT_5/backend-19.png" alt="">
+                                                <img src="img_SFDLT_5/backend-18.png" alt="built-in methods that you can use on dictionaries">
+                                                <img src="img_SFDLT_5/backend-19.png" alt="built-in methods that you can use on dictionaries">
                                             </div>
                                         </div>
                                     </div>
@@ -5694,9 +5686,9 @@
                                             <div class="mt-2">
                                                 <span class="title-ph">PYTHON ARITHMETIC OPERATORS </span>
                                                 <p>Assume variable a holds the value 10 and variable b holds the value 21, then</p>
-                                                <img src="img_SFDLT_5/backend-20.png" alt="">
-                                                <img src="img_SFDLT_5/backend-21.png" alt="">
-                                                <img src="img_SFDLT_5/backend-21.png" alt="">
+                                                <img src="img_SFDLT_5/backend-20.png" alt="PYTHON ARITHMETIC OPERATORS ">
+                                                <img src="img_SFDLT_5/backend-21.png" alt="PYTHON ARITHMETIC OPERATORS ">
+                                                <img src="img_SFDLT_5/backend-21.png" alt="PYTHON ARITHMETIC OPERATORS ">
 
                                                 <span class="title-ph">Example</span>
                                                 <p>Assume variable a holds 10 and variable b holds 20, then</p><br>
@@ -5734,8 +5726,8 @@
                                                     Line 7 - Value of c is 2
                                                 </p>
                                                 <p>Arithmetic operators are used with numeric values to perform common mathematical operations:</p>
-                                                <img src="img_SFDLT_5/backend-23.png" alt="">
-                                                <img src="img_SFDLT_5/backend-24.png" alt="">
+                                                <img src="img_SFDLT_5/backend-23.png" alt="mathematical operations">
+                                                <img src="img_SFDLT_5/backend-24.png" alt="mathematical operations">
                                             </div>
 
                                             <div class="mt-3">
@@ -5743,8 +5735,8 @@
                                                 <p>These operators compare the values on either side of them and decide the relation among them.
                                                     They are also called Relational operators.
                                                     Assume variable a holds the value 10 and variable b holds the value 20, then</p>
-                                                <img src="img_SFDLT_5/backend-25.png" alt=""> 
-                                                <img src="img_SFDLT_5/backend-26.png" alt="">   
+                                                <img src="img_SFDLT_5/backend-25.png" alt="PYTHON COMPARISON OPERATORS"> 
+                                                <img src="img_SFDLT_5/backend-26.png" alt="PYTHON COMPARISON OPERATORS">   
                                                 
                                                 <span class="title-ph">Example</span>
                                                 <p>Assume variable a holds 10 and variable b holds 20, then</p>
@@ -5830,8 +5822,8 @@
                                                     Line 7 - Value of c is 99864
                                                 </p>
                                                 <p>Assignment operators are used to assign values to variables:</p>
-                                                <img src="img_SFDLT_5/backend-31.png" alt="">
-                                                <img src="img_SFDLT_5/backend-32.png" alt="">
+                                                <img src="img_SFDLT_5/backend-31.png" alt="Assignment operators">
+                                                <img src="img_SFDLT_5/backend-32.png" alt="Assignment operators">
                                             </div>
                                             <div class="mt-3">
                                                 <span class="title-ph">PYTHON BITWISE OPERATORS </span>
@@ -5897,7 +5889,7 @@
                                                 <span class="title-ph">PYTHON LOGICAL OPERATORS </span>
                                                 <p>The following logical operators are supported by Python language. Assume variable a holds
                                                     True and variable b holds False then</p>
-                                                <img src="img_SFDLT_5/backend-35.png" alt="">    
+                                                <img src="img_SFDLT_5/backend-35.png" alt="PYTHON LOGICAL OPERATORS">    
 
                                                 <div class="mt-2">
                                                     <span class="title-ph">PYTHON BOOLEANS</span>
@@ -6133,7 +6125,7 @@
                                                     We design an algorithm to get a solution of a given problem. A problem can be solved in more
                                                     than one ways.
                                                 </p>
-                                                <img src="img_SFDLT_5/backend-40.png" alt="">
+                                                <img src="img_SFDLT_5/backend-40.png" alt="design and analysis of algorithms,">
                                                 <p>Hence, many solution algorithms can be derived for a given problem. The next step is to
                                                   analyze those proposed solution algorithms and implement the best suitable solution.</p>
                                                 <span class="title-ph">Python - Divide and conquer</span>  
@@ -6142,7 +6134,7 @@
                                                     into even smaller sub-problems, we may eventually reach a stage where no more division is
                                                     possible. Those "atomic" smallest possible sub-problem (fractions) are solved. The solution
                                                     of all sub-problems is finally merged in order to obtain the solution of an original problem.</p>
-                                                <img src="img_SFDLT_5/backend-41.png" alt="">  
+                                                <img src="img_SFDLT_5/backend-41.png" alt="Divide and conquer">  
                                                 <p>Broadly, we can understand divide-and-conquer approach in a three-step process.</p>  
 
                                                 <span class="title-ph">Divide/Break</span>
@@ -6171,10 +6163,10 @@
                                                     list is sorted and it is much quicker than linear search. Here we divide the given list and
                                                     conquer by choosing the proper half of the list. We repeat this approcah till we find the element
                                                     or conclude about it's absence in the list.</p>    
-                                                <img src="img_SFDLT_5/backend-42.png" alt="">
-                                                <img src="img_SFDLT_5/backend-43.png" alt="">     
+                                                <img src="img_SFDLT_5/backend-42.png" alt="Binary Search implementation">
+                                                <img src="img_SFDLT_5/backend-43.png" alt="Binary Search implementation">     
                                                 <p>When the above code is executed, it produces the following result:</p> 
-                                                <img src="img_SFDLT_5/backend-44.png" alt=""> 
+                                                <img src="img_SFDLT_5/backend-44.png" alt="Binary Search implementation"> 
                                                 <p> Python supports two important control structures that algorithms require: selection and
                                                     iteration. Using Python’s while statement, until the condition for the statement is true, the body
                                                     code is repeated.
@@ -6182,7 +6174,7 @@
                                                     of For statement is the implementation of definite iteration over the range of values.
                                                     There would be an if-else and an if function used to implement conditions in an Algorithm.
                                                     Below is an example of such a function.</p>  
-                                                <img src="img_SFDLT_5/backend-45.png" alt="">  
+                                                <img src="img_SFDLT_5/backend-45.png" alt="Control Structures">  
                                                 <p>Control Structures</p>     
                                             </div>
                                         </div>
@@ -6198,9 +6190,9 @@
                                                 outcome is TRUE or FALSE otherwise.
                                                 Following is the general form of a typical decision making structure found in most of the
                                                 programming languages</p>
-                                            <img src="img_SFDLT_5/backend-46.png" alt="">
+                                            <img src="img_SFDLT_5/backend-46.png" alt="DECISION MAKING">
                                             <p>Python programming language provides the following types of decision-making statements.</p>
-                                            <img src="img_SFDLT_5/backend-47.png" alt="">
+                                            <img src="img_SFDLT_5/backend-47.png" alt="DECISION MAKING">
                                             <p>Let us go through each decision-making statement quickly.</p>
 
                                             <div class="mt-3">
@@ -6218,7 +6210,7 @@
                                                     block is executed.
                                                 </p>     
                                                 <span class="title-ph">Flow Diagram</span> 
-                                                <img src="img_SFDLT_5/backend-48.png" alt="">
+                                                <img src="img_SFDLT_5/backend-48.png" alt="Flow Diagram">
                                                 <span class="title-ph">Example</span>
                                                 <p>
                                                     var1 = 100
@@ -6249,7 +6241,7 @@
                                                     statement(s)
                                                 </p>   
                                                 <span class="title-ph">Flow Diagram</span>
-                                                <img src="img_SFDLT_5/backend-49.png" alt="">
+                                                <img src="img_SFDLT_5/backend-49.png" alt="Flow Diagram">
 
                                                 <span class="title-ph">Example</span>
                                                 <p>
@@ -6375,7 +6367,7 @@
                                                 A loop statement allows us to execute a statement or group of statements multiple times.
                                             </p>
                                             <p>Python programming language provides the following types of loops to handle looping requirements.</p>
-                                            <img src="img_SFDLT_5/backend-50.png" alt="">
+                                            <img src="img_SFDLT_5/backend-50.png" alt="loops">
 
                                             <div class="mt-3">
                                                 <span class="title-ph">while Loop Statements </span>
@@ -6397,7 +6389,7 @@
                                                     as its method of grouping statements.
                                                 </p>
                                                 <span class="title-ph">Flow Diagram</span>
-                                                <img src="img_SFDLT_5/backend-51.png" alt="">
+                                                <img src="img_SFDLT_5/backend-51.png" alt="Flow Diagram">
 
                                                 <span class="title-ph">Example</span>
                                                 <p>
@@ -6496,7 +6488,7 @@
                                                     sequence is exhausted.
                                                 </p> 
                                                 <span class="title-ph">Flow Diagram</span> 
-                                                <img src="img_SFDLT_5/backend-52.png" alt="">   
+                                                <img src="img_SFDLT_5/backend-52.png" alt="Flow Diagram">   
                                                 <span class="title-ph">Example</span>  
                                                 <p>
                                                     for letter in 'Python':  # traversal of a string sequence
@@ -8233,7 +8225,7 @@
                                                 <span class="title-ph">Syntax: </span> <code> SELECT COUNT(column-name) FROM table-name </code>
 
                                                 <p>Now let us understand each Aggregate function with an example:</p>
-                                                <img src="img_SFDLT_5/database_develop-7.png" alt="">
+                                                <img src="img_SFDLT_5/database_develop-7.png" alt="Aggregate function with an example">
                                                 <p>
                                                     <span class="title-ph">Count():</span>
                                                     <span class="title-ph">Count(*):</span> Returns total number of records .i.e 6.
@@ -8494,10 +8486,10 @@
                                                     <span class="title-ph mt-2">Example </span>
                                                     <p>Consider the following two tables: </p>
                                                     <p>Table 1 − CUSTOMERS Table is as follows:</p>
-                                                    <img src="img_SFDLT_5/database_develop-9.png" alt="">
+                                                    <img src="img_SFDLT_5/database_develop-9.png" alt="table1">
 
                                                     <p>Table 2 − ORDERS Table is as follows:</p>
-                                                    <img src="img_SFDLT_5/database_develop-10.png" alt="">
+                                                    <img src="img_SFDLT_5/database_develop-10.png" alt="table2">
 
                                                     <span class="title-ph">Now, let us join these two tables using the INNER JOIN as follows: </span>
                                                     <code>
@@ -8505,7 +8497,7 @@
                                                         INNER JOIN ORDERS
                                                         ON CUSTOMERS.ID = ORDERS.CUSTOMER_ID; 
                                                     </code>
-                                                    <img src="img_SFDLT_5/database_develop-11.png" alt="">
+                                                    <img src="img_SFDLT_5/database_develop-11.png" alt="query">
                                                 </div>
                                                 <div class="mt-3">
                                                     <span class="title-ph"> LEFT JOINS </span>
@@ -8535,7 +8527,7 @@
                                                         ON CUSTOMERS.ID = ORDERS.CUSTOMER_ID;
                                                     </code>
                                                     <p>This would produce the following result : </p>
-                                                    <img src="img_SFDLT_5/database_develop-12.png" alt="">
+                                                    <img src="img_SFDLT_5/database_develop-12.png" alt="results">
                                                 </div>
                                                 <div class="mt-3">
                                                     <span class="title-ph">RIGHT JOIN</span>
@@ -8620,7 +8612,7 @@
                                                     <span class="title-ph"> Example </span>
                                                     Consider the following two tables:
                                                     <span class="title-ph">Table 1 </span> − CUSTOMERS Table is as follows: 
-                                                    <img src="img_SFDLT_5/database_develop-16.png" alt="">
+                                                    <img src="img_SFDLT_5/database_develop-16.png" alt="CUSTOMERS Table">
 
                                                     <span class="title-ph">Table 2 − ORDERS Table is as follows:</span>
                                                     <img src="img_SFDLT_5/database_develop-17.png" alt="">
@@ -8628,7 +8620,7 @@
                                                     <code>SELECT ID, NAME, AMOUNT FROM CUSTOMERS, ORDERS;</code>
 
                                                     <p>This would produce the following result:</p>
-                                                    <img src="img_SFDLT_5/database_develop-18.png" alt="">
+                                                    <img src="img_SFDLT_5/database_develop-18.png" alt="results">
                                                 </div>
                                                 <div class="mt-3">
                                                     <span class="title-ph">SELF JOIN </span>
@@ -8671,7 +8663,7 @@
                                                         <li>An employee may supervise himself (i.e. zero) to many employees (subordinates). </li>
                                                     </ul>
                                                     <p>We have the following data into the table EMPLOYEE. </p>
-                                                    <img src="img_SFDLT_5/database_develop-20.png" alt="">
+                                                    <img src="img_SFDLT_5/database_develop-20.png" alt="EMPLOYEE">
                                                     <span class="title-ph">The above data shows:</span>
                                                     <ul>
                                                         <li>Unnath Nayar's supervisor is Vijes Setthi </li>
@@ -8692,7 +8684,7 @@
                                                         WHERE a.emp_supv = b.emp_id;
                                                     </code>
                                                     <span class="title-ph">Output:</span>
-                                                    <img src="img_SFDLT_5/database_develop-21.png" alt="">
+                                                    <img src="img_SFDLT_5/database_develop-21.png" alt="output">
                                                 </div>
 
                                                 <div class="mt-3">
@@ -10736,7 +10728,7 @@
                                                requirements under which it have been developed</p>  
                                                
                                             <span class="title-ph mt-3"> 2. Describe the deployment environment</span>   
-                                            <img src="img_SFDLT_5/web-deploy-1.png" alt="">
+                                            <img src="img_SFDLT_5/web-deploy-1.png" alt="deployment environment">
 
                                             <span class="title-ph">Description of 5-tier System Architecture</span>
                                             <p><span class="title-ph mt-3">Persistence:</span> Data storage and retrieval.</p>
@@ -11592,7 +11584,7 @@
                                                 <span class="title-ph">PHP Arithmetic Operators </span>
                                                 <p>The PHP arithmetic operators are used with numeric values to perform common arithmetical operations, such
                                                    as addition, subtraction, multiplication etc.</p>
-                                                <img src="img_SFDLT_5/web_dev-2.png" alt="">   
+                                                <img src="img_SFDLT_5/web_dev-2.png" alt="PHP Arithmetic Operators">   
                                             </div>
                                             <div class="mt-3">
                                                 <span class="title-ph">PHP Assignment Operators </span>
@@ -11608,29 +11600,29 @@
                                             <div class="mt-3">
                                                 <span class="titl-">PHP Comparison Operators </span>
                                                 <p>The PHP comparison operators are used to compare two values (number or string): </p>
-                                                <img src="img_SFDLT_5/web_dev-3.png" alt=""> 
+                                                <img src="img_SFDLT_5/web_dev-3.png" alt="PHP Comparison Operators"> 
                                             </div>
                                             <div class="mt-3">
                                                 <span class="title-ph">PHP Increment / Decrement Operators </span>
                                                 <p>The PHP increment operators are used to increment a variable's value.
                                                    The PHP decrement operators are used to decrement a variable's value. </p>
-                                                   <img src="img_SFDLT_5/web_dev-4.png" alt="">    
+                                                   <img src="img_SFDLT_5/web_dev-4.png" alt="PHP Increment / Decrement Operators">    
                                             </div>
                                             <div class="mt-3">
                                                 <span class="title-ph">PHP Logical Operators </span>
                                                 <p>The PHP logical operators are used to combine conditional statements. </p>
-                                                <img src="img_SFDLT_5/web_dev-5.png" alt=""> 
+                                                <img src="img_SFDLT_5/web_dev-5.png" alt="PHP Logical Operators"> 
                                             </div>
                                             <div class="mt-">
                                                 <span class="title-ph">PHP String Operators</span>
                                                 <p>PHP has two operators that are specially designed for strings. </p>
-                                                <img src="img_SFDLT_5/web_dev-6.png" alt=""> 
+                                                <img src="img_SFDLT_5/web_dev-6.png" alt="PHP String Operators"> 
                                             </div>
                                             <div class="mt-3">
                                                 <span class="title-ph">PHP Array Operators</span>
                                                 <p>The PHP array operators are used to compare arrays. </p>
-                                                <img src="img_SFDLT_5/web_dev-7.png" alt="">
-                                                <img src="img_SFDLT_5/web_dev-9.png" alt="">
+                                                <img src="img_SFDLT_5/web_dev-7.png" alt="PHP array operators">
+                                                <img src="img_SFDLT_5/web_dev-9.png" alt="PHP array operators">
                                             </div>
                                             <div class="mt-3">
                                                 <span class="title-ph">Arrays </span>
@@ -12681,9 +12673,9 @@
                                                     GET may be used for sending non-sensitive data. </p>
                                                 <p>Note: GET should NEVER be used for sending passwords or other sensitive information! </p> 
                                                 <span class="title-ph">PHP form validation </span>  
-                                                <img src="img_SFDLT_5/web_dev-10.png" alt="">  
-                                                <img src="img_SFDLT_5/web_dev-11.png" alt=""> 
-                                                <img src="img_SFDLT_5/web_dev-12.png" alt=""> 
+                                                <img src="img_SFDLT_5/web_dev-10.png" alt="PHP form validation">  
+                                                <img src="img_SFDLT_5/web_dev-11.png" alt="PHP form validation"> 
+                                                <img src="img_SFDLT_5/web_dev-12.png" alt="PHP form validation"> 
                                             </div>
                                         </div>
                                     </div>
@@ -12698,7 +12690,7 @@
                                             <p> CakePHP is a web development framework that uses the MVC model. It is a free open source framework for
                                                 PHP that uses the Mode-View-Controller software design pattern. CakePHP reduces developmental costs and
                                                 helps developers write less code. </p>  
-                                            <img src="img_SFDLT_5/web_dev-13.png" alt="">  
+                                            <img src="img_SFDLT_5/web_dev-13.png" alt="CakePHP">  
                                             <span class="title-ph">Benefits of CakePHP: </span> 
                                             <ul>
                                                 <li>All segments work independently, which means, the developer may modify a segment without affecting others. </li>
@@ -12767,7 +12759,7 @@
                                                     <li>PUT: update resources</li>
                                                     <li>DELETE: delete resources </li>
                                                 </ul>   
-                                                <img src="img_SFDLT_5/web_dev-14.png" alt=""> 
+                                                <img src="img_SFDLT_5/web_dev-14.png" alt="RESTful APIs"> 
                                             </div>
                                         </div>
                                     </div>
@@ -12894,30 +12886,12 @@
        <script src="../Assets/js/learn_content.js"></script>
        
        <script src="../Lib/bootstrap/js/bootstrap.min.js" type="text/javascript"></script> 
-       <script src="../Lib/bootstrap/js/bootstrap-datepicker.js"></script> 
        <script src="../Lib/custom/custom.js"></script>
-       <script src="../Lib/date-picker/bootstrap-switch.js"></script>
-       <script src="../Lib/date-picker/nouislider.min.js"></script>
        <script src="../Lib/easing/easing.min.js"></script>
-       <script src="../Lib/jquery/jquery-migrate.min.js"></script>
-       <script src="../Lib/jquery/jquery.bootstrap-wizard.js"></script>
-       <script src="../Lib/jquery/jquery.counterup.js"></script>
-       <script src="../Lib/jquery/jquery.fancybox.pack.js"></script>
        <script src="../Lib/jquery/jquery.min.js"></script>
-       <script src="../Lib/jquery/jquery.mixitup.js"></script>
-       <script src="../Lib/jquery/jquery.poptrox.min.js"></script>
-       <script src="../Lib/jquery/jquery.validate.min.js"></script>
        <script src="../Lib/jquery/perfect-scrollbar.jquery.min.js"></script>
-       <script src="../Lib/lightbox/js/lightbox-plus-jquery.min.js"></script>
        <script src="../Lib/material/js/material-dashboard?v=2.1.1.js"></script>
        <script src="../Lib/now-ui-kit/now-ui-kit.js"></script>
-       <script src="../Lib/owlcarousel/owl.carousel.js"></script>
-       <script src="../Lib/popper/popper.min.js"></script>
-       <script src="../Lib/skel/skel.min.js"></script>
-       <script src="../Lib/slick/slick.js"></script>
-       <script src="../Lib/superfish/superfish.js"></script>
-       <script src="../Lib/venobox/venobox.js"></script>
-       <script src="../Lib/wow/wow.min.js"></script>
        <script src="../Lib/bootstrap/js/bootstrap-material-design.min.js"></script>
        <script>
            $(document).ready(function() {
@@ -12930,15 +12904,8 @@
              // the body of this function is in assets/js/now-ui-kit.js
              nowuiKit.initSliders();
            });
-       
-           function scrollToDownload() {
-       
-             if ($('.section-download').length != 0) {
-               $("html, body").animate({
-                 scrollTop: $('.section-download').offset().top
-               }, 1000);
-             }
-           }
+           // Initiate the wowjs animation library
+           new WOW().init();
        </script>
        <!-- end libraries -->
        <!-- ========================================================================================================================== -->
@@ -12946,4 +12913,7 @@
  
    </body>
 </html>
-<?php } } ?>
+<?php } }else{
+    header("Location: ../account_shortcut.box.php?session");
+    exit();
+} ?>

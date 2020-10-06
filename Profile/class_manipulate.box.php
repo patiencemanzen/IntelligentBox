@@ -66,6 +66,8 @@
     // check extension
     if(!in_array(strtolower($imageFileType), $valid_extensions)) {
         $response = "Check extentension";
+        header("location: profile.php?extention");
+        exit();
     }else{
         if($file_size < 20971520){
             if(move_uploaded_file($_FILES['class_image']['tmp_name'],$location)){
@@ -74,7 +76,8 @@
                     header("location: profile.php?success");
                     exit();
                 }else{
-                    echo "Fail to insert class";
+                    header("location: profile.php?fail");
+                    exit();
                 }
             }
         }

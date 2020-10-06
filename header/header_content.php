@@ -8,26 +8,75 @@
     // =========================================================================================================
     class Notification_pop extends Scyllar {
 
-        private function count_date($selected_date){
-            $PostedDate = $selected_date;
-            $currDate = Date("Y-m-d h:i:s");
-
-            $date1 = strtotime($PostedDate);  
-            $date2 = strtotime($currDate);  
-            
-            $diff = abs($date2 - $date1); 
-            $years = floor($diff / (365*60*60*24));  
-            $months = floor(($diff - $years * 365*60*60*24) / (30*60*60*24));
-            $days = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24)/ (60*60*24)); 
-            $hours = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24 - $days*60*60*24) / (60*60)); 
-            $minutes = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24 - $days*60*60*24 - $hours*60*60)/ 60);
-            $seconds = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24 - $days*60*60*24 - $hours*60*60 - $minutes*60)); 
-
-            return $hours." Hour(s) ago";
+        function timeAgo($time_ago){
+            $time_ago = strtotime($time_ago);
+            $cur_time   = time();
+            $time_elapsed   = $cur_time - $time_ago;
+            $seconds    = $time_elapsed ;
+            $minutes    = round($time_elapsed / 60 );
+            $hours      = round($time_elapsed / 3600);
+            $days       = round($time_elapsed / 86400 );
+            $weeks      = round($time_elapsed / 604800);
+            $months     = round($time_elapsed / 2600640 );
+            $years      = round($time_elapsed / 31207680 );
+            // Seconds
+            if($seconds <= 60){
+                return "just now";
+            }
+            //Minutes
+            else if($minutes <=60){
+                if($minutes==1){
+                    return "one minute ago";
+                }
+                else{
+                    return "$minutes minutes ago";
+                }
+            }
+            //Hours
+            else if($hours <=24){
+                if($hours==1){
+                    return "an hour ago";
+                }else{
+                    return "$hours hrs ago";
+                }
+            }
+            //Days
+            else if($days <= 7){
+                if($days==1){
+                    return "yesterday";
+                }else{
+                    return "$days days ago";
+                }
+            }
+            //Weeks
+            else if($weeks <= 4.3){
+                if($weeks==1){
+                    return "a week ago";
+                }else{
+                    return "$weeks weeks ago";
+                }
+            }
+            //Months
+            else if($months <=12){
+                if($months==1){
+                    return "a month ago";
+                }else{
+                    return "$months months ago";
+                }
+            }
+            //Years
+            else{
+                if($years==1){
+                    return "one year ago";
+                }else{
+                    return "$years years ago";
+                }
+            }
         }
 
         public function all_notification ($user_email){
-            $select_notification = "SELECT * FROM notifications WHERE notification_from_email IN (SELECT DISTINCT host_email FROM user_follow_board WHERE reciever_email='$user_email') OR notification_from_email IN (SELECT DISTINCT reciever_email FROM user_follow_board WHERE host_email='$user_email') AND notification_from_email != '$user_email' ORDER BY created_on DESC";
+            // $select_notification = "SELECT notifications.*,user_follow_board.host_email,user_follow_board.reciever_email FROM notifications INNER JOIN user_follow_board ON notifications.notification_from_email = user_follow_board.host_email OR notifications.notification_from_email = user_follow_board.reciever_email AND notifications.notification_from_email != '$user_email' ORDER BY notifications.created_on DESC";
+            $select_notification = "SELECT * FROM notifications WHERE notification_from_email IN (SELECT DISTINCT reciever_email FROM user_follow_board WHERE host_email = '$user_email') OR notification_from_email IN (SELECT DISTINCT host_email FROM user_follow_board WHERE reciever_email = '$user_email') AND notification_from_email != '$user_email' ORDER BY created_on DESC;";
             $execute_notification = mysqli_query($this->Frequency(), $select_notification);
             if(mysqli_num_rows($execute_notification) > 0){ ?>
 
@@ -35,12 +84,14 @@
                 <!-- <div class="noti-title"><i class="fa fa-bell-o"></i> <span>New</span></div> -->
                 <div class="noti-list">
                     <?php while($fetch_new_notifiation = mysqli_fetch_assoc($execute_notification)){
-                        $notifier_email = $fetch_new_notifiation['notification_from__email'];
+                        $notifier_email = $fetch_new_notifiation['notification_from_email'];
                         $notification = $fetch_new_notifiation['notification'];
                         $notification_type = $fetch_new_notifiation['notification_type'];
                         $created_on = $fetch_new_notifiation['created_on'];
                         $notification_visibility = $fetch_new_notifiation['notification_visibility'];
                         $notification_read_status = $fetch_new_notifiation['notification_read_status'];
+                        $notification_url = $fetch_new_notifiation['notification_link'];
+                        $notification_identity = $fetch_new_notifiation['identity'];
 
                         $select_basic_info = "SELECT * FROM intelligent_users WHERE email='$notifier_email'";
                         $execute_basic_info = mysqli_query($this->Frequency(), $select_basic_info);
@@ -55,77 +106,254 @@
                         $fetchResult = mysqli_fetch_assoc($execute_profile_image);
                             $profile_image = $fetchResult['profile_image']; 
                             if($notification_visibility == "new"){ ?>  
-                                <div class="each-notification d-flex">
-                                    <div class="notifier-image"><div class="noti-img-def"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%"></div></div>
-                                    <div class="noti-detali ml-2">
-                                        <div class="name-noti"><?php echo $firstname; ?> <?php echo $lastname; ?></div>
-                                        <div class="noti-lesson"><?php echo $notification; ?></div>
-                                        <div class="time-ageo"><i class="fa fa-globe mr-1"></i> <?php echo $this->count_date($created_on); ?></div>
-                                    </div>
                                     <?php if($notification_type == "bell"){?>
-                                        <div class="present-noti-type"><i class="fa fa-bell-o"></i></div>
+                                        <a id="<?php echo $notification_identity; ?>" onclick="unset_notification_quality(this)"><div class="each-notification d-flex" style="background-color: #eee;">
+                                            <div class="notifier-image"><div class="noti-img-def"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%"></div></div>
+                                            <div class="noti-detali ml-2">
+                                                <div class="name-noti"><?php echo $firstname; ?> <?php echo $lastname; ?> <span class="time-ageo"><i class="fa fa-globe mr-1 ml-2"></i> <?php echo $this->timeAgo($created_on); ?></span></div>
+                                                <div class="noti-lesson"><?php echo $notification; ?></div>
+                                            </div>
+                                            <div class="present-noti-type"><i class="fa fa-bell-o"></i></div>
+                                        </div></a>
                                     <?php }else if($notification_type == "post"){?>
-                                        <div class="present-noti-type"><i class="fa fa-photo"></i></div>
+                                        <a id="<?php echo $notification_identity; ?>" onclick="unset_notification_quality(this)"><div class="each-notification d-flex" style="background-color: #eee;">
+                                            <div class="notifier-image"><div class="noti-img-def"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%"></div></div>
+                                            <div class="noti-detali ml-2">
+                                                <div class="name-noti"><?php echo $firstname; ?> <?php echo $lastname; ?> <span class="time-ageo"><i class="fa fa-globe mr-1 ml-2"></i> <?php echo $this->timeAgo($created_on); ?></span></div>
+                                                <div class="noti-lesson"><?php echo $notification; ?></div>
+                                            </div>
+                                            <div class="present-noti-type"><i class="fa fa-photo"></i></div>
+                                        </div></a>
                                     <?php }else if($notification_type == 'profile'){ ?>
-                                        <div class="present-noti-type"><i class="fa fa-user-o"></i></div>
+                                        <a id="<?php echo $notification_identity; ?>" onclick="unset_notification_quality(this)"><div class="each-notification d-flex" style="background-color: #eee;">
+                                            <div class="notifier-image"><div class="noti-img-def"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%"></div></div>
+                                            <div class="noti-detali ml-2">
+                                                <div class="name-noti"><?php echo $firstname; ?> <?php echo $lastname; ?> <span class="time-ageo"><i class="fa fa-globe mr-1 ml-2"></i> <?php echo $this->timeAgo($created_on); ?></span></div>
+                                                <div class="noti-lesson"><?php echo $notification; ?></div>
+                                            </div>
+                                            <div class="present-noti-type"><i class="fa fa-user-o"></i></div>
+                                        </div></a>
                                     <?php }else if($notification_type == 'class'){ ?>
-                                        <div class="present-noti-type"><i class="fa fa-graduation-cap"></i></div>
+                                        <a id="<?php echo $notification_identity; ?>" onclick="unset_notification_quality(this)"><div class="each-notification d-flex" style="background-color: #eee;">
+                                            <div class="notifier-image"><div class="noti-img-def"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%"></div></div>
+                                            <div class="noti-detali ml-2">
+                                                <div class="name-noti"><?php echo $firstname; ?> <?php echo $lastname; ?> <span class="time-ageo"><i class="fa fa-globe mr-1 ml-2"></i> <?php echo $this->timeAgo($created_on); ?></span></div>
+                                                <div class="noti-lesson"><?php echo $notification; ?></div>
+                                            </div>
+                                            <div class="present-noti-type"><i class="fa fa-graduation-cap"></i></div>
+                                        </div></a>
                                     <?php }else if($notification_type == "like"){?>
-                                        <div class="present-noti-type"><i class="fa fa-thumbs-o-up"></i></div>
+                                        <a id="<?php echo $notification_identity; ?>" onclick="unset_notification_quality(this)"><div class="each-notification d-flex" style="background-color: #eee;">
+                                            <div class="notifier-image"><div class="noti-img-def"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%"></div></div>
+                                            <div class="noti-detali ml-2">
+                                                <div class="name-noti"><?php echo $firstname; ?> <?php echo $lastname; ?> <span class="time-ageo"><i class="fa fa-globe mr-1 ml-2"></i> <?php echo $this->timeAgo($created_on); ?></span></div>
+                                                <div class="noti-lesson"><?php echo $notification; ?></div>
+                                            </div>
+                                            <div class="present-noti-type"><i class="fa fa-thumbs-o-up"></i></div>
+                                        </div></a>
                                     <?php }else if($notification_type == "comment"){?>
-                                        <div class="present-noti-type"><i class="fa fa-comment-o"></i></div>
+                                        <a id="<?php echo $notification_identity; ?>" onclick="unset_notification_quality(this)"><div class="each-notification d-flex" style="background-color: #eee;">
+                                            <div class="notifier-image"><div class="noti-img-def"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%"></div></div>
+                                            <div class="noti-detali ml-2">
+                                                <div class="name-noti"><?php echo $firstname; ?> <?php echo $lastname; ?> <span class="time-ageo"><i class="fa fa-globe mr-1 ml-2"></i> <?php echo $this->timeAgo($created_on); ?></span></div>
+                                                <div class="noti-lesson"><?php echo $notification; ?></div>
+                                            </div>
+                                            <div class="present-noti-type"><i class="fa fa-comment-o"></i></div>
+                                        </div></a>
                                     <?php }else if($notification_type == "follow"){ ?>
-                                        <div class="present-noti-type"><i class="fa fa-rss"></i></div>
+                                        <a id="<?php echo $notification_identity; ?>" onclick="unset_notification_quality(this)"><div class="each-notification d-flex" style="background-color: #eee;">
+                                            <div class="notifier-image"><div class="noti-img-def"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%"></div></div>
+                                            <div class="noti-detali ml-2">
+                                                <div class="name-noti"><?php echo $firstname; ?> <?php echo $lastname; ?> <span class="time-ageo"><i class="fa fa-globe mr-1 ml-2"></i> <?php echo $this->timeAgo($created_on); ?></span></div>
+                                                <div class="noti-lesson"><?php echo $notification; ?></div>
+                                            </div>
+                                            <div class="present-noti-type"><i class="fa fa-rss"></i></div>
+                                        </div></a>
                                     <?php }else if($notification_type == "question"){ ?>
-                                        <div class="present-noti-type"><i class="fa fa-question"></i></div>
+                                        <a id="<?php echo $notification_identity; ?>" onclick="unset_notification_quality(this)"><div class="each-notification d-flex" style="background-color: #eee;">
+                                            <div class="notifier-image"><div class="noti-img-def"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%"></div></div>
+                                            <div class="noti-detali ml-2">
+                                                <div class="name-noti"><?php echo $firstname; ?> <?php echo $lastname; ?> <span class="time-ageo"><i class="fa fa-globe mr-1 ml-2"></i> <?php echo $this->timeAgo($created_on); ?></span></div>
+                                                <div class="noti-lesson"><?php echo $notification; ?></div>
+                                            </div>
+                                            <div class="present-noti-type"><i class="fa fa-question"></i></div>
+                                        </div></a>
                                     <?php }else if($notification_type == "group"){ ?>
-                                        <div class="present-noti-type"><i class="fa fa-group"></i></div>
+                                        <a id="<?php echo $notification_identity; ?>" onclick="unset_notification_quality(this)"><div class="each-notification d-flex" style="background-color: #eee;">
+                                            <div class="notifier-image"><div class="noti-img-def"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%"></div></div>
+                                            <div class="noti-detali ml-2">
+                                                <div class="name-noti"><?php echo $firstname; ?> <?php echo $lastname; ?> <span class="time-ageo"><i class="fa fa-globe mr-1 ml-2"></i> <?php echo $this->timeAgo($created_on); ?></span></div>
+                                                <div class="noti-lesson"><?php echo $notification; ?></div>
+                                            </div>
+                                            <div class="present-noti-type"><i class="fa fa-group"></i></div>
+                                        </div></a>
                                     <?php }else if($notification_type == "invitation"){ ?>
-                                        <div class="present-noti-type"><i class="fa fa-envelope-open-text"></i></div>
+                                        <a id="<?php echo $notification_identity; ?>" onclick="unset_notification_quality(this)"><div class="each-notification d-flex" style="background-color: #eee;">
+                                            <div class="notifier-image"><div class="noti-img-def"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%"></div></div>
+                                            <div class="noti-detali ml-2">
+                                                <div class="name-noti"><?php echo $firstname; ?> <?php echo $lastname; ?> <span class="time-ageo"><i class="fa fa-globe mr-1 ml-2"></i> <?php echo $this->timeAgo($created_on); ?></span></div>
+                                                <div class="noti-lesson"><?php echo $notification; ?></div>
+                                            </div>
+                                            <div class="present-noti-type"><i class="fa fa-envelope-open-o"></i></div>
+                                        </div></a>
                                     <?php }else if($notification_type == "challenge_request"){ ?>
-                                        <div class="present-noti-type"><i class="fa fa-superpowers"></i></div>
+                                        <a id="<?php echo $notification_identity; ?>" onclick="unset_notification_quality(this)"><div class="each-notification d-flex" style="background-color: #eee;">
+                                            <div class="notifier-image"><div class="noti-img-def"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%"></div></div>
+                                            <div class="noti-detali ml-2">
+                                                <div class="name-noti"><?php echo $firstname; ?> <?php echo $lastname; ?> <span class="time-ageo"><i class="fa fa-globe mr-1 ml-2"></i> <?php echo $this->timeAgo($created_on); ?></span></div>
+                                                <div class="noti-lesson"><?php echo $notification; ?></div>
+                                            </div>
+                                            <div class="present-noti-type"><i class="fa fa-superpowers"></i></div>
+                                        </div></a>
                                     <?php }else if($notification_type == "rejection"){ ?>
-                                        <div class="present-noti-type"><i class="fa fa-minus-square-o"></i></div>
+                                        <a id="<?php echo $notification_identity; ?>" onclick="unset_notification_quality(this)"><div class="each-notification d-flex" style="background-color: #eee;">
+                                            <div class="notifier-image"><div class="noti-img-def"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%"></div></div>
+                                            <div class="noti-detali ml-2">
+                                                <div class="name-noti"><?php echo $firstname; ?> <?php echo $lastname; ?> <span class="time-ageo"><i class="fa fa-globe mr-1 ml-2"></i> <?php echo $this->timeAgo($created_on); ?></span></div>
+                                                <div class="noti-lesson"><?php echo $notification; ?></div>
+                                            </div>
+                                            <div class="present-noti-type"><i class="fa fa-minus-square-o"></i></div>
+                                        </div></a>
                                     <?php }else if($notification_type == "class"){ ?>
-                                        <div class="present-noti-type"><i class="fa fa-layer-group"></i></div>
+                                        <a id="<?php echo $notification_identity; ?>" onclick="unset_notification_quality(this)"><div class="each-notification d-flex" style="background-color: #eee;">
+                                            <div class="notifier-image"><div class="noti-img-def"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%"></div></div>
+                                            <div class="noti-detali ml-2">
+                                                <div class="name-noti"><?php echo $firstname; ?> <?php echo $lastname; ?> <span class="time-ageo"><i class="fa fa-globe mr-1 ml-2"></i> <?php echo $this->timeAgo($created_on); ?></span></div>
+                                                <div class="noti-lesson"><?php echo $notification; ?></div>
+                                            </div>
+                                            <div class="present-noti-type"><i class="fa fa-layer-group"></i></div>
+                                        </div></a>
+                                    <?php }else if($notification_type == "invite"){ ?>
+                                        <a href="<?php echo $notification_url; ?>" id="<?php echo $notification_identity; ?>" onclick="unset_notification_quality(this)"><div class="each-notification d-flex" style="background-color: #eee;">
+                                            <div class="notifier-image"><div class="noti-img-def"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%"></div></div>
+                                            <div class="noti-detali ml-2">
+                                                <div class="name-noti"><?php echo $firstname; ?> <?php echo $lastname; ?> <span class="time-ageo"><i class="fa fa-globe mr-1 ml-2"></i> <?php echo $this->timeAgo($created_on); ?></span></div>
+                                                <div class="noti-lesson"><?php echo $notification; ?></div>
+                                            </div>
+                                            <div class="present-noti-type"><i class="fa fa-envelope-open-o"></i></div>
+                                        </div></a>
                                     <?php } ?>
-                                </div>
+                               
                             <?php }else{ ?>
-                                <div class="each-notification d-flex bg-white">
-                                    <div class="notifier-image"><div class="noti-img-def"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%"></div></div>
-                                    <div class="noti-detali ml-2">
-                                        <div class="name-noti"><?php echo $firstname; ?> <?php echo $lastname; ?></div>
-                                        <div class="noti-lesson"><?php echo $notification; ?></div>
-                                        <div class="time-ageo"><i class="fa fa-globe mr-1"></i> <?php echo $this->count_date($created_on); ?></div>
-                                    </div>
                                     <?php if($notification_type == "bell"){?>
-                                        <div class="present-noti-type"><i class="fa fa-bell-o"></i></div>
-                                    <?php }else if($notification_type == "post"){?>
+                                        <a href=""><div class="each-notification d-flex bg-white">
+                                            <div class="notifier-image"><div class="noti-img-def"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%"></div></div>
+                                            <div class="noti-detali ml-2">
+                                                <div class="name-noti"><?php echo $firstname; ?> <?php echo $lastname; ?> <span class="time-ageo"><i class="fa fa-globe mr-1"></i> <?php echo $this->timeAgo($created_on); ?></span></div>
+                                                <div class="noti-lesson"><?php echo $notification; ?></div>
+                                            </div>
+                                            <div class="present-noti-type"><i class="fa fa-bell-o"></i></div>
+                                        </div></a>                                    <?php }else if($notification_type == "post"){?>
                                         <div class="present-noti-type"><i class="fa fa-photo"></i></div>
                                     <?php }else if($notification_type == 'profile'){ ?>
-                                        <div class="present-noti-type"><i class="fa fa-user-o"></i></div>
+                                        <a href=""><div class="each-notification d-flex bg-white">
+                                            <div class="notifier-image"><div class="noti-img-def"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%"></div></div>
+                                            <div class="noti-detali ml-2">
+                                                <div class="name-noti"><?php echo $firstname; ?> <?php echo $lastname; ?> <span class="time-ageo"><i class="fa fa-globe mr-1"></i> <?php echo $this->timeAgo($created_on); ?></span></div>
+                                                <div class="noti-lesson"><?php echo $notification; ?></div>
+                                            </div>
+                                            <div class="present-noti-type"><i class="fa fa-user-o"></i></div>
+                                        </div></a> 
                                     <?php }else if($notification_type == 'class'){ ?>
-                                        <div class="present-noti-type"><i class="fa fa-graduation-cap"></i></div>
+                                        <a href=""><div class="each-notification d-flex bg-white">
+                                            <div class="notifier-image"><div class="noti-img-def"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%"></div></div>
+                                            <div class="noti-detali ml-2">
+                                                <div class="name-noti"><?php echo $firstname; ?> <?php echo $lastname; ?> <span class="time-ageo"><i class="fa fa-globe mr-1"></i> <?php echo $this->timeAgo($created_on); ?></span></div>
+                                                <div class="noti-lesson"><?php echo $notification; ?></div>
+                                            </div>
+                                            <div class="present-noti-type"><i class="fa fa-graduation-cap"></i></div>
+                                        </div></a> 
                                     <?php }else if($notification_type == "like"){?>
-                                        <div class="present-noti-type"><i class="fa fa-thumbs-o-up"></i></div>
+                                        <a href=""><div class="each-notification d-flex bg-white">
+                                            <div class="notifier-image"><div class="noti-img-def"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%"></div></div>
+                                            <div class="noti-detali ml-2">
+                                                <div class="name-noti"><?php echo $firstname; ?> <?php echo $lastname; ?> <span class="time-ageo"><i class="fa fa-globe mr-1"></i> <?php echo $this->timeAgo($created_on); ?></span></div>
+                                                <div class="noti-lesson"><?php echo $notification; ?></div>
+                                            </div>
+                                            <div class="present-noti-type"><i class="fa fa-thumbs-o-up"></i></div>
+                                        </div></a>
                                     <?php }else if($notification_type == "comment"){?>
-                                        <div class="present-noti-type"><i class="fa fa-comment-o"></i></div>
+                                        <a href=""><div class="each-notification d-flex bg-white">
+                                            <div class="notifier-image"><div class="noti-img-def"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%"></div></div>
+                                            <div class="noti-detali ml-2">
+                                                <div class="name-noti"><?php echo $firstname; ?> <?php echo $lastname; ?> <span class="time-ageo"><i class="fa fa-globe mr-1"></i> <?php echo $this->timeAgo($created_on); ?></span></div>
+                                                <div class="noti-lesson"><?php echo $notification; ?></div>
+                                            </div>
+                                            <div class="present-noti-type"><i class="fa fa-comment-o"></i></div>
+                                        </div></a>
                                     <?php }else if($notification_type == "follow"){ ?>
-                                        <div class="present-noti-type"><i class="fa fa-rss"></i></div>
+                                        <a href=""><div class="each-notification d-flex bg-white">
+                                            <div class="notifier-image"><div class="noti-img-def"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%"></div></div>
+                                            <div class="noti-detali ml-2">
+                                                <div class="name-noti"><?php echo $firstname; ?> <?php echo $lastname; ?> <span class="time-ageo"><i class="fa fa-globe mr-1"></i> <?php echo $this->timeAgo($created_on); ?></span></div>
+                                                <div class="noti-lesson"><?php echo $notification; ?></div>
+                                            </div>
+                                            <div class="present-noti-type"><i class="fa fa-rss"></i></div>
+                                        </div></a>
                                     <?php }else if($notification_type == "question"){ ?>
-                                        <div class="present-noti-type"><i class="fa fa-question"></i></div>
+                                        <a href=""><div class="each-notification d-flex bg-white">
+                                            <div class="notifier-image"><div class="noti-img-def"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%"></div></div>
+                                            <div class="noti-detali ml-2">
+                                                <div class="name-noti"><?php echo $firstname; ?> <?php echo $lastname; ?> <span class="time-ageo"><i class="fa fa-globe mr-1"></i> <?php echo $this->timeAgo($created_on); ?></span></div>
+                                                <div class="noti-lesson"><?php echo $notification; ?></div>
+                                            </div>
+                                            <div class="present-noti-type"><i class="fa fa-question"></i></div>
+                                        </div></a>
                                     <?php }else if($notification_type == "group"){ ?>
-                                        <div class="present-noti-type"><i class="fa fa-group"></i></div>
+                                        <a href=""><div class="each-notification d-flex bg-white">
+                                            <div class="notifier-image"><div class="noti-img-def"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%"></div></div>
+                                            <div class="noti-detali ml-2">
+                                                <div class="name-noti"><?php echo $firstname; ?> <?php echo $lastname; ?> <span class="time-ageo"><i class="fa fa-globe mr-1"></i> <?php echo $this->timeAgo($created_on); ?></span></div>
+                                                <div class="noti-lesson"><?php echo $notification; ?></div>
+                                            </div>
+                                            <div class="present-noti-type"><i class="fa fa-group"></i></div>
+                                        </div></a>
                                     <?php }else if($notification_type == "invitation"){ ?>
-                                        <div class="present-noti-type"><i class="fa fa-envelope-open-text"></i></div>
+                                        <a href=""><div class="each-notification d-flex bg-white">
+                                            <div class="notifier-image"><div class="noti-img-def"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%"></div></div>
+                                            <div class="noti-detali ml-2">
+                                                <div class="name-noti"><?php echo $firstname; ?> <?php echo $lastname; ?> <span class="time-ageo"><i class="fa fa-globe mr-1"></i> <?php echo $this->timeAgo($created_on); ?></span></div>
+                                                <div class="noti-lesson"><?php echo $notification; ?></div>
+                                            </div>
+                                            <div class="present-noti-type"><i class="fa fa-envelope-open-text"></i></div>
+                                        </div></a>
                                     <?php }else if($notification_type == "challenge_request"){ ?>
-                                        <div class="present-noti-type"><i class="fa fa-superpowers"></i></div>
+                                        <a href=""><div class="each-notification d-flex bg-white">
+                                            <div class="notifier-image"><div class="noti-img-def"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%"></div></div>
+                                            <div class="noti-detali ml-2">
+                                                <div class="name-noti"><?php echo $firstname; ?> <?php echo $lastname; ?> <span class="time-ageo"><i class="fa fa-globe mr-1"></i> <?php echo $this->timeAgo($created_on); ?></span></div>
+                                                <div class="noti-lesson"><?php echo $notification; ?></div>
+                                            </div>
+                                            <div class="present-noti-type"><i class="fa fa-superpowers"></i></div>
+                                        </div></a>
                                     <?php }else if($notification_type == "rejection"){ ?>
-                                        <div class="present-noti-type"><i class="fa fa-minus-square-o"></i></div>
+                                        <a href=""><div class="each-notification d-flex bg-white">
+                                            <div class="notifier-image"><div class="noti-img-def"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%"></div></div>
+                                            <div class="noti-detali ml-2">
+                                                <div class="name-noti"><?php echo $firstname; ?> <?php echo $lastname; ?> <span class="time-ageo"><i class="fa fa-globe mr-1"></i> <?php echo $this->timeAgo($created_on); ?></span></div>
+                                                <div class="noti-lesson"><?php echo $notification; ?></div>
+                                            </div>
+                                            <div class="present-noti-type"><i class="fa fa-minus-square-o"></i></div>
+                                        </div></a>
                                     <?php }else if($notification_type == "class"){ ?>
-                                        <div class="present-noti-type"><i class="fa fa-layer-group"></i></div>
+                                        <a href=""><div class="each-notification d-flex bg-white">
+                                            <div class="notifier-image"><div class="noti-img-def"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%"></div></div>
+                                            <div class="noti-detali ml-2">
+                                                <div class="name-noti"><?php echo $firstname; ?> <?php echo $lastname; ?> <span class="time-ageo"><i class="fa fa-globe mr-1"></i> <?php echo $this->timeAgo($created_on); ?></span></div>
+                                                <div class="noti-lesson"><?php echo $notification; ?></div>
+                                            </div>
+                                            <div class="present-noti-type"><i class="fa fa-layer-group"></i></div>
+                                        </div></a>
+                                    <?php }else if($notification_type == "invite"){ ?>
+                                        <a href="<?php echo $notification_url; ?>" id="<?php echo $notification_identity; ?>" onclick="unset_notification_quality(this)"><div class="each-notification d-flex bg-white">
+                                            <div class="notifier-image"><div class="noti-img-def"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%"></div></div>
+                                            <div class="noti-detali ml-2">
+                                                <div class="name-noti"><?php echo $firstname; ?> <?php echo $lastname; ?> <span class="time-ageo"><i class="fa fa-globe mr-1"></i> <?php echo $this->timeAgo($created_on); ?></span></div>
+                                                <div class="noti-lesson"><?php echo $notification; ?></div>
+                                            </div>
+                                            <div class="present-noti-type"><i class="fa fa-envelope-open-o"></i></div>
+                                        </div></a>
                                     <?php } ?>
-                                </div>
                             <?php } 
                         } ?>
                 </div>
@@ -138,12 +366,18 @@
             <?php }
         }
 
+        public function unset_notification_quality($noti_identity){
+            $update_notification = "UPDATE notifications SET notification_visibility='earlier' WHERE identity='$noti_identity'";
+            $execute_notification = mysqli_query($this->Frequency(), $update_notification);
+        }
+
         // COUNT NOTIFICATION
         // =================================================================================
         public function count_notification ($user_email){
             // select new notification
             $notification = 0;
-            $select_new_notification = "SELECT * FROM notifications WHERE notification_from_email IN (SELECT DISTINCT host_email FROM user_follow_board WHERE reciever_email='$user_email') AND notification_from_email != '$user_email' AND notification_visibility='new' AND notification_read_status='0'";
+            // $select_new_notification = "SELECT notifications.*,user_follow_board.host_email,user_follow_board.reciever_email FROM notifications INNER JOIN user_follow_board ON notifications.notification_from_email = user_follow_board.host_email OR notifications.notification_from_email = user_follow_board.reciever_email AND notifications.notification_from_email != '$user_email' AND notifications.notification_read_status='0'";
+            $select_new_notification = "SELECT * FROM notifications WHERE notification_from_email IN (SELECT DISTINCT reciever_email FROM user_follow_board WHERE host_email = '$user_email') OR notification_from_email IN (SELECT DISTINCT host_email FROM user_follow_board WHERE reciever_email = '$user_email') AND notification_from_email != '$user_email' AND notifications.notification_read_status='0' ORDER BY created_on DESC;";
             $execute_new_notification = mysqli_query($this->Frequency(), $select_new_notification);
             while($fetch_new_notification = mysqli_fetch_assoc($execute_new_notification)){
                 $notification = $notification + 1;
@@ -156,7 +390,7 @@
         }
         
         public function unset_notification_count ($user_mail){
-            $unset_notification = "UPDATE notifications SET notification_read_status='1',notification_visibility='earlier' WHERE notification_from__email IN (SELECT DISTINCT reciever_email FROM user_follow_board WHERE host_email='$user_mail') OR notification_from__email IN (SELECT DISTINCT host_email FROM user_follow_board WHERE reciever_email='$user_mail') AND notification_from__email != '$user_mail'";
+            $unset_notification = "UPDATE notifications SET notification_read_status='1' WHERE notification_from_email IN (SELECT DISTINCT reciever_email FROM user_follow_board WHERE host_email='$user_mail') OR notification_from_email IN (SELECT DISTINCT host_email FROM user_follow_board WHERE reciever_email='$user_mail') AND notification_from_email != '$user_mail'";
             $execute_unsetion = mysqli_query($this->Frequency(), $unset_notification);
         }
 
@@ -197,13 +431,13 @@
                     if($message_visibility == "new"){ ?>
                         <!-- when it is new messages -->
                         <!-- <div class="noti-title"><i class="fa fa-envelope-open-o"></i> <span>New 4</span></div> -->
-                        <div class="noti-list">
+                        <div class="noti-list" onclick="document.getElementById('expanded_conv').style.display = 'block'">
                             <div class="each-notification d-flex">
-                                <div class="notifier-image"><div class="noti-img-def"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%"></div></div>
+                                <div class="notifier-image" id="<?php echo $sender_email; ?>" onclick="open_chat(this)"><div class="noti-img-def"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%"></div></div>
                                 <div class="noti-detali ml-2">
                                     <div class="name-noti"><?php echo $firstname; ?> <?php echo $lastname; ?></div>
                                     <div class="noti-lesson" style="font-size: 14px; text-transform: none;"><?php echo $fetch_message_text[0]; ?></div>
-                                    <div class="time-ageo"><i class="fa fa-globe mr-1"></i> <?php echo $this->count_date($created_on); ?></div>
+                                    <div class="time-ageo"><i class="fa fa-globe mr-1"></i> <?php echo $this->timeAgo($created_on); ?></div>
                                 </div>
                                 <?php
                                     $each_message_count = 0; 
@@ -230,13 +464,13 @@
                         ?>
                         <!-- when it is new messages -->
                         <!-- <div class="noti-title"><i class="fa fa-envelope-open-o"></i> <span>New 4</span></div> -->
-                        <div class="noti-list">
+                        <div class="noti-list" onclick="document.getElementById('expanded_conv').style.display = 'block'">
                             <div class="each-notification d-flex">
                                 <div class="notifier-image"><div class="noti-img-def"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%"></div></div>
                                 <div class="noti-detali ml-2">
                                     <div class="name-noti"><?php echo $firstname; ?> <?php echo $lastname; ?></div>
                                     <div class="noti-lesson" style="font-size: 14px; text-transform: none;"><?php echo $fetch_message_text[0]; ?></div>
-                                    <div class="time-ageo"><i class="fa fa-globe mr-1"></i> <?php echo $this->count_date($created_on); ?></div>
+                                    <div class="time-ageo"><i class="fa fa-globe mr-1"></i> <?php echo $this->timeAgo($created_on); ?></div>
                                 </div>
                                 <?php
                                     $each_message_count = 0; 
@@ -275,7 +509,7 @@
             if($messages == "0"){
 
             }else{ ?>
-                <div class="counter"><?php echo $messages; ?></div>
+                <div class="counter_mesag"><?php echo $messages; ?></div>
             <?php }
         }
 
@@ -382,7 +616,7 @@
                         <div class="noti-detali ml-2">
                             <div class="name-noti"> <?php echo $firstName; ?> <?php echo $lastName; ?> </div>
                             <div class="noti-lesson"><?php echo $lastName; ?> Present New challenge </div>
-                            <div class="time-ageo"><i class="fa fa-globe mr-1"></i> <?php echo $this->count_date($fetch_time); ?></div>
+                            <div class="time-ageo"><i class="fa fa-globe mr-1"></i> <?php echo $this->timeAgo($fetch_time); ?></div>
                         </div>
                         <div class="present-msg-type"><i class="fa fa-superpowers"></i></div>
                     </div></a>
@@ -466,6 +700,13 @@
     if(isset($_POST['getNotification'])){
         $new_notification = new Notification_pop();
         $new_notification->all_notification($_POST['getNotification']);
+    }
+
+    // if request is to unset notification quality
+    // =========================================================================================================================================
+    if(isset($_POST['unset_noti_identity'])){
+        $new_notification = new Notification_pop();
+        $new_notification->unset_notification_quality($_POST['unset_noti_identity']);
     }
 
     // if request is to count all notification

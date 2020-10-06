@@ -47,6 +47,8 @@ function followUser(obj){
     var followingEmail = obj.id;   // who i going to follow
     var followersEmail =  document.getElementById("hiddenEmail").value;  // const me 
     $(document).ready(function(){
+        obj.innerHTML = "Process...";
+        obj.style.opacity = ".7";
         $(this).load("follow_user.php",{
             followingEmail: followingEmail,
             followersEmail: followersEmail        
@@ -64,7 +66,8 @@ function followUser(obj){
 // ======================================================================================================================================================
 setInterval(() => {
     more_trainer();
-}, 1000);
+    more_trainer_on_trainer();
+}, 2000);
 function more_trainer(){
     $(document).ready(function(){
         var globale_mail = document.getElementById("hiddenEmail").value;
@@ -73,6 +76,15 @@ function more_trainer(){
         });
     });
 }
+function more_trainer_on_trainer(){
+    $(document).ready(function(){
+        var globale_mail = document.getElementById("hiddenEmail").value;
+        $("#find-more-trainer").load("show_profile_content.php",{
+           more_trainer_on_trainer: globale_mail
+        });
+    });
+}
+
 
 
 // SHIW USER MORE INFO
@@ -414,36 +426,6 @@ function count_recieved_questions(){
     });
 }
 
-
-// show invite people
-// ================================================================================================================
-setInterval(() => {
-    show_invitable_users();
-}, 1000);
-function show_invitable_users(){
-    $(document).ready(function(){
-        var requestUsers = document.getElementById("hiddenEmail").value;
-        $("#invite_people").load("show_profile_content.php", {
-           get_invite: requestUsers
-        });
-    });
-}
-
-function invite(obj){
-    var invitedEmail = obj.id;   // who i going to follow
-    var inviterEmail =  document.getElementById("hiddenEmail").value;  // const me 
-    $(document).ready(function(){
-        $(this).load("show_profile_content.php",{
-            getinvitedEmail: invitedEmail,
-            getinviterEmail: inviterEmail        
-        },function(data){
-            console.log(data);
-            obj.style.border = "1px solid #d3d3d3";
-            obj.innerHTML = "Invited";
-        });
-    });
-}
-
 // shared file
 // ==========================================================================================================================================
 display_chesen_user();
@@ -530,6 +512,22 @@ function shared_image_files(){
         var Email =  document.getElementById("hiddenEmail").value;
         $("#shared_image_files").load("show_profile_content.php", {
             get_shared_image: Email
+        });
+    });
+}
+
+function delete_file(obj){
+    var file_identity = obj.id;
+    var my_email = document.getElementById("hiddenEmail").value;
+    $(document).ready(function(){
+        obj.firstChild.innerHTML = "Deleting...";
+        $(this).load("show_profile_content.php", {
+            delete_file: file_identity,
+            delete_email: my_email
+        }, function(){
+            document.getElementById("downlor_file").style.display = "none";
+            obj.firstChild.innerHTML = "Deleted";
+            display_shared_notes();
         });
     });
 }

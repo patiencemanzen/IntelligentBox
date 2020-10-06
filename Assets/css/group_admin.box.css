@@ -67,14 +67,15 @@ body{
     border-radius: 4px;
     position: fixed;
     left: 40px;
-    top: 100px;
+    top: 150px;
     width: 350px;
 }
 .group-icon{
-    background: #f6f7fd;
+    background: #071c2e;
     padding: 10px;
     display: flex;
     width: 100%;
+    border-radius: 6px;
 }
 .pre-group-image img{
     border-radius: 4px;
@@ -88,6 +89,9 @@ body{
     display: flex;
     margin-top: 5px;
     width: 100%;
+    text-transform: capitalize;
+    color: white;
+    margin-left: 10px;
 }
 .group-name-admin{
     margin-left: 5px;
@@ -95,11 +99,15 @@ body{
 }
 .group-name{
     font-family: roboto_bold;
-    font-size: 17px;
+    font-size: 18px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     width: 250px;
+    letter-spacing: 0.7px;
+    font-weight: 580;
+    color: white;
+    margin-left: 10px;
 }
 .admin-image img{
     border-radius: 50%;
@@ -122,6 +130,8 @@ body{
     white-space: nowrap;
     text-overflow: ellipsis;
     width: 190px;
+    letter-spacing: 0.6px;
+    font-weight: 590;
 }
 .title-conf{
     font-family: roboto_bold;
@@ -129,6 +139,7 @@ body{
     font-size: 16px;
     margin-top: 30px;
     margin-left: 10px;
+    margin-bottom: 20px;
 }
 .each-conf{
     display: flex;
@@ -151,10 +162,12 @@ body{
 }
 .settings-pre{
     font-family: roboto_bold;
-    font-size: 15px;
+    font-size: 16px;
     padding: 10px;
     border-bottom: 1.5px solid #d3d3d3;
     position: relative;
+    letter-spacing: 0.6px;
+    cursor: pointer;
 }
 .settings-pre .fa{
     position: absolute;
@@ -164,16 +177,20 @@ body{
 }
 .each-setting{
     padding: 10px 5px;
-    border-bottom: 2px solid #d3d3d3;
+    border-top: 2px solid #d3d3d3;
 }
 .title-settings{
     font-family: roboto_bold;
+    font-weight: 590;
+    font-size: 15px;
+    letter-spacing: 0.6px;
 }
 .reply-setting{
     font-family: roboto_regular;
     overflow: auto;
-    height: 200px;
+    height: 170px;
     overflow-x: hidden;
+    margin-bottom: 10px;
 }
 .group-description-settings{
     width: 250px;
@@ -193,6 +210,7 @@ body{
 .conf-msg{
     font-family: roboto_bold;
     font-size: 16px;
+    letter-spacing: 0.6px;
 }
 .conf-option{
     display: flex;
@@ -227,7 +245,7 @@ body{
     display: flex;
     justify-content: space-between;
     border-top: 1px solid #d3d3d3;
-    padding: 7px 4px;
+    padding: 5px 4px;
 }
 .discover-image img{
     border-radius: 50%;
@@ -239,28 +257,33 @@ body{
     background: #f6f7fd;
 }
 .discovery-detail{
-    margin-left: 5px;
+    margin-left: 10px;
     letter-spacing: 0.3px;
     line-height: 16px;
     margin-top: 4px;
     width: 100%;
 }
 .dis-name{
-    font-family: roboto_medium;
-    font-size: 12.5px;
+    font-family: roboto_bold;
+    font-size: 14px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     width: 170px;
+    font-weight: 590;
+    letter-spacing: 0.6px;
 }
 .dis-dep{
     font-family: roboto_medium;
-    font-size: 12.5px;
+    font-size: 14px;
     color: #d3d3d3;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     width: 170px;
+    font-weight: 590;
+    letter-spacing: 0.6px;
+    margin-top: 3px;
 }
 .follow-discovery{
     background: #071c2e;
@@ -269,10 +292,12 @@ body{
     outline: none;
     cursor: pointer;
     color: white;
-    font-family: roboto_medium;
+    font-family: roboto_bold;
     font-size: 12px;
     padding: 3px 8px;
     margin-top: 5px;
+    font-weight: 590;
+    letter-spacing: 0.6px;
 }
 .following{
     background: white;
@@ -304,17 +329,20 @@ body{
 .icon-pre-conf-type{
     border-radius: 4px;
     padding: 8px;
-    background: #f6f7fd;
-    color: #041a2f;
+    background: #071c2e;
+    color: white;
     font-family: roboto_bold;
     font-size: 16px;
     cursor: pointer;
 }
+.list-conf{
+    margin-bottom: 20px;
+}
 .admin-tools-list li a div .icon-pre-conf-type{
     border-radius: 4px;
     padding: 8px;
-    background: #f6f7fd;
-    color: #041a2f;
+    background: #071c2e;
+    color: white;
     font-family: roboto_bold;
     font-size: 16px;
 }
@@ -326,10 +354,12 @@ body{
 .admin-tools-list{width: 100%;}
 .conf-title{
     font-family: roboto_bold;
-    font-size: 15px;
+    font-size: 16px;
     margin-top: 10px;
     margin-left: 10px;
     cursor: pointer;
+    font-weight: 580;
+    letter-spacing: 0.6px;
 }
 
 
@@ -352,9 +382,10 @@ body{
 }
 .group-name-title{
     font-family: roboto_bold;
-    font-size: 18px;
-    letter-spacing: 0.5px;
+    font-size: 19px;
+    letter-spacing: 0.7px;
     margin-top: 8px;
+    font-weight: 580;
 }
 .group-name-title .fa{
     cursor: pointer;
@@ -461,6 +492,8 @@ body{
     padding: 5px 10px;
     margin-right: 10px;
     margin-top: 1px;
+    cursor: pointer;
+    letter-spacing: 0.6px;
 }
 .top-nav-bar{
     border-top: 1.5px solid #d3d3d3;
@@ -471,7 +504,9 @@ body{
     color: #041a2f;
     font-family: roboto_bold;
     margin-right: 50px;
-    border-bottom: 2px solid #041a2f;
+    letter-spacing: 0.6px;
+    font-weight: 580;
+    font-size: 15px;
 }
 .short-desc-group{
     margin-right: 10px;
@@ -483,10 +518,14 @@ body{
     font-family: roboto_bold;
     text-transform: capitalize;
     margin-right: 10px;
+    letter-spacing: 0.6px;
+    font-weight: 580;
 }
 .count-member{
     font-family: roboto_medium;
-
+    font-size: 15px;
+    font-weight: 580;
+    letter-spacing: 0.6px;
 }
 
 .top-background{
@@ -531,13 +570,13 @@ body{
 .section-title{
     text-transform: capitalize;
     font-family: roboto_bold;
-    font-size: 15px;
+    font-size: 16px;
     background: #f6f7fd;
     border-radius: 4px;
     padding: 9px 15px 9px 15px;
     margin-top: 5px;
-    display: flex;
-    justify-content: space-between;
+    letter-spacing: 0.6px;
+    font-weight: 580;
 }
 .search_group{
     display: flex;
@@ -565,26 +604,42 @@ body{
 .title-group-desc{
     font-family: roboto_bold;
     font-size: 17px;
+    font-weight: 580;
+    letter-spacing: 0.6px;
 }
 .short-msg{
     font-family: roboto_medium;
     margin-top: 3px;
-    font-size: 12px;
+    font-size: 15px;
+    letter-spacing: 0.6px;
+    font-weight: 590;
+    margin-left: 20px;
+}
+.current_description{
+    margin-top: 10px;
 }
 
 .short-msg-current{
     font-family: roboto_bold;
-    font-size: 15px;
+    font-size: 16px;
+    letter-spacing: 0.6px;
+    font-weight: 590;
 }
 .current_bio{
     font-family: roboto_medium;
-    font-size: 12.5px;
+    font-size: 15px;
     margin-left: 20px;
+    letter-spacing: 0.6px;
+    background: #08345e;
+    border-radius: 4px;
+    padding: 5px 10px;
+    color: white;
+    margin-top: 5px;
 }
 .textarea-desc{
     border-top: 1.5px solid #d3d3d3;
     padding: 10px 0;
-    margin-top: 3px;
+    margin-top: 10px;
 }
 .textarea-desc-input textarea{
     width: 100%;
@@ -684,7 +739,7 @@ body{
 
 /* create post area */
 /* =========================================================================================================================================== */
-   .create-post{
+    .create-post{
         border-radius: 4px;
         background: white;
         box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 15px rgba(0,0,0, 0.4);
@@ -693,10 +748,12 @@ body{
         padding: 10px 10px 10px 10px;
         font-family: roboto_bold;
         background-color: #f6f7fd;
-        text-transform: capitalize;
+        text-transform: none;
         border-top-left-radius: 4px;
         border-top-right-radius: 4px;
         font-size: 16px;
+        letter-spacing: 0.6px;
+        font-weight: 580;
     }
     .ask{
         font-family: roboto_bold;
@@ -719,6 +776,10 @@ body{
         padding: 10px;
         width: 100%;
         margin-left: 10px;
+        font-weight: 580;
+        font-family: roboto_bold;
+        font-size: 16px;
+        letter-spacing: 0.6px;
     }
     .alert-result-recieved{
         position: absolute;

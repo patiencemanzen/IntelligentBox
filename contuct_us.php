@@ -103,9 +103,9 @@
     $newFeedback = new Feedbacks($inputed_firstname,$inputed_email,$inputed_subject,$inputed_body);
     if($newFeedback->validate_email()){
         if($newFeedback->send_Email()){
-            $response = "Success";
+            $response = "Thank you for your hospitality and your support";
         }else{
-            $response = "Fail";
+            $response = "Send email fail, Please try again";
         }
     }else{
         $response = "Invalid email, Please input valid email";

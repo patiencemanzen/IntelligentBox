@@ -65,7 +65,7 @@ body{
     height: 350px;
 }
 .challenge-detail{
-    background: white;
+    background: #08345e;
     padding: 15px;
     margin-bottom: 30px;
     border-bottom-left-radius: 4px;
@@ -95,6 +95,15 @@ body{
    font-size: 20px;
    font-family: roboto_bold;
    margin-top: 8px;
+   color: white;
+   letter-spacing: 0.7px;
+   text-transform: capitalize;
+}
+.vs{
+    color: white;
+    font-family: roboto_bold;
+    letter-spacing: 1.5px;
+    font-size: 30px;
 }
 .group-2-img{
     border-radius: 50%;
@@ -112,6 +121,9 @@ body{
     font-size: 20px;
     font-family: roboto_bold;
     margin-top: 8px;
+    color: white;
+    letter-spacing: 0.7px;
+    text-transform: capitalize;
  }
 
 /* end top background */
@@ -666,14 +678,15 @@ body{
     outline: none;
     border: none;
     background-color: #f6f7fd;
-    font-size: 13px;
     font-family: roboto_medium;
+    font-size: 15px;
+    letter-spacing: 0.6px;
 }
 .type-something{
     border-radius: 4px;
-    padding: 5px 5px 0px 5px;
+    padding: 10px 15px;
     background: #f6f7fd;
-    font-family: roboto_regular;
+    font-family: roboto_medium;
     width: 100%;
     cursor: pointer;
 }

@@ -16,7 +16,7 @@
         }
 
         
-        function timeAgo($time_ago){
+        public function timeAgo($time_ago){
             $time_ago = strtotime($time_ago);
             $cur_time   = time();
             $time_elapsed   = $cur_time - $time_ago;
@@ -125,7 +125,7 @@
                                 <div class="poster-identity">
                                     <a href="public_profile.box.php" >
                                         <div class="poster-img" id="load_profile_post" data-toggle="tooltip" data-placement="bottom" title="<?php echo $getFirstname; ?> <?php echo $getLastname; ?>' profile" >
-                                            <img src="<?php echo '../Images/profile-img/profile-image/'.$poster_profile_image; ?>" width="100%" height="100%">
+                                            <img src="<?php echo '../Images/profile-img/profile-image/'.$poster_profile_image; ?>" alt="<?php echo $getFirstname; ?>'s profile image'" width="100%" height="100%">
                                         </div>
                                     </a>
                                 </div>
@@ -157,17 +157,17 @@
                                             <?php if($type == "profile"){?>
                                                 <!-- if post is photo -->
                                                 <div class="media mt-2">
-                                                    <img src="<?php echo '../Images/profile-img/profile-image/'.$select_media_posted; ?>" width="100%" height="100%">
+                                                    <img src="<?php echo '../Images/profile-img/profile-image/'.$select_media_posted; ?>" alt="Media" width="100%" height="100%">
                                                 </div>
                                             <?php }else if($type == "feeds"){?>
                                                 <!-- if post is photo -->
                                                 <div class="media mt-2">
-                                                    <img src="<?php echo '../Images/activity_stream/'.$select_media_posted; ?>" width="100%" height="100%">
+                                                    <img src="<?php echo '../Images/activity_stream/'.$select_media_posted; ?>" alt="media" width="100%" height="100%">
                                                 </div>
                                             <?php }else{?>
                                                 <!-- if post is photo -->
                                                 <div class="media mt-2">
-                                                    <img src="<?php echo $photoPath.$select_media_posted; ?>" width="100%" height="100%">
+                                                    <img src="<?php echo $photoPath.$select_media_posted; ?>" alt="media" width="100%" height="100%">
                                                 </div>
                                             <?php } ?>
                                         <?php } ?>
@@ -209,8 +209,6 @@
                                                                 count_post_like: post_idintity,
                                                                 user_mail: user_email,
                                                                 getPost_type: post_type
-                                                            },function(like_response){
-                                                                counter_holder.innerHTML = like_response;
                                                             });
                                                         });
                                                     }, 1000);
@@ -244,7 +242,7 @@
                                     <!-- add comment to post -->
                                     <!-- =================================================================== -->
                                     <div class="add-comment mt-2 d-flex">
-                                        <div><div class="commenter-image" id="commenter-image"><img src="<?php echo '../Images/profile-img/profile-image/'.$my_profile_image; ?>" alt="" width="100%" height="100%"></div>  </div>
+                                        <div><div class="commenter-image" id="commenter-image"><img src="<?php echo '../Images/profile-img/profile-image/'.$my_profile_image; ?>" alt="my profile image" width="100%" height="100%"></div>  </div>
                                         <div class="text-input ml-2 mr-2" id="text-input-holder">
                                             <textarea name="" id="comments_public" cols="30" rows="1" placeholder="Write a comments..." width="100%" height="100%"></textarea>
                                         </div>
@@ -263,7 +261,7 @@
                 <?php }
             }else{ ?>
                 <div class="no-data-found d-flex flex-column text-center">
-                    <img src="../Images/Illustrator_img/post_online_dkuk.png" alt="" width="100%" height="100%">
+                    <img src="../Images/Illustrator_img/post_online_dkuk.png" alt="present profile updates" width="100%" height="100%">
                     <span>Create more posts,update profile image and shared what you are thinking </span>
                 </div>
             <?php }
@@ -314,12 +312,18 @@
                 $getEmail = $fetch_comment['email'];
                 $getComment = $fetch_comment['comment'];
                 $getComment_identity = $fetch_comment['identity'];
+                $commented_time = $fetch_comment['created_on'];
 
                 $select_basic_info = "SELECT * FROM intelligent_users WHERE email='$getEmail'";
                 $execute_basic_info = mysqli_query($this->Frequency(), $select_basic_info);
                 $fetch_basic_info = mysqli_fetch_assoc($execute_basic_info);
-                $getFirstname = $fetch_basic_info['firstName'];
-                $getLastname = $fetch_basic_info['lastName'];
+                    $getFirstname = $fetch_basic_info['firstName'];
+                    $getLastname = $fetch_basic_info['lastName'];
+
+                $profile_image_owner = "SELECT profile_image FROM user_profile_image WHERE usr_email='$email' AND status_image='1'";
+                $secute_owner_image = mysqli_query($this->Frequency(), $profile_image_owner);
+                $fetch_image_owner = mysqli_fetch_assoc($secute_owner_image);
+                    $profile_image_owner = $fetch_image_owner['profile_image'];  
 
                 $select_poster_img = "SELECT profile_image FROM user_profile_image WHERE usr_email='$getEmail' AND status_image='1'";
                 $execute_profile_image = mysqli_query($this->Frequency(),$select_poster_img);
@@ -327,9 +331,9 @@
                 $profile_image = $fetch_image['profile_image']; ?>
                     <div class="container right-comment">
                         <div class="content d-flex">
-                            <div class="answerer-image"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%"></div>
+                            <div class="answerer-image"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="<?php echo $getFirstname; ?>' profile image'" width="100%" height="100%"></div>
                             <div class="answerer-detail ml-2 mt-1">
-                                <div class="answerer-name"><?php echo $getFirstname; ?> <?php echo $getLastname; ?></div>
+                                <div class="answerer-name"><?php echo $getFirstname; ?> <?php echo $getLastname; ?> <span class="time-posted"><i class="fa fa-globe ml-2"></i> <?php echo $this->timeAgo($commented_time); ?></span></div>
                                 <div class="answer"><?php echo $getComment; ?></div>
                                 <div class="accurancy d-flex justify-content-between">
                                     <div class="question-comment" id="<?php echo $getComment_identity; ?>" data-target="#comment-found-<?php echo $getComment_identity; ?>" data-toggle="collapse" onclick="comment_reply_display(this)">
@@ -370,7 +374,7 @@
                                 <!-- ======================================================= -->
                                 <div class="commenting-section collapse" id="comment-found-<?php echo $getComment_identity; ?>">
                                     <div class="comment-add-comment">
-                                        <div><div class="commeter-image-down"><img src="../Images/profile-img/profile-image/profile-image-1.webp" alt="" width="100%" height="100%"></div></div>
+                                        <div><div class="commeter-image-down"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image_owner; ?>" alt="my profile image" width="100%" height="100%"></div></div>
                                         <div class="textarea-add-comment"><textarea name="" id="" cols="30" rows="1" placeholder="Write comment..."></textarea></div>
                                         <div class="post-comment-written"><button id="<?php echo $getComment_identity; ?>" onclick="comment_reply(this)">Post</button></div>
                                     </div>
@@ -449,7 +453,7 @@
                 $fetch_image = mysqli_fetch_assoc($execute_profile_image);
                     $profile_image = $fetch_image['profile_image'];  ?>
                         <div class="each-comment-found">
-                            <div><div class="commenter-image-found"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%"></div></div>
+                            <div><div class="commenter-image-found"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="<?php echo $getFirstname; ?>' profile image'" width="100%" height="100%"></div></div>
                             <div>
                                 <div class="real-comment-found"><?php echo $getComment_replied; ?></div>
                                 <div class="time-commented"><?php echo $this->timeAgo($getStartdate); ?></div>

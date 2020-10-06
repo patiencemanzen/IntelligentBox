@@ -92,16 +92,20 @@
     }
     .present-map{
         border-radius: 4px;
-        padding: 10px;
+        padding: 2px 10px;
+        background: white;
         box-shadow: 0 0 5px rgba(0,0,0, 0.3);
     }
    
     .present-map ul li a div{
         position: relative;
-        width: 140px;
+        width: 150px;
         height: 190px;
         cursor: pointer;
-        margin-bottom: 5px;
+        background: #041a2f;
+        padding: 5px;
+        margin: 5px 3px;
+        border-radius: 6px;
     }
     .present-map ul li a div:hover {
         opacity: .8;
@@ -160,6 +164,8 @@
         font-family: roboto_bold;
         text-transform: capitalize;
         width: 100%;
+        line-height: 25px;
+        letter-spacing: 1px;
     }
     .post-sub-title{
         font-size: 15px;
@@ -189,11 +195,12 @@
         cursor: pointer;
     }
     .sub-full-desc{
-        font-family: roboto_regular;
+        font-family: roboto_medium;
         width: 300px;
-        line-height: 19px;
-        letter-spacing: 0.5px;
-        font-weight: 560;
+        line-height: 22px;
+        letter-spacing: 0.8px;
+        font-weight: 590;
+        font-size: 16px;
     }
     /* end left side section */
     /* ======================================================================================================================================= */
@@ -289,8 +296,8 @@
         font-family: roboto_regular;
         padding: 6px 5px;
         border-top: 1.5px solid #d3d3d3;
-        letter-spacing: 0.4px;
-        line-height: 18px;
+        letter-spacing: 0.6px;
+        line-height: 19px;
     }
     .story-images img{
         border-radius: 4px;
@@ -330,11 +337,11 @@
         border-radius: 4px;
         box-shadow: 0 0 5px rgba(0,0,0, 0.3);
         margin-top: 20px;
+        background: white;
     }
     .title-short-story{
         padding: 10px;
         font-family: roboto_bold;
-        text-transform: capitalize;
         font-size: 15px;
         background: #f6f7fd;
         border-top-left-radius: 4px;
@@ -363,6 +370,7 @@
         background-color: #f6f7fd;
         font-family: roboto_medium;
         font-size: 15px;
+        letter-spacing: 0.6px;
     }
     .type-something{
         border-radius: 4px;

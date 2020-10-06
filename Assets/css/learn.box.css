@@ -160,14 +160,14 @@
         margin-top: 13px;
     }
     .course-count span,.learners span{
-        color: black;
+        color: rgb(204, 140, 140);
     }
     .lessons{width: 100%;}
     .lessons ul li{width: 100%;}
-    .lessons ul{width: 100%;}
+    .lessons ul{width: 100%;padding: 0;}
     .lessons ul li a div{width: 100%;}
     .nav-tabs .active .each-lessons{
-        border: 1px solid #d3d3d3;
+        border: 1px solid #041a2f;
     }
     .each-lessons{
         background: white;
@@ -858,7 +858,7 @@
             margin-right: 10px;
             width: auto;
         }
-        .lessons-link{
+        .lessons-link, nav, .nav-tabs{
             display: flex;
         }
         .each-lessons{

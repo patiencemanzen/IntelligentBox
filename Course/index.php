@@ -123,8 +123,8 @@
 
                         <!-- course department -->
                         <!-- ============================================================================================================ -->
-                        <div class="course-department shadow-sm">
-                            <div class="section-title">Class you might like</div>
+                        <div class="course-department mt-3">
+                            <div class="section-title">Classes Around</div>
                             <div class="department-list mt-3 getClassess">
 
                             </div>
@@ -134,8 +134,8 @@
 
                         <!-- group present -->
                         <!-- ========================================================================================================================================== -->
-                        <div class="course-department shadow-sm p-3">
-                            <div class="section-title down-subtile">Group you might like to join</div>
+                        <div class="course-department p-3">
+                            <div class="section-title down-subtile">More Groups</div>
                             <div class="department-list mt-3" id="displayslider">
 
                             </div>
@@ -216,4 +216,7 @@
 
    </body>
 </html>
-<?php } ?>
+<?php }else{
+    header("Location: ../account_shortcut.box.php?session");
+    exit();
+} ?>

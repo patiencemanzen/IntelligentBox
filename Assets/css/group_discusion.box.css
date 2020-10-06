@@ -62,6 +62,8 @@
         border: 1.5px solid #d3d3d3;
         padding: 10px;
         border-radius: 4px;
+        letter-spacing: 1.5px;
+        font-weight: 600;
     }
     .background-top-image {
         position: relative;
@@ -126,6 +128,8 @@
         padding: 10px;
         border-bottom: 1.5px solid #d3d3d3;
         position: relative;
+        letter-spacing: 0.6px;
+        font-weight: 590;
     }
     .settings-pre .fa{
         position: absolute;
@@ -141,7 +145,7 @@
         display: flex;
         justify-content: space-between;
         border-top: 1px solid #d3d3d3;
-        padding: 7px 4px;
+        padding: 5px 4px;
     }
     .discover-image img{
         border-radius: 50%;
@@ -153,28 +157,31 @@
         background: #f6f7fd;
     }
     .discovery-detail{
-        margin-left: 5px;
+        margin-left: 10px;
         letter-spacing: 0.3px;
         line-height: 16px;
         margin-top: 4px;
         width: 100%;
     }
     .dis-name{
-        font-family: roboto_medium;
-        font-size: 12.5px;
+        font-family: roboto_bold;
+        font-size: 14px;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
         width: 170px;
+        letter-spacing: 0.6px;
+        text-transform: capitalize;
     }
     .dis-dep{
-        font-family: roboto_medium;
-        font-size: 12.5px;
+        font-family: roboto_bold;
+        font-size: 14px;
         color: #d3d3d3;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
         width: 170px;
+        letter-spacing: 0.6px;
     }
     .follow-discovery{
         background: #071c2e;
@@ -183,10 +190,11 @@
         outline: none;
         cursor: pointer;
         color: white;
-        font-family: roboto_medium;
+        font-family: roboto_bold;
         font-size: 12px;
         padding: 3px 8px;
         margin-top: 5px;
+        letter-spacing: 0.6px;
     }
     .following{
         background: white;
@@ -207,7 +215,7 @@
     .reply-setting{
         font-family: roboto_regular;
         overflow: auto;
-        height: 200px;
+        height: 150px;
         overflow-x: hidden;
     }
     .group-description-settings{
@@ -262,16 +270,19 @@
         bottom: 20px;
     }
     .group-member {
-        padding: 8px 0px 8px 8px;
-        background: white;
+        padding: 10px 10px;
+        background: #08345e;
         border-bottom-right-radius: 4px;
         border-bottom-left-radius: 4px;
+        display: flex;
+        justify-content: space-between;
     }
     .group-detail{
-        margin-top: 10px;
+        /* margin-top: 7px; */
+        display: flex;
+        justify-content: space-between;
     }
-    .detail-list .detail{
-        background: #f6f7fd;
+    .group-detail .detail{
         font-family: roboto_bold;
         text-transform: capitalize;
         border-radius: 4px;
@@ -280,16 +291,18 @@
         position: relative;
         margin-right: 8px;
         font-size: 13px;
+        background: white;
     }
-    .detail-list .detail .search{
+    .group-detail .detail .search{
         border: none;
         outline: none;
         padding: 0px 10px 0px 10px;
-        background: #f6f7fd;
-        font-family: roboto_regular;
+        background: white;
+        font-family: roboto_medium;
         font-size: 14px;
+        letter-spacing: 0.6px;
     }
-    .detail-list .detail .fa-search{
+    .group-detail .detail .fa-search{
         margin-top: 3px;
     }
     .searched-result{
@@ -382,8 +395,9 @@
     .count-member{
         font-size: 16px;
         font-family: roboto_bold;
-        margin-top: 11px;
+        /* margin-top: 11px; */
         margin-left: 3px;
+        color: white;
     }
     /* end top background style*/
     /* ==================================================================================================== */
@@ -939,9 +953,9 @@
         text-transform: capitalize;
     }
     .create-short-story{
-        border: 1px solid #d3d3d3;
         border-radius: 4px;
         background-color: white;
+        box-shadow: 0 0 5px rgba(0,0,0, 0.3);
     }
     .title-short-story{
         padding: 10px;
@@ -957,12 +971,11 @@
         padding: 10px;
     }
     .user-image{
-        width: 50px;
-        height: 50px;
+        width: 60px;
+        height: 60px;
         border-radius: 100%;
         background: #f6f7fd;
         padding: 2px;
-        border: 1px solid #d3d3d3;
     }
     .user-image img{
         border-radius: 100%;
@@ -976,16 +989,18 @@
         outline: none;
         border: none;
         background-color: #f6f7fd;
+        font-family: roboto_bold;
+        letter-spacing: 0.7px;
     }
     .type-something{
-        border-radius: 4px;
-        border: 1px solid #d3d3d3;
-        padding: 5px 5px 0px 5px;
+        border-radius: 14px;
+        padding: 15px 20px;
         background: #f6f7fd;
         font-family: roboto_regular;
         width: 100%;
         cursor: pointer;
         font-size: 14px;
+        font-size: 18px;
     }
     .feeling-addition{
         padding: 10px;
@@ -1000,7 +1015,7 @@
         font-size: 15px;
         cursor: pointer;
     }
-    /* create short story on profile */
+    /* create short story in group */
     .create-stoty-prive{
         position: absolute;
         background: white;
@@ -1008,7 +1023,7 @@
         padding: 5px;
         z-index: 20;
         top: 20px;
-        right: 370px;
+        right: 350px;
         width: 500px;
         display: none;
         animation: result 300ms ease-in-out forwards;
@@ -1548,7 +1563,7 @@
       .detailed .fa{
           margin-top: 3px;
       }
-      .align-justify{display: none;}
+      .small-dev{display: none;}
 
       .div_challenges_hold{
           position: fixed;
@@ -1678,6 +1693,7 @@
     @media screen and (max-width: 991px){
           .right-side{display: none;}
           .group-detail{display: none;}
+          .small-dev{display: block;}
           .align-justify{display: block;}
           .top-pre-background-image{
               height: 250px;

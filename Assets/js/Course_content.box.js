@@ -29,12 +29,13 @@ function join_goup(obj){
     var group_identity = obj.id;
     var user_email = document.getElementById("hiddenEmail").value;
     $(document).ready(function(){
+        obj.innerHTML = "Processing..."
         $(this).load("Course_content.php", {
             getGroup_identity: group_identity,
             getUser_email: user_email
         }, function(data_response){
             console.log(data_response);
-            obj.innerHTML = "Request sent"
+            obj.innerHTML = "Request sent";
         });
     });
 }
@@ -55,6 +56,7 @@ function join_class(obj){
     var class_identity = obj.id;
     var user_email = document.getElementById("hiddenEmail").value;
     $(document).ready(function(){
+        obj.innerHTML = "Processing...";
         $(this).load("Course_content.php",{
             getClass_identity: class_identity,
             getUser: user_email

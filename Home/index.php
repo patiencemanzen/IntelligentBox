@@ -14,8 +14,6 @@
        <meta name="viewport" content="width=device-width, initial-scale=1.0">
        <meta http-equiv="X-UA-Compatible" content="ie=edge">
        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-       <meta name="description" content="intelligentBox is The system that help the tvet school or any other kind of Person who want to learn the lessons of tvet Rwanda and others related to intellectual skills through online and meet up with many other student who also is learning the related thing and get challenge with them" />
-       <meta name="keywords" content="social network,social media, learning, e-learning, share, friends, challenge, tvet, lessons, schools, create, skills, account, signin, online charting, online learning, courses, groups" />
        <meta name="author" content="Manirabona Patience" />
        <meta name="robots" content="index, follow"/>
        <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,11 +34,7 @@
        <link rel="stylesheet" href="../Lib/now-ui-kit/now-ui-kit.css?v=1.3.0">
        <link rel="stylesheet" href="../Lib/animate/animate.min.css">
        <link rel="stylesheet" href="../Lib/font-awesome/css/font-awesome.min.css">
-       <link rel="stylesheet" href="../Lib/jquery/jquery.fancybox.css">
        <link rel="stylesheet" href="../Lib/lightbox/css/lightbox.min.css">
-       <link rel="stylesheet" href="../Lib/owlcarousel/assets/owl.carousel.min.css">
-       <link rel="stylesheet" href="../Lib/slick/slick.css">
-       <link rel="stylesheet" href="../Lib/theme-color/violet-theme.css">
        <link rel="stylesheet" href="../Lib/venobox/venobox.css">
    
    </head>
@@ -90,11 +84,9 @@
                                             <!-- end questions -->
                                         </ul>
                                         <div class="choose-link">
-                                            <div class="pre-link">Filter posts</div>
+                                            <div class="pre-link">Search posts</div>
                                             <div class="select_posts">
-                                                <select name="which_post" id="post-type">
-                                                    <option value="">all posts</option>
-                                                </select>
+                                                <input type="search" placeholder="Search post..." name="which_post" id="search_post" onkeyup="search_post(this)">
                                             </div>
                                         </div>
                                     </div>
@@ -302,22 +294,10 @@
         <script src="../Lib/date-picker/nouislider.min.js"></script>
         <script src="../Lib/easing/easing.min.js"></script>
         <script src="../Lib/jquery/jquery-migrate.min.js"></script>
-        <script src="../Lib/jquery/jquery.bootstrap-wizard.js"></script>
-        <script src="../Lib/jquery/jquery.counterup.js"></script>
-        <script src="../Lib/jquery/jquery.fancybox.pack.js"></script>
         <script src="../Lib/jquery/jquery.min.js"></script>
-        <script src="../Lib/jquery/jquery.mixitup.js"></script>
-        <script src="../Lib/jquery/jquery.poptrox.min.js"></script>
-        <script src="../Lib/jquery/jquery.validate.min.js"></script>
-        <script src="../Lib/jquery/perfect-scrollbar.jquery.min.js"></script>
         <script src="../Lib/lightbox/js/lightbox-plus-jquery.min.js"></script>
         <script src="../Lib/material/js/material-dashboard?v=2.1.1.js"></script>
         <script src="../Lib/now-ui-kit/now-ui-kit.js"></script>
-        <script src="../Lib/owlcarousel/owl.carousel.js"></script>
-        <script src="../Lib/popper/popper.min.js"></script>
-        <script src="../Lib/skel/skel.min.js"></script>
-        <script src="../Lib/slick/slick.js"></script>
-        <script src="../Lib/superfish/superfish.js"></script>
         <script src="../Lib/venobox/venobox.js"></script>
         <script src="../Lib/wow/wow.min.js"></script>
         <script src="../Lib/bootstrap/js/bootstrap-material-design.min.js"></script>
@@ -350,4 +330,7 @@
 </html>
 </body>
 </html>
-<?php } ?>
+<?php }else{ 
+    header("Location: ../account_shortcut.box.php");
+    exit();
+    }?>

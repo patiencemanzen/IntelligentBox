@@ -12,16 +12,11 @@
         <meta name="robots" content="index, follow"/>
         <meta name="apple-mobile-web-app-capable" content="yes">
 
-        <!-- index, used to repesent intelligent box on search engine and it browser -->
         <title>intelligentBox account</title>
 
-        <!-- intelligent box logo, present on search engine and on browse header -->
         <link rel="shortcut icon" href="Images/favicon.png" type="image/x-icon">
-
-        <!-- external style link, type css file-->
         <link rel="stylesheet" href="Assets/css/account_shortcuts.box.css">
 
-        <!-- external css file/ libraries -->
         <link rel="stylesheet" href="Lib/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="Lib/material/css/material-dashboard.css?v=2.1.1">
         <link rel="stylesheet" href="Lib/now-ui-kit/now-ui-kit.css?v=1.3.0">
@@ -49,7 +44,7 @@
                 <div class="container">
                     <div class="links">
                         <ul>
-                            <li><a href="index.php"><i class="fa fa-user"></i> Create account</a></li>
+                            <li><a href="index.php"><i class="fa fa-user"></i> Create account/Home</a></li>
                             <li class="Privacy"><a href="About/Privacy.php"><i class="fa fa-shield"></i> Privacy and Safety</a></li>
                             <li class="Conditions"><a href="About/terms_condition.php"><i class="fa fa-institution"></i> Terms and Conditions</a></li>
                         </ul>

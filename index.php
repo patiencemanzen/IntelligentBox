@@ -11,18 +11,12 @@
         <meta name="author" content="Manirabona Patience" />
         <meta name="robots" content="index, follow"/>
         <meta name="apple-mobile-web-app-capable" content="yes">
-
-        <!-- index, used to repesent intelligent box on search engine and it browser -->
         <title>intelligentBox</title>
 
-        <!-- intelligent box logo, present on search engine and on browse header -->
         <link rel="shortcut icon" href="Images/favicon.png" type="image/x-icon">
-
-        <!-- external style link, type css file-->
         <link rel="stylesheet" href="Assets/css/index.box.css">
         <link rel="stylesheet" href="Assets/css/preloader.btn.css">
 
-        <!-- external css file/ libraries -->
         <link rel="stylesheet" href="Lib/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="Lib/material/css/material-dashboard.css?v=2.1.1">
         <link rel="stylesheet" href="Lib/now-ui-kit/now-ui-kit.css?v=1.3.0">
@@ -34,6 +28,7 @@
     
     </head>
     <body>
+
         <!-- Top navbar present -->
         <!-- ============================================================================================================ -->
         <nav class="header-fixed">
@@ -43,7 +38,6 @@
                 <div class="container d-flex">
                     <div class="intelligent-box-logo"> intelligentBox </div>
                 </div>
-                <!-- end container -->
                 <!-- =================================================================================================== -->
             </div>
 
@@ -71,10 +65,8 @@
                         </div>
                         <div class="sign-in-btn create-account">
                             <ul>
-                                <li class="all_trades_found" onclick="openTrade()"><a>All trades</a></li>
-                                <li class="dis_short_devs"><a href="account_shortcut.box.php">
-                                    <i class="fa fa-sign-in"></i> I have account!, Sign me In
-                                </a></li>
+                                <!-- <li class="all_trades_found"><a href="#More_courses"><i class="fa fa-graduation-cap"></i> Courses</a></li> -->
+                                <li class="dis_short_devs"><a href="account_shortcut.box.php"><i class="fa fa-sign-in"></i> I have account!, Sign me In </a></li>
                             </ul>
                         </div>
 
@@ -86,20 +78,16 @@
         
                             </div>
                         </div>
-                        <!-- end illustration -->
                         <!-- ============================================================================================= -->
                     </div>
                 </div>
             </div>
-            <!-- end secord navbar -->
             <!-- =================================================================================================================== -->
         </nav>
-        <!-- end top navbar present -->
         <!-- ====================================================================================================================== -->
 
         
         <!-- TOP BACKGROUND IMAGE -->
-        <!-- ====================================================================================================== -->
         <!-- ====================================================================================================== -->
         <div class="carousel slide shadow-none" data-ride="carousel" id="slides">
             <div class="carousel-inner shadow-none">
@@ -138,13 +126,10 @@
                 </div>
            </div>  
         </div>
-        <!-- end image non slide -->
-        <!-- ============================================================================================================================================= -->
         <!-- ============================================================================================================================================= -->
 
 
         <!-- thumbnail -->
-        <!-- ==================================================================================================================================================== -->
         <!-- ==================================================================================================================================================== -->
         <div class="thumbnail ml-auto mr-auto">
             <div class="container">
@@ -170,7 +155,6 @@
                                     <div class="over-img-full">Connect yourself with World's Educations</div>
                                 </div>
                             </div>
-                            <!-- get started intro -->
                             <!-- =============================================================================================================== -->
                         </div>
                         <!-- ==================================================================================================================================== -->
@@ -241,7 +225,6 @@
                         <div class="right_thumb_content">
                             <!-- tab for sign up, sign in and others -->
                             <!-- =================================================================================================================== -->
-                            <!-- ======================================================================================================================= -->
                             <div class="tab-content-container user-option wow fadeInUp">
                                 <div class="card-content">
 
@@ -251,7 +234,7 @@
                                         <ul class="nav nav-tabs d-flex" role="tablist">
                                             
                                             <li class="nav-item">
-                                                <a class="nav-link-top active" style="font-size: 16px;" data-toggle="tab" href="#intro" role="tab" style="font-size: 12px;">Top trades</a>
+                                                <a class="nav-link-top active" style="font-size: 16px;" data-toggle="tab" href="#intro" role="tab" style="font-size: 12px;">Top Trades</a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link-top" style="font-size: 16px;" data-toggle="tab" href="#signmeup" role="tab" style="font-size: 12px;">Sign me up</a>
@@ -278,13 +261,10 @@
 
                                                 </div>
                                             </div>
-                                            <!-- end introduction div -->
-                                            <!-- ==================================================================================================================================================== -->
                                             <!-- ======================================================================================================================================================= -->
 
 
                                             <!-- sign me up tab -->
-                                            <!-- ====================================================================================================================================================== -->
                                             <!-- ====================================================================================================================================================== -->
                                             <div class="tab-pane" id="signmeup" role="tabpanel" style="padding: 0;">
                                                 <!-- background image -->
@@ -292,90 +272,85 @@
                                                 <div class="sign-me-up-backimage">
                                                     <img src="images/index-img/sign-me-up-1.jpg" alt="background_image" width="100%" height="100%">
                                                 </div>
-                                                <!-- end background image -->
                                                 <!-- ===================================================================== -->
 
                                                 <!-- SIGN UP TAB -->
-                                                <!-- =============================================================================================================== -->
                                                 <!-- ================================================================================================================= -->
                                                 <div class="student-trainer-option">
 
-                                                        <!-- step indicatotr -->
-                                                        <!-- =========================================================================== -->
-                                                        <div style="text-align:center;margin-top:5px;">
-                                                            <span class="step"></span>
-                                                            <span class="step"></span>
-                                                            <span class="step"></span>
-                                                            <span class="step"></span>
-                                                            <span class="step"></span>
-                                                            <span class="step"></span>
-                                                        </div>
-                                                        <!-- end step indicator -->
-                                                        <!-- ================================================================================== -->
+                                                    <!-- step indicatotr -->
+                                                    <!-- =========================================================================== -->
+                                                    <div style="text-align:center;margin-top:5px;">
+                                                        <span class="step"></span>
+                                                        <span class="step"></span>
+                                                        <span class="step"></span>
+                                                        <span class="step"></span>
+                                                        <span class="step"></span>
+                                                        <span class="step"></span>
+                                                    </div>
+                                                    <!-- ================================================================================== -->
 
-                                                        <!-- next btn -->
-                                                        <!-- ================================================================================== -->
-                                                        <div class="create-btn d-flex justify-content-between" id="btn-signup">
-                                                            <!-- preloader -->
-                                                            <div class="container-pre-signup" id="Preloader">
-                                                                <div class="shape shape-1"></div>
-                                                                <div class="shape shape-2"></div>
-                                                                <div class="shape shape-3"></div>
-                                                                <div class="shape shape-4"></div>
+                                                    <!-- next btn -->
+                                                    <!-- ================================================================================== -->
+                                                    <div class="create-btn d-flex justify-content-between" id="btn-signup">
+                                                        <!-- preloader -->
+                                                        <div class="container-pre-signup" id="Preloader">
+                                                            <div class="shape shape-1"></div>
+                                                            <div class="shape shape-2"></div>
+                                                            <div class="shape shape-3"></div>
+                                                            <div class="shape shape-4"></div>
+                                                        </div>
+                                                        <!-- end preloader -->
+                                                    </div>
+                                                    <!-- ====================================================================================== -->
+
+                                                    <!-- present and talk to user and user input-->
+                                                    <!-- ======================================================================================= -->
+                                                    <div class="tab-holder">
+                                                        <form action="navigateUser.php" method="POST">
+                                                            <!-- tab zero form option trainer or student -->
+                                                            <!-- =============================================================================================================== -->
+                                                            <div class="inputs-form tab">
+                                                                <div class="present-section">
+                                                                    <div>
+                                                                        Thank you for Using intelligent box, you will learn more things about history, religions and read more news from everywhere, explore many new connections and people you may like to share things. 
+                                                                        Build up your mind and be the one you wish to be, in another words be different, Just join us Today.
+                                                                    </div>
+                                                                </div>
+                                                                <div class="student-choise" onclick="nextPrev(1)">Get stated</div>
                                                             </div>
-                                                            <!-- end preloader -->
-                                                        </div>
-                                                        <!-- end next btn -->
-                                                        <!-- ====================================================================================== -->
+                                                            <!-- end tab one signup -->
+                                                            <!-- ================================================================================================================= -->
 
-                                                        <!-- present and talk to user and user input-->
-                                                        <!-- ======================================================================================= -->
-                                                        <div class="tab-holder">
-                                                            <form action="navigateUser.php" method="POST">
-                                                                <!-- tab zero form option trainer or student -->
-                                                                <!-- =============================================================================================================== -->
-                                                                <div class="inputs-form tab">
-                                                                    <div class="present-section">
-                                                                        <div>
-                                                                            Thank you for Using intelligent box, you will learn more things about history, religions and read more news from everywhere, explore many new connections and people you may like to share things. 
-                                                                            Build up your mind and be the one you wish to be, in another words be different, Just join us Today.
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="student-choise" onclick="nextPrev(1)">Get stated</div>
+                                                            <!-- tab one form sign up -->
+                                                            <!-- =================================================================================================================== -->
+                                                            <div class="inputs-form tab text-center" style="height: 100%">
+                                                                <label class="bmd-label text-center" id="bmd-label">Sign up</label>
+                                                                <div class="firstName form-groups" id="form-firstname">
+                                                                    <input type="text" class="form-input" id="firstname-input" placeholder="Firstname" autocomplete="off">
                                                                 </div>
-                                                                <!-- end tab one signup -->
-                                                                <!-- ================================================================================================================= -->
-
-                                                                <!-- tab one form sign up -->
-                                                                <!-- =================================================================================================================== -->
-                                                                <div class="inputs-form tab text-center" style="height: 100%">
-                                                                    <label class="bmd-label text-center" id="bmd-label">Sign up</label>
-                                                                    <div class="firstName form-groups" id="form-firstname">
-                                                                        <input type="text" class="form-input" id="firstname-input" placeholder="Firstname" autocomplete="off">
-                                                                    </div>
-                                                                    <div class="lastName form-groups" id="form-lastname">
-                                                                        <input type="text" class="form-input" id="lastname-input" placeholder="Lastname" autocomplete="off">
-                                                                    </div>
-                                                                    <div class="email form-groups" id="form-email">
-                                                                        <input type="text" name="Email" class="form-input" id="email-input" placeholder="E-mail" autocomplete="off">
-                                                                    </div>
-                                                                    <div class="select_position mb-2">
-                                                                        <select name="choosen_class" id="section">
-                                                                            <option value="student" id="account">Student Account</option>
-                                                                            <option value="trainer" id="account">Trainer Account</option>
-                                                                        </select>
-                                                                    </div>
-                                                                    <div class="password form-groups" id="form-password">
-                                                                        <input type="password" id="password-input" class="form-input"  placeholder="Password" autocomplete="off">
-                                                                    </div>
-                                                                    <div class="Msg"></div>
-                                                                    <div class="passdowrd-message">Password must contain at least eight character longer including at least letters,numbers and symbols</div>
-                                                                    <div class="submit-info-btn">
-                                                                        <button type="button" class="submit-student" onclick="checkInput(this)">Submit</button>
-                                                                    </div>
+                                                                <div class="lastName form-groups" id="form-lastname">
+                                                                    <input type="text" class="form-input" id="lastname-input" placeholder="Lastname" autocomplete="off">
                                                                 </div>
-                                                                <!-- end tab one signup -->
-                                                                <!-- ======================================================================================================================= -->
+                                                                <div class="email form-groups" id="form-email">
+                                                                    <input type="text" name="Email" class="form-input" id="email-input" placeholder="E-mail" autocomplete="off">
+                                                                </div>
+                                                                <div class="select_position mb-2">
+                                                                    <select name="choosen_class" id="section">
+                                                                        <option value="student" id="account">Student Account</option>
+                                                                        <option value="trainer" id="account">Trainer Account</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="password form-groups" id="form-password">
+                                                                    <input type="password" id="password-input" class="form-input"  placeholder="Password" autocomplete="off">
+                                                                </div>
+                                                                <div class="Msg"></div>
+                                                                <div class="passdowrd-message">Password must contain at least eight character longer including at least letters,numbers and symbols</div>
+                                                                <div class="submit-info-btn">
+                                                                    <button type="button" class="submit-student" onclick="checkInput(this)">Submit</button>
+                                                                </div>
+                                                            </div>
+                                                            <!-- ======================================================================================================================= -->
 
                                                             <!-- email validation tab -->
                                                             <!-- =======================================================================================================================-================ -->
@@ -433,7 +408,6 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <!-- end trainer selection -->
                                                             <!-- ============================================================================================================================================================== -->
 
                                                             <!-- welcome section -->
@@ -463,14 +437,11 @@
                                                     <!-- ============================================================================================================== -->
                                                 </div>
                                             </div>
-                                            <!-- end sign me up tab -->
                                             <!-- END SIGN UP TAB -->
-                                            <!-- ============================================================================================================================================ -->
                                             <!-- ============================================================================================================================================ -->
 
 
                                             <!-- sign me in tab -->
-                                            <!-- ==================================================================================================================================================== -->
                                             <!-- ==================================================================================================================================================== -->
                                             <div class="tab-pane" id="signmein" role="tabpanel">
 
@@ -479,13 +450,13 @@
                                                 <div class="sign-me-up-backimage">
                                                     <img src="images/index-img/sign-me-up-1.jpg" alt="background_image" width="100%" height="100%">
                                                 </div>
-                                                <!-- end sign in background -->
                                                 <!-- ======================================================================================================================== -->
 
                                                 <!-- sign in tab and input -->
                                                 <!-- ========================================================================================================================= -->
                                                 <div class="student-trainer-option p-4">
                                                     <!-- normal form -->
+                                                    <!-- ==================================================================================================================================== -->
                                                     <form action="sign_me_in.php" method="POST" id="signIn">
                                                         <div class="pwdForget inputs-form text-center">
                                                             <div class="user_profile_image ml-auto mr-auto mb-2"><img src="Images/profile-img/profile-image/defaultProfileImage.png" alt="" width="100%" height="100%"></div>
@@ -517,8 +488,10 @@
                                                         </div>
                                                     </form>
                                                     <!-- end normailForm -->
+                                                    <!-- ======================================================================================================================================================= -->
 
                                                     <!-- form email verification  -->
+                                                    <!-- ========================================================================================================================================================== -->
                                                     <div class="pwdForget email-verification">
                                                         <div class="email-verification-area">
                                                             <div class="email-verification-title">Email verification</div>
@@ -542,8 +515,10 @@
                                                         </div>
                                                     </div>
                                                     <!-- end email verification -->
+                                                    <!-- ================================================================================================================================================================== -->
 
                                                     <!-- email code verification -->
+                                                    <!-- =================================================================================================================================================================== -->
                                                     <div class="pwdForget email-code-verification">
                                                         <div class="verify-code">
                                                             <div class="code-verify-title"> Email code verification </div>
@@ -567,8 +542,10 @@
                                                         </div>
                                                     </div>
                                                     <!-- end email verification  -->
+                                                    <!-- ========================================================================================================================================================================= -->
 
                                                     <!-- new password settings -->
+                                                    <!-- ================================================================================================================================================================================= -->
                                                     <div class="pwdForget new-password-setting">
                                                         <div class="input-newpassword">
                                                             <div class="code-verify-title"> New password </div>
@@ -590,9 +567,12 @@
                                                         </div>
                                                     </div>
                                                     <!-- end new password  -->
+                                                    <!-- ======================================================================================================================================================================================== -->
+
                                                 </div>
                                                 <!-- end sign in tab and inputs -->
                                                 <!-- ======================================================================================================================================= -->
+
 
                                                 <!-- When user setup cookies -->
                                                 <!-- ========================================================================================================================== -->
@@ -627,14 +607,11 @@
                                                 <!-- ================================================================================================================================= -->
 
                                             </div>
-                                            <!-- end top tab-pane  -->
                                             <!-- end sign in tab -->
-                                            <!-- ===================================================================================================================================================== -->
                                             <!-- ====================================================================================================================================================== -->
 
 
                                             <!-- for footer tab-pane -->
-                                            <!-- ======================================================================================================================================================= -->
                                             <!-- ======================================================================================================================================================== -->
                                             <div class="tab-pane" id="aboutus" role="tabpanel">
                                                 <div class="about-detail">
@@ -690,11 +667,9 @@
                                             </div>
                                             <!-- end about us -->
                                             <!-- ============================================================================================================================================================ -->
-                                            <!-- ============================================================================================================================================================ -->
 
 
                                             <!-- start contuct us -->
-                                            <!-- ======================================================================================================================================== -->
                                             <!-- ========================================================================================================================================= -->
                                             <div class="tab-pane text-center" id="contuctus" role="tabpanel">
                                                 <div class="student-trainer-optio">
@@ -744,13 +719,10 @@
                                                 </div>
                                             </div>
                                             <!-- end contuct us -->
-                                            <!-- ================================================================================================================================================ -->
                                             <!-- ==================================================================================================================================================== -->
 
 
-                                            <!-- start developer -->
                                             <!-- developer tab -->
-                                            <!-- ======================================================================================================================================================== -->
                                             <!-- ========================================================================================================================================================= -->
                                             <div class="tab-pane" id="developer" role="tabpanel">
                                                 <di class="developer-area">
@@ -761,8 +733,6 @@
                                                             <div class="profile_image"><img src="Images/index-img/developer/founder.jpg" alt="" height="100%" width="100%"></div>
                                                         </div>
                                                         <div class="developer-name">Manirabona Patience</div>
-                                                        <!-- <div class="function-user">Fullstack Developer</div>
-                                                        <div class="function-user">Founder, MicroBox lab</div> -->
                                                         <div class="developer-desc">                                               
                                                             Manirabona has more than 2 years of experience as a Developer and programmer. He is the founder of intelligentBox website and works on intelligent 
                                                             box as full stack developer. With best knwoledge from world mission school and online coding websites
@@ -806,18 +776,15 @@
                                                         </div>
                                                     </div>
 
-
                                                 </div>
                                                 <!-- end developer tab -->
                                                 <!-- =========================================================================================================================================================== -->
                                             </div>
                                             <!-- end developer -->
                                             <!-- =============================================================================================================================================================== -->
-                                            <!-- =============================================================================================================================================================== -->
                                         
                                         </div>
                                         <!-- end tab body -->
-                                        <!-- =================================================================================================================================================================================== -->
                                         <!-- =================================================================================================================================================================================== -->
 
                                         <!-- card footer -->
@@ -832,7 +799,7 @@
                                                     <a class="nav-link-footer" style="font-size: 16px;" data-toggle="tab" href="#contuctus" role="tab" style="font-size: 12px;">Contact us</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link-footer" style="font-size: 16px;" data-toggle="tab" href="#developer" role="tab" style="font-size: 12px;">MicroBox Team</a>
+                                                    <a class="nav-link-footer" style="font-size: 16px;" data-toggle="tab" href="#developer" role="tab" style="font-size: 12px;">MicroBox Lab</a>
                                                 </li>
                                 
                                             </ul>
@@ -844,7 +811,6 @@
                                     <!-- ========================================================================================================================= -->
                                 </div>
                                 <!-- end tab for sign up and sign in -->
-                                <!-- ========================================================================================================================================= -->
                                 <!-- ========================================================================================================================================= -->
 
                                 <!-- OURSELF -->
@@ -869,7 +835,6 @@
             </div>
             <!-- end thambnail -->
             <!-- ========================================================================================================================================================= -->
-            <!-- ========================================================================================================================================================= -->
 
 
             <!-- SECTION BACKGROUND FIXED -->
@@ -886,8 +851,79 @@
             </div>
             <!-- ============================================================================================================================================= -->
 
-            <!-- footer -->
+
+            <!-- SHORT DESCRIPTION -->
             <!-- ===================================================================================================================================================================== -->
+            <div class="short-description">
+                <div class="container">
+
+                    <div class="description-content">
+                        <div class="each-descrption">
+                           <div class="desc-icon-outline"><i class="fa fa-graduation-cap"></i></div>
+                           <div class="desc-title"><span>Study on intelligentBox</span></div>
+                           <div class="desc-body">
+                               An easy way to learn more things in different ways, combined or divided, share 
+                               what you got on Intelligentbox, More challenges and collaboration between you, 
+                               instructor and your near friends efficiently. 
+                           </div>
+                        </div>
+                        <div class="each-descrption">
+                           <div class="desc-icon-outline"><i class="fa fa-tv"></i></div>
+                           <div class="desc-title"><span>Teach on intelligentBox</span></div>
+                           <div class="desc-body">
+                               You can teach on intelligentbox and share with world
+                               what you know, Let the audience know your expiriences and knowledge,
+                               create a class that will help more people to level up their skills
+                               and world's generations.
+                           </div>
+                        </div>
+                        <div class="each-descrption">
+                           <div class="desc-icon-outline"><i class="fa fa-share-alt"></i></div>
+                           <div class="desc-title"><span>Share what you're about</span></div>
+                           <div class="desc-body">
+                               Did you know that the only thing that can make you move
+                               to another step is to collaborate and share you can do,
+                               what you know and what you're about, Let the world know
+                               you're thinking now.
+                           </div>
+                        </div>
+                    </div>
+                    <div class="description-content mt-5">
+                        <div class="each-descrption">
+                           <div class="desc-icon"><i class="fa fa-globe"></i> <span class="title-txt">World History</span></div>
+                           <div class="desc-body">
+                               Read more about world'history through intelligentbox,
+                               Let buld world's future but let not forget our future,
+                               Find out the most world history content and also get 
+                               today in history.
+                           </div>
+                        </div>
+                        <div class="each-descrption">
+                           <div class="desc-icon"><i class="fa fa-book"></i> <span class="title-txt">More about Religions</span></div>
+                           <div class="desc-body">
+                               Read what world's religions is talking about in now days,
+                               More religion articles and each religion content, short 
+                               description about it, let share what we know about it also. 
+                           </div>
+                        </div>
+                        <div class="each-descrption">
+                           <div class="desc-icon"><i class="fa fa-newspaper-o"></i> <span class="title-txt">World News</span></div>
+                           <div class="desc-body">
+                               Do you know that you can read world's news and talk about world's 
+                               news in different ways, share what news happening arround, 
+                               let keep up with with world's news around.
+                           </div>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+            <!-- ===================================================================================================================================================================== -->
+
+            <!--  -->
+
+
+            <!-- footer -->
             <!-- ===================================================================================================================================================================== -->
             <div class="box-footer mb-2">
                 <div class="container">
@@ -946,10 +982,12 @@
                         <!-- end cookies -->
                         <!-- ===================================================================================================================== -->
                     </div>
+                    <div class="copyright-footer">
+                        <span>Copyright &copy; 2020, All Reserved</span>
+                    </div>
                 </div>
             </div>
             <!-- end footer -->
-            <!-- ============================================================================================================================================================================= -->
             <!-- ============================================================================================================================================================================= -->
 
             <!-- javascript external file, type js  and libraries-->
@@ -964,24 +1002,19 @@
             <script src="Assets/js/index.show_trades.box.js"></script>
 
             <script src="Lib/bootstrap/js/bootstrap.min.js" type="text/javascript"></script> 
-            <!-- <script src="Lib/bootstrap/js/bootstrap-datepicker.js"></script>  -->
             <script src="Lib/custom/custom.js"></script>
-            <!-- <script src="Lib/date-picker/bootstrap-switch.js"></script> -->
-            <!-- <script src="Lib/date-picker/nouislider.min.js"></script> -->
             <script src="Lib/easing/easing.min.js"></script>
             <script src="Lib/jquery/jquery-migrate.min.js"></script>
             <script src="Lib/jquery/jquery.min.js"></script>
             <script src="Lib/jquery/jquery-3.3.1.min"></script>
-            <!-- <script src="Lib/lightbox/js/lightbox-plus-jquery.min.js"></script> -->
             <script src="Lib/material/js/material-dashboard?v=2.1.1.js"></script>
             <script src="Lib/now-ui-kit/now-ui-kit.js"></script>
-            <!-- <script src="Lib/venobox/venobox.js"></script> -->
             <script src="Lib/wow/wow.min.js"></script>
             <script src="Lib/bootstrap/js/bootstrap-material-design.min.js"></script>
             <script>
                 $(document).ready(function() {
-                //init DateTimePickers
-                md.initFormExtendedDatetimepickers();
+                    //init DateTimePickers
+                    md.initFormExtendedDatetimepickers();
                 });
             </script> 
             <script>
@@ -996,6 +1029,5 @@
             <!-- end libraries -->
             <!-- ================================================================================================================================================== -->
             <!-- ================================================================================================================================================== -->
-            
     </body>
  </html>

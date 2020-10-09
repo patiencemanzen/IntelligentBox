@@ -59,7 +59,7 @@
         position: sticky;
         top: 0;
         z-index: 99;
-        box-shadow: 0 0 1px rgba(165, 122, 122, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 10px rgba(0,0,0, 0.4);
+        box-shadow: 0 0 10px  rgba(0,0,0, 0.3);
     }
     .small-dev-nav{
         cursor: pointer;
@@ -125,10 +125,10 @@
         width: 100%;
     }
     .nav-icons .nav-item{
-        background: #f6f7fd;
+        background: white;
         margin-right: 5px;
         position: relative;
-        padding: 6px 13px 5px 13px;
+        padding: 8px 13px 8px 13px;
     }
     .nav-icons .nav-item a{
         color: #041a2f;
@@ -166,7 +166,7 @@
         margin-left: 5px;
         z-index: 20;
         display: none;
-        box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 10px rgba(0,0,0, 0.4);
+        box-shadow: 0 0 10px rgba(0,0,0, 0.4);
         /* padding: 10px 0px; */
     }
     .div-title{
@@ -295,14 +295,14 @@
         height: 30px;
         border-radius: 50%;
         background-color: #f6f7fd;
-        margin-top: 1.7px;
+        margin-top: 2.5px;
     }
     .user_top_name{
         font-family: roboto_bold;
         font-size: 14px;
         letter-spacing: 0.7px;
         color: #041a2f;
-        margin: 7px 5px 0px 5px;
+        margin: 8px 5px 0px 5px;
         text-transform: capitalize;
     }
 

@@ -3,18 +3,20 @@
     INTELLIGENT BOX
     DESIGNED & DEVELOPED by Manirabona Patience
     
-    author: Mnirabona Patience,
+    author: Manirabona Patience,
     Email:  Hseal419@gmail.com,
     location: Kigali,Rwanda,
     pro: Intelligent Box E-learning,
     version: 1.0.0 
  ////////////////////////////////////////////////////// */
 
+ 
  /* external font family */
- @font-face {font-family: 'roboto_bold';src: url('../fonts/Roboto/Roboto-Bold.ttf');} 
- @font-face{font-family: 'roboto_regular';src: url('../fonts/Roboto/Roboto-Regular.ttf');}
- @font-face{font-family: 'baskvile';src: url('../fonts/baskerville/BASKVILL.TTF');}
- @font-face{font-family: 'roboto_medium';src: url('../fonts/Roboto/Roboto-Medium.ttf');}
+ /* ============================================================================================================== */
+    @font-face {font-family: 'roboto_bold';src: url('../fonts/Roboto/Roboto-Bold.ttf');} 
+    @font-face{font-family: 'roboto_regular';src: url('../fonts/Roboto/Roboto-Regular.ttf');}
+    @font-face{font-family: 'baskvile';src: url('../fonts/baskerville/BASKVILL.TTF');}
+    @font-face{font-family: 'roboto_medium';src: url('../fonts/Roboto/Roboto-Medium.ttf');}
 
 
  /* body stle */
@@ -29,20 +31,20 @@
 
 /* MAIN COLOR */
 /* ===================================================================================================================================================== */
-:root{
-    --BoxPrimary: #041a2f;
-    --BoxSecondary: #f6f7fd;
-    --BoxSubPrimary: #071c2e;
-    --BoxSubSecondary: #08345e;
-    --BoxLines: #d3d3d3;
-    --Basic: white;
-}
+    :root{
+        --BoxPrimary: #041a2f;
+        --BoxSecondary: #f6f7fd;
+        --BoxSubPrimary: #071c2e;
+        --BoxSubSecondary: #08345e;
+        --BoxLines: #d3d3d3;
+        --Basic: white;
+    }
 /* ==================================================================================================================================================== */
 
 
- /* apply on scroll bar */
- /* ============================================================================================================ */
- /* width */
+/* apply on scroll bar */
+/* ============================================================================================================ */
+/* width */
     ::-webkit-scrollbar {
         width: 10px;
     }
@@ -61,10 +63,11 @@
     .header-fixed{
         box-shadow: 0 0 15px rgba(0,0,0, 0.4);
     }
+/* =========================================================================================================== */
 
 
-  /* pre loader for all site */
-  /* ============================================================================================================ */
+/* pre loader for all site */
+/* ============================================================================================================ */
    .container-pre-signup {
         position: relative;
         width: 30px;
@@ -120,6 +123,7 @@
                 transform: rotate(720deg);
         }
     }
+/* ============================================================================================================= */
     
 
  /* Top navbar style */
@@ -134,9 +138,6 @@
         list-style: none;
         text-decoration: none;
     }
-
- /* inner-header-1 style */
- /* ============================================================================================================ */
     .inner-header-1{
         background: #041a2f;
         width: 100%;
@@ -146,6 +147,7 @@
         text-transform: capitalize;
         padding: 15px;
     }
+ /* ============================================================================================================ */
 
  /* sub navbar style */
  /* ============================================================================================================ */
@@ -192,12 +194,9 @@
     .sign-in-btn ul li a{
         color: #041a2f;
         font-family: roboto_bold;
-        letter-spacing: 0.3px;
+        letter-spacing: 0.6px;
+        font-size: 14px;
     }
-
-
- /* intelectual-skills style */
- /* ============================================================================================================= */
     .search-index{
         position: relative;
         display: flex;
@@ -210,9 +209,6 @@
         font-weight: 700;
         letter-spacing: 0.6px;
     }
-
- /* search input bar style */
- /* ============================================================================================================= */
     .search-input input[type=text]{
         width: 100%;
         border: none;
@@ -236,9 +232,6 @@
         margin-top: 3px;
         color: #041a2f;
     }
-
-/* seach result */
-/* ============================================================================================================== */
    .seach-output{
         position: absolute;
         z-index: 10;
@@ -280,9 +273,6 @@
        border-radius: 4px;
        display: flex;
    }
-
-/* course searched style */
-/* ============================================================================================================= */
    .title-course{
        padding: 10px;
    }
@@ -332,9 +322,6 @@
             transform: translateX(0%);
         }
     }
-
-/* all course on top navbar */
-/* ================================================================================================================== */
    .eachdepartment{
         border-radius: 4px;
         width: 300px;
@@ -447,15 +434,8 @@
     .nav-item a .btn-signup{
         color: #071c2e;
         font-family: roboto_bold;
-        /* margin-top: 5px; */
-        /* margin-left: 20px; */
         cursor: pointer;
     }
-
-
-
-
-
     .open_trades{
         font-family: roboto_bold;
         margin-top: 5px;
@@ -481,15 +461,7 @@
         left: 0;
         right: 0;
     }
- /* End of top header section */
  /* ================================================================================================================ */
- /* ================================================================================================================ */
-
-
-
- /* start down section */
- /* =================================================================================================================== */
- /* =================================================================================================================== */
 
  /* carousel style */
  /* ======================================================================================================================= */
@@ -531,53 +503,10 @@
         outline: none;
         border-radius: 4px;
     }
+/* ============================================================================================================================== */
 
-    /* FIXED BACKGROUND IMAGE */
-    /* ============================================================================================================================================================== */
-    .profession_detail {
-        padding: 50px;
-        background: url(../../Images/index-img/fixed_background.jpg) center center no-repeat;
-        background-size: cover;
-        overflow: hidden;
-        position: relative;
-        text-align: center;
-        color: white;
-    }
-
-    .profession_detail:before {
-        content: "";
-        background: rgba(0, 0, 0, 0.4);
-        position: absolute;
-        bottom: 0;
-        top: 0;
-        left: 0;
-        right: 0;
-    }
-
-    .profession_detail .section-header .prof_title {
-        color: var(--Basic);
-        line-height: 35px;
-        margin-bottom: 20px;
-        font-weight: 700;
-        letter-spacing: 1px;
-        font-family: roboto_bold;
-        text-align: center;
-        font-size: 30px;
-    }
-    .profession_detail p{
-        color: var(--Basic);
-        line-height: 24px;
-        font-family: roboto_medium;
-    }
-
-    /* ========================================================================================================================== */
-
-
-
-  /* CARD CONTENT contain signup, sign in and about us ,,,,*/
-  /* ===================================================================================================================== */
-  /* ===================================================================================================================== */
-  
+/* CARD CONTENT contain signup, sign in and about us ,,,,*/
+/* ===================================================================================================================== */
    .nav-link{
         font-size: 12px;
     }
@@ -600,7 +529,7 @@
     .nav-tabs .nav-item{
         margin: auto;
     }
-  .nav-tabs .nav-item .nav-link-top{
+    .nav-tabs .nav-item .nav-link-top{
       font-family: roboto_bold;
       font-size: 18px;
       color: #041a2f;
@@ -616,9 +545,6 @@
     .nav-tabs .nav-item .active{
         color: green
     }
-   
-    /* resize all tab in card */
-    /* ============================================================================================================ */
     #intro{
         overflow: scroll;
         height: 495px;
@@ -664,13 +590,13 @@
         overflow-x: hidden;
         padding: 10px;
     }
-    /* end tabs resize */
-    /* ==================================================================================================================== */
+/* end tabs resize */
+/* ==================================================================================================================== */
   
     
-    /* the vertical rule on each department card in every tabs */
-    /* ==================================================================================================================== */
-    /* The actual timeline (the vertical ruler) */
+/* the vertical rule on each department card in every tabs */
+/* ==================================================================================================================== */
+/* The actual timeline (the vertical ruler) */
     .timeline {
         position: relative;
         margin: 0 auto;
@@ -770,10 +696,11 @@
         font-size: 14px;
         font-family: roboto_bold;
     }
+/* ===================================================================================================================== */
 
 
-    /* thumbnail style , actual card in line width sign in ans sugn up card */
-    /* ========================================================================================================= */
+/* thumbnail style , actual card in line width sign in ans sugn up card */
+/* ========================================================================================================= */
     .thumbnail{
         background: white;
         padding: 20px 0px;
@@ -834,8 +761,6 @@
         margin: 0 auto;
         letter-spacing: 0.6px;
     }
-
-
     .middle_thumb_content{
         display: flex;
     }
@@ -882,107 +807,9 @@
         line-height: 20px;
         font-size: 14px;
     }
-
-    /* INTELLIGENT SELF */
-    /* ====================================================================================================================== */
-    .intelligent_self{
-        background: white;
-        border-radius: 4px;
-
-        margin-left: 15px;
-        box-shadow: 0 0 10px rgba(0,0,0, 0.4);
-        border-radius: 4px;
-        background: white;
-        width: 400px;
-    }
-    .self{
-        padding: 10px;
-    }
-    .Title_self{
-        font-family: roboto_bold;
-        text-transform: capitalize;
-        font-weight: 560;
-        line-height: 20px;
-        font-size: 17px;
-        text-align: center;
-    }
-    .desc_self{
-        margin-top: 10px;
-        font-family: roboto_medium;
-        font-size: 14px;
-        line-height: 20px;
-        text-align: center;
-    }
-    .footer_copyright{
-        background: #041a2f;
-        padding: 7px 15px;
-        margin-top: 5px;
-        text-align: center;
-        font-family: roboto_medium;
-        font-weight: 580;
-        text-transform: capitalize;
-        letter-spacing: 0.6px;
-        color: white;
-    }
-    /* end thambnail */
-    /* =============================================================================================================== */
-
-
-    /* footer */
-    /* ================================================================================================================== */
-    .box-footer{
-        background: #041a2f;
-        padding: 20px 0px;
-        width: 100%;
-    }
-    .inner-footer{
-        border-radius: 4px;
-        padding: 5px;
-        box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 6px rgba(0,0,0, 0.4);
-        overflow: hidden;
-        background: white;
-    }
-    .condition{
-        padding: 5px;
-        float: left;
-        color: #041a2f;
-    }
-    .condition-icons .fa {
-        font-size: 23px;
-        color: #041a2f;
-    }
-    .condition-detail{
-        width: 200px;
-    }
-    .condition-title {
-        font-family: roboto_bold;
-        text-transform: capitalize;
-        line-height: 18px;
-    }
-    .conditio-body{
-        font-family: roboto_medium;
-        line-height: 18px;
-        letter-spacing: 0.2px;
-    }
-    .pre-footer-log{
-        background: #041a2f;
-        width: auto;
-        padding: 25px;
-        color: white;
-        font-family: roboto_bold;
-        font-size: 25px;
-        border-radius: 4px;
-    }
-    /* end footer */
-    /* =================================================================================================================== */
-
- /* end down section */
- /* ======================================================================================================================== */
- /* ======================================================================================================================== */
-
+/* ==================================================================================================================================== */
 
  /* the actual tab sign in and sign up inputs and content */
- /* ============================================================================================================================ */
  /* ============================================================================================================================ */
    .sign-me-up-backimage{
        width: 100%;
@@ -1045,9 +872,10 @@
        font-size: 13px;
        font-family: roboto_regular;
    }
+/* ========================================================================================================== */
 
-   /* usr when set cookie */
-   /* ============================================================================================ */
+/* usr when set cookie */
+/* ============================================================================================ */
    .user-login-session{
        position: absolute; 
        background: white;
@@ -1125,11 +953,10 @@
         cursor: pointer;
         text-align: center;
     }
-    /* end set cookie */
+/* ==================================================================================================================================== */
 
-   /* zero tab */
-   /* the first tab on sign up form */
-   /* ================================================================================================================== */
+/* the first tab on sign up form */
+/* ================================================================================================================== */
    .present-section{
        font-family: roboto_bold;
        letter-spacing: 0.6px;
@@ -1164,13 +991,7 @@
         cursor: pointer;
         border: none;
         outline: none;
-   }
-   /* end zero tab */
-   /* ============================================================================================================================= */
-
-
-   /* sign up input form */
-   /* ==================================================================================================================================== */
+    }
     .tab {display: none;animation: tab 5s ease-in-out forwards}
     @keyframes tab{
         0%{
@@ -1384,9 +1205,10 @@
         object-fit: fill;
         border-radius: 50%;
     }
-
-    /* Make circles that indicate the steps of the form sign in input */
-    /* ================================================== */
+/* ======================================================================================================================================== */
+   
+/* Make circles that indicate the steps of the form sign in input */
+/* ================================================== */
     .stand {
         height: 10px;
         width: 10px;
@@ -1405,12 +1227,10 @@
     .stand.finish {
         background-color: #041a2f;
     }
-   /* end sign up input*/
-   /* ====================================================================================================== */
+/* ====================================================================================================== */
 
-
-    /* Make circles that indicate the steps of the form: on sign up */
-    /* ====================================================================================================== */
+/* Make circles that indicate the steps of the form: on sign up */
+/* ====================================================================================================== */
     .step {
         height: 10px;
         width: 10px;
@@ -1428,12 +1248,11 @@
     .step.finish {
         background-color: #041a2f;
     }
-   /* end sign up input*/
-   /* =========================================================================================================== */
+/* =========================================================================================================== */
 
 
-   /* verify code */
-   /* =========================================================================================================== */
+/* verify code */
+/* =========================================================================================================== */
    .title-validation{
        font-family: roboto_bold;
        color: #041a2f;
@@ -1482,73 +1301,11 @@
        cursor: pointer;
        opacity: .8;
    }
-   /* end verify code */
-   /* =================================================================================================================== */
+/* end verify code */
+/* =================================================================================================================== */
 
-
-   /* interest in input area */
-   /* ===================================================================================================================== */
-    .tab-2-title{
-       font-family: roboto_medium;
-       font-size: 12px;
-    }
-    .alert-msg{
-        background: #f6f7fd;
-        padding: 7px;
-    }
-    .sport-interest{
-        background: #f6f7fd;
-        padding: 4px 6px;
-        cursor: pointer;
-        margin-bottom: 5px;
-    }
-    .title-sport{
-        font-family: roboto_bold;
-        color: #d3d3d3;
-        text-transform: capitalize;
-    }
-    .list-sport{
-        margin-left: 10px;
-        border: 1px solid #d3d3d3;
-        padding: 10px;
-        margin-bottom: 5px;
-        border-radius: 4px;
-        overflow: auto;
-    }
-    .each-list-interest{
-        background: #f6f7fd;
-        padding: 3px 5px;
-        font-family: roboto_medium;
-        width: auto;
-        border-radius: 3px;
-        float: left;
-        margin-bottom: 5px;
-        margin-left: 3px;
-        margin-right: 3px;
-    }
-    .int-content{
-        margin-top: 3px;
-    }
-    .tab-title{
-        font-family: roboto_bold;
-        font-size: 16px;
-        text-transform: capitalize;
-    }
-    .subtitle{
-        font-family: roboto_medium;
-        font-size: 13px;
-        text-transform: capitalize;
-    }
-    .user-suggetion{
-        border-top: 1.5px solid #d3d3d3;
-        margin-top: 5px;
-        padding: 15px 0px;
-    }
-   /* end interest in area */
-   /* =========================================================================================================== */
-
-   /* choose user to follow */
-   /* ========================================================================================================== */
+/* choose user to follow */
+/* ========================================================================================================== */
    .each-suggestion{
         display: flex;
         padding: 3px;
@@ -1614,11 +1371,11 @@
         font-size: 25px;
         color: #041a2f;
     }
-   /* end user to follow */
-   /* ========================================================================================================== */
+/* end user to follow */
+/* ========================================================================================================== */
 
-   /* welcome tab */
-   /* ========================================================================================================== */
+/* welcome tab */
+/* ========================================================================================================== */
    .noticed-word{
         color: #041a2f;
         font-family: roboto_medium;
@@ -1647,11 +1404,11 @@
         margin-top: 10px;
         cursor: pointer;
     }
-   /* end welcome tab */
-   /* ========================================================================================================= */
+/* end welcome tab */
+/* ========================================================================================================= */
 
-   /* abbout us style tab */
-   /* ======================================================================================================== */
+/* abbout us style tab */
+/* ======================================================================================================== */
    .full-desc{
        line-height: 19px;
    }
@@ -1698,11 +1455,11 @@
        border-radius: 6px;
        color: white;
    }
-   /* end about us style */
-   /* ================================================================================================================= */
+/* end about us style */
+/* ================================================================================================================= */
 
-   /* contuct us style */
-   /* ====================================================================================================================== */
+/* contuct us style */
+/* ====================================================================================================================== */
     .descript-company{
         text-align: left;
         font-size: 15px;
@@ -1713,11 +1470,11 @@
         letter-spacing: 0.4px;
         line-height: 20px;
     }
-   /* end contuct us */
-   /* ========================================================================================================================= */
+/* end contuct us */
+/* ========================================================================================================================= */
 
-   /* developer style */
-   /* ========================================================================================================================= */
+/* developer style */
+/* ========================================================================================================================= */
    .meet-team{
        color: #071c2e;
        font-family: roboto_bold;
@@ -1816,13 +1573,196 @@
         border-radius: 6px;
         font-size: 18px;
      }
-   /* end developer style */
-   /* ================================================================================================================================ */
-   /* =============================================================================================================================== */
+/* end developer style */
+/* =============================================================================================================================== */
 
-   /* MEDIA QUERY APPLY ON SMALL DEVICE AND EXTRA LARGE DEVICE */
-   /* ==================================================================================================================================== */
-   /* ==================================================================================================================================== */
+/* INTELLIGENT SELF */
+/* ====================================================================================================================== */
+.intelligent_self{
+    background: white;
+    border-radius: 4px;
+    margin-left: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0, 0.4);
+    border-radius: 4px;
+    background: white;
+    width: 400px;
+}
+.self{
+    padding: 10px;
+}
+.Title_self{
+    font-family: roboto_bold;
+    text-transform: capitalize;
+    font-weight: 560;
+    line-height: 20px;
+    font-size: 17px;
+    text-align: center;
+}
+.desc_self{
+    margin-top: 10px;
+    font-family: roboto_medium;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+}
+.footer_copyright{
+    background: #041a2f;
+    padding: 7px 15px;
+    margin-top: 5px;
+    text-align: center;
+    font-family: roboto_medium;
+    font-weight: 580;
+    text-transform: capitalize;
+    letter-spacing: 0.6px;
+    color: white;
+}
+/* end thambnail */
+/* =============================================================================================================== */
+
+/* FIXED BACKGROUND IMAGE */
+/* ============================================================================================================================================================== */
+.profession_detail {
+    padding: 50px;
+    background: url(../../Images/index-img/fixed_background.jpg) center center no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.profession_detail:before {
+    content: "";
+    background: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.profession_detail .section-header .prof_title {
+    color: var(--Basic);
+    line-height: 35px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-family: roboto_bold;
+    text-align: center;
+    font-size: 30px;
+}
+.profession_detail p{
+    color: var(--Basic);
+    line-height: 24px;
+    font-family: roboto_medium;
+}
+/* ========================================================================================================================== */
+
+/* SHORT DESCRIPTION */
+/* ========================================================================================================================== */
+    .short-description{
+        background: white;
+        width: 100%;
+        padding: 50px 0px;
+    }
+    .description-content{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+    .each-descrption{
+        background: white;
+        width: 350px;
+    }
+    .desc-icon-outline{
+        font-size: 25px;
+    }
+    .desc-title{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-family: roboto_bold;
+        font-size: 18px;
+        letter-spacing: 0.6px;
+        color: var(--BoxPrimary);
+    }
+    .desc-icon{
+        font-size: 20px;
+        border-radius: 4px;
+        font-family: roboto_bold;
+        letter-spacing: 0.6px;
+    }
+    .title-txt{
+        font-size: 17px;
+        margin-left: 15px;
+    }
+    .desc-body{
+        margin-top: 15px;
+        font-family: roboto_medium;
+        letter-spacing: 0.6px;
+        font-size: 16px;
+        line-height: 22px;
+    }
+/* ================================================================================================================================= */
+
+/* footer */
+/* ================================================================================================================== */
+    .box-footer{
+        background: #041a2f;
+        padding: 20px 0px 10px 0px;
+        width: 100%;
+    }
+    .inner-footer{
+        border-radius: 4px;
+        padding: 5px;
+        box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 6px rgba(0,0,0, 0.4);
+        overflow: hidden;
+        background: white;
+    }
+    .condition{
+        padding: 5px;
+        float: left;
+        color: #041a2f;
+    }
+    .condition-icons .fa {
+        font-size: 23px;
+        color: #041a2f;
+    }
+    .condition-detail{
+        width: 200px;
+    }
+    .condition-title {
+        font-family: roboto_bold;
+        text-transform: capitalize;
+        line-height: 18px;
+    }
+    .conditio-body{
+        font-family: roboto_medium;
+        line-height: 18px;
+        letter-spacing: 0.2px;
+    }
+    .pre-footer-log{
+        background: #041a2f;
+        width: auto;
+        padding: 25px;
+        color: white;
+        font-family: roboto_bold;
+        font-size: 25px;
+        border-radius: 4px;
+    }
+    .copyright-footer{
+        color: white;
+        margin-top: 10px;
+        text-transform: capitalize;
+        text-align: center;
+        font-family: roboto_bold;
+        letter-spacing: 0.6px;
+    }
+/* end footer */
+/* =================================================================================================================== */
+
+/* MEDIA QUERY APPLY ON SMALL DEVICE AND EXTRA LARGE DEVICE */
+/* ==================================================================================================================================== */
+/* ==================================================================================================================================== */
    @media screen and (max-width: 1199px){
     .search-input{
         margin-left: 30px;
@@ -1848,8 +1788,6 @@
     }
    }
    @media screen and (max-width: 991px){
-       /* intelectual-skills style */
-        /* ============================================================================================================= */
         .search-index{
             display: none;
         }
@@ -1929,6 +1867,7 @@
         }
         .middle_thumb_content{
             flex-direction: column;
+            display: none;
         }
         .dis-grid{
             display: flex;
@@ -1983,6 +1922,13 @@
         /* Add arrows to the right container (pointing left) */
         .right::before {
             display: none;
+        }
+        .description-content{
+            display: flex;
+            flex-direction: column;
+        }
+        .each-descrption{
+            margin: 20px 0px;
         }
     
    }
@@ -2082,9 +2028,3 @@
     }
    /* END MEDIA QUERY */
    /* =================================================================================================================================== */
-   /* =================================================================================================================================== */
-
-
- /* end sign in and sign up for user */
- /* ================================================================================================================================= */
- /* ================================================================================================================================= */

@@ -187,7 +187,7 @@
 
                     <!-- =========================================================================== -->
                     <div class="nav-item">
-                        <a class="" href="../History/"><i class="fa fa-clock-o" data-toggle="tooltip" data-placement="bottom" title="History"></i> <span class="pre-top"> History </span></a>
+                        <a class="" href="../History/"><i class="fa fa-square-o" data-toggle="tooltip" data-placement="bottom" title="History"></i> <span class="pre-top"> History </span></a>
                         <!-- <div class="counter">9+</div> -->
                     </div>
                     <!-- end history -->
@@ -196,12 +196,17 @@
                     <!-- history notification icon -->
                     <!-- ============================================================================== -->
                     <div class="nav-item">
-                        <a class="" href="../Religion/"><i class="fa fa-navicon" data-toggle="tooltip" data-placement="bottom" title="History"></i> <span class="pre-top"> Religions </span></a>
-                        <!-- <div class="counter">9+</div> -->
+                        <a class="" href="../Religion/"><i class="" data-toggle="tooltip" data-placement="bottom" title="History"></i> <span class="pre-top"> Religions </span></a>
                     </div>
                     <!-- end history -->
                     <!-- ================================================================================ -->
 
+                    <!-- courses -->
+                    <!-- ============================================================================== -->
+                    <div class="nav-item">
+                        <a class="" href="../Built-in-courses/"><i class="fa fa-graduation-cap" data-toggle="tooltip" data-placement="bottom" title="Courses"></i> <span class="pre-top"> Courses </span></a>
+                    </div>
+                    <!-- ================================================================================ -->
 
                     <!-- usr profile image and search -->
                     <!-- ================================================================================================================ -->

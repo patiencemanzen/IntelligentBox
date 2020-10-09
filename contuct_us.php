@@ -69,15 +69,15 @@
             $mail->isSMTP();
             $mail->Host = "mail.intelligentbox.rw";
             $mail->SMTPAuth = true;
-            $mail->Username = "create_sapience@intelligentbox.rw";
-            $mail->Password = 'human_sapience@2020';
+            $mail->Username = "users@intelligentbox.rw";
+            $mail->Password = 'IntelligentBoxUsers';
             $mail->Port = 465;    //587
             $mail->SMTPSecure = "ssl";   // tls
             
             // Email settings
             $mail->isHTML(true);       
             $mail->setFrom($this->email, $this->firstname);      // specify who sending email (sender)
-            $mail->addAddress("create_sapience@intelligentbox.rw");    // specify where email sended (reciever)
+            $mail->addAddress("users@intelligentbox.rw");    // specify where email sended (reciever)
             $mail->Subject = $this->subject;
             $mail->Body = $this->body;
 

@@ -1,0 +1,507 @@
+/* 
+    //////////////////////////////////////////////////////
+
+    INTELLIGENT BOX
+    DESIGNED & DEVELOPED by Manirabona Patience
+    
+    author: Mnirabona Patience,
+    Email:  Hseal419@gmail.com,
+    location: Kigali,Rwanda,
+    pro: Intelligent Box E-learning,
+    version: 1.0.0
+    
+	//////////////////////////////////////////////////////
+*/
+
+/* external font family */
+/* ======================================================================================================================================= */
+/* ======================================================================================================================================== */
+@font-face {font-family: 'roboto_bold';src: url('../fonts/Roboto/Roboto-Bold.ttf');} 
+@font-face{font-family: 'roboto_regular';src: url('../fonts/Roboto/Roboto-Regular.ttf');}
+@font-face{font-family: 'baskvile';src: url('../fonts/baskerville/BASKVILL.TTF');}
+@font-face{font-family: 'roboto_medium';src: url('../fonts/Roboto/Roboto-Medium.ttf');}
+@font-face{font-family: 'roboto_black';src: url('../fonts/Roboto/Roboto-Black.ttf');}
+
+
+/* apply on scroll bar */
+/* ======================================================================================================================================== */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: var(--basic); 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--BoxPrimary);
+    border-radius: 4px; 
+}
+/* =================================================================================================================================================== */
+
+/* MAIN COLOR */
+/* ===================================================================================================================================================== */
+:root{
+--BoxPrimary: #041a2f;
+--BoxSecondary: #f6f7fd;
+--BoxSubPrimary: #071c2e;
+--BoxSubSecondary: #08345e;
+--BoxLines: #d3d3d3;
+--Basic: white;
+}
+/* ==================================================================================================================================================== */
+
+/* body style */
+/* ============================================================================================================================ */
+body{
+    padding: 0;
+    margin: 0;
+    font-family: roboto_regular;
+}
+/* ==================================================================================================================================== */
+
+/* HEADER */
+/* ======================================================================================================================================= */
+/* top-header-fixed style */
+.top-header-fixed{
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    box-shadow: 0 0 10px  rgba(0,0,0, 0.3);
+}
+.small-dev-nav{
+    cursor: pointer;
+    display: none;
+}
+.sideNav_smalldev {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: var(--BoxPrimary);
+    overflow-x: hidden;
+    transition: 0.5s;
+    box-shadow: 0 0 10px rgba(0,0,0, 0.4);
+}
+.sideNav_smalldev .nav-icons{
+    background: var(--BoxPrimary);
+}
+.sideNav_smalldev .nav-icons .nav-item{
+    background: var(--BoxPrimary);
+}
+.sideNav_smalldev .nav-icons .nav-item a{
+    color: var(--Basic);
+}
+.top_int_logo{
+    width: 200px;
+    margin-left: 20%;
+}
+.sideNav_smalldev .closebtn {
+    position: absolute;
+    top: 2rem;
+    right: 25px;
+    font-size: 36px;
+    color: var(--Basic);
+}
+
+
+/* navigation bar style */
+/* ======================================================================================================================================== */
+nav .company-present-logo{
+    background-color: var(--BoxPrimary);
+    width: 100%;
+    color: var(--Basic);
+    font-weight: bold;
+    font-size: 24px;
+    text-transform: capitalize;
+    padding: 15px;
+    letter-spacing: 0.8px;
+    text-align: center;
+}
+
+/* nav-icons style */
+/* ======================================================================================================================================== */
+.nav-icons{
+    background: var(--Basic);
+    position: relative;
+    box-shadow: 0 0 10px rgba(0,0,0, 0.3);
+    display: flex;
+    width: 100%;
+}
+.nav-icons .nav-item{
+    background: var(--Basic);
+    margin-right: 5px;
+    position: relative;
+    padding: 8px 13px 8px 13px;
+}
+.nav-icons .nav-item a{
+    color: var(--BoxPrimary);
+    font-family: roboto_bold;
+    cursor: pointer;
+    letter-spacing: 0.6px;
+    line-height: 18px;
+    text-transform: capitalize;
+    font-weight: 580;
+    font-size: 15px;
+    margin-top: 2px;
+}
+.nav-icons .nav-item a .fa{
+    font-size: 16px;
+    margin-right: 5px;
+}
+.div-title{
+    font-size: 15px;
+    background: var(--Basic);
+    padding: 10px 10px;
+    font-family: roboto_black;
+    position: sticky;
+    top: 0;
+    z-index: 27; 
+    box-shadow: 0 0 5px rgba(0,0,0, 0.3);
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.user-nav-image a{
+    display: flex;
+}
+.pre-nav-image img{
+    border-radius: 50%;
+}
+.pre-nav-image{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #f6f7fd;
+    margin-top: 2.5px;
+}
+.user_top_name{
+    font-family: roboto_bold;
+    font-size: 14px;
+    letter-spacing: 0.7px;
+    color: var(--BoxPrimary);
+    margin: 8px 5px 0px 5px;
+    text-transform: capitalize;
+}
+.navbar-nav-icons{
+    display: none;
+}
+.search-everything{
+    width: 100%; 
+    margin-right: 10px;
+    padding: 3px 3px;
+}
+.search-student-control{
+    border: none;
+    outline: none;
+    background-color: #f6f7fd;
+    width: 100%;
+    height: 100%;
+}
+.search-student-form input{
+    font-family: roboto_medium;
+    letter-spacing: 0.6px;
+}
+.search-student-form{
+    padding: 5px 10px;
+    font-family: roboto_regular;
+    border-radius: 6px;
+    width: 400px;
+    background-color: #f6f7fd;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    margin: 1px 10px 0px 5px;
+}
+.search-student-form .fa{
+    margin-top: 2px;
+    cursor: pointer;
+}
+.search-user-student{position: relative;}
+.search-result{
+    position: absolute;
+    top: 37px;
+    padding-top: 15px;
+    background: var(--Basic);
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    width: 100%;
+    display: none;
+    overflow-x: hidden;
+    overflow: auto;
+    height: 400px;
+    box-shadow: 0 0 5px rgba(0,0,0, 0.3);
+    right: 0px;
+}
+.each-result{
+    background: var(--Basic);
+    display: flex;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.each-result:hover{
+    background: #f6f7fd;
+}
+.result-image img{
+    border-radius: 50%;
+    background: #f6f7fd;
+}
+.result-image{
+    background: #f6f7fd;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+.name-result{
+    margin-top: 4px;
+}
+.result-detail{
+    padding: 6px;
+    font-family: roboto_medium;
+    text-transform: capitalize;
+}
+.accurate-to-user{
+    padding: 6px;
+    overflow: auto;
+}
+.accurate-to-user .follow-user{
+    background: var(--BoxPrimary);
+    color: var(--Basic);
+    border: none;
+    border-radius: 4px;
+    padding: 4px 20px 4px 20px;
+    font-family: roboto_medium;
+    cursor: pointer;
+    text-transform: capitalize;
+    outline: none;
+    font-size: 12px;
+    float: right;
+}
+.accurate-to-user .following-user{
+    background: var(--Basic);
+    color: var(--BoxPrimary);
+    border: 1px solid #d3d3d3;
+    border-radius: 4px;
+    padding: 4px 20px 4px 20px;
+    font-family: roboto_medium;
+    cursor: pointer;
+    text-transform: capitalize;
+    outline: none;
+    font-size: 12px;
+    float: right;
+}
+/* end top navigation */
+/* ====================================================================================================================================== */
+
+/* COURSE TITLE */
+/* ============================================================================================================================================ */
+    .course-title{
+        background: var(--BoxSubSecondary);
+        position: relative;
+        margin-top: 50px;
+        padding: 60px 0px 20px 0px;
+    }
+    .course-title .container{
+        display: flex;
+        position: relative;
+    }
+    .course-name{
+        color: var(--Basic);
+        font-family: roboto_bold;
+        font-size: 20px;
+        letter-spacing: 0.6px;
+    }
+    .course-short-desc{
+        font-family: roboto_medium;
+        font-size: 15px;
+        color: var(--Basic);
+        margin-top: 10px;
+        letter-spacing: 0.6px;
+        line-height: 20px;
+        width: 40%;
+    }
+    .lessons-count{
+        font-family: roboto_bold;
+        font-size: 15px;
+        color: var(--Basic);
+        margin-top: 10px;
+    }
+    .rate{
+        font-family: roboto_bold;
+        font-size: 15px;
+        color: var(--Basic);
+        margin-top: 5px;
+    }
+    /* .course-image{
+        position: relative;
+    } */
+    .c-image{
+        position: absolute;
+        bottom: -20px;
+        right: 10px;
+        width: 300px;
+        height: 180px;
+        background: var(--Basic);
+        padding: 5px;
+        border-radius: 4px;
+    }
+    .c-image img{
+        width: 100%;
+        height: 100%;
+        border-radius: 4px;
+        object-fit: fill;
+    }
+/* ================================================================================================================================================ */
+
+/* COURSE CONTENT */
+/* ======================================================================================================================================================== */
+    .course-content{
+        margin-top: 50px;
+    }
+    .course-content .container{
+        display: flex;
+    }
+    .left-side-content{
+        margin-right: 20px;
+        width: 70%;
+    }
+    .lesson{
+        margin: 30px 0px 30px 0px;
+        border-radius: 14px;
+        border: 1px solid var(--BoxLines);
+        padding: 10px 15px;
+    }
+    .lesson-title{
+        font-family: roboto_bold;
+        font-size: 18px;
+        text-transform: capitalize;
+    }
+    .introduction-course{
+        font-size: 17px;
+        font-family: roboto_bold;
+        text-transform: capitalize;
+        letter-spacing: 0.6px;
+    }
+    .short-def span{
+        color: green;
+        font-family: roboto_medium;
+    }
+    .examples-title{
+        background: var(--BoxPrimary);
+        color: var(--Basic);
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-family: roboto_medium;
+        text-transform: capitalize;
+        width: auto;
+    }
+    p{
+        font-family: roboto_regular;
+    }
+    p div{
+        font-family: roboto_regular;
+    }
+    .angles{
+        background: var(--BoxSecondary);
+        font-family: roboto_medium;
+        padding: 5px 6px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .Solution-title{
+        background: var(--Basic);
+        padding: 5px 8px;
+        font-family: roboto_bold;
+        text-transform: capitalize;
+        border-radius: 4px;
+        border: 1px solid var(--BoxLines);
+    }
+    .exercise-title{
+        background: var(--BoxSubPrimary);
+        color: var(--Basic);
+        padding: 5px 10px;
+        text-transform: capitalize;
+        font-family: roboto_medium;
+    }
+    .each-exercise{
+        padding: 5px 10px;
+        background: var(--BoxSecondary);
+        font-family: roboto_regular;
+    }
+    .each-sub-lessons{
+        background: var(--BoxSubPrimary);
+        text-align: center;
+        color: var(--Basic);
+        font-family: roboto_medium;
+        text-transform: capitalize;
+        font-size: 14px;
+        padding: 5px 0px;
+        border-radius: 4px;
+        margin-bottom: 10px;
+    }
+    .subtitle-lessons{
+        font-family: roboto_bold;
+        text-transform: capitalize;
+        color: var(--BoxPrimary);
+    }
+    .title-ph{
+        font-family: roboto_bold;
+        text-transform: capitalize;
+        color: var(--BoxPrimary);
+    }
+    .law{
+        font-family: roboto_medium;
+        color: var(--BoxPrimary);
+    }
+    h5{
+        font-family: roboto_medium;
+        color: var(--BoxPrimary);
+    }
+    .card-link{
+        color: var(--BoxPrimary);
+        font-family: roboto_bold;
+        text-transform: capitalize;
+    }
+    .hightlights{
+        background: var(--BoxSecondary);
+        padding: 5px;
+        font-family: roboto_medium;
+        width: 100%;
+    }
+
+    .right-content{
+        width: 300px;
+        box-shadow: 0 0 5px rgba(0,0,0, 0.3);
+        border-radius: 4px;
+        margin: 0px 0px 10px 20px;
+        /* position: fixed;
+        right: 110px;
+        bottom: 50px; */
+        background: var(--BoxSubSecondary);
+        color: var(--Basic);
+    }
+    .content-right{
+        padding: 10px 10px;
+    }
+    .r-title{
+        font-family: roboto_bold;
+        font-size: 17px;
+        text-align: center;
+        margin-top: 10px;
+    }
+    .scrollspy-1{
+        margin-top: 20px;
+    }
+    .scrollspy-1 ul{
+        padding: 0;
+    }
+    .scrollspy-1 ul li a{
+        color: var(--basic);
+        font-family: roboto_bold;
+        font-size: 15px;
+        letter-spacing: 0.6px;
+    }
+/* ========================================================================================================================================================= */

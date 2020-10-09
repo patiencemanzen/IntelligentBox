@@ -51,9 +51,9 @@
                         <img src="<?php echo 'Images/Department/'.$department_img; ?>" alt="<?php echo $department_name; ?>" width="100%">
                         <p class="desc-trades"><?php echo $department_desc; ?></p>
                         <div class="dep-status d-flex justify-content-between">
-                            <div class="status"><i class="fa fa-graduation-cap"></i> course <span><?php echo $department_course_count; ?></span></div>
-                            <div class="status"><i class="fa fa-user-circle-o"></i> leaners <span><?php echo $learner; ?></span></div>
-                            <div class="status"><i class="fa fa-user-plus"></i> trainer <span><?php echo $trainer; ?></span></div>
+                            <div class="status"><i class="fa fa-graduation-cap"></i> Courses <span><?php echo $department_course_count; ?></span></div>
+                            <div class="status"><i class="fa fa-user-circle-o"></i> Leaners <span><?php echo $learner; ?></span></div>
+                            <div class="status"><i class="fa fa-user-plus"></i> Trainers <span><?php echo $trainer; ?></span></div>
                         </div>  
                     </div>
                 </div>

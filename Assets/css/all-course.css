@@ -1,0 +1,325 @@
+/* 
+    //////////////////////////////////////////////////////
+
+    INTELLIGENT BOX
+    DESIGNED & DEVELOPED by Manirabona Patience
+    
+    author: Mnirabona Patience,
+    Email:  Hseal419@gmail.com,
+    location: Kigali,Rwanda,
+    pro: Intelligent Box E-learning,
+    version: 1.0.0
+    
+	//////////////////////////////////////////////////////
+*/
+
+/* external font family */
+/* ======================================================================================================================================= */
+/* ======================================================================================================================================== */
+    @font-face {font-family: 'roboto_bold';src: url('../fonts/Roboto/Roboto-Bold.ttf');} 
+    @font-face{font-family: 'roboto_regular';src: url('../fonts/Roboto/Roboto-Regular.ttf');}
+    @font-face{font-family: 'baskvile';src: url('../fonts/baskerville/BASKVILL.TTF');}
+    @font-face{font-family: 'roboto_medium';src: url('../fonts/Roboto/Roboto-Medium.ttf');}
+    @font-face{font-family: 'roboto_black';src: url('../fonts/Roboto/Roboto-Black.ttf');}
+
+
+/* apply on scroll bar */
+/* ======================================================================================================================================== */
+    /* width */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: var(--basic); 
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: var(--BoxPrimary);
+        border-radius: 4px; 
+    }
+/* =================================================================================================================================================== */
+
+/* MAIN COLOR */
+/* ===================================================================================================================================================== */
+:root{
+    --BoxPrimary: #041a2f;
+    --BoxSecondary: #f6f7fd;
+    --BoxSubPrimary: #071c2e;
+    --BoxSubSecondary: #08345e;
+    --BoxLines: #d3d3d3;
+    --Basic: white;
+}
+/* ==================================================================================================================================================== */
+
+/* body style */
+/* ============================================================================================================================ */
+    body{
+        padding: 0;
+        margin: 0;
+        font-family: roboto_regular;
+    }
+    a{color: var(--BoxPrimary)}
+/* ==================================================================================================================================== */
+
+/* TOP SEARCH ENGINE */
+/* ======================================================================================================================================== */
+.top-search-bar{
+    background: var(--BoxSubSecondary);
+    padding: 30px 0px;
+    margin-top: 85px;
+}
+.search-title{
+    color: var(--Basic);
+    font-size: 25px;
+    font-family: roboto_bold;
+    letter-spacing: 1px;
+    text-align: center;
+    position: relative;
+}
+.search-eng{
+    background: var(--Basic);
+    border-radius: 24px;
+    display: flex;
+    padding: 6px;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 30px;
+}
+.search-c input{
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    background: var(--Basic);
+    font-family: roboto_medium;
+    font-size: 16px;
+}
+.search-c{
+    border: none;
+    width: 100%;
+}
+.submit-search button{
+    background: var(--BoxSubSecondary);
+    padding: 5px 20px;
+    color: var(--Basic);
+    font-family: roboto_bold;
+    border: none;
+    border-radius: 24px;
+    font-size: 17px;
+    letter-spacing: 0.6px;
+    cursor: pointer;
+}
+/* ============================================================================================================================================ */
+
+/* ALL COURSE LIST */
+/* ============================================================================================================================================= */
+    .all-courses{
+        margin-top: 30px;
+    }
+    .course-section-title{
+        color: var(--BoxPrimary);
+        font-family: roboto_bold;
+        font-size: 25px;
+        letter-spacing: 1px;
+    }
+    .courses-list{
+        margin-top: 30px;
+        display: flex;
+        -ms-flex-align: stretch;
+        -webkit-box-align: stretch;
+        align-items: stretch;
+        box-sizing: border-box;        
+        overflow: hidden;
+        overflow-y: hidden;
+    }
+    .prev_btn{
+        cursor: pointer;
+        top: 42%;
+        left: -20px;
+        position: absolute;
+        z-index: 5;
+        padding: 5px 16px 5px 13px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        font-size: 30px;
+        border-top-right-radius: 14px;
+        border-bottom-right-radius: 14px;
+        background-color: var(--Basic);
+    }
+    .next_btn{
+        z-index: 5;
+        padding: 5px 13px 5px 16px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        font-size: 30px;
+        border-top-left-radius: 14px;
+        border-bottom-left-radius: 14px;        
+        cursor: pointer;
+        top: 42%;
+        right: -15px;
+        position: absolute;
+        z-index: 5;
+        background-color: var(--Basic);
+    }
+    .each-course{
+        min-width: 280px !important;
+        max-width: 280px !important;
+        margin: 0px 15px 0px 0px;
+    }
+    .course-image img{
+        width: 100%;
+        height: 100%;
+        border-radius: 4px;
+        object-fit: fill;
+    }
+    .course-image{
+        background: var(--BoxSubSecondary);
+        border-radius: 4px;
+        height: 150px;
+    }
+    .course-desc{
+        margin-top: 10px;
+    }
+    .course-name{
+        font-family: roboto_bold;
+        font-size: 18px;
+        letter-spacing: 0.6px;
+        text-transform: capitalize;
+        text-overflow: ellipsis;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    .course-description{
+        margin-top: 10px;
+        font-family: roboto_medium;
+        letter-spacing: 0.6px;
+        line-height: 20px;
+        font-size: 15px;
+    }
+    .course-lessons{
+        font-family: roboto_bold;
+        letter-spacing: 0.6px;
+        margin-top: 5px;
+        font-size: 14px;
+    }
+    .course-lessons .fa{
+        color: var(--BoxSubSecondary);
+    }
+    .course-attender{
+        color: var(--BoxSubSecondary);
+        font-family: roboto_bold;
+        letter-spacing: 0.6px;
+        font-size: 14px;
+    }
+/* ================================================================================================================================================= */
+
+/* MEDIA QUERY APPLY ON SMALL DEVICE */
+/* ===================================================================================================================================== */
+/* ===================================================================================================================================== */
+
+@media screen and (max-width: 1199px){
+    .search-student-form{
+        width: 290px;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+    .pre-top{
+        display: none;
+    }
+}
+@media screen and (max-width: 1148px){
+    .search-student-form{
+        width: 230px;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+}
+@media screen and (max-width: 1024px){
+    .search-student-form{
+        width: 350px;
+    }
+}
+@media screen and (max-width: 655px){
+    .small-dev-nav{
+        cursor: pointer;
+        display: block;
+    }
+    .navigation-bar-icon{display: none;}
+    .pre-top{
+        display: block;
+    }
+    .nav-icons{
+        flex-direction: column;
+        box-shadow: none;
+        margin-top: 30px;
+    }
+    .nav-link{
+        display: flex;
+    }
+    .nav-icons .nav-item{
+        /* float: left; */
+        background: var(--Basic);
+        margin-right: 5px;
+        position: relative;
+    }
+    .nav-icons .nav-item a{
+        color: var(--BoxPrimary);
+        font-family: roboto_bold;
+        cursor: pointer;
+        display: flex;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    .nav-icons .nav-item a .fa{
+        font-size: 19px;
+        margin-right: 20px;
+    }
+    .pre-nav-image{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: #f6f7fd;
+        margin-top: 2.5px;
+        margin-left: 5px;
+    }
+    .search-student-form{
+        width: 275px;
+        margin-right: 10px;
+        padding: 10px 20px;
+        margin-top: 5px;
+    }
+    .search-user-student{
+        margin-top: 20px;
+    }
+    .popup-notification-nav{
+        background: var(--Basic);
+        border-radius: 4px;
+        position: absolute;
+        padding: 10px;
+        width: 300px;
+        margin-top: 5px;
+        margin-left: 5px;
+        z-index: 20;
+        height: 380px;
+        overflow: auto;
+        display: none;
+        box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 10px rgba(0,0,0, 0.4);
+        left: 20px;
+    }
+    .search-result{
+        position: absolute;
+        top: 60px;
+        width: 100%;
+    }
+}
+@media screen and (max-width: 375px){
+    .search-student-form{
+        width: 250px;
+        padding: 9px 15px;
+    }
+}
+/* END MEDIA QUERY */
+/* ===================================================================================================================================== */
+/* ====================================================================================================================================== */

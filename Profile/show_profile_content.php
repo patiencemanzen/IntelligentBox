@@ -1112,15 +1112,11 @@
                     <div class="eachdeclass">
                         <div class="department-image">
                             <img src="<?php echo '../Images/class_img/'.$class_profile_image; ?>" alt="" width="100%" height="100%">
-                            <div class="department-name"><?php echo $class_name; ?></div>
-                            <a href="../Course/Class_course.php?class=<?php echo $getClass_url; ?>"><div class="study-now">Learn now</div></a>
                         </div>
+                        <div class="department-name"><?php echo $class_name; ?></div>
                         <div class="department-bio"><?php echo $class_desc; ?></div>
-                        <div class="department-status d-flex justify-content-between">
-                            <div class="members"><i class="fa fa-user-circle-o"></i> <span><?php echo $count_learner;  ?></span></div>
-                            <div class="courses"><i class="fa fa-graduation-cap"></i> <span><?php echo $countCourse; ?></span></div>
-                            <!-- <div class="likes"><i class="fa fa-thumbs-o-up"></i> <span>3K</span></div>                                   -->
-                        </div>
+                        <div class="members"><span>Member <?php echo $count_learner;  ?></span>, <span>Lessons <?php echo $countCourse; ?></span></div>
+                        <a href="../Course/Class_course.php?class=<?php echo $getClass_url; ?>"><div class="study-now">Learn now</div></a>
                     </div>
                     <!-- end each department -->
                     <!-- ================================================== -->
@@ -1175,7 +1171,6 @@
 
                     <!-- each course -->
                     <!-- =================================================================================================== -->
-                    <!-- =================================================================================================== -->
                     <a href="../Course/Class_course.php?class=<?php echo $getClass_url; ?>" style="color: #071c2e"><div class="each-member">
                         <div><div class="member-img"><img src="<?php echo '../Images/class_img/'.$class_profile_image; ?>" alt="" width="100%" height="100%"></div></div>
                         <div class="member-detail">
@@ -1185,7 +1180,6 @@
                         </div>
                     </div></a>
                     <!-- end course -->
-                    <!-- ================================================================================================================== -->
                     <!-- =================================================================================================================== -->
 
                 <?php }

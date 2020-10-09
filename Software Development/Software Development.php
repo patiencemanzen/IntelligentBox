@@ -55,23 +55,18 @@
        <link rel="stylesheet" href="../Lib/animate/animate.min.css">
        <link rel="stylesheet" href="../Lib/font-awesome/css/font-awesome.min.css">   
    </head>
-   <body>
+   <body class="bg-white">
         
         <!-- Section that will hold header -->
-        <!-- ============================================================================================================================ -->
-        <!-- ============================================================================================================================ -->
         <!-- ============================================================================================================================ -->
         <div class="header-holder">
             <?php require_once ("../header/header.php"); ?>
         </div>
         <!-- end header section -->
         <!-- ============================================================================================================================= -->
-        <!-- ============================================================================================================================= -->
-        <!-- ============================================================================================================================= -->
 
 
         <!-- learn section start -->
-        <!-- ============================================================================================================================= -->
         <!-- ============================================================================================================================= -->
         <!-- ============================================================================================================================= -->
         <div class="container">
@@ -86,32 +81,9 @@
                     <!-- start left section where all lessons link can go -->
                     <!-- and user can click one he/she want to learn and display in middle section -->
                     <!-- ===================================================================================================================== -->
-                    <!-- ===================================================================================================================== -->
                     <div class="left-section-course-lessons mt-3">
 
                         <div class="course-content">
-
-                            <!-- top tab show status -->
-                            <!-- ========================================================================================================= -->
-                            <div class="course-title">
-                                <div class="d-flex">
-                                    <div class="icon"><i class="fa fa-graduation-cap"></i></div>
-                                    <div class="course-name ml-2">
-                                        <div class="department-name">software development level 5</div>
-                                        <div class="department-status d-flex">
-                                            <div class="learners ml-2">Courses <span>10</span></div> <div class="learners ml-2">Learners <span><?php echo $learner; ?></span></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="user_image_learn">
-                                    <div><div class="user_image_pro"> </div></div>
-                                    <div class="username"><?php echo $firstName; ?> <?php echo $lastName; ?></div>
-                                </div>
-                            </div>
-                            <!-- end tab show status -->
-                            <!-- =========================================================================================================== -->
-
-
                             <!-- tab of content -->
                             <!-- =========================================================================================================== -->
                             <!-- =========================================================================================================== -->
@@ -853,8 +825,6 @@
                     <!-- ============================================================================================================== -->
                     <!-- ============================================================================================================== -->
                     <!-- =============================================================================================================== -->
-
-
 
 
                     <!-- start middle section where user can view what he/she want  to learn -->
@@ -12777,97 +12747,98 @@
 
 
                     <!-- start right section where user cane view normal status like follower and new trainer -->
-                    <!-- all status -->
-                    <!-- ================================================================================================================================================================= -->
-                    <!-- ======================================================================================================================================================================== -->
                     <!-- ======================================================================================================================================================================== -->
                     <div class="right-section-status-user mt-3">
                         <div class="user-status">
+                            <!-- top tab show status -->
+                            <!-- ========================================================================================================= -->
+                            <div class="course-title">
+                                <div class="d-flex top-title">
+                                    <div class="icon mr-3"><i class="fa fa-graduation-cap"></i></div>
+                                    <div class="department-name">software development</div>
+                                </div>
+                                <div class="table-content">
+                                    <table class="table table-borderless">
+                                        <tbody>
+                                            <tr>
+                                                <td>Fistname</td>
+                                                <td class="right-merge"><?php echo $firstName; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Lastname</td>
+                                                <td class="right-merge"><?php echo $lastName; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Level</td>
+                                                <td class="right-merge">5</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Courses</td>
+                                                <td class="right-merge">10</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Learners</td>
+                                                <td class="right-merge"><span><?php echo $learner; ?></span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
 
-                             <!-- top learner -->
-                             <!-- ============================================================================================================================== -->
-                             <!-- ============================================================================================================================== -->
-                             <div class="top-learner">
-                                 <div class="title-learner">Some leaners ...</div>
-                                 <div class="learners-list" id="student_list">
-                                    <div class="container-spnner">
-                                        <div class="shape shape-1"></div>
-                                        <div class="shape shape-2"></div>
-                                        <div class="shape shape-3"></div>
-                                        <div class="shape shape-4"></div>
-                                    </div>
-                                 </div>
-                             </div>
-                             <!-- end top learn -->
-                             <!-- ================================================================================================================================================================================= -->
-                             <!-- ================================================================================================================================================================================== -->
-
-                             
-                             <!-- start discuss in group -->
-                             <!-- ============================================================================================================================================== -->
-                             <!-- ================================================================================================================================================ -->
-                             <!-- <div class="discuss-in-group  mt-4">
-                                 <div class="title-learner">Related group</div>
-                                 <div class="group-list"> -->
-
-                                    <!-- each group -->
-                                    <!-- ========================================================================================================================================== -->
-                                    <!-- <div class="each-group">
-                                        <div class="group-image">
-                                            <img src="../../Images/learn-img/software_development/software_development_level_4/group/heic2007a.jpg" alt="" width="100%" height="100%">
-                                            <div class="admin-image-ame d-flex">
-                                                <div><div class="admin-image"><img src="../../Images/learn-img/software_development/software_development_level_4/group/geometric-glass-city-architecture.jpg" alt="" height="100%" width="100%"></div></div>
-                                                <div class="group-name ml-2">software development</div>
-                                            </div>
-                                        </div>
-                                        <div class="group-bio">
-                                            There’s only one constant in Silicon Valley and other tech centers, 
-                                            and that’s change. That being said, there are four general, bold 
-                                            colors that industry leading technology companies seems
-                                        </div>
-                                        <div class="user-accurate">
-                                            <div class="member">Members <span>34,365</span></div>
-                                            <div class="likes">Likes <span>289M</span></div>
-                                            <div class="ask">
-                                                <button><i class="fa fa-plus"></i> Join</button>
-                                                <button><i class="fa fa-question-circle-o"></i></button>
-                                            </div>
-                                        </div>
-                                    </div> -->
-                                    <!-- end each group -->
-                                    <!-- ======================================================================================================================================================= -->
-
-                                   
-                                 <!-- </div>
-                             </div> -->
-                             <!-- end discuss in group -->
-                             <!-- ==================================================================================================================================================================================== -->
-                             <!-- ====================================================================================================================================================================================== -->
-
-
-                             <!-- new more related train, to this course -->
-                             <!-- ================================================================================================================================================================ -->
-                             <!-- ================================================================================================================================================================= -->
-                             <div class="top-learner  mt-4">
-                                <div class="title-learner">More trainers</div>
-                                <div class="learners-list" id="trainer_list">
-                                    <div class="container-spnner">
-                                        <div class="shape shape-1"></div>
-                                        <div class="shape shape-2"></div>
-                                        <div class="shape shape-3"></div>
-                                        <div class="shape shape-4"></div>
-                                    </div>
+                                <div class="d-flex mt-5 top-title">
+                                    <div class="icon mr-3"><i class="fa fa-long-arrow-down"></i></div>
+                                    <div class="department-name">Course Content</div>
+                                </div>
+                                <div class="table-content">
+                                    <table class="table table-borderless">
+                                        <tbody>
+                                            <tr>
+                                                <td>Algebra and Trigonometry</td>
+                                                <td class="right-merge">3 Lessons</td>
+                                            </tr>
+                                            <tr>
+                                                <td>General Phyisic</td>
+                                                <td class="right-merge">5 Lessons</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Secure a Database</td>
+                                                <td class="right-merge">6 Lessons</td>
+                                            </tr>
+                                            <tr>
+                                                <td>System Analysis & Design</td>
+                                                <td class="right-merge">8 Lessons</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Small scale ICT porjects</td>
+                                                <td class="right-merge">2 Lessons</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Develop Backend Application</td>
+                                                <td class="right-merge">7 Lessons</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Develop Database</td>
+                                                <td class="right-merge">3 Lessons</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Set up database server</td>
+                                                <td class="right-merge">7 Lessons</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Deploy a Web Application</td>
+                                                <td class="right-merge">3 Lessons</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Develop A Web application</td>
+                                                <td class="right-merge">4 Lessons</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
-                            <!-- end trainer find -->
-                            <!-- ============================================================================================================================================================================= -->
-                            <!-- ============================================================================================================================================================================== -->
-
+                            <!-- end tab show status -->
+                            <!-- =========================================================================================================== -->
                         </div>
                     </div>
-                    <!-- end right section -->
-                    <!-- ================================================================================================================= -->
-                    <!-- ================================================================================================================= -->
                     <!-- ================================================================================================================== -->
 
                 </div>
@@ -12876,42 +12847,40 @@
         </div>
         <!-- end learn and course content  -->
         <!-- =========================================================================================================================== -->
-        <!-- =========================================================================================================================== -->
-        <!-- =========================================================================================================================== -->
 
  
-      <!-- javascript external file, type js  and libraries-->
-       <!-- ========================================================================= -->
-       <!-- ========================================================================= -->
-       <script src="../Assets/js/learn_content.js"></script>
-       
-       <script src="../Lib/bootstrap/js/bootstrap.min.js" type="text/javascript"></script> 
-       <script src="../Lib/custom/custom.js"></script>
-       <script src="../Lib/easing/easing.min.js"></script>
-       <script src="../Lib/jquery/jquery.min.js"></script>
-       <script src="../Lib/jquery/perfect-scrollbar.jquery.min.js"></script>
-       <script src="../Lib/material/js/material-dashboard?v=2.1.1.js"></script>
-       <script src="../Lib/now-ui-kit/now-ui-kit.js"></script>
-       <script src="../Lib/bootstrap/js/bootstrap-material-design.min.js"></script>
-       <script>
-           $(document).ready(function() {
-           //init DateTimePickers
-           md.initFormExtendedDatetimepickers();
-           });
-       </script> 
-       <script>
-           $(document).ready(function() {
-             // the body of this function is in assets/js/now-ui-kit.js
-             nowuiKit.initSliders();
-           });
-           // Initiate the wowjs animation library
-           new WOW().init();
-       </script>
-       <!-- end libraries -->
-       <!-- ========================================================================================================================== -->
-       <!-- ========================================================================================================================== -->
+        <!-- javascript external file, type js  and libraries-->
+        <!-- ========================================================================= -->
+        <!-- ========================================================================= -->
+        <script src="../Assets/js/learn_content.js"></script>
+        
+        <script src="../Lib/bootstrap/js/bootstrap.min.js" type="text/javascript"></script> 
+        <script src="../Lib/custom/custom.js"></script>
+        <script src="../Lib/easing/easing.min.js"></script>
+        <script src="../Lib/jquery/jquery.min.js"></script>
+        <script src="../Lib/jquery/perfect-scrollbar.jquery.min.js"></script>
+        <script src="../Lib/material/js/material-dashboard?v=2.1.1.js"></script>
+        <script src="../Lib/now-ui-kit/now-ui-kit.js"></script>
+        <script src="../Lib/bootstrap/js/bootstrap-material-design.min.js"></script>
+        <script>
+            $(document).ready(function() {
+            //init DateTimePickers
+            md.initFormExtendedDatetimepickers();
+            });
+        </script> 
+        <script>
+            $(document).ready(function() {
+                // the body of this function is in assets/js/now-ui-kit.js
+                nowuiKit.initSliders();
+            });
+            // Initiate the wowjs animation library
+            new WOW().init();
+        </script>
+        <!-- end libraries -->
+        <!-- ========================================================================================================================== -->
+        <!-- ========================================================================================================================== -->
  
-   </body>
+    </body>
 </html>
 <?php } }else{
     header("Location: ../account_shortcut.box.php?session");

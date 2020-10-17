@@ -15,29 +15,6 @@
             $this->E_mail = $email;
         }
 
-        private function count_date($selected_date){
-            $PostedDate = $selected_date;
-            $currDate = Date("Y-m-d h:i:s");
-
-            $date1 = strtotime($PostedDate);  
-            $date2 = strtotime($currDate);  
-            
-            $diff = abs($date2 - $date1); 
-            $years = floor($diff / (365*60*60*24));  
-            $months = floor(($diff - $years * 365*60*60*24) / (30*60*60*24));
-            $days = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24)/ (60*60*24)); 
-            $hours = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24 - $days*60*60*24) / (60*60)); 
-            $minutes = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24 - $days*60*60*24 - $hours*60*60)/ 60);
-            $seconds = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24 - $days*60*60*24 - $hours*60*60 - $minutes*60)); 
-
-            if($days > 30){
-               return $PostedDate;
-            }if($days < 30){
-                return $days." Day(s) ago";
-            }if($days < 0){
-                return $hours." Hour(s) ago";
-        }
-
         function timeAgo($time_ago){
             $time_ago = strtotime($time_ago);
             $cur_time   = time();
@@ -82,7 +59,7 @@
                     // =============================
                     $select_date_posted = $fetch_posts['created_on'];
                     $today_date = date("Y-m-d h:m:s");
-                    $Form_date = $this->count_date($select_date_posted);
+                    $Form_date = $this->timeAgo($select_date_posted);
 
                     $select_basic_info = "SELECT * FROM intelligent_users WHERE identity='$poster_identity'";
                     $execute_basic_info = mysqli_query($this->Frequency(), $select_basic_info);
@@ -391,7 +368,7 @@
                         <div><div class="commenter-image-found"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%"></div></div>
                         <div>
                             <div class="real-comment-found"><?php echo $getComment_replied; ?></div>
-                            <div class="time-commented"><?php echo $this->count_date($getStartdate); ?></div>
+                            <div class="time-commented"><?php echo $this->timeAgo($getStartdate); ?></div>
                         </div>
                     </div>
            <?php  }

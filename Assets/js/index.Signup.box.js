@@ -69,75 +69,65 @@ function checkInput(obj){
         document.getElementById("bmd-label").innerHTML = "empty field";
     }else{
         GlobalValiable = email;
-        Ip_address = "";
-
         $("#Preloader").css("display","block");
-
-        // get client ip address
-        // ======================================================================
+        Ip_adress = "";
         $.getJSON('https://json.geoiplookup.io/api?callback=?', function(data) {
-            const Ip = JSON.stringify(data.ip, null, 2);
-            Ip_address = Ip;
+            var ip = JSON.stringify(data, null, 2);
+            Ip_adress = ip;
         });
-
-        // get cleint basic info
-        // ========================================================================
-        $(document).ready(()=>{
-            $.ajax({
-                url:`http://ip-api.com/json/${Ip_address}`,
-                method:'POST',
-                dataType:'json',
-                beforeSend:()=>{ },
-                complete:()=>{},
-                success:(data)=>{
-                    $(".Msg").load("registeScylla.php",{
-                        getFirstname: firstname,
-                        getLastname: lastname,
-                        getEmail: email,
-                        getPassword: password,
-                        user_city: data.city,
-                        user_country: data.country,
-                        user_religionName: data.regionName,
-                        user_timezone: data.timezone,
-                        user_internetSp: data.isp
-                    },function(response){
-                        
-                        $("#Preloader").css("display","none");
-                        var obj = JSON.parse(response);
-                        if(obj == "Check code we sent to this E-mail" || obj == "Fail to send code, try again!"){
+        $.ajax({
+            url:`http://ip-api.com/json/${Ip_adress}`,
+            method:'POST',
+            dataType:'json',
+            beforeSend:()=>{},
+            complete:()=>{},
+            success:(data)=>{
+                // console.log(data);
+                $(".Msg").load("registeScylla.php",{
+                    getFirstname: firstname,
+                    getLastname: lastname,
+                    getEmail: email,
+                    getPassword: password,
+                    user_city: data.city,
+                    user_country: data.country,
+                    user_region: data.regionName,
+                    user_timezone: timezone,
+                    user_isp: data.isp
+                },function(response){
+                    $("#Preloader").css("display","none");
+                    var obj = JSON.parse(response);
+                    if(obj == "Check code we sent to this E-mail" || obj == "Fail to send code, try again!"){
+    
+                        var currTab = 2;     // Current tab is set to be the first tab (0)
+                        showTabPane(currTab);   // Display the current tab
         
-                            var currTab = 2;     // Current tab is set to be the first tab (0)
-                            showTabPane(currTab);   // Display the current tab
-            
-                            // function show next tab
-                            // ============================================================
-                            function showTabPane(n) {
-                                // This function will display the specified tab of the form...
-                                var x = document.getElementsByClassName("tab");
-                                x[n].style.display = "block";
-                                x[n-1].style.display = "none";
-                                $("#sendEmailTo").html(email);
-                                fixStepIndicators(n)
-                            }
-            
-                            // methord fix step indicator on top
-                            // ============================================================
-                            function fixStepIndicators(n) {
-                                // This function removes the "active" class of all steps...
-                                var i, x = document.getElementsByClassName("step");
-                                for (i = 0; i < x.length; i++) {
-                                    x[i].className = x[i].className.replace(" active", "");
-                                }
-                                //... and adds the "active" class on the current step:
-                                x[n].className += " active";
-                            }
+                        // function show next tab
+                        // ============================================================
+                        function showTabPane(n) {
+                            // This function will display the specified tab of the form...
+                            var x = document.getElementsByClassName("tab");
+                            x[n].style.display = "block";
+                            x[n-1].style.display = "none";
+                            $("#sendEmailTo").html(email);
+                            fixStepIndicators(n)
                         }
-                        //... and adds the "active" class on the current step:
-                        x[n].className += " active";
+        
+                        // methord fix step indicator on top
+                        // ============================================================
+                        function fixStepIndicators(n) {
+                            // This function removes the "active" class of all steps...
+                            var i, x = document.getElementsByClassName("step");
+                            for (i = 0; i < x.length; i++) {
+                                x[i].className = x[i].className.replace(" active", "");
+                            }
+                            //... and adds the "active" class on the current step:
+                            x[n].className += " active";
+                        }
                     }
-                }
-            });
-        });
+                });
+            },
+            error:()=>{}
+        })
     }
 
 }

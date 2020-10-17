@@ -13,12 +13,12 @@
 	//////////////////////////////////////////////////////
 -->
 <?php 
-  session_start();
-  if(isset($_SESSION['Email'])){
-      $Session_email_call = $_SESSION['Email'];
-      $firstName = $_SESSION['Firstname'];
-      $lastName = $_SESSION['Lastname'];
-      $user_title = $_SESSION['title'];
+    session_start();
+    if(isset($_SESSION['Email'])){
+        $Session_email_call = $_SESSION['Email'];
+        $firstName = $_SESSION['Firstname'];
+        $lastName = $_SESSION['Lastname'];
+        $user_title = $_SESSION['title'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,76 +34,53 @@
        <meta name="robots" content="index, follow"/>
        <meta name="apple-mobile-web-app-capable" content="yes">
 
-       <!-- index, used to repesent intelligent box on search engine and it browser -->
        <title>intelligentBox</title>
 
-       <!-- intelligent box logo, present on search engine and on browse header -->
        <link rel="shortcut icon" href="../Images/favicon.png" type="image/x-icon">
-
-       <!-- external style link, type css file-->
        <link rel="stylesheet" href="../Assets/css/settings.box.css">
 
        <!-- external css file/ libraries -->
        <link rel="stylesheet" href="../Lib/bootstrap/css/bootstrap.min.css">
        <link rel="stylesheet" href="../Lib/material/css/material-dashboard.css?v=2.1.1">
        <link rel="stylesheet" href="../Lib/now-ui-kit/now-ui-kit.css?v=1.3.0">
-       <link rel="stylesheet" href="../Lib/animate/animate.min.css">
        <link rel="stylesheet" href="../Lib/font-awesome/css/font-awesome.min.css">
-       <link rel="stylesheet" href="../Lib/jquery/jquery.fancybox.css">
-       <link rel="stylesheet" href="../Lib/lightbox/css/lightbox.min.css">
-       <link rel="stylesheet" href="../Lib/owlcarousel/assets/owl.carousel.min.css">
        <link rel="stylesheet" href="../Lib/slick/slick.css">
-       <link rel="stylesheet" href="../Lib/theme-color/violet-theme.css">
-       <link rel="stylesheet" href="../Lib/venobox/venobox.css">
    
    </head>
-   <body>
+   <body class="bg-white">
 
         <!-- Section that will hold header -->
-        <!-- ================================================================================================================================================== -->
-        <!-- ================================================================================================================================================== -->
         <!-- ================================================================================================================================================== -->
         <div class="header-holder">
             <?php require_once ("../header/header.php"); ?>
         </div>
-        <!-- end header section -->
         <!-- ================================================================================================================================================== -->
-        <!-- ================================================================================================================================================== -->
-        <!-- ================================================================================================================================================== -->
-
 
         <!-- start body section -->
-        <!-- =================================================================================================================================================  -->
-        <!-- ================================================================================================================================================= -->
         <!-- ================================================================================================================================================= -->
         <div class="body-section mt-5">
             <div class="container">
-
-                <!-- GLOBAL JS EMAIL -->
                 <input type="hidden" name="" id="hiddenEmail" value="<?php echo $Session_email_call; ?>">
-                <!-- END GLOBAL EMAIL -->
 
                 <!-- left-side-content -->
-                <!-- ======================================================================================================================= -->
                 <!-- ======================================================================================================================= -->
                 <div class="left-side ml-auto container mr-auto col-xs-12 col-sm-10">
                     <div class="left-holder">
 
                         <!-- top section -->
                         <!-- ================================================================================================================= -->
-                        <!-- ================================================================================================================= -->
                         <div class="top-section">
+
                             <!-- top background -->
                             <!-- ============================================================== -->
                             <div class="top-background position-relative" id="hold_top_background">
                                 
                             </div>
-                            <!-- end top background -->
                             <!-- ================================================================= -->
 
                             <div class="group-top-detail">
                                 <div class="name-search">
-                                    <div class="group-name-title"><i class="fa fa-align-left mr-2" onclick="openNav()"></i><?php echo $firstName; ?> <?php echo $lastName;  ?></div>
+                                    <div class="group-name-title"><i class="fa fa-user mr-2" onclick="openNav()"></i><?php echo $firstName; ?> <?php echo $lastName;  ?></div>
 
                                     <!-- popup discovery -->
                                     <!-- ============================================================================================================================================ -->
@@ -121,19 +98,15 @@
 
                                                 <!-- each discovery holder -->
                                                 <!-- =================================================================================================================== -->
-                                                <!-- =================================================================================================================== -->
                                                 <div class="each-setting">
                                                     <div class="title-settings">Friends</div>
                                                     <div class="reply-setting" id="discover-student">
 
                                                     </div>
                                                 </div>
-                                                <!-- end discovery holder -->
-                                                <!-- ===================================================================================================================================== -->
                                                 <!-- ===================================================================================================================================== -->
                                                
                                                 <!-- discver trainers -->
-                                                <!-- ============================================================================================================================================= -->
                                                 <!-- ============================================================================================================================================= -->
                                                 <div class="each-setting">
                                                     <div class="title-settings">Trainers</div>
@@ -141,25 +114,19 @@
 
                                                     </div>
                                                 </div>
-                                                <!-- end discovery trainer -->
-                                                <!-- =========================================================================================================================================================== -->
                                                 <!-- ================================================================================================================================================================ -->
                                                 
                                             </div>
                                         </div>
-                                        <!-- end popup discoevry -->
                                         <!-- ================================================================================================================================ -->
 
                                     </div>
-                                    <!-- end top popup discovry -->
-                                    <!-- ================================================================================================================================================================================= -->
                                     <!-- ================================================================================================================================================================================= -->
 
                                 </div>
                             </div>
 
                             <!-- navbar for user statues -->
-                            <!-- ================================================================================================================================================================================================ -->
                             <!-- ================================================================================================================================================================================================ -->
                             <div class="top-nav-bar">
                                 <div class="fa-aling"><i class="fa fa-cog" onclick="openSetting()"></i></div>
@@ -204,23 +171,15 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- end use status -->
-                            <!-- ====================================================================================================================================================================================================== -->
                             <!-- ===================================================================================================================================================================================================== -->
 
                         </div>
-                        <!-- end top section -->
                         <!-- ================================================================================================================== -->
-                        <!-- ================================================================================================================== -->
-
 
 
                         <!-- down top background: image -->
                         <!-- ===================================================================================================================================== -->
-                        <!-- ===================================================================================================================================== -->
                         <div class="d-flex position-relative">
-                            <!-- ======================================================================================================================= -->
-                            <!-- ======================================================================================================================= -->
                             <!-- admin panel tools -->
                             <div><div class="admin-panel">
                                 <div class="panel-holder">
@@ -238,7 +197,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- end title -->
                                     <!-- ======================================================================================================================================= -->
                                 
                                     <!-- panel body -->
@@ -259,12 +217,6 @@
                                                         <div class="conf-title">Account settings</div>
                                                     </div>
                                                 </a></li>
-                                                <!-- <li><a class="" data-toggle="tab" href="#preferences" role="tab">
-                                                    <div class="each-conf">
-                                                        <div class="icon-pre-conf-type"><i class="fa fa-database"></i></div>
-                                                        <div class="conf-title">Data and preferences</div>
-                                                    </div>
-                                                </a></li> -->
                                                 <li><a class="" data-toggle="tab" href="#Privacy" role="tab">  
                                                     <div class="each-conf">
                                                         <div class="icon-pre-conf-type"><i class="fa fa-shield"></i></div>
@@ -277,33 +229,17 @@
                                                         <div class="conf-title">Notifications</div>
                                                     </div>
                                                 </a></li>
-                                                <!-- <li><a class="" data-toggle="tab" href="#Timeline" role="tab">  
-                                                    <div class="each-conf">
-                                                        <div class="icon-pre-conf-type"><i class="fa fa-newspaper-o"></i></div>
-                                                        <div class="conf-title">Timeline</div>
-                                                    </div>
-                                                </a></li>
-                                                <li><a class="" data-toggle="tab" href="#Public" role="tab">  
-                                                    <div class="each-conf">
-                                                        <div class="icon-pre-conf-type"><i class="fa fa-globe"></i></div>
-                                                        <div class="conf-title">Public posts</div>
-                                                    </div>
-                                                </a></li> -->
                                             </ul>
 
                                             <div class="about-us text-center">
                                                 <div class="services d-flex justify-content-between">
-                                                    <div>About</div>
-                                                    <div>Help</div>
-                                                    <div>Developer</div>
-                                                    <div>Privacy</div>
-                                                    <div>cookies</div>
+                                                    <a href="../About/terms_condition.php"><div>Terms and Conditions</div></a>
+                                                    <a href="../About/Privacy.php"><div>Privacy and Safety</div></a>
                                                 </div>
                                                 <div class="company">Intelligent box <i class="fa fa-copyright mr-1"></i> 2020</div>
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- end panel body -->
                                     <!-- ================================================================================================================================ -->
                                     
                                 </div>
@@ -326,6 +262,7 @@
                                 </div>
                                 <!-- end title -->
                                 <!-- ======================================================================================================================================= -->
+                                
                                 <ul class="nav" role="tablist">
                                     <li><a class="active" data-toggle="tab" href="#information" role="tab">
                                         <div class="each-conf">
@@ -345,43 +282,21 @@
                                             <div class="conf-title">Data and preferences</div>
                                         </div>
                                     </a></li>
-                                    <!-- <li><a class="" data-toggle="tab" href="#Privacy" role="tab">  
-                                        <div class="each-conf">
-                                            <div class="icon-pre-conf-type"><i class="fa fa-shield"></i></div>
-                                            <div class="conf-title">Privacy</div>
-                                        </div>
-                                    </a></li> -->
                                     <li><a class="" data-toggle="tab" href="#Notifications" role="tab">  
                                         <div class="each-conf">
                                             <div class="icon-pre-conf-type"><i class="fa fa-bell-o"></i></div>
                                             <div class="conf-title">Notifications</div>
                                         </div>
                                     </a></li>
-                                    <!-- <li><a class="" data-toggle="tab" href="#Timeline" role="tab">  
-                                        <div class="each-conf">
-                                            <div class="icon-pre-conf-type"><i class="fa fa-newspaper-o"></i></div>
-                                            <div class="conf-title">Timeline</div>
-                                        </div>
-                                    </a></li>
-                                    <li><a class="" data-toggle="tab" href="#Public" role="tab">  
-                                        <div class="each-conf">
-                                            <div class="icon-pre-conf-type"><i class="fa fa-globe"></i></div>
-                                            <div class="conf-title">Public posts</div>
-                                        </div>
-                                    </a></li> -->
                                 </ul>
                             </div>
-                            <!-- end small device -->
                             <!-- =================================================================================================================== -->
                         
                             </div>
-                            <!-- end panel tools -->
-                            <!-- ======================================================================================================================================== -->
                             <!-- ======================================================================================================================================== -->
                            
 
                             <!-- align element columly -->
-                            <!-- ================================================================================================================================================= -->
                             <!-- ================================================================================================================================================== -->
                             <div>
                                 <!-- start tab for configuration and settings for left settings section -->
@@ -461,7 +376,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- end addition of information -->
                                     <!-- ================================================================================================================================================ -->
 
                                     <!-- tab for Account settings -->
@@ -513,7 +427,6 @@
                                             <div class="title-group-desc">Data and preferences</div>
                                         </div>
                                     </div>
-                                    <!-- end data and preferences -->
                                     <!-- ====================================================================================================================================== -->
 
                                     <!-- tabe for privacy -->
@@ -530,17 +443,9 @@
                                                     </div>
                                                     <div class="desc-settings">Enable my location to be visible to every one who can see my profile</div>
                                                 </div>
-                                                <!-- <div class="each-noti">
-                                                    <div class="d-flex">
-                                                        <div class="form--chicking mr-2"><input type="checkbox" name="" id="" checked></div>
-                                                        <div class="privacy-noti">Enable my email to be visible to everyone</div>
-                                                    </div>
-                                                    <div class="desc-settings">Enable my email to be accessable to every one who visit my profile</div>
-                                                </div> -->
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- end privacy -->
                                     <!-- ============================================================================================================================================================= -->
 
                                     <!-- tab for notiication  -->
@@ -553,7 +458,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- end tab notification -->
                                     <!-- ======================================================================================================================================= -->
 
                                     <!-- tab for timeline  -->
@@ -630,7 +534,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- end tab Timeline -->
                                     <!-- ================================================================================================================================================================ -->
 
                                     <!-- tab for public posts  -->
@@ -660,16 +563,12 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- end tab public post -->
                                     <!-- =================================================================================================================== -->
                                 </div>
-                                <!-- end settings -->
-                                <!-- ============================================================================================================== -->
                                 <!-- ============================================================================================================== -->
 
 
                                 <!-- tabs for group element -->
-                                <!-- ============================================================================================================== -->
                                 <!-- ============================================================================================================== -->
                                 <div class="department-name-course">
 
@@ -683,91 +582,18 @@
                                             <!-- posts -->
                                             <div class="course-department mt-4">
                                                 <div class="section-title">
-                                                    <div>OnTimeline</div>
+                                                    <div>Timeline</div>
                                                 </div>
                                                 <div class="activity-list mt-3" id="activity_posts">
-
-                                                    <!-- each activity -->
-                                                    <!-- ================================================================================================================================== -->
-                                                    <div class="each-activity">
-                                                        <div><div class="poster-image"><img src="../Images/religions/each-religion/budhism/tester-Tyvg1zigZ14-unsplash.jpg" alt="" width="100%" height="100%"></div></div>
-                                                        <!-- main target -->
-                                                        <!-- ========================================================================================================================================== -->
-                                                        <div class="main-target">
-                                                            <div class="poster-detail">
-                                                                <div class="poster-name">Manirabona hirwa patience</div>
-                                                                <div class="caption-require">
-                                                                    <span>Plains Wars, series of conflicts from the early 1850s through the late 1870s between Native Americans and the United States, along with its Indian allies, over control of the Great Plains between the Mississippi River and the Rocky Mountains. The initial major confrontation, sometimes known as the...
-                                                                    Encyclopedia / United States History</span>
-                                                                </div>
-                                                                <div class="media">
-                                                                    <video src="../videos/group/Sia & Rihanna - Beautiful People.webm" loop width="100%" height="100%"></video>
-                                                                    <div class="control-video d-flex"><i class="fa fa-play" onclick="playOrPause(this)" id="playBtn"></i></div>
-                                                                    <div class="video-controls">
-                                                                        <div class="video-status mb-2">
-                                                                            <div class="status-number d-flex justify-content-between">
-                                                                                <div id="currentTime">00:00 / 00:00</div>
-                                                                                <small></small>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="video-stream-line" id="seek-bar"><div id="fill"></div></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="user-accurancy">
-                                                                    <div class="comment-count" data-toggle="collapse" data-target="#comment-found-onpost"><i class="fa fa-comment-o mr-1"></i> <span>546</span></div>
-                                                                    <div class="likes"><i class="fa fa-heart-o mr-1"></i> <span>46K</span></div>
-                                                                    <div class="repost"><i class="fa fa-retweet mr-1"></i> <span>45</span></div>
-                                                                    <div class="add-comment" data-toggle="collapse" data-target="#add_comment">Add your comment</div>
-                                                                </div>
-                                                                <div class="comment-section-addition collapse" id="add_comment">
-                                                                    <div class="add-comments-area">
-                                                                        <div><div class="user-site-image"><img src="../Images/religions/each-religion/budhism/ryan-miglinczy-NNZJ8TnWUvE-unsplash.jpg" alt="" width="100%" height="100%"></div></div>
-                                                                        <div class="comment-textarea"><textarea name="" id="" cols="30" rows="2" placeholder="Write text comments..."></textarea></div>
-                                                                        <div class="btn-add-comment"><button>post</button></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="comment-found collapse" id="comment-found-onpost">
-                                                                    <div class="list-comment-found">
-
-                                                                        <div class="each-comment">
-                                                                            <div class="inner-commet">
-                                                                                <div><div class="commeter-img"><img src="../Images/religions/each-religion/budhism/jopeel-quimpo-qP4A-5EloaM-unsplash.jpg" alt="" width="100%" height="100%"></div></div>
-                                                                                <div class="comment">
-                                                                                    <div class="commeter-name">Manirabona hirwa patience</div>
-                                                                                    <div class="real-comment">
-                                                                                        <span>American Civil War, four-year war (1861–65) between the United States and 11 Southern states that seceded from the Union and formed the Confederate States of America. The secession of the Southern states (in chronological order, South Carolina, Mississippi, Florida, Alabama, Georgia, Louisiana,...
-                                                                                            Encyclopedia / United States History</span>          
-                                                                                    </div>
-                                                                                    <div class="user-accurancy">
-                                                                                        <div class="comment-count"><i class="fa fa-comment-o mr-1"></i> <span class="pre-accurate">Commentes</span> <span>546</span></div>
-                                                                                        <div class="likes"><i class="fa fa-heart-o mr-1"></i> <span class="pre-accurate">Likes</span> <span>46K</span></div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!-- end main target div -->
-                                                        <!-- ========================================================================================================================================== -->
-                                                    </div>
-                                                    <!-- end each activity -->
-                                                    <!-- ============================================================================================================================================== -->
-
+                                            
                                                 </div>
                                             </div>
-                                            <!-- end timeline -->
                                             <!-- =============================================================================================================================================================== -->
 
                                         </div>
-                                        <!-- end timeline -->
-                                        <!-- =================================================================================================================================================================== -->
                                         <!-- ==================================================================================================================================================================== -->
 
                                         <!-- tab for companion -->
-                                        <!-- ========================================================================================================================================================================== -->
                                         <!-- =========================================================================================================================================================================== -->
                                         <div class="tab-pane" role="tabpanel" id="Companion">
                                             <div class="course-department mt-4">
@@ -776,7 +602,6 @@
                                                 </div>
                                                 <div class="activity-list members-section mt-3">
                                                     <!-- followers -->
-                                                    <!-- =================================================================== -->
                                                     <!-- ======================================================================= -->
                                                     <div class="member-list mr-auto ml-auto">
                                                         <div class="Approved">Followers</div>
@@ -784,16 +609,12 @@
 
                                                         </div>
                                                     </div>
-                                                    <!-- end followers -->
-                                                    <!-- ============================================================================================================== -->
                                                     <!-- =============================================================================================================== -->
 
                                                     <!-- following -->
                                                     <!-- =================================================================================================================== -->
-                                                    <!-- =================================================================================================================== -->
                                                     <div class="wait-approval-member">
                                                         <!-- following list -->
-                                                        <!-- =================================================================================================== -->
                                                         <!-- =================================================================================================== -->
                                                         <div class="unApproved-list">
                                                             <div class="Approved">Following</div>
@@ -801,23 +622,16 @@
 
                                                             </div>
                                                         </div>
-                                                        <!-- end following list -->
-                                                        <!-- ================================================================================================================================== -->
                                                         <!-- ================================================================================================================================== -->
                                                     </div>
-                                                    <!-- end following -->
-                                                    <!-- ==================================================================================================================================== -->
                                                     <!-- ====================================================================================================================================== -->
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- end tab for Companion -->
-                                        <!-- ========================================================================================================================================= -->
                                         <!-- ========================================================================================================================================= -->
 
 
                                         <!-- tab for courses -->
-                                        <!-- =================================================================================================================================================== -->
                                         <!-- =================================================================================================================================================== -->
                                         <div class="tab-pane" role="tabpanel" id="Courses">
                                             <div class="course-department mt-4">
@@ -831,13 +645,10 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- end tab for course -->
-                                        <!-- ================================================================================================================================================== -->
                                         <!-- ================================================================================================================================================== -->
 
 
                                         <!-- tab for media -->
-                                        <!-- ================================================================================================================================================== -->
                                         <!-- ================================================================================================================================================= -->
                                         <div class="tab-pane" role="tabpanel" id="media">
                                             <div class="course-department mt-4">
@@ -855,7 +666,6 @@
                                                         <div class="photos-shared" id="photos_shared">
                                                             
                                                         </div>
-                                                        <!-- end for photos -->
                                                         <!-- =================================================================================================================================== -->
 
                                                         <!-- video shared -->
@@ -863,105 +673,56 @@
                                                         <div class="videos-shared-post" id="video_shared">
 
                                                         </div>
-                                                        <!-- end video shared -->
-                                                        <!-- ========================================================================================================================================== -->
                                                         <!-- ========================================================================================================================================== -->
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- end tab for media -->
-                                        <!-- =============================================================================================================================================== -->
                                         <!-- =============================================================================================================================================== -->
 
                                     </div>
                                 </div>
-                                <!-- end bottom section -->
-                                <!-- =============================================================================================================== -->
                                 <!-- =============================================================================================================== -->
 
                             </div>
-                            <!-- end align columly -->
-                            <!-- ================================================================================================================================ -->
                             <!-- ================================================================================================================================ -->
 
                         </div>
-                        <!-- end down top content -->
-                        <!-- ====================================================================================================================================== -->
                         <!-- ===================================================================================================================================== -->
 
                     </div>
                 </div>
-                <!-- end left side-content -->
-                <!-- ======================================================================================================================== -->
                 <!-- ======================================================================================================================== -->
 
             </div>
         </div>
-        <!-- end body section -->
-        <!-- ======================================================================================================================================= -->
-        <!-- ======================================================================================================================================= -->
         <!-- ======================================================================================================================================= -->
         
  
-       <!-- javascript external file, type js  and libraries-->
-       <!-- ================================================ -->
-       <!-- ========================================================================================== -->
-       <script src="../Assets/js/video_controll.box.js"></script>
-       <script src="../Assets/js/settings.box.js"></script>
-       <script src="../Assets/js/profile.load.data.js"></script>
-       <script src="../Assets/js/show_profile_content.js"></script>
+        <!-- javascript external file, type js  and libraries-->
+        <!-- ================================================ -->
+        <!-- ========================================================================================== -->
+        <script src="../Assets/js/video_controll.box.js"></script>
+        <script src="../Assets/js/settings.box.js"></script>
+        <script src="../Assets/js/profile.load.data.js"></script>
+        <script src="../Assets/js/show_profile_content.js"></script>
 
-       <script src="../Lib/bootstrap/js/bootstrap.min.js" type="text/javascript"></script> 
-       <script src="../Lib/bootstrap/js/bootstrap-datepicker.js"></script> 
-       <script src="../Lib/custom/custom.js"></script>
-       <script src="../Lib/date-picker/bootstrap-switch.js"></script>
-       <script src="../Lib/date-picker/nouislider.min.js"></script>
-       <script src="../Lib/easing/easing.min.js"></script>
-       <script src="../Lib/jquery/jquery-migrate.min.js"></script>
-       <script src="../Lib/jquery/jquery.bootstrap-wizard.js"></script>
-       <script src="../Lib/jquery/jquery.counterup.js"></script>
-       <script src="../Lib/jquery/jquery.fancybox.pack.js"></script>
-       <script src="../Lib/jquery/jquery.min.js"></script>
-       <script src="../Lib/jquery/jquery.mixitup.js"></script>
-       <script src="../Lib/jquery/jquery.poptrox.min.js"></script>
-       <script src="../Lib/jquery/jquery.validate.min.js"></script>
-       <script src="../Lib/jquery/perfect-scrollbar.jquery.min.js"></script>
-       <script src="../Lib/lightbox/js/lightbox-plus-jquery.min.js"></script>
-       <script src="../Lib/material/js/material-dashboard?v=2.1.1.js"></script>
-       <script src="../Lib/now-ui-kit/now-ui-kit.js"></script>
-       <script src="../Lib/owlcarousel/owl.carousel.js"></script>
-       <script src="../Lib/popper/popper.min.js"></script>
-       <script src="../Lib/skel/skel.min.js"></script>
-       <script src="../Lib/slick/slick.js"></script>
-       <script src="../Lib/superfish/superfish.js"></script>
-       <script src="../Lib/venobox/venobox.js"></script>
-       <script src="../Lib/wow/wow.min.js"></script>
-       <script src="../Lib/bootstrap/js/bootstrap-material-design.min.js"></script>
-       <script>
-           $(document).ready(function() {
-           //init DateTimePickers
-           md.initFormExtendedDatetimepickers();
-           });
-       </script> 
-       <script>
-           $(document).ready(function() {
-             // the body of this function is in assets/js/now-ui-kit.js
-             nowuiKit.initSliders();
-           });
-       
-           function scrollToDownload() {
-       
-             if ($('.section-download').length != 0) {
-               $("html, body").animate({
-                 scrollTop: $('.section-download').offset().top
-               }, 1000);
-             }
-           }
-       </script>
-       <!-- end libraries -->
-       <!-- ========================================================================================================================================== -->
-       <!-- ========================================================================================================================================== -->
+        <script src="../Lib/bootstrap/js/bootstrap.min.js" type="text/javascript"></script> 
+        <script src="../Lib/bootstrap/js/bootstrap-datepicker.js"></script> 
+        <script src="../Lib/jquery/jquery.min.js"></script>
+        <script src="../Lib/material/js/material-dashboard?v=2.1.1.js"></script>
+        <script src="../Lib/now-ui-kit/now-ui-kit.js"></script>
+        <script src="../Lib/bootstrap/js/bootstrap-material-design.min.js"></script>
+        <script>
+                $(document).ready(function() {
+                    //init DateTimePickers
+                    md.initFormExtendedDatetimepickers();
+                });
+        </script>
+        <!-- ========================================================================================================================================== -->
    </body>
 </html>
-<?php } ?>
+<?php } else {
+    header("Location: ../account_shortcut.box.php");
+    exit();
+} ?>

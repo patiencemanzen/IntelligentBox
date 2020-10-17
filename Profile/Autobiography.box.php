@@ -96,11 +96,14 @@
     if(isset($_POST['submit_content'])){
         $auto_content = $_POST['content'];
         $auto_identity = $_POST['autobio_identity'];
+        $autoId = $_POST['autoId'];
    
         if($new_Autobio->Save_autobio_content($auto_identity, $auto_content)){
-            echo "Autobio content saved succefully";
+            header("Location: autobio_read.box.php?autobio={$autoId}&response=success");
+            exit();
         }else{
-            echo "Fail to save this autobio";
+            header("Location: autobio_read.box.php?autobio={$autoId}&response=fail");
+            exit();
         }
     }
 

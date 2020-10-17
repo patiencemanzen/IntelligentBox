@@ -20,8 +20,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-        <meta name="description" content="E-learning website that help everyone who want to learn intellectual skills like software development, share what you're about and challenge with other connection and become profession in it. intelligent box is good website for you to become what you dream about and it connect you around the world with many other professions student and teacher." />
-        <meta name="keywords" content="social network,social media, learning, e-learning, share, friends, challenges, e-tvet, courses, schools, create, skills, account, signin, online charting, online learning, courses, groups, intelligentbox rwanda, e-learning rwanda, connect, intelligentbox, microbox, box rwanda, help" />
+        <meta name="description" content="E-learning website that help everyone who want to learn intellectual skills, software development, share what you're about and challenge with other connection and become profession in it. intelligent box is good website for you to become what you dream about and it connect you around the world with many other professions student and teacher." />
+        <meta name="keywords" content="social network rwanda,social media rwanda, learning rwanda, e-learning rwanda, share content, connect friends, create challenges, tvet rwanda, intelligentbox courses, create intelligentbox, skills, account, signin, online charting, online learning, courses, groups, intelligentbox rwanda, e-learning rwanda, connect rwanda, intelligentbox, microbox developers, microbox rwanda, help" />
         <meta name="author" content="Manirabona Patience" />
         <meta name="robots" content="index, follow"/>
         <meta name="apple-mobile-web-app-capable" content="yes">
@@ -48,6 +48,7 @@
         <link rel="stylesheet" href="Lib/slick/slick.css">
         <link rel="stylesheet" href="Lib/theme-color/violet-theme.css">
         <link rel="stylesheet" href="Lib/venobox/venobox.css">
+        <link rel="stylesheet" href="Lib/slick/slick.css">
     
     </head>
     <body>
@@ -909,6 +910,73 @@
             </div>
             <!-- ============================================================================================================================================= -->
 
+            <!-- SHORT DESCRIPTION -->
+            <!-- ===================================================================================================================================================================== -->
+            <div class="short-description">
+                <div class="container">
+                    <div class="description-content">
+                        <div class="each-descrption">
+                           <div class="desc-icon-outline"><i class="fa fa-graduation-cap"></i></div>
+                           <div class="desc-title"><span>Study on intelligentBox</span></div>
+                           <div class="desc-body">
+                               An easy way to learn more things in different ways, combined or divided, share 
+                               what you got on Intelligentbox, More challenges and collaboration between you, 
+                               instructor and your near friends efficiently. 
+                           </div>
+                        </div>
+                        <div class="each-descrption">
+                           <div class="desc-icon-outline"><i class="fa fa-tv"></i></div>
+                           <div class="desc-title"><span>Teach on intelligentBox</span></div>
+                           <div class="desc-body">
+                               You can teach on intelligentbox and share with world
+                               what you know, Let the audience know your expiriences and knowledge,
+                               create a class that will help more people to level up their skills
+                               and world's generations.
+                           </div>
+                        </div>
+                        <div class="each-descrption">
+                           <div class="desc-icon-outline"><i class="fa fa-share-alt"></i></div>
+                           <div class="desc-title"><span>Share what you're about</span></div>
+                           <div class="desc-body">
+                               Did you know that the only thing that can make you move
+                               to another step is to collaborate and share you can do,
+                               what you know and what you're about, Let the world know
+                               you're thinking now.
+                           </div>
+                        </div>
+                        <div class="each-descrption">
+                           <div class="desc-icon"><i class="fa fa-globe"></i></div>
+                           <div class="desc-title"><span>World History</span></div>
+                           <div class="desc-body">
+                               Read more about world'history through intelligentbox,
+                               Let buld world's future but let not forget our future,
+                               Find out the most world history content and also get 
+                               today in history.
+                           </div>
+                        </div>
+                        <div class="each-descrption">
+                           <div class="desc-icon"><i class="fa fa-book"></i></div>
+                           <div class="desc-title"><span>More about Religions</span></div>
+                           <div class="desc-body">
+                               Read what world's religions is talking about in now days,
+                               More religion articles and each religion content, short 
+                               description about it, let share what we know about it also. 
+                           </div>
+                        </div>
+                        <div class="each-descrption">
+                           <div class="desc-icon"><i class="fa fa-newspaper-o"></i></div>
+                           <div class="desc-title"><span>World News</span></div>
+                           <div class="desc-body">
+                               Do you know that you can read world's news and talk about world's 
+                               news in different ways, share what news happening arround, 
+                               let keep up with with world's news around.
+                           </div>
+                        </div>
+                    </div>       
+                </div>
+            </div>
+            <!-- ===================================================================================================================================================================== -->
+
             <!-- footer -->
             <!-- ===================================================================================================================================================================== -->
             <!-- ===================================================================================================================================================================== -->
@@ -1012,32 +1080,23 @@
             <script src="Lib/superfish/superfish.js"></script>
             <script src="Lib/venobox/venobox.js"></script>
             <script src="Lib/wow/wow.min.js"></script>
+            <script src="Lib/slick/slick.js"></script>
             <script src="Lib/bootstrap/js/bootstrap-material-design.min.js"></script>
             <script>
-                $(document).ready(function() {
-                //init DateTimePickers
-                md.initFormExtendedDatetimepickers();
+                // initialize slick
+                $('.description-content').slick({
+                    dots: true,
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    autoplay: true,
+                    autoplaySpeed: 5000
                 });
             </script> 
             <script>
-                $(document).ready(function() {
-                    // the body of this function is in assets/js/now-ui-kit.js
-                    nowuiKit.initSliders();
-                });
-            
-                function scrollToDownload() {
-            
-                if ($('.section-download').length != 0) {
-                    $("html, body").animate({
-                    scrollTop: $('.section-download').offset().top
-                    }, 1000);
-                }
-                }
                 // Initiate the wowjs animation library
                 new WOW().init();
             </script>
             <!-- end libraries -->
-            <!-- ================================================================================================================================================== -->
             <!-- ================================================================================================================================================== -->
             
     </body>

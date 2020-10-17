@@ -20,10 +20,9 @@
     @font-face{font-family: 'roboto_regular';src: url('../fonts/Roboto/Roboto-Regular.ttf');}
     @font-face{font-family: 'baskvile';src: url('../fonts/baskerville/BASKVILL.TTF');}
     @font-face{font-family: 'roboto_medium';src: url('../fonts/Roboto/Roboto-Medium.ttf');}
-
+/* ================================================================================================================ */
 
 /* apply on scroll bar */
-/* ======================================================================================================================= */
 /* ======================================================================================================================= */
     /* width */
     ::-webkit-scrollbar {
@@ -40,33 +39,30 @@
         background: #041a2f;
         border-radius: 4px; 
     }
+/* ======================================================================================================================================== */
 
-    /* body style */
-    /* =========================================================== */
+/* body style */
+/* ======================================================================================================================================== */
     body{
         padding: 0;
         margin: 0;
         font-family: roboto_regular;
     }
+/* ======================================================================================================================================= */
 
-
-    /* down section style */
-    /* ================================================================= */
-    .group-name{
-        position: absolute;
-        color: white;
-        font-size: 20px;
-        font-family: roboto_bold;
-        top: 70px;
-        left: 20px;
-        border: 1.5px solid #d3d3d3;
-        padding: 10px;
-        border-radius: 4px;
+/* down section style */
+/* ======================================================================================================================================= */
+    .down-section{
+        margin-top: 90px;
+    }
+    .main-section{
+        display: flex;
+        padding: 0px 40px;
     }
     .background-top-image {
         position: relative;
         background: white;
-        box-shadow: 0 0 0px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 15px rgba(0,0,0, 0.4);
+        box-shadow: 0 0 10px rgba(0,0,0, 0.3);
         border-bottom-left-radius: 4px;
         border-bottom-right-radius: 4px;
         margin-bottom: 30px;
@@ -86,6 +82,19 @@
     }
     .user-img img{
         border-radius: 4px;
+    }
+    .group-name{
+        position: absolute;
+        color: white;
+        font-size: 20px;
+        font-family: roboto_bold;
+        bottom: 70px;
+        left: 20px;
+        padding: 10px;
+        border-radius: 4px;
+        letter-spacing: 1.5px;
+        letter-spacing: 0.6px;
+        text-transform: capitalize;
     }
     .admin{
         position: absolute;
@@ -267,6 +276,14 @@
         border-bottom-right-radius: 4px;
         border-bottom-left-radius: 4px;
     }
+    .friends-cover{
+        color: white;
+        font-family: roboto_bold;
+        letter-spacing: 0.6px;
+        font-size: 16px;
+        margin-top: 5px;
+        text-transform: capitalize;
+    }
     .group-detail{
         margin-top: 10px;
     }
@@ -279,7 +296,9 @@
         font-size: 15px;
         position: relative;
         margin-right: 8px;
-        font-size: 13px;
+        font-size: 14px;
+        background: white;
+        letter-spacing: 0.6px;
     }
     .detail-list .detail .search{
         border: none;
@@ -343,69 +362,645 @@
         font-size: 30px;
         margin-bottom: 20px;
     }
+/* end top background style*/
+/* ==================================================================================================== */
 
-    /* three circle image on bottom top background */
-    /* =================================================================================================================================== */
-    .friends-cover{
+
+/* start right style */
+/* ========================================================================================================================= */
+    .right-side{
+        width: 35%;
+        margin-right: 20px;
+    }
+    .user-friend{
+        background: white;
+        border-radius: 4px;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        border: 1px solid #d3d3d3;
+    }
+    .friend-list{
+        padding: 10px;
+    }
+    .present-img-friend img{
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+    }
+    .present-img-friend{
+        height: 100px;
+    }
+    .label{
+        font-size: 18px;
+        font-family: roboto_regular;
+        background: #f6f7fd;
+        font-family: roboto_bold;
+        text-transform: capitalize;
+        border-radius: 10px;
+        padding: 9px 13px 9px 13px;
+        font-size: 15px;
+        margin: 10px 10px 10px 10px;
+    }
+    .each-user{
+        padding: 10px;
+        border-radius: 4px;
+        margin-bottom: 20px;
+        border: 1px solid #d3d3d3;
+    }
+    .friend-image{
+        width: 50px;
+        height: 50px;
         position: relative;
-        display: flex;
+        background: #f6f7fd;
+        border-radius: 100%;
+    }
+    .friend-image img{
+        border-radius: 100%;
+        height: 100%;
+    }
+
+    /* user online */
+    .friend-image .active-user{
+        background: white;
+        border-radius: 100%;
+        padding: 2px;
+        position: absolute;
+        bottom: 4px;
+        right: -2px;
+    }
+    .friend-image .active-user div{
+        background: #041a2f;
+        border-radius: 100%;
         padding: 5px;
     }
-    .first-friends-image img,.middle-friend-image img,.third-friend-image img{
-        border-radius: 50%;
-        object-fit: cover;
-    }
-    .first-friends-image{
-        border-radius: 50%;
-        background: #f6f7fd;
-        border: 2px solid white;
-        width: 40px;
-        height: 40px;
-    }
-    .middle-friend-image{
-        border-radius: 50%;
-        background: #f6f7fd;
-        border: 2px solid white;
-        width: 40px;
-        height: 40px;
+
+    /* user offline */
+    .friend-image .non-active-user{
+        background: white;
+        border-radius: 100%;
+        padding: 2px;
         position: absolute;
-        top: 5px;
-        left: 25px;
+        bottom: 4px;
+        right: -2px;
     }
-    .third-friend-image{
-        border-radius: 50%;
-        background: #f6f7fd;
-        border: 2px solid white;
-        width: 40px;
-        height: 40px;
+    .friend-image .non-active-user div{
+        background: rgb(197, 14, 14);
+        border-radius: 100%;
+        padding: 5px;
     }
-    .count-member{
-        font-size: 16px;
+    .friend-desc{
         font-family: roboto_bold;
-        margin-top: 11px;
-        margin-left: 3px;
     }
-    /* end top background style*/
-    /* ==================================================================================================== */
+    .friend-name{
+        font-family: roboto_bold;
+    }
+    .friend-bio{
+        width: 280px;
+        font-family: roboto_regular;
+        font-size: 13px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap; 
+    }
+    .btn-follow {
+        margin-top: 2px;
+        padding: 2px;
+    }
+    .btn-follow button{
+        background-color: #041a2f;
+        color: white;
+        font-family: roboto_bold;
+        border: none;
+        outline: none;
+        padding: 5px 10px 5px 10px;
+        border-radius: 6px;
+        font-size: 12px;
+        margin-left: 5px;
+        text-transform: capitalize;
+    }
+    .btn-following button{
+        background-color: white;
+        color: #041a2f;
+        font-family: roboto_bold;
+        border: 1px solid #d3d3d3;
+        outline: none;
+        padding: 5px 10px 5px 10px;
+        border-radius: 6px;
+        font-size: 12px;
+        margin-left: 5px;
+        text-transform: capitalize;
+    }
+    .create-short-story{
+        border-radius: 6px;
+        background-color: white;
+        box-shadow: 0 0 5px rgba(0,0,0, 0.3);
+    }
+    .title-short-story{
+        padding: 10px;
+        font-family: roboto_bold;
+        text-transform: capitalize;
+        font-size: 16px;
+        background: #f6f7fd;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        letter-spacing: 0.6px;
+    }
+    .user-typer{
+        padding: 20px;
+    }
+    .user-image{
+        width: 60px;
+        height: 60px;
+        border-radius: 100%;
+        background: #f6f7fd;
+        padding: 2px;
+    }
+    .user-image img{
+        border-radius: 100%;
+    }
+    .usr-textarea{
+        width: 100%;
+        margin-left: 10px;
+    }
+    .type-something textarea{
+        width: 100%;
+        height: 100%;
+        outline: none;
+        border: none;
+        background-color: #f6f7fd;
+        font-family: roboto_bold;
+        letter-spacing: 0.7px;
+    }
+    .type-something{
+        border-radius: 24px;
+        padding: 15px 20px;
+        background: #f6f7fd;
+        font-family: roboto_bold;
+        width: 100%;
+        cursor: pointer;
+        font-size: 14px;
+        font-size: 18px;
+        margin-top: 5px;
+        color: #08345e;
+        letter-spacing: 0.6px;
+        opacity: .7; 
+    }
+    .feeling-addition{
+        padding: 10px;
+        border-top: 1px solid #d3d3d3;
+    }
+    .feeling-addition div{
+        background: #f6f7fd;
+        font-family: roboto_bold;
+        text-transform: capitalize;
+        border-radius: 20px;
+        padding: 8px 11px 8px 13px;
+        font-size: 15px;
+        cursor: pointer;
+    }
 
 
-    /* main */
-    /* ==================================================================================================== */
-    .main-section{
-        margin-top: 20px;
-        box-shadow: 0 0 0px rgba(0,0,0, 0.4),0 0 1px rgba(0,0,0, 0.4),0 0 10px rgba(0,0,0, 0.4);
+/* create short story in group */
+/* ================================================================================================================================================== */
+    .create-story-prive{
+        position: absolute;
+        background: white;
+        border-radius: 4px;
+        padding: 5px;
+        z-index: 20;
+        top: 20px;
+        left: 5px;
+        width: 500px;
+        display: none;
+        animation: result 300ms ease-in-out forwards;
+        transform-origin: top right;
+        box-shadow: 0 0 10px rgba(0,0,0, 0.3);
+    }
+    @keyframes result{
+        0%{
+            opacity: 0;
+            transform: scale(0.1);
+        }
+        100%{
+            opacity: 1;
+            transform: scale(1)
+        }
+    }
+    .section-title{
+        background: #f6f7fd;
+        font-family: roboto_bold;
+        font-size: 15px;
+        padding: 10px;
+        position: relative;
+    }
+    .close-post-creation{
+        position: absolute;
+        right: 10px;
+        top: 7px;
+        background-color: white;
+        padding: 3px 6px 3px 6px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .create-area{
+        display: flex;
+        margin-top: 10px;
+        padding: 0px 10px;
+    }
+    .image-story-preview{
+        background: #f6f7fd;
+        width: 350px;
+        margin-right: 10px;
+        border-radius: 4px;
+        text-align: center;
+        height: 200px;
+    }
+    .image-story-preview .fa{
+        font-size: 40px;
+        margin-top: 40%;
+    }
+    .for-image img{
+        border-radius: 4px;
+    }
+    .for-image{
+        width: 100%;
+        height: 100%;
+    }
+    .title-story{
+        border-radius: 4px;
+        border: 1px solid #d3d3d3;
+        padding: 5px;
+        font-size: 14px;
+        letter-spacing: 0.6px;
+    }
+    .create-story-body textarea{
+        width: 100%;
+        height: 100%;
+        outline: none;
+        border: none;
+        font-family: roboto_bold;
+        font-size: 14px;
+    }
+    .create-story-body{
+        border-radius: 4px;
+        border: 1px solid #d3d3d3;
+        padding: 5px;
+        margin-top: 10px;
+    }
+    .sectio-footer{
+        display: flex;
+        margin-top: 10px;
+        background-color: #f6f7fd;
+        padding: 10px;
+        justify-content: space-between;
+    }
+    .send-post{
+        display: flex;
+    }
+    .choose-image-story button{
+        background: #041a2f;
+        border: none;
+        outline: none;
+        border-radius: 4px;
+        font-size: 14px;
+        font-family: roboto_bold;
+        padding: 5px 10px 5px 10px;
+        cursor: pointer;
+        color: white;
+        text-transform: capitalize;
+        letter-spacing: 0.6px;
+    }
+    .send-post button{
+        background: #041a2f;
+        border: none;
+        outline: none;
+        border-radius: 4px;
+        font-size: 14px;
+        font-family: roboto_bold;
+        padding: 5px 10px 5px 10px;
+        cursor: pointer;
+        color: white;
+        text-transform: capitalize;
+        margin-left: 10px;
+        letter-spacing: 0.6px;
+    }
+    .send-post div .fa{
+        background: white;
+        font-size: 16px;
+        padding: 9px 10px 9px 10px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+    /* end creation of short story */
+    .top-learner{
         border-radius: 4px;
         background: white;
+        box-shadow: 0 0 5px rgba(0,0,0, 0.3);
+        min-width: 350px; 
+        margin-top: 30px;   
     }
-    /* end main */
-    /* ======================================================================================================= */
-
-
-    /* left style */
-    /* ======================================================================================================== */
-    .left-side{
+    .friends-title{
         padding: 10px;
-        /* width: 400px; */
+    }
+    .title-learner{
+        font-size: 17px;
+        font-family: roboto_bold;
+        text-transform: capitalize;
+        letter-spacing: 0.6px;
+        text-align: center;
+        margin-top: 5px;
+    }
+    .learners-list{
+        padding: 10px;
+        overflow: auto;
+        max-height: 500px;
+        min-height: 200px;
+        overflow-x: hidden;
+    }
+    .each-learner{
+        padding: 10px;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        border-top: 1px solid #d3d3d3;
+    }
+    .learner-image{
+        background: white;
+        border-radius: 50%;
+    }
+    .name-student{
+        font-family: roboto_bold;
+        text-transform: capitalize;
+        text-align: left;
+        width: 150px;
+    }
+    .img{
+        border-radius: 100%;
+        border: 1px solid #d3d3d3;
+        padding: 2px;
+        background: #f6f7fd;
+        width: 60px;
+        height: 58px;
+    }
+    .img img{
+        border-radius: 100%;
+        width: 100%;
+        height: 100%;
+    }
+    .name{
+        font-family: roboto_bold;
+        text-transform: capitalize;
+        text-align: left;
+        margin-top: 10px;
+        margin-left: 5px;
+    }
+    .name div{
+        width: 150px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    .follow button{
+        background-color: #041a2f;
+        color: white;
+        padding: 3px 20px 3px 20px;
+        font-family: roboto_regular;
+        border: none;
+        outline: none;
+        border-radius: 4px;
+        font-size: 13px;
+    }
+    .following button{
+        background-color: white;
+        color: #041a2f;
+        padding: 3px 20px 3px 20px;
+        font-family: roboto_regular;
+        outline: none;
+        border-radius: 4px;
+        font-size: 13px;
+        border: 1px solid #d3d3d3;
+    }
+    .learner-bio{
+        font-family: roboto_regular;
+        font-size: 13px;
+    }
+    .trainer-accurate div{
+        background: #f6f7fd;
+        font-family: roboto_bold;
+        text-transform: capitalize;
+        border-radius: 20px;
+        padding: 5px 10px 5px 10px;
+        font-size: 13px;
+        cursor: pointer;
+    }
+    .trainer-accurate div span{
+        font-family: roboto_bold;
+    }
+    /* end left style */
+
+    /* about user */
+    .about-usr{
+        background: white;
+        padding: 6px;
+        border-radius: 4px;
+        position: absolute;
+        top: -50px;
+        margin-left: 10px;
+        left: -430px;
+        /* width: 500px; */
+        display: none;
+        box-shadow: 0 0 5px rgba(0,0,0, 0.3);
+    }
+    .about-specification{
+        display: flex;
+    }
+    .user-about-image img{
+        border-radius: 50%;
+    }    
+    .user-about-image{
+        width: 100px;
+        height: 99px;
+        border-radius: 50%;
+        background: #f6f7fd;
+        margin-top: 5px;
+        margin-left: 5px;
+        border: 1px solid #d3d3d3;
+        padding: 3px;
+    }
+    .about-info{
+        margin-left: 10px;
+        font-family: roboto_medium;
+        text-transform: capitalize;
+        width: 100%;
+        margin-top: 10px;
+    }
+    .firstname{
+        font-size: 16px;
+        font-family: roboto_bold;
+        margin-bottom: 5px;
+    }
+    .about-info div{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 270px;
+    }
+    .activity-status{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        font-family: roboto_bold;
+        text-transform: capitalize;
+    }
+    .activity-status div{
+        background: #f6f7fd;
+        border-radius: 4px;
+        padding: 4px 7px 4px 7px;
+        font-family: roboto_bold;
+        font-size: 12px
+    }
+    .search-result-img{
+        width: 50px;
+        height: 45px;
+        margin-right: 5px;
+        background: #f6f7fd;
+        border-radius: 4px;
+    }
+    .search-result-img img{
+       border-radius: 4px;
+    }
+
+    /* sidenav */
+    .sidenav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 50px;
+        left: 0;
+        background-color: white;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+        box-shadow: 0 0 10px rgba(0,0,0, 0.3);
+    }
+      
+    .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+    
+    .sidenav a:hover {
+        color: #f1f1f1;
+    }
+    
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+    .detailed input{
+        border: none;
+        width: 100%;
+        height: 100%;
+        font-family: roboto_medium;
+    }
+    .detailed{
+        border-radius: 4px;
+        padding: 5px;
+        border: 1px solid #d3d3d3;
+    }
+    .detailed .fa{
+        margin-top: 3px;
+    }
+    .small-dev{display: none;}
+
+    .div_challenges_hold{
+        position: fixed;
+        bottom: 30px;
+        right: 100px;
+    }
+
+    .group-gallery{
+        box-shadow: 0 0 5px rgba(0,0,0, 0.3);
+        margin-top: 30px;
+        border-radius: 4px;
+        padding: 10px;
+    }
+    .media-title{
+        font-family: roboto_bold;
+        letter-spacing: 0.6px;
+        font-size: 18px;
+        padding: 10px;
+        text-align: center;
+    }
+    .medias{
+        overflow: hidden;
+        border-radius: 14px;
+    }
+    .sort-images{
+        overflow: auto;
+        max-height: 300px;
+        min-height: 150px;
+        width: 100%;
+        border-radius: 14px;
+        /* background-color: #f6f7fd; */
+    }
+    .each-media img{
+        border-radius: 6px;
+        width: 100%;
+        height: 100%;
+    }
+    .each-media{
+        background: #f6f7fd;
+        width: 180px;
+        height: 158px;
+        float: left;
+        margin: 3px;
+        border-radius: 6px;
+    }
+/* ERROR HANDLING */
+/* ==================================================================================================== */
+    .Display_error {
+        display: block;
+        background: #071c2e;
+        position: fixed;
+        right: 100px;
+        top:  300px;
+        color: #89ff00;
+        font-weight: 570;
+        box-shadow: 0 0 10px rgba(0,0,0, 0.3);
+        line-height: 19px;
+        display: flex;
+        border-radius: 4px;
+    }
+    .Display_error .error-icon{
+        background: #08345e;
+        padding: 10px;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+    }
+    .check-word_error{
+        font-family: roboto_bold;
+        padding: 10px;
+        letter-spacing: 0.5px;
+        line-height: 19px;
+        font-weight: 560;
+    }
+/* =================================================================================================== */
+
+/* left style */
+/* ======================================================================================================== */
+    .left-side{
+        display: flex;
+    }
+    .post-shared{
+        width: 60%;
     }
     .notification{
         padding: 10px;
@@ -449,21 +1044,34 @@
         border-radius: 10px;
         padding: 8px 11px 8px 13px;
         font-size: 16px;
+        letter-spacing: 0.6px;
     }
     .each-post{
-        border: 1px solid #d3d3d3;
-        border-radius: 4px;
+        border-radius: 6px;
         padding: 10px;
         background: white;
+        padding: 10px;
+        box-shadow: 0 0 5px rgba(0,0,0, 0.3);
+        margin: 0px 0px 20px 0px;
+    }
+    .poster-detail{
+        display: flex;
+    }
+    .poster-text{
+        margin-left: 10px;
+    }
+    .posted_time{
+        font-family: roboto_bold;
+        font-size: 14px;
     }
     .poster-img{
-        width: 50px;
-        height: 48px;
-        border-radius: 50%;
+        width: 45px;
+        height: 40px;
+        border-radius: 4px;
         background: #f6f7fd;
     }
     .poster-img img{
-        border-radius: 50%;
+        border-radius: 4px;
     }
     .poster-name{
         font-family: roboto_bold;
@@ -472,93 +1080,27 @@
     }
     .poster-caption{
         font-family: roboto_medium;
-        font-size: 14px;
+        font-size: 15px;
         line-height: 19px;
-        letter-spacing: 0.3px;
+        letter-spacing: 0.6px;
         margin-bottom: 10px;
+        margin-top: 5px;
+        line-height: 20px;
     }
-    .media-type{
+    .media-posted{
         background: #f6f7fd;
         border-radius: 4px;
         width: 100%;
         height: 290px;
         position: relative;
-    }
-    .media-type img{
-        border-radius: 4px;
-        width: 100%;
-        height: 100%;
-    }
-    .media-type video{
-        border-radius: 4px;
-        height: 100%;
-        width: 100%;
-        object-fit: fill;
-    }
-    .video-controls{
-        width: 100%;
-        position: absolute;
-        bottom: 10px;
-        color: white;
-        padding: 10px;
-        font-family: roboto_bold;
-        animation: fade 1000ms ease-in-out forwards;
-    }
-    @keyframes fade{
-        0%{
-            opacity: 0;
-            transform: scale(0.1);
-            transform-origin: bottom;
-        }
-        100%{
-            opacity: 1;
-            transform: scale(1);
-        }
-    }
-    .video-stream-line{
-        background: #f2f2f2;
-        width: 100%;
-        border-radius: 10px;
-    }
-    .video-stream-line div{
-        background-color: #041a2f;
-        padding: 2px;
-        border-radius: 4px;
-    }
-    .control-video{
-        position: absolute;
-        top: 40%;
-        left: 40%;
-        padding: 16px 20px 15px 20px;
-        border-radius: 50%;
-        color: white;
-        cursor: pointer;
-        font-size: 40px;
-        animation: fade 500ms ease-in-out forwards;
-    }
-    @keyframes fade{
-        0%{
-            opacity: 0;
-            transform: scale(0.1);
-        }
-        100%{
-            opacity: 1;
-            transform: scale(1);
-        }
-    }
-    .control-video:hover{
-        animation: fadout 500ms ease-in-out forwards;
-    }
-    .pause-play .fa{
-        color: white;
-    }
-    .mute-unmute{
-        margin-left: 10px;
         margin-top: 10px;
-        font-size: 15px;
-        cursor: pointer;
     }
-    .status-number{
+    .media-posted img{
+        border-radius: 4px;
+        width: 100%;
+        height: 100%;
+    }
+    .user-accurate{
         margin-top: 10px;
     }
     .list-accurate div{
@@ -568,8 +1110,9 @@
         text-transform: capitalize;
         border-radius: 4px;
         padding: 7px 10px 7px 10px;
-        font-size: 13px;
+        font-size: 14px;
         cursor: pointer;
+        letter-spacing: 0.6px;
     }
     .list-accurate div .fa{
         font-size: 16px;
@@ -670,7 +1213,7 @@
         text-align: left;
         font-family: roboto_medium;
         font-size: 13px;
-        letter-spacing: 0.3px;
+        letter-spacing: 0.6px;
         line-height: 17px;
         width: 100%;
     }
@@ -706,73 +1249,38 @@
         width: 100%;
         height: 100%;
         background: #f6f7fd;
+        font-family: roboto_medium;
+        font-size: 14px;
     }
     .comment-textarea{
-        border: 1px solid #d3d3d3;
         width: 100%;
         margin-left: 7px;
         margin-right: 7px;
         border-radius: 4px;
         padding: 5px 5px 0px 5px;
         background: #f6f7fd;
-        font-family: roboto_regular;
-        margin-top: 10px;
+        margin-top: 5px;
     }
     .post button{
-        font-family: roboto_regular;
-        background: #f6f7fd;
         font-family: roboto_bold;
+        background: #f6f7fd;
         text-transform: capitalize;
-        border-radius: 100%;
-        padding: 12px 10px 12px 10px;
+        border-radius: 4px;
+        padding: 10px;
         font-size: 13px;
-        margin-top: 5px;
         border: none;
         cursor: pointer;
         outline: none;
-    }
-    .comment-add-comment{
+        font-size: 14px;
+        letter-spacing: 0.6px;
         margin-top: 5px;
+    }
+    .add-comment{
+        margin-top: 5px;
+    }
+    .comment-area{
         display: flex;
-    }
-    .commeter-image-down img{
-        border-radius: 50%;
-    }
-    .commeter-image-down{
-        width: 40px;
-        height: 40px;
-        background: #f6f7fd;
-        border-radius: 50%;
-    }
-    .textarea-add-comment textarea{
-        width: 100%;
-        height: 100%;
-        border: none;
-        outline: none;
-        font-family: roboto_medium;
-    }
-    .textarea-add-comment{
-        border-radius: 4px;
-        border: 1px solid #d3d3d3;
-        padding: 5px;
-        margin-left: 5px;
-        width: 100%;
-    }
-    .post-comment-written{
-        margin-left: 5px;
-        margin-right: 3px;
-        margin-top: 5px;
-    }
-    .post-comment-written button{
-        background: #f6f7fd;
-        color: #041a2f;
-        padding: 6px;
-        border-radius: 4px;
-        cursor: pointer;
-        outline: none;
-        font-family: roboto_bold;
-        text-transform: capitalize;
-        border: none;
+        justify-content: space-between;
     }
     .comment-found-comment{
         border: 1px solid #d3d3d3;
@@ -811,785 +1319,48 @@
         color: #d3d3d3;
         margin-left: 5px;
     }
-    /* end left style */
-    /* ======================================================================================================================== */
 
-
-    /* start right style */
-    /* ========================================================================================================================= */
-    .right-side{
-        padding: 10px;
-        width: 400px;
+    /* ABOUT  */
+    /* ==================================================================================================================== */
+    .about-group{
+        margin-left: 20px;
+        width: 40%;
     }
-    .user-friend{
-        background: white;
-        border-radius: 4px;
-        margin-bottom: 20px;
-        margin-top: 10px;
-        border: 1px solid #d3d3d3;
-    }
-    .friend-list{
-        padding: 10px;
-    }
-    .present-img-friend img{
-        border-top-left-radius: 4px;
-        border-top-right-radius: 4px;
-    }
-    .present-img-friend{
-        height: 100px;
-    }
-    .label{
-        font-size: 18px;
-        font-family: roboto_regular;
-        background: #f6f7fd;
-        font-family: roboto_bold;
-        text-transform: capitalize;
-        border-radius: 10px;
-        padding: 9px 13px 9px 13px;
-        font-size: 15px;
-        margin: 10px 10px 10px 10px;
-    }
-    .each-user{
-        padding: 10px;
-        border-radius: 4px;
-        margin-bottom: 20px;
-        border: 1px solid #d3d3d3;
-    }
-    .friend-image{
-        width: 50px;
-        height: 50px;
-        position: relative;
-        background: #f6f7fd;
-        border-radius: 100%;
-    }
-    .friend-image img{
-    border-radius: 100%;
-    height: 100%;
-    }
-
-    /* user online */
-    .friend-image .active-user{
-        background: white;
-        border-radius: 100%;
-        padding: 2px;
-        position: absolute;
-        bottom: 4px;
-        right: -2px;
-    }
-    .friend-image .active-user div{
-        background: #041a2f;
-        border-radius: 100%;
-        padding: 5px;
-    }
-
-    /* user offline */
-    .friend-image .non-active-user{
-        background: white;
-        border-radius: 100%;
-        padding: 2px;
-        position: absolute;
-        bottom: 4px;
-        right: -2px;
-    }
-    .friend-image .non-active-user div{
-        background: rgb(197, 14, 14);
-        border-radius: 100%;
-        padding: 5px;
-    }
-    .friend-desc{
-        font-family: roboto_bold;
-    }
-    .friend-name{
-        font-family: roboto_bold;
-    }
-    .friend-bio{
-        width: 280px;
-        font-family: roboto_regular;
-        font-size: 13px;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap; 
-    }
-    .btn-follow {
-        margin-top: 2px;
-        padding: 2px;
-    }
-    .btn-follow button{
-        background-color: #041a2f;
-        color: white;
-        font-family: roboto_bold;
-        border: none;
-        outline: none;
-        padding: 5px 10px 5px 10px;
-        border-radius: 6px;
-        font-size: 12px;
-        margin-left: 5px;
-        text-transform: capitalize;
-    }
-    .btn-following button{
-        background-color: white;
-        color: #041a2f;
-        font-family: roboto_bold;
-        border: 1px solid #d3d3d3;
-        outline: none;
-        padding: 5px 10px 5px 10px;
-        border-radius: 6px;
-        font-size: 12px;
-        margin-left: 5px;
-        text-transform: capitalize;
-    }
-    .create-short-story{
-        border: 1px solid #d3d3d3;
-        border-radius: 4px;
-        background-color: white;
-    }
-    .title-short-story{
-        padding: 10px;
-        font-family: roboto_bold;
-        text-transform: capitalize;
-        font-size: 15px;
-        background: #f6f7fd;
-        border-bottom: 1px solid #d3d3d3;
-        border-top-left-radius: 4px;
-        border-top-right-radius: 4px;
-    }
-    .user-typer{
-        padding: 10px;
-    }
-    .user-image{
-        width: 50px;
-        height: 50px;
-        border-radius: 100%;
-        background: #f6f7fd;
-        padding: 2px;
-        border: 1px solid #d3d3d3;
-    }
-    .user-image img{
-        border-radius: 100%;
-    }
-    .usr-textarea{
-        width: 100%;
-    }
-    .type-something textarea{
-        width: 100%;
-        height: 100%;
-        outline: none;
-        border: none;
-        background-color: #f6f7fd;
-    }
-    .type-something{
-        border-radius: 4px;
-        border: 1px solid #d3d3d3;
-        padding: 5px 5px 0px 5px;
-        background: #f6f7fd;
-        font-family: roboto_regular;
-        width: 100%;
-        cursor: pointer;
-        font-size: 14px;
-    }
-    .feeling-addition{
-        padding: 10px;
-        border-top: 1px solid #d3d3d3;
-    }
-    .feeling-addition div{
-        background: #f6f7fd;
-        font-family: roboto_bold;
-        text-transform: capitalize;
-        border-radius: 20px;
-        padding: 8px 11px 8px 13px;
-        font-size: 15px;
-        cursor: pointer;
-    }
-    /* create short story on profile */
-    .create-stoty-prive{
-        position: absolute;
-        background: white;
-        border-radius: 4px;
-        padding: 5px;
-        z-index: 20;
-        top: 20px;
-        right: 370px;
-        width: 500px;
-        display: none;
-        animation: result 300ms ease-in-out forwards;
-        transform-origin: top right;
-        box-shadow: 0 0 0px rgba(0,0,0, 0.4),0 0 1px rgba(0,0,0, 0.4),0 0 10px rgba(0,0,0, 0.4);
-    }
-    @keyframes result{
-        0%{
-            opacity: 0;
-            transform: scale(0.1);
-        }
-        100%{
-            opacity: 1;
-            transform: scale(1)
-        }
-    }
-    .create-stoty-prive::before{
-        content: " ";
-        height: 0;
-        position: absolute;
-        top: 10px;
-        width: 0;
-        z-index: 1;
-        right: -10px;
-        border: medium solid white;
-        border-width: 10px 0 10px 10px;
-        border-color: transparent transparent transparent white;
-    }
-    .section-title{
-        background: #f6f7fd;
-        font-family: roboto_bold;
-        font-size: 15px;
-        padding: 10px;
-        position: relative;
-    }
-    .close-post-creation{
-        position: absolute;
-        right: 10px;
-        top: 7px;
-        background-color: white;
-        padding: 3px 6px 3px 6px;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-
-    .create-area{
-        display: flex;
-        margin-top: 10px;
-        padding: 0px 10px;
-    }
-    .image-story-preview{
-        background: #f6f7fd;
-        width: 350px;
-        margin-right: 10px;
-        border-radius: 4px;
-        text-align: center;
-        height: 200px;
-    }
-    .image-story-preview .fa{
-        /* color: #d3d3d3; */
-        font-size: 40px;
-        margin-top: 40%;
-    }
-    .for-video{
-        width: 100%;
-        position: relative;
-        object-fit: fill;
-        height: 100%;
-    }
-    .for-video video{
-        object-fit: fill;
-        height: 100%;
-        width: 100%;
-        border-radius: 4px;
-    }
-    .for-video .control-video{
-        position: absolute;
-        top: 27%;
-        left: 37%;
-        padding: 16px 20px 15px 20px;
-        border-radius: 50%;
-        color: white;
-        cursor: pointer;
-        font-size: 25px;
-        animation: fade 500ms ease-in-out forwards;
-    }
-    .for-video .video-controls{
-        display: none;
-    }
-    .for-image img{
-        border-radius: 4px;
-    }
-    .for-image{
-        width: 100%;
-        height: 100%;
-    }
-
-    .title-story textarea{
-        width: 100%;
-        height: 100%;
-        outline: none;
-        border: none;
-        font-family: roboto_bold;
-        font-size: 14px;
-    }
-    .title-story{
-        border-radius: 4px;
-        border: 1px solid #d3d3d3;
-        padding: 5px;
-    }
-    .create-story-body textarea{
-        width: 100%;
-        height: 100%;
-        outline: none;
-        border: none;
-        font-family: roboto_bold;
-        font-size: 14px;
-    }
-    .create-story-body{
-        border-radius: 4px;
-        border: 1px solid #d3d3d3;
-        padding: 5px;
-        margin-top: 10px;
-    }
-    .sectio-footer{
-        display: flex;
-        margin-top: 10px;
-        background-color: #f6f7fd;
-        padding: 10px;
-        justify-content: space-between;
-    }
-    .send-post{
-        display: flex;
-    }
-    .choose-image-story button{
-        background: #041a2f;
-        border: none;
-        outline: none;
-        border-radius: 4px;
-        font-size: 13px;
-        font-family: roboto_bold;
-        padding: 5px 10px 5px 10px;
-        cursor: pointer;
-        color: white;
-        text-transform: capitalize;
-    }
-    .send-post button{
-        background: #041a2f;
-        border: none;
-        outline: none;
-        border-radius: 4px;
-        font-size: 13px;
-        font-family: roboto_bold;
-        padding: 5px 10px 5px 10px;
-        cursor: pointer;
-        color: white;
-        text-transform: capitalize;
-        margin-left: 10px;
-    }
-    .send-post div .fa{
-        background: white;
-        font-size: 16px;
-        padding: 9px 10px 9px 10px;
-        border-radius: 50%;
-        cursor: pointer;
-    }
-    /* end creation of short story */
-    .top-learner{
-        border-radius: 4px;
-        background: white;
+    .about-desc{
         box-shadow: 0 0 5px rgba(0,0,0, 0.3);
-        min-width: 350px;    
-    }
-    .friends-title{
+        border-radius: 6px;
         padding: 10px;
+        margin-bottom: 20px;
     }
-    .title-learner{
-        text-align: left;
-        font-size: 16px;
-        background: #f6f7fd;
+    .about-title{
         font-family: roboto_bold;
+        font-size: 17px;
         text-transform: capitalize;
-        border-radius: 10px;
-        padding: 9px 13px 9px 13px;
-        font-size: 15px;
+        letter-spacing: 0.6px;
     }
-    .learners-list{
-        padding: 10px;
-        overflow: auto;
-        max-height: 500px;
-        min-height: 200px;
-        overflow-x: hidden;
-    }
-    .each-learner{
-        padding: 10px;
-        border-radius: 4px;
-        margin-bottom: 10px;
-        border-top: 1px solid #d3d3d3;
-    }
-    .learner-image{
-        background: white;
-        border-radius: 50%;
-    }
-    .name-student{
-        font-family: roboto_bold;
-        text-transform: capitalize;
-        text-align: left;
-        width: 150px;
-    }
-    .img{
-        border-radius: 100%;
-        border: 1px solid #d3d3d3;
-        padding: 2px;
-        background: #f6f7fd;
-        width: 60px;
-        height: 58px;
-    }
-    .img img{
-        border-radius: 100%;
-        width: 100%;
-        height: 100%;
-    }
-    .name{
-        font-family: roboto_bold;
-        text-transform: capitalize;
-        text-align: left;
-        margin-top: 10px;
-        margin-left: 5px;
-    }
-    .name div{
-        width: 150px;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
-    }
-    .follow button{
-        background-color: #041a2f;
-        color: white;
-        padding: 3px 20px 3px 20px;
+    .group-bio{
         font-family: roboto_regular;
-        border: none;
-        outline: none;
-        border-radius: 4px;
-        font-size: 13px;
+        letter-spacing: 0.6px;
+        line-height: 20px;
+        padding: 0px 0px 0px 20px;
+        margin-top: 6px;
     }
-    .following button{
-        background-color: white;
-        color: #041a2f;
-        padding: 3px 20px 3px 20px;
-        font-family: roboto_regular;
-        outline: none;
-        border-radius: 4px;
-        font-size: 13px;
-        border: 1px solid #d3d3d3;
-    }
-    .learner-bio{
-        font-family: roboto_regular;
-        font-size: 13px;
-    }
-    .trainer-accurate div{
-        background: #f6f7fd;
-        font-family: roboto_bold;
-        text-transform: capitalize;
-        border-radius: 20px;
-        padding: 5px 10px 5px 10px;
-        font-size: 13px;
-        cursor: pointer;
-    }
-    .trainer-accurate div span{
-        font-family: roboto_bold;
-    }
-    /* end left style */
-
-    /* about user */
-    .about-usr{
-        background: white;
-        padding: 6px;
-        border-radius: 4px;
-        position: absolute;
-        top: -50px;
-        margin-left: 10px;
-        left: -430px;
-        /* width: 500px; */
-        display: none;
-        box-shadow: 0 0 0px rgba(0,0,0, 0.4),0 0 1px rgba(0,0,0, 0.4),0 0 10px rgba(0,0,0, 0.4);
-    }
-    .about-specification{
-        display: flex;
-    }
-    .user-about-image img{
-        border-radius: 50%;
-    }    
-    .user-about-image{
-        width: 100px;
-        height: 99px;
-        border-radius: 50%;
-        background: #f6f7fd;
-        margin-top: 5px;
-        margin-left: 5px;
-        border: 1px solid #d3d3d3;
-        padding: 3px;
-    }
-    .about-info{
-        margin-left: 10px;
-        font-family: roboto_medium;
-        text-transform: capitalize;
-        width: 100%;
-        margin-top: 10px;
-    }
-    .firstname{
-        font-size: 16px;
-        font-family: roboto_bold;
-        margin-bottom: 5px;
-    }
-    .about-info div{
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        width: 270px;
-    }
-    .activity-status{
+    .table-detail{
         display: flex;
         justify-content: space-between;
-        margin-top: 10px;
+        margin-bottom: 5px;
+        margin-right: 10px;
+    }
+    .count{
         font-family: roboto_bold;
-        text-transform: capitalize;
     }
-    .activity-status div{
-        background: #f6f7fd;
-        border-radius: 4px;
-        padding: 4px 7px 4px 7px;
-        font-family: roboto_bold;
-        font-size: 12px
-    }
-    .search-result-img{
-        width: 50px;
-        height: 45px;
-        margin-right: 5px;
-        background: #f6f7fd;
-        border-radius: 4px;
-    }
-    .search-result-img img{
-       border-radius: 4px;
-    }
+/* end left style */
+/* ======================================================================================================================== */
 
-    .message-area{
-        position: fixed;
-        bottom: 50px;
-        right: 100px;
-        box-shadow: 0 0 2px rgba(0,0,0, 0.4),0 0 5px rgba(0,0,0, 0.4),0 0 10px rgba(0,0,0, 0.4);
-        background-color: white;
-        border-radius: 4px;
-        width: 350px;
-        padding: 1px;
-        display: none;
-    }
-    .message-title{
-        padding: 10px;
-        background: #f6f7fd;
-        border-top-left-radius: 4px;
-        border-top-right-radius: 4px;
-        position: relative;
-    }
-    .remove-chart-history{
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        background: white;
-        padding: 5px 10px 5px 10px;
-        color: #041a2f;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-    .reciever-image img{
-        border-radius: 100%;
-    }
-    .reciever-image{
-        width: 50px;
-        height: 50px;
-        border-radius: 100%;
-        background: #041a2f;
-        padding: 3px;
-    }
-    .user-name{
-        font-family: roboto_bold;
-        color: #041a2f;
-        text-transform: capitalize;
-        font-size: 14px;
-        margin-top: 5px;
-    }
-    .user-name div{
-        width: 230px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
-    .chart-area{
-        background: white;
-        height: 300px;
-        overflow: auto;
-        margin-top: 10px;
-        padding: 5px 10px 5px 10px;
-    }
 
-    .send-image-pre img{
-        border-radius: 100%;
-    }
-    .send-image-pre{
-        width: 40px;
-        height: 40px;
-        border-radius: 100%;
-        background: #f6f7fd;
-    }
-    .time-sended{
-        font-size: 13px;
-        font-family: roboto_bold;
-        text-transform: capitalize;
-    }
-    .message{
-        background: wheat;
-        padding: 5px;
-        border-radius: 4px;
-        font-family: roboto_medium;
-        font-size: 13px;
-        position: relative;
-    }
-    .recieved-message{
-        background: #f6f7fd;
-        padding: 5px;
-        border-radius: 4px;
-        font-family: roboto_medium;
-        font-size: 13px;
-    }
-    .reciever-image-pre img{
-        border-radius: 100%;
-    }
-    .reciever-image-pre{
-        width: 40px;
-        height: 40px;
-        border-radius: 100%;
-        background: #f6f7fd;
-    }
-    .message-written-reciever{
-        overflow: hidden;
-    }
-    .time-recieved{
-        font-size: 13px;
-        font-family: roboto_bold;
-        text-transform: capitalize;
-    }
-
-    .create-message{
-        background: #f6f7fd;
-        padding: 10px;
-    }
-    .type-message textarea{
-        width: 100%;
-        height: 100%;
-        border: none;
-        outline: none;
-        background: white;
-    }
-    .type-message{
-        border: 1px solid #d3d3d3;
-        padding: 5px;
-        background: white;
-        border-radius: 4px;
-        font-size: 13px;
-        font-family: roboto_bold;
-    }
-    .btn-send button{
-        border: none;
-        outline: none;
-        background: #041a2f;
-        color: white;
-        font-family: roboto_bold;
-        font-size: 14px;
-        padding: 5px 10px 5px 10px;
-        text-transform: capitalize;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-    .attachment div{
-        border-radius: 50%;
-        background: white;
-        padding: 5px 10px 5px 10px;
-        margin-left: 10px;
-        font-size: 15px;
-    }
-    /* end stream style */
-
-    /* sidenav */
-    .sidenav {
-        height: 100%;
-        width: 0;
-        position: fixed;
-        z-index: 1;
-        top: 0;
-        left: 0;
-        background-color: white;
-        overflow-x: hidden;
-        transition: 0.5s;
-        padding-top: 60px;
-      }
-      
-      .sidenav a {
-        padding: 8px 8px 8px 32px;
-        text-decoration: none;
-        font-size: 25px;
-        color: #818181;
-        display: block;
-        transition: 0.3s;
-      }
-      
-      .sidenav a:hover {
-        color: #f1f1f1;
-      }
-      
-      .sidenav .closebtn {
-        position: absolute;
-        top: 0;
-        right: 25px;
-        font-size: 36px;
-        margin-left: 50px;
-      }
-      .detailed input{
-          border: none;
-          width: 100%;
-          height: 100%;
-          font-family: roboto_medium;
-      }
-      .detailed{
-          border-radius: 4px;
-          padding: 5px;
-          border: 1px solid #d3d3d3;
-      }
-      .detailed .fa{
-          margin-top: 3px;
-      }
-      .align-justify{display: none;}
-
-      .div_challenges_hold{
-          position: fixed;
-          bottom: 30px;
-          right: 100px;
-      }
-/* ERROR HANDLING */
-/* ==================================================================================================== */
-.Display_error {
-    display: block;
-    background: #071c2e;
-    position: fixed;
-    right: 100px;
-    top:  300px;
-    color: #89ff00;
-    font-weight: 570;
-    box-shadow: 0 0 10px rgba(0,0,0, 0.3);
-    line-height: 19px;
-    display: flex;
-    border-radius: 4px;
-}
-.Display_error .error-icon{
-    background: #08345e;
-    padding: 10px;
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
-}
-.check-word_error{
-    font-family: roboto_bold;
-    padding: 10px;
-    letter-spacing: 0.5px;
-    line-height: 19px;
-    font-weight: 560;
-}
-/* =================================================================================================== */
-    /* ================================================================================================== */
-    /* =================================================================================================== */
-
-    /* MEDIA QUERY APPLY ON SMALL DEVICE  */
-    /* ===================================================================================================== */
-    /* ====================================================================================================== */
+/* MEDIA QUERY APPLY ON SMALL DEVICE  */
+/* ===================================================================================================== */
+/* ====================================================================================================== */
     @media screen and (max-width: 1199px){
         .count-member{
             font-size: 15px;
@@ -1676,22 +1447,26 @@
         }
     }
     @media screen and (max-width: 991px){
-          .right-side{display: none;}
-          .group-detail{display: none;}
-          .align-justify{display: block;}
-          .top-pre-background-image{
-              height: 250px;
-          }
-          .group-name{
-              font-size: 18px;
-          }
-          .align-justify{
-              margin-right: 20px;
-              font-size: 20px;
-              margin-top: 17px;
-              cursor: pointer;
-          }
-          /* .pre-accu{display: block;} */
+        .down-section{margin-top: 50px;}
+        .main-section{padding: 0px 10px;}
+        .right-side{display: none;}
+        .about-group{display: none;}
+        .group-detail{display: none;}
+        .small-dev{display: block;}
+        .align-justify{display: block;}
+        .top-pre-background-image{height: 250px;}
+        .post-shared{width: 100%}
+        .group-name{
+            font-size: 18px;
+        }
+        .align-justify{
+            margin-right: 20px;
+            font-size: 20px;
+            margin-top: 17px;
+            cursor: pointer;
+            color: white;
+        }
+        /* .pre-accu{display: block;} */
         .name div{
             width: 150px;
             text-overflow: ellipsis;
@@ -1699,12 +1474,12 @@
             white-space: nowrap;
         }
          /* create short story on profile */
-        .create-stoty-prive{
+        .create-story-prive{
             top: 20px;
             right: 0px;
-            width: 380px;
+            width: 100%;
         }
-        .create-stoty-prive::before{
+        .create-story-prive::before{
             display: none;
         }
     }
@@ -1730,7 +1505,7 @@
             text-transform: capitalize;
             border-radius: 4px;
             padding: 5px 8px 5px 8px;
-            font-size: 12px;
+            font-size: 14px;
             cursor: pointer;
         }
         .list-accurate div .fa{
@@ -1749,6 +1524,6 @@
             height: 100%;
         }
     }
-    /* END MEDIA QUERY SMALL DEVICE */
-    /* ====================================================================================================== */
-    /* ======================================================================================================= */
+/* END MEDIA QUERY SMALL DEVICE */
+/* ====================================================================================================== */
+/* ======================================================================================================= */

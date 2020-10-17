@@ -35,6 +35,33 @@
             $this->E_mail = $mail;
         }
 
+        function timeAgo($time_ago){
+            $time_ago = strtotime($time_ago);
+            $cur_time   = time();
+            $time_elapsed   = $cur_time - $time_ago;
+            $seconds    = $time_elapsed ;
+            $minutes    = round($time_elapsed / 60 );
+            $hours      = round($time_elapsed / 3600);
+            $days       = round($time_elapsed / 86400 );
+            $weeks      = round($time_elapsed / 604800);
+            $months     = round($time_elapsed / 2600640 );
+            $years      = round($time_elapsed / 31207680 );
+            // Seconds
+            if($seconds <= 60){return "just now";}
+            //Minutes
+            else if($minutes <=60){if($minutes==1){return "one minute ago";}else{return "$minutes minutes ago";}}
+            //Hours
+            else if($hours <=24){if($hours==1){return "an hour ago";}else{return "$hours hrs ago";}}
+            //Days
+            else if($days <= 7){if($days==1){return "yesterday";}else{return "$days days ago";}}
+            //Weeks
+            else if($weeks <= 4.3){if($weeks==1){return "a week ago";}else{return "$weeks weeks ago";}}
+            //Months
+            else if($months <=12){if($months==1){return "a month ago";}else{return "$months months ago";}}
+            //Years
+            else{if($years==1){return "one year ago";}else{return "$years years ago";}}
+        }
+
         // SHOW DEPARTMES
         // ====================================================
         public function show_departments(){
@@ -872,6 +899,27 @@
                         <div><div class="group_image"><img src="<?php echo '../Images/groups/'.$getprofile_image; ?>" alt="" width="100%" height="100%"></div></div>
                         <div class="group_name_show"><?php echo $getName; ?></div>
                     </div></a>
+                    <a href="<?php echo '../Group-discusion/Group_admin.php?group='.$getUrl.'&group_adm_ver='.$this->E_mail; ?>">
+                        <div class="each-show_group d-flex mt-2">
+                            <div><div class="group_image"><img src="<?php echo '../Images/groups/'.$getprofile_image; ?>" alt="" width="100%" height="100%"></div></div>
+                            <div class="group_name_show">
+                                <?php echo $getName; ?>
+                            </div>
+                            <span class="count_notification_group_<?php echo $group_identity; ?>"></span>
+                        </div>
+                    </a>
+                    <script>
+                       setInterval(() => {
+                            $(document).ready(function(){
+                                var group_identity = "<?php echo $group_identity; ?>";
+                                var global_mail = document.getElementById("hiddenEmail").value;
+                                $("#count_notification_group_<?php echo $group_identity; ?>").load("show_profile_content.php", {
+                                    get_noti_group: group_identity,
+                                    getGMail: global_mail
+                                });
+                            });
+                       }, 3000);
+                    </script>
                 <?php }
             }
         }
@@ -880,7 +928,7 @@
         // SHOW GROUP I HAVE CREATED
         // ====================================================================================================================================
         public function show_My_groups(){
-            $select_all_group = "SELECT * FROM user_groups WHERE group_name IN (SELECT DISTINCT group_name FROM user_group_member WHERE User_email='$this->E_mail') AND group_name NOT IN (SELECT DISTINCT group_name FROM user_group_member WHERE approval='yes' AND User_email='$this->E_mail')";
+            $select_all_group = "SELECT * FROM user_groups WHERE identity IN (SELECT DISTINCT group_identity FROM user_group_member WHERE User_email='$this->E_mail' AND approval = 'yes')";
             $execute_group = mysqli_query($this->Frequency(), $select_all_group);
             if(mysqli_num_rows($execute_group) > 0){ ?>
                <div class="user-friend mt-4" style="max-height: 300px; min-height:150px; overflow: auto;overflow-x: hidden">
@@ -894,6 +942,25 @@
                                 <div><div class="group_image"><img src="<?php echo '../Images/groups/'.$getprofile_image; ?>" alt="" width="100%" height="100%"></div></div>
                                 <div class="group_name_show mt-2 ml-2"><?php echo $getName; ?></div>
                             </div></a>
+                            <a href="<?php echo '../Group-discusion/index.php?group='.$getUrl.'&group_id='.$group_identity.'&group_member_ver='.$this->E_mail; ?>">
+                                <div class="each-show_group d-flex mt-2" style="border-radius: 4px; margin-bottom: 5px;">
+                                    <div><div class="group_image"><img src="<?php echo '../Images/groups/'.$getprofile_image; ?>" alt="" width="100%" height="100%"></div></div>
+                                    <div class="group_name_show mt-2 ml-2"><?php echo $getName; ?></div>
+                                    <span id="count_my_group_noti_<?php echo $group_identity; ?>"></span>
+                                </div>
+                            </a>
+                            <script>
+                                setInterval(() => {
+                                    $(document).ready(function(){
+                                        var my_group_identity = "<?php echo $group_identity; ?>";
+                                        var my_global_mail = document.getElementById("hiddenEmail").value;
+                                        $("#count_my_group_noti_<?php echo $group_identity; ?>").load("show_profile_content.php", {
+                                            get_my_group_noti: my_group_identity,
+                                            getMyBMail: my_global_mail
+                                        });
+                                    });
+                                }, 3000);
+                            </script>
                         <?php } ?>
                     </div>
                 </div>

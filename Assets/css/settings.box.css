@@ -13,1015 +13,843 @@
 	//////////////////////////////////////////////////////
 */
 
- /* external fonts family */
- /* ============================================================================================================== */
+/* external fonts family */
+/* ======================================================================================================================== */
     @font-face {font-family: 'roboto_bold';src: url('../fonts/Roboto/Roboto-Bold.ttf');} 
     @font-face{font-family: 'roboto_regular';src: url('../fonts/Roboto/Roboto-Regular.ttf');}
     @font-face{font-family: 'baskvile';src: url('../fonts/baskerville/BASKVILL.TTF');}
     @font-face{font-family: 'roboto_medium';src: url('../fonts/Roboto/Roboto-Medium.ttf');}
     @font-face{font-family: 'roboto_extra';src: url('../fonts/Roboto/Roboto-Thin.ttf');}
-
+/* ======================================================================================================================== */
 
 /* apply on scroll bar */
-/* =============================================================================================================== */
-/* width */
- ::-webkit-scrollbar {
-     width: 10px;
- }
+/* ======================================================================================================================== */
+    /* width */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
 
- /* Track */
- ::-webkit-scrollbar-track {
-     background: white; 
- }
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: white; 
+    }
 
- /* Handle */
- ::-webkit-scrollbar-thumb {
-     background: #041a2f;
-     border-radius: 4px; 
- }
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #041a2f;
+        border-radius: 4px; 
+    }
+/* ======================================================================================================================== */
 
+/* MAIN COLOR */
+/* ===================================================================================================================================================== */
+:root{
+    --BoxPrimary: #041a2f;
+    --BoxSecondary: #f6f7fd;
+    --BoxSubPrimary: #071c2e;
+    --BoxSubSecondary: #08345e;
+    --BoxLines: #d3d3d3;
+    --Basic: white;
+}
+/* ==================================================================================================================================================== */
 
 /* body style */
 /* ================================================================================================================ */
-body{
-   padding: 0;
-   margin: 0;
-   font-family: roboto_regular;
-}
+    body{
+    padding: 0;
+    margin: 0;
+    font-family: roboto_regular;
+    }
+/* ========================================================================================================================= */
+
+/* TOP BACKGROUND */
+/* ========================================================================================================================== */
+    .top-background{
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        background: #f6f7fd;
+        height: 350px;
+        border: none;
+        position: relative;
+    }
+    .top-background::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        left: 0;
+        background: rgba(0,0,0, 0.4);
+    }
+    .top-background img{
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+    }
+
+    .top-section{
+        background: white;
+        box-shadow: 0 0 10px rgba(0,0,0, 0.4);
+        border-bottom-right-radius: 4px;
+        border-bottom-left-radius: 4px;
+    }
+    .group-top-detail{
+        padding: 10px;
+        background: #08345e;
+    }
+    .name-search{
+        display: flex;
+        justify-content: space-between;
+    }
+    .group-name-title{
+        font-family: roboto_bold;
+        font-size: 18px;
+        letter-spacing: 0.6px;
+        margin-top: 5px;
+        text-transform: capitalize;
+        line-height: 20px;
+        color: white;
+    }
+    .search-member input{
+        border: none;
+        outline: none;
+        width: 100%;
+        font-family: roboto_medium;
+    }
+    .search-member{
+        padding: 5px;
+        border-radius: 4px;
+    }
+    .search-member .fa{
+        margin-top: 13px;
+    }
+    .fa-aling .fa-cog{
+        display: none;
+    }
+    .invite-friend{
+        background: #041a2f;
+        border: none;
+        outline: none;
+        color: white;
+        font-family: roboto_bold;
+        border-radius: 4px;
+        padding: 5px 10px;
+        margin-right: 10px;
+        margin-top: 1px;
+        cursor: pointer;
+    }
+    .top-nav-bar{
+        border-top: 1.5px solid #d3d3d3;
+        display: flex;
+        justify-content: space-between;
+    }
+    .group-element li a div{
+        color: #041a2f;
+        font-family: roboto_bold;
+        margin-right: 30px;
+        font-size: 16px;
+        letter-spacing: 0.6px;
+        line-height: 20px;
+    }
+    .group-element li .active{
+        color: #14599d;
+    }
+
+    .each-discovery{
+        display: flex;
+        justify-content: space-between;
+        border-top: 1px solid #d3d3d3;
+        padding: 7px 4px;
+    }
+    .discover-image img{
+        border-radius: 50%;
+    }
+    .discover-image{
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        background: #f6f7fd;
+    }
+    .discovery-detail{
+        margin-left: 5px;
+        letter-spacing: 0.3px;
+        line-height: 16px;
+        margin-top: 4px;
+        width: 100%;
+    }
+    .dis-name{
+        font-family: roboto_medium;
+        font-size: 13px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 170px;
+        letter-spacing: 0.6px;
+    }
+    .dis-dep{
+        font-family: roboto_medium;
+        font-size: 13px;
+        color: #d3d3d3;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 170px;
+        letter-spacing: 0.6px;
+    }
+    .follow-discovery{
+        background: #071c2e;
+        border-radius: 4px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        color: white;
+        font-family: roboto_medium;
+        font-size: 12px;
+        padding: 3px 8px;
+        margin-top: 5px;
+        letter-spacing: 0.6px;
+    }
+    .following{
+        background: white;
+        border-radius: 4px;
+        border: 1px solid #d3d3d3;
+        outline: none;
+        cursor: pointer;
+        color: #071c2e;
+        font-family: roboto_medium;
+        font-size: 12px;
+        padding: 3px 8px;
+        margin-top: 5px; 
+        letter-spacing: 0.6px;
+    }
+    
+/* ========================================================================================================================================= */
 
 /* left side section style */
 /* ================================================================================================================ */
-.left-side{
-    position: relative;
-}
-.admin-panel{
-    box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 15px rgba(0,0,0, 0.4);
-    background: white;
-    padding: 10px;
-    margin-top: 20px;
-    border-radius: 4px;
-    width: 350px;
-}
-.group-icon{
-    display: flex;
-    width: 100%;
-    border-radius: 4px;
-    background-image: url(../../Images/index-img/settings.jpg);
-    background-size: cover;
-    padding: 10px;
-    position: relative;
-    color: white;
-}
-.group-icon::before{
-    content: "";
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
-    background: rgba(0,0,0, 0.4);
-    position: absolute;
-}
-.pre-group-image img{
-    border-radius: 50%;
-}
-.pre-group-image{
-    border-radius: 50%;
-    width: 60px;
-    height: 58px;
-    background: #f6f7fd;
-    margin-left: 5px;
-}
-.the-owner{
-    margin-top: 5px;
-    width: 100%;
-    font-family: roboto_bold;
-    font-size: 16px;
-}
-.group-name-admin{
-    margin-left: 10px;
-    width: 100%;
-    margin-top: 7px;
-    position: ;
-}
-.group-name{
-    font-family: roboto_bold;
-    font-size: 17px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 250px;
-}
-.admin-image img{
-    border-radius: 50%;
-}
-.admin-image{
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    margin-left: 5px;
-}
-.admin-name{
-    font-family: roboto_medium;
-    margin-left: 5px;
-    margin-top: 5px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    width: 190px;
-}
-.each-conf{
-    display: flex;
-    border-bottom: 1px solid #d3d3d3;
-    padding: 10px 0;
-    cursor: pointer;
-    position: relative;
-}
-.each-conf:hover{
-    background: #f6f7fd;
-}
-.icon-pre-conf-type{
-    border-radius: 4px;
-    padding: 8px;
-    background: #f6f7fd;
-    color: #041a2f;
-    font-family: roboto_bold;
-    font-size: 16px;
-}
-.admin-tools-list li a div .icon-pre-conf-type{
-    border-radius: 4px;
-    padding: 8px;
-    background: #f6f7fd;
-    color: #041a2f;
-    font-family: roboto_bold;
-    font-size: 16px;
-}
-.admin-tools-list li a{
-    color: #041a2f;
-    width: 100%;
-}
-.admin-tools-list li{width: 100%;}
-.admin-tools-list{width: 100%;}
-.conf-title{
-    font-family: roboto_bold;
-    font-size: 15px;
-    margin-top: 10px;
-    margin-left: 10px;
-}
-
-/* top background image and content */
-/* ================================================================================================================ */
-.top-section{
-    background: white;
-    box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 15px rgba(0,0,0, 0.4);
-    border-bottom-right-radius: 4px;
-    border-bottom-left-radius: 4px;
-}
-.group-top-detail{
-    margin-top: 10px;
-    padding: 10px;
-}
-.name-search{
-    display: flex;
-    justify-content: space-between;
-}
-.group-name-title{
-    font-family: roboto_bold;
-    font-size: 18px;
-    letter-spacing: 0.5px;
-    margin-top: 8px;
-}
-.search-member input{
-    border: none;
-    outline: none;
-    width: 100%;
-    height: 100%;
-    font-family: roboto_medium;
-}
-.search-member{
-    padding: 5px;
-    border-radius: 4px;
-}
-.search-member .fa{
-    margin-top: 13px;
-}
-.fa-aling .fa-cog{
-    display: none;
-}
-.invite-friend{
-    background: #041a2f;
-    border: none;
-    outline: none;
-    color: white;
-    font-family: roboto_bold;
-    border-radius: 4px;
-    padding: 5px 10px;
-    margin-right: 10px;
-    margin-top: 1px;
-    cursor: pointer;
-}
-.settings-and-info{
-    box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 10px rgba(0,0,0, 0.4);
-    border-radius: 4px;
-    position: absolute;
-    right: 120px;
-    background: white;
-    z-index: 99;
-    top: 0px;
-    width: 300px;
-    padding: 0 0 5px 0;
-    display: none;
-}
-.settings-pre{
-    font-family: roboto_bold;
-    font-size: 15px;
-    padding: 10px;
-    border-bottom: 1.5px solid #d3d3d3;
-    position: relative;
-}
-.settings-pre .fa{
-    position: absolute;
-    right: 15px;
-    top: 10px;
-    cursor: pointer;
-}
-.each-setting{
-    padding: 10px 5px;
-    border-top: 2px solid #d3d3d3;
-}
-.title-settings{
-    font-family: roboto_bold;
-}
-.reply-setting{
-    font-family: roboto_regular;
-}
-.group-description-settings{
-    width: 250px;
-}
-.setting-list{
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-}
-.search_result{
-    position: absolute;
-    background: white;
-    box-shadow: 0 0 3px rgba(0,0,0, 0.3);
-    overflow: auto;
-    overflow-x: hidden;
-    min-height: 150px;
-    max-height: 300px;
-    padding: 10px;
-    z-index: 20;
-    display: none;
-    right: 0px;
-    top: 50px;
-    width: 280px;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-}
-/* popup list of discovery */
-/* =============================================================================================================== */
-.each-discovery{
-    display: flex;
-    justify-content: space-between;
-    border-top: 1px solid #d3d3d3;
-    padding: 7px 4px;
-}
-.discover-image img{
-    border-radius: 50%;
-}
-.discover-image{
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    background: #f6f7fd;
-}
-.discovery-detail{
-    margin-left: 5px;
-    letter-spacing: 0.3px;
-    line-height: 16px;
-    margin-top: 4px;
-    width: 100%;
-}
-.dis-name{
-    font-family: roboto_medium;
-    font-size: 12.5px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 170px;
-}
-.dis-dep{
-    font-family: roboto_medium;
-    font-size: 12.5px;
-    color: #d3d3d3;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 170px;
-}
-.follow-discovery{
-    background: #071c2e;
-    border-radius: 4px;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    color: white;
-    font-family: roboto_medium;
-    font-size: 12px;
-    padding: 3px 8px;
-    margin-top: 5px;
-}
-.following{
-    background: white;
-    border-radius: 4px;
-    border: 1px solid #d3d3d3;
-    outline: none;
-    cursor: pointer;
-    color: #071c2e;
-    font-family: roboto_medium;
-    font-size: 12px;
-    padding: 3px 8px;
-    margin-top: 5px; 
-}
-
-/* sub down list on top background */
-/* ================================================================================================================ */
-.top-nav-bar{
-    border-top: 1.5px solid #d3d3d3;
-    display: flex;
-    justify-content: space-between;
-}
-.group-element li a div{
-    color: #041a2f;
-    font-family: roboto_bold;
-    margin-right: 30px;
-    border-bottom: 2px solid #041a2f;
-}
-
-.top-background{
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    background: #f6f7fd;
-    height: 350px;
-    border: none;
-    position: relative;
-}
-.top-background::before{
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    left: 0;
-    background: rgba(0,0,0, 0.4);
-}
-.top-background img{
-    width: 100%;
-    height: 100%;
-    object-fit: fill;
-}
-
-.title-background{
-    font-family: roboto_bold;
-    text-transform: capitalize;
-    font-size: 20px;
-    position: absolute;
-    bottom: 30px;
-    left: 30px;
-    color: white;
-}
+    .left-side{
+        position: relative;
+    }
+    .admin-panel{
+        box-shadow: 0 0 10px rgba(0,0,0, 0.4);
+        background: white;
+        padding: 10px;
+        margin-top: 20px;
+        border-radius: 4px;
+        width: 350px;
+    }
+    .group-icon{
+        display: flex;
+        width: 100%;
+        border-radius: 4px;
+        background-image: url(../../Images/index-img/settings.jpg);
+        background-size: cover;
+        padding: 10px;
+        position: relative;
+        color: white;
+    }
+    .group-icon::before{
+        content: "";
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        background: rgba(0,0,0, 0.4);
+        position: absolute;
+    }
+    .pre-group-image img{
+        border-radius: 50%;
+    }
+    .pre-group-image{
+        border-radius: 50%;
+        width: 60px;
+        height: 58px;
+        background: #f6f7fd;
+        margin-left: 5px;
+    }
+    .the-owner{
+        margin-top: 5px;
+        width: 100%;
+        font-family: roboto_bold;
+        font-size: 16px;
+    }
+    .group-name-admin{
+        margin-left: 10px;
+        width: 100%;
+        margin-top: 7px;
+    }
+    .group-name{
+        font-family: roboto_bold;
+        font-size: 17px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 250px;
+    }
+    .admin-image img{
+        border-radius: 50%;
+    }
+    .admin-image{
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        margin-left: 5px;
+    }
+    .admin-name{
+        font-family: roboto_medium;
+        margin-left: 5px;
+        margin-top: 5px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        width: 190px;
+    }
+    .each-conf{
+        display: flex;
+        border-bottom: 1px solid #d3d3d3;
+        padding: 10px 0;
+        cursor: pointer;
+        position: relative;
+    }
+    .each-conf:hover{
+        background: #f6f7fd;
+    }
+    .icon-pre-conf-type{
+        border-radius: 4px;
+        padding: 8px;
+        background: #f6f7fd;
+        color: #041a2f;
+        font-family: roboto_bold;
+        font-size: 16px;
+    }
+    .admin-tools-list li a div .icon-pre-conf-type{
+        border-radius: 4px;
+        padding: 8px;
+        background: #f6f7fd;
+        color: #041a2f;
+        font-family: roboto_bold;
+        font-size: 16px;
+    }
+    .admin-tools-list li a{
+        color: #041a2f;
+        width: 100%;
+    }
+    .admin-tools-list li{width: 100%;}
+    .admin-tools-list{width: 100%;}
+    .conf-title{
+        font-family: roboto_bold;
+        font-size: 15px;
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+    .settings-and-info{
+        box-shadow: 0 0 10px rgba(0,0,0, 0.3);
+        border-radius: 4px;
+        position: absolute;
+        right: 120px;
+        background: white;
+        z-index: 99;
+        top: 0px;
+        width: 300px;
+        padding: 0 0 5px 0;
+        display: none;
+    }
+    .settings-pre{
+        font-family: roboto_bold;
+        font-size: 15px;
+        padding: 10px;
+        border-bottom: 1.5px solid #d3d3d3;
+        position: relative;
+    }
+    .settings-pre .fa{
+        position: absolute;
+        right: 15px;
+        top: 10px;
+        cursor: pointer;
+    }
+    .each-setting{
+        padding: 10px 5px;
+        border-top: 2px solid #d3d3d3;
+    }
+    .title-settings{
+        font-family: roboto_bold;
+    }
+    .reply-setting{
+        font-family: roboto_regular;
+    }
+    .group-description-settings{
+        width: 250px;
+    }
+    .setting-list{
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+    }
+    .search_result{
+        position: absolute;
+        background: white;
+        box-shadow: 0 0 3px rgba(0,0,0, 0.3);
+        overflow: auto;
+        overflow-x: hidden;
+        min-height: 150px;
+        max-height: 300px;
+        padding: 10px;
+        z-index: 20;
+        display: none;
+        right: 0px;
+        top: 50px;
+        width: 280px;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+    }
+/* ========================================================================================================================================== */
 
 /* right side style */
-/* =================================================================================================================== */
-.right-side{
-    background: white;
-    padding: 15px 0px 15px 0px;
-}
-.department-name-course{
-    background: white;
-    box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 15px rgba(0,0,0, 0.4);
-    border-radius: 4px;
-    margin-left: 20px;
-    margin-top: 20px;
-}
-.course-department{
-    padding: 9px;
-    margin-bottom: 20px;
-}
-.section-title{
-    text-transform: capitalize;
-    font-family: roboto_bold;
-    font-size: 15px;
-    background: #f6f7fd;
-    border-radius: 4px;
-    padding: 9px 15px 9px 15px;
-    margin-top: 5px;
-    display: flex;
-    justify-content: space-between;
-}
+/* ========================================================================================================================================= */
+    .right-side{
+        background: white;
+        padding: 15px 0px 15px 0px;
+    }
+    .department-name-course{
+        background: white;
+        box-shadow: 0 0 10px rgba(0,0,0, 0.4);
+        border-radius: 4px;
+        margin-left: 20px;
+        margin-top: 20px;
+    }
+    .course-department{
+        padding: 9px;
+        margin-bottom: 20px;
+    }
+    .section-title{
+        text-transform: capitalize;
+        font-family: roboto_bold;
+        font-size: 15px;
+        background: #f6f7fd;
+        border-radius: 4px;
+        padding: 9px 15px 9px 15px;
+        margin-top: 5px;
+        display: flex;
+        justify-content: space-between;
+    }
 
 /* add more group description frield */
 /* =========================================================================================================== */
-.group-description{
-    background: white;
-    box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 15px rgba(0,0,0, 0.4);
-    border-radius: 4px;
-    padding: 10px 0;
-}
-.title-group-desc{
-    font-family: roboto_bold;
-    font-size: 18px;
-    margin-top: 10px;
-}
-.short-desc-info{
-    font-family: roboto_regular;
-}
-.input-form-information{
-    border-top: 1.5px solid #071c2e;
-    margin-top: 10px;
-    padding: 10px 5px;
-}
-.form-group-info{
-    display: flex;
-}
-.label-input{
-    font-family: roboto_medium;
-    text-transform: capitalize;
-    margin-top: 7px;
-}
-.input-form-info input{
-    width: 100%;
-    height: 100%;
-    outline: none;
-    border: none;
-    font-family: roboto_regular;
-}
-.input-form-info select{
-    width: 100%;
-    height: 100%;
-    outline: none;
-    border: none;
-    font-family: roboto_regular;
-}
-.input-form-info{
-    /* border-bottom: 1.5px solid #071c2e; */
-    padding: 5px;
-    margin-left: 10px;
-}
-.submit-info{overflow: hidden; align-items: center;}
-.submit-info button{
-    background: #041a2f;
-    color: white;
-    padding: 5px 15px ;
-    border: none;
-    border-radius: 4px;
-    font-family: roboto_medium;
-    cursor: pointer;
-    float: right;
-}
-.error{
-    color: white;
-    font-family: roboto_bold;
-    font-weight: 590;
-    letter-spacing: 0.6px;
-    background: #041a2f;
-    border-radius: 4px;
-    padding: 5px;
-    width: 100px;
-    display: none;
-    float: right;
-    margin-left: 10px;
-}
-.present-action-table{
-    font-family: roboto_bold;
-    text-transform: capitalize;
-}
-.short-desc-account{
-    font-family: roboto_regular;
-    margin-top: 3px;
-    font-size: 14px;
-}
-.edit-field input{
-    font-family: roboto_medium;
-    border: none;
-    width: 100%;
-}
-td{font-family: roboto_regular;}
+    .group-description{
+        background: white;
+        box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 15px rgba(0,0,0, 0.4);
+        border-radius: 4px;
+        padding: 10px 0;
+    }
+    .title-group-desc{
+        font-family: roboto_bold;
+        font-size: 18px;
+        margin-top: 10px;
+    }
+    .short-desc-info{
+        font-family: roboto_regular;
+    }
+    .input-form-information{
+        border-top: 1.5px solid #071c2e;
+        margin-top: 10px;
+        padding: 10px 5px;
+    }
+    .form-group-info{
+        display: flex;
+    }
+    .label-input{
+        font-family: roboto_medium;
+        text-transform: capitalize;
+        margin-top: 7px;
+    }
+    .input-form-info input{
+        width: 100%;
+        height: 100%;
+        outline: none;
+        border: none;
+        font-family: roboto_regular;
+    }
+    .input-form-info select{
+        width: 100%;
+        height: 100%;
+        outline: none;
+        border: none;
+        font-family: roboto_regular;
+    }
+    .input-form-info{
+        /* border-bottom: 1.5px solid #071c2e; */
+        padding: 5px;
+        margin-left: 10px;
+    }
+    .submit-info{overflow: hidden; align-items: center;}
+    .submit-info button{
+        background: #041a2f;
+        color: white;
+        padding: 5px 15px ;
+        border: none;
+        border-radius: 4px;
+        font-family: roboto_medium;
+        cursor: pointer;
+        float: right;
+    }
+    .error{
+        color: white;
+        font-family: roboto_bold;
+        font-weight: 590;
+        letter-spacing: 0.6px;
+        background: #041a2f;
+        border-radius: 4px;
+        padding: 5px;
+        width: 100px;
+        display: none;
+        float: right;
+        margin-left: 10px;
+    }
+    .present-action-table{
+        font-family: roboto_bold;
+        text-transform: capitalize;
+    }
+    .short-desc-account{
+        font-family: roboto_regular;
+        margin-top: 3px;
+        font-size: 14px;
+    }
+    .edit-field input{
+        font-family: roboto_medium;
+        border: none;
+        width: 100%;
+    }
+    td{font-family: roboto_regular;}
 
 
 /* privacy settings */
 /* ================================================================================================================= */
-.privacy-list{
-    margin-top: 10px;
-}
-.privacy-settings-each{
-    border-top: 1px solid #d3d3d3;
-    padding: 10px 5px;
-}
-.privacy-noti{
-    font-family: roboto_bold;
-}
-.Companion{
-    font-family: roboto_medium;
-}
-.pri-pre .fa{
-    background: #f6f7fd;
-    padding: 5px;
-    border-radius: 50%;
-    font-size: 16px;
-}
-.pre-text{
-    margin-top: 7px;
-    font-family: roboto_medium;
-}
-.checkbox-pri{
-    margin-top: 8px;
-}
-.each-noti{
-    border-top: 1px solid #d3d3d3;
-    padding: 10px 5px;
-}
-.desc-settings{
-    font-family: roboto_regular;
-    font-size: 14px;
-}
+    .privacy-list{
+        margin-top: 10px;
+    }
+    .privacy-settings-each{
+        border-top: 1px solid #d3d3d3;
+        padding: 10px 5px;
+    }
+    .privacy-noti{
+        font-family: roboto_bold;
+    }
+    .Companion{
+        font-family: roboto_medium;
+    }
+    .pri-pre .fa{
+        background: #f6f7fd;
+        padding: 5px;
+        border-radius: 50%;
+        font-size: 16px;
+    }
+    .pre-text{
+        margin-top: 7px;
+        font-family: roboto_medium;
+    }
+    .checkbox-pri{
+        margin-top: 8px;
+    }
+    .each-noti{
+        border-top: 1px solid #d3d3d3;
+        padding: 10px 5px;
+    }
+    .desc-settings{
+        font-family: roboto_regular;
+        font-size: 14px;
+    }
 /* end privacy settings */
 /* ======================================================================================================================================= */
 
 
 /* down section and post content */
 /* ========================================================================================================================================= */
-.each-activity{
-    display: flex;
-    padding: 10px 5px;
-    border-top: 1.2px solid #d3d3d3;
-}
-.poster-image img{
-     border-radius: 50%;
-}
-.poster-image{
-    width: 50px;
-    height: 49px;
-    border-radius: 50%;
-    background: #f6f7fd;
-}
-.poster-detail{
-    margin-left: 7px;
-}
-.poster-name{
-    font-family: roboto_bold;
-    font-size: 15px;
-}
-.caption-require{
-    font-family: roboto_medium;
-    margin-top: 3px;
-}
-.media img{
-    border-radius: 4px;
-    margin-top: 3px;
-}
-.media{
-    background: #f6f7fd;
-    border-radius: 4px;
-    position: relative;
-}
-.user-accurancy{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-}
-.user-accurancy div{
-    font-family: roboto_bold;
-    padding: 5px 10px;
-    background: #f6f7fd;
-    border-radius: 4px;
-    cursor: pointer;
-}
-.user-accurancy div .fa{
-    font-size: 17px;
-}
+    .each-activity{
+        display: flex;
+        padding: 10px 5px;
+        border-top: 1.2px solid #d3d3d3;
+    }
+    .poster-image img{
+        border-radius: 50%;
+    }
+    .poster-image{
+        width: 50px;
+        height: 49px;
+        border-radius: 50%;
+        background: #f6f7fd;
+    }
+    .poster-detail{
+        margin-left: 7px;
+    }
+    .poster-name{
+        font-family: roboto_bold;
+        font-size: 15px;
+    }
+    .caption-require{
+        font-family: roboto_medium;
+        margin-top: 3px;
+    }
+    .media img{
+        border-radius: 4px;
+        margin-top: 3px;
+    }
+    .media{
+        background: #f6f7fd;
+        border-radius: 4px;
+        position: relative;
+    }
+    .user-accurancy{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+    .user-accurancy div{
+        font-family: roboto_bold;
+        padding: 5px 10px;
+        background: #f6f7fd;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .user-accurancy div .fa{
+        font-size: 17px;
+    }
 
-/* video control and play stream style */
-/* ========================================================================================================================================= */
-.video-controls{
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    color: white;
-    padding: 10px;
-    font-family: roboto_bold;
-    animation: fade 1000ms ease-in-out forwards;
-    background: rgb(0, 0, 0, 0.3);
-}
-@keyframes fade{
-    0%{
-        opacity: 0;
-        transform: scale(0.1);
-        transform-origin: bottom;
+    .status-number{
+        margin-top: 10px;
     }
-    100%{
-        opacity: 1;
-        transform: scale(1);
+    .add-comments-area{
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
     }
-}
-.video-stream-line{
-    background: #f2f2f2;
-    width: 100%;
-    border-radius: 10px;
-}
-.video-stream-line div{
-    background-color: #041a2f;
-    padding: 2px;
-    border-radius: 10px;
-}
-.control-video{
-    position: absolute;
-    top: 40%;
-    left: 40%;
-    padding: 16px 20px 15px 20px;
-    border-radius: 50%;
-    color: white;
-    cursor: pointer;
-    font-size: 40px;
-    animation: fade 500ms ease-in-out forwards;
-    /* filter: blur(1px);
-    -webkit-filter: blur(1px); */
-    /* background: rgba(0,0,0, 0.6);
-    border: 2px solid white; */
-}
-@keyframes fade{
-    0%{
-        opacity: 0;
-        transform: scale(0.1);
+    .user-site-image img{
+        border-radius: 50%;
     }
-    100%{
-        opacity: 1;
-        transform: scale(1);
+    .user-site-image{
+        width: 50px;
+        height: 49px;
+        border-radius: 50%;
+        background: #f6f7fd;
     }
-}
-.control-video:hover{
-    animation: fadout 500ms ease-in-out forwards;
-}
-.pause-play .fa{
-    color: white;
-}
-.mute-unmute{
-    margin-left: 10px;
-    margin-top: 10px;
-    font-size: 15px;
-    cursor: pointer;
-}
-/* end video control style */
-/* ========================================================================================================================================== */
-
-/* when it come to short area video */
-/* ========================================================================================================================================== */
-.control-media{
-    position: absolute;
-    top: 20%;
-    left: 30%;
-    padding: 16px 20px 15px 20px;
-    border-radius: 50%;
-    color: white;
-    cursor: pointer;
-    font-size: 40px;
-    animation: fade 500ms ease-in-out forwards;
-    /* filter: blur(1px);
-    -webkit-filter: blur(1px); */
-    /* background: rgba(0,0,0, 0.6);
-    border: 2px solid white; */
-}
-@keyframes fade{
-    0%{
-        opacity: 0;
-        transform: scale(0.1);
+    .comment-textarea textarea{
+        width: 100%;
+        height: 100%;
+        border: none;
+        outline: none;
+        font-family: roboto_medium;
     }
-    100%{
-        opacity: 1;
-        transform: scale(1);
+    .comment-textarea{
+        border: 1px solid #d3d3d3;
+        padding: 5px;
+        border-radius: 4px;
+        margin: 5px 10px;
+        width: 100%;
     }
-}
-.controls-down{
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    color: white;
-    padding: 0px 10px 4px 10px;
-    font-family: roboto_bold;
-    animation: fade 1000ms ease-in-out forwards;
-    background: rgb(0, 0, 0, 0.3);
-}
-@keyframes fade{
-    0%{
-        opacity: 0;
-        transform: scale(0.1);
-        transform-origin: bottom;
+    .btn-add-comment button{
+        margin: 5px 5px;
+        padding: 5px;
+        background: #041a2f;
+        color: white;
+        font-family: roboto_bold;
+        border-radius: 4px;
+        cursor: pointer;
+        outline: none;
     }
-    100%{
-        opacity: 1;
-        transform: scale(1);
+    .list-comment-found{
+        margin-top: 10px;
     }
-}
-/* end smal video area */
-/* =================================================================================================================================================== */
-
-
-.status-number{
-    margin-top: 10px;
-}
-.add-comments-area{
-    margin-top: 10px;
-    display: flex;
-    justify-content: space-between;
-}
-.user-site-image img{
-    border-radius: 50%;
-}
-.user-site-image{
-    width: 50px;
-    height: 49px;
-    border-radius: 50%;
-    background: #f6f7fd;
-}
-.comment-textarea textarea{
-    width: 100%;
-    height: 100%;
-    border: none;
-    outline: none;
-    font-family: roboto_medium;
-}
-.comment-textarea{
-    border: 1px solid #d3d3d3;
-    padding: 5px;
-    border-radius: 4px;
-    margin: 5px 10px;
-    width: 100%;
-}
-.btn-add-comment button{
-    margin: 5px 5px;
-    padding: 5px;
-    background: #041a2f;
-    color: white;
-    font-family: roboto_bold;
-    border-radius: 4px;
-    cursor: pointer;
-    outline: none;
-}
-.list-comment-found{
-    margin-top: 10px;
-}
-.each-comment{
-    border-bottom: 1px solid #d3d3d3;
-    padding: 10px 0;
-}
-.inner-commet{
-    display: flex;
-}
-.commeter-img img{
-    border-radius: 50%;
-}
-.commeter-img{
-    width: 40px;
-    height: 39px;
-    border-radius: 50%;
-    background: #f6f7fd;
-}
-.comment{
-    margin-left: 10px;
-}
-.commeter-name{
-    font-family: roboto_medium;
-}
-.real-comment{
-    margin-top: 5px;
-    font-family: roboto_regular;
-}
+    .each-comment{
+        border-bottom: 1px solid #d3d3d3;
+        padding: 10px 0;
+    }
+    .inner-commet{
+        display: flex;
+    }
+    .commeter-img img{
+        border-radius: 50%;
+    }
+    .commeter-img{
+        width: 40px;
+        height: 39px;
+        border-radius: 50%;
+        background: #f6f7fd;
+    }
+    .comment{
+        margin-left: 10px;
+    }
+    .commeter-name{
+        font-family: roboto_medium;
+    }
+    .real-comment{
+        margin-top: 5px;
+        font-family: roboto_regular;
+    }
 /* end dow section and post conetnt */
 /* ================================================================================================================================================ */
 
 
 /* member design and approved member on member tab*/
 /* ================================================================================================================================================ */
-.Approved{
-    font-family: roboto_bold;
-    font-size: 16px;
-    margin-bottom: 10px;
-}
+    .Approved{
+        font-family: roboto_bold;
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
 
-.member-list{
-    width: 100%;
-}
-.members-section{
-    display: flex;
-    justify-content: space-between;
-}
-.each-member{
-     padding: 10px 0;
-     display: flex;
-     border-bottom: 1px solid #d3d3d3;
-}
-.member-img img{
-    border-radius: 50%;
-}
-.member-img{
-    width: 60px;
-    height: 59px;
-    border-radius: 50%;
-    background: #f6f7fd;
-}
-.member-detail{
-    margin-left: 5px;
-    letter-spacing: 0.5px;
-}
-.member-name{
-    font-family: roboto_bold;
-    font-size: 15px;
-}
-.member-email{
-    font-family: roboto_bold;
-    font-size: 13px;
-}
-.joined{
-    font-family: roboto_medium;
-    font-size: 13px;
-}
-.department-name{
-    font-family: roboto_bold;
-    font-size: 16px;
-}
-
-/* media tab and it content*/
-/* =========================================================================================================================================== */
-.media-divider{
-    display: flex;
-    justify-content: space-between;
-}
-.photos-shared{
-    overflow: auto;
-    overflow-x: hidden;
-    width: 100%;
-}
-.inner-photo{
-    width: 120px;
-    height: 110px;
-    background: #f6f7fd;
-    border-radius: 4px;
-    float: left;
-    margin: 10px 5px;
-}
-.inner-photo img{
-    border-radius: 4px;
-}
-.video-shared{
-    overflow: auto;
-    overflow-x: hidden;
-    width: 100%;
-}
-.videos-shared-post{
-    overflow: auto;
-    overflow-x: hidden;
-    width: 100%;
-}
-.videos-shared-post div .inner-video{
-    width: 200px;
-    height: 150px;
-    background: #f6f7fd;
-    border-radius: 4px;
-    float: left;
-    margin: 10px 8px;
-}
-.inner-video{
-    width: 120px;
-    height: 110px;
-    background: #f6f7fd;
-    border-radius: 4px;
-    float: left;
-    margin: 10px 8px;
-}
-.inner-video video{
-    border-radius: 4px;
-    object-fit: fill;
-}
-
-/* #media,#Trainers,#Courses,#Companion{
-    width: 600px;
-} */
+    .member-list{
+        width: 100%;
+    }
+    .members-section{
+        display: flex;
+        justify-content: space-between;
+    }
+    .each-member{
+        padding: 10px 0;
+        display: flex;
+        border-bottom: 1px solid #d3d3d3;
+    }
+    .member-img img{
+        border-radius: 50%;
+    }
+    .member-img{
+        width: 60px;
+        height: 59px;
+        border-radius: 50%;
+        background: #f6f7fd;
+    }
+    .member-detail{
+        margin-left: 5px;
+        letter-spacing: 0.5px;
+    }
+    .member-name{
+        font-family: roboto_bold;
+        font-size: 15px;
+    }
+    .member-email{
+        font-family: roboto_bold;
+        font-size: 13px;
+    }
+    .joined{
+        font-family: roboto_medium;
+        font-size: 13px;
+    }
+    .department-name{
+        font-family: roboto_bold;
+        font-size: 16px;
+    }
 
 /* company tab and it content */
 /* ========================================================================================================================================== */
-.services div{
-   color: #071c2e;
-   letter-spacing: 0.5px;
-   text-transform: capitalize;
-   font-family: roboto_bold;
-   cursor: pointer;
-}
-.company{
-    font-family: roboto_bold;
-    margin-top: 5px;
-    letter-spacing: 0.5px;
-    color: #041a2f;
-}
+    .services div{
+        color: #071c2e;
+        letter-spacing: 0.5px;
+        text-transform: capitalize;
+        font-family: roboto_bold;
+        cursor: pointer;
+    }
+    .company{
+        font-family: roboto_bold;
+        margin-top: 5px;
+        letter-spacing: 0.5px;
+        color: #041a2f;
+    }
 /* end basuc style */
 
 /* sidebar on header*/
 /* ============================================================================= */
-.fa-align-left{cursor: pointer;}
-.fa-aling .fa-cog{
-    display: none;
-    margin-left: 20px;
-    cursor: pointer;
-    font-size: 20px;
-    margin-top: 9px;
-}
-  .sidenav {
-    height: auto;
-    width: 0;
-    position: absolute;
-    z-index: 1;
-    top: 75px;
-    left: 0px;
-    background-color: rgb(0, 0, 0, 0.3);
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-  }
-  .sidenav .closebtn{
-      color: white;
-      margin-top: 20px;
-  }
-  .sidenav ul li a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 17px;
-    display: block;
-    transition: 0.3s;
-    color: white;
-    font-family: roboto_bold;
-  }
+    .fa-align-left{cursor: pointer;}
+    .fa-aling .fa-cog{
+        display: none;
+        margin-left: 20px;
+        cursor: pointer;
+        font-size: 20px;
+        margin-top: 9px;
+    }
+    .sidenav {
+        height: auto;
+        width: 0;
+        position: absolute;
+        z-index: 1;
+        top: 75px;
+        left: 0px;
+        background-color: rgb(0, 0, 0, 0.3);
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+    }
+    .sidenav .closebtn{
+        color: white;
+        margin-top: 20px;
+    }
+    .sidenav ul li a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 17px;
+        display: block;
+        transition: 0.3s;
+        color: white;
+        font-family: roboto_bold;
+    }
   
-  .sidenav a:hover {
-    color: #f1f1f1;
-  }
-  
-  .sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-  }
+    .sidenav a:hover {
+        color: #f1f1f1;
+    }
+    
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
 
   /* sidebar on settings */
   /* =================================================================================================================================== */
   /* ============================================================================= */
-  .mySettings {
-    height: auto;
-    width: 0;
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: rgba(0,0,0, 0.4);
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding: 10px;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
-    box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 15px rgba(0,0,0, 0.4);
-    display: none;
-    transform-origin: top right;
-  }
-  .mySettings a{
-      color: white;
-      margin-top: 20px;
-  }
-  .mySettings ul li{
-      width: 100%;
-  }
-  .mySettings ul li a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 17px;
-    display: block;
-    transition: 0.3s;
-    color: white;
-    font-family: roboto_bold;
-  }
-  
-  .mySettings .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-  }
+    .mySettings {
+        height: auto;
+        width: 0;
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: rgba(0,0,0, 0.4);
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding: 10px;
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+        box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 15px rgba(0,0,0, 0.4);
+        display: none;
+        transform-origin: top right;
+    }
+    .mySettings a{
+        color: white;
+        margin-top: 20px;
+    }
+    .mySettings ul li{
+        width: 100%;
+    }
+    .mySettings ul li a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 17px;
+        display: block;
+        transition: 0.3s;
+        color: white;
+        font-family: roboto_bold;
+    }
+    
+    .mySettings .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
 
-
-
-  /* EACH POSTS */
-  /* =================================================================================================================================== */
-  /* post style */
+/* EACH POSTS */
+/* =================================================================================================================================== */
+/* post style */
     .arrangement-section{
         width: 100%;
     }
@@ -1033,9 +861,9 @@ td{font-family: roboto_regular;}
     }
     .poster-img{
         background: #f6f7fd;
-        border-radius: 50px;
+        border-radius: 50%;
         width: 50px;
-        height: 48px;
+        height: 50px;
     }
     .poster-img img{
         border-radius: 100%;
@@ -1052,97 +880,29 @@ td{font-family: roboto_regular;}
     }
     .post-caption{
         font-family: roboto_medium;
-        font-size: 14px;
+        font-size: 15px;
         line-height: 18px;
-        letter-spacing: 0.3px;
+        letter-spacing: 0.6px;
+        margin-top: 5px;
     }
     .media{
-        width: 100%;
-    }
-    .type-media{
         background: #f6f7fd;
-        border-radius: 4px;
+        border-radius: 6px;
         height: 250px;
         width: 100%;
         position: relative;
     }
-    .type-media img{
-        border-radius: 4px;
+    .media img{
+        border-radius: 6px;
         width: 100%;
         height: 100%;
+        object-fit: fill;
     }
-    .type-media video{
+    .media video{
         border-radius: 4px;
         height: 100%;
         width: 100%;
         object-fit: fill;
-    }
-    .video-controls{
-        width: 100%;
-        position: absolute;
-        bottom: 10px;
-        color: white;
-        padding: 10px;
-        font-family: roboto_bold;
-        animation: fade 1000ms ease-in-out forwards;
-    }
-    @keyframes fade{
-        0%{
-            opacity: 0;
-            transform: scale(0.1);
-            transform-origin: bottom;
-        }
-        100%{
-            opacity: 1;
-            transform: scale(1);
-        }
-    }
-    .video-stream-line{
-        background: #f2f2f2;
-        width: 100%;
-        border-radius: 10px;
-    }
-    .video-stream-line div{
-        background-color: #041a2f;
-        padding: 2px;
-        border-radius: 10px;
-    }
-    .control-video{
-        position: absolute;
-        top: 40%;
-        left: 40%;
-        padding: 16px 20px 15px 20px;
-        border-radius: 50%;
-        color: white;
-        cursor: pointer;
-        font-size: 40px;
-        animation: fade 500ms ease-in-out forwards;
-        /* filter: blur(1px);
-        -webkit-filter: blur(1px); */
-        /* background: rgba(0,0,0, 0.6);
-        border: 2px solid white; */
-    }
-    @keyframes fade{
-        0%{
-            opacity: 0;
-            transform: scale(0.1);
-        }
-        100%{
-            opacity: 1;
-            transform: scale(1);
-        }
-    }
-    .control-video:hover{
-        animation: fadout 500ms ease-in-out forwards;
-    }
-    .pause-play .fa{
-        color: white;
-    }
-    .mute-unmute{
-        margin-left: 10px;
-        margin-top: 10px;
-        font-size: 15px;
-        cursor: pointer;
     }
     .user-accurate-feeling{
         font-family: roboto_bold;
@@ -1150,8 +910,13 @@ td{font-family: roboto_regular;}
     .time-post{
         background: #f6f7fd;
         padding: 7px 8px 6px 8px;
-        border-radius: 20px;
-        font-size: 13px;
+        border-radius: 4px;
+        font-size: 14px;
+        letter-spacing: 0.6px;
+        margin-top: 7px;
+    }
+    .user-feelings{
+        margin-top: 8px;
     }
     .user-feelings div{
         background: #f6f7fd;
@@ -1160,7 +925,8 @@ td{font-family: roboto_regular;}
         margin-right: 5px;
         margin-left: 5px;
         cursor: pointer;
-        font-size: 13px;
+        font-size: 14px;
+        letter-spacing: 0.6px;
     }
     .icon-comment{
         background: #f6f7fd;
@@ -1171,8 +937,8 @@ td{font-family: roboto_regular;}
         font-size: 17px;
     }
     .commenter-image{
-        width: 50px;
-        height: 49px;
+        width: 40px;
+        height: 40px;
         border-radius: 100%;
         margin-left: 5px;
         margin-top: 5px;
@@ -1190,6 +956,9 @@ td{font-family: roboto_regular;}
         outline: none;
         width: 100%;
         height: 100%;
+        font-family: roboto_medium;
+        font-size: 15px;
+        letter-spacing: 0.6px;
     }
     .text-input{
         border: 1px solid #d3d3d3;
@@ -1200,6 +969,7 @@ td{font-family: roboto_regular;}
         margin-top: 4px;
         width: 100%;
         background: white;
+        font-family: roboto_medium;
     }
     .post{
         background: #f6f7fd;
@@ -1211,6 +981,8 @@ td{font-family: roboto_regular;}
         font-family: roboto_bold;
         margin-top: 4px;
         cursor: pointer;
+        letter-spacing: 0.6px;
+        font-size: 15px;
     }
     .list-comments{
         border: 1px solid #d3d3d3;
@@ -1497,13 +1269,11 @@ td{font-family: roboto_regular;}
         line-height: 19px;
         font-weight: 560;
     }
-    /* =================================================================================================== */
-    /* ============================================================================================================================================ */
-    /* ============================================================================================================================================ */
+/* ============================================================================================================================================ */
 
-    /* MEDIA QUERY APPLY ON SMAL DEVICE AND EXTRA DEVICE */
-    /* =========================================================================================================================================== */
-    /* =========================================================================================================================================== */
+/* MEDIA QUERY APPLY ON SMAL DEVICE AND EXTRA DEVICE */
+/* =========================================================================================================================================== */
+/* =========================================================================================================================================== */
     @media screen and (max-width: 992px){
         .admin-panel{
             width: 250px;
@@ -1850,6 +1620,5 @@ td{font-family: roboto_regular;}
             border-radius: 4px;
         }
     }
-    /* END MEDIA QUERY */
-    /* =========================================================================================================================================== */
-    /* =========================================================================================================================================== */
+/* END MEDIA QUERY */
+/* =========================================================================================================================================== */

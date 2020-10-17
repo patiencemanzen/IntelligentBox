@@ -1,0 +1,453 @@
+/* 
+    //////////////////////////////////////////////////////
+
+    INTELLIGENT BOX
+    DESIGNED & DEVELOPED by Manirabona Patience
+    
+    author: Mnirabona Patience,
+    Email:  Hseal419@gmail.com,
+    location: Kigali,Rwanda,
+    pro: Intelligent Box E-learning,
+    version: 1.0.0
+    
+	//////////////////////////////////////////////////////
+*/
+
+ /* external font family */
+ /* ===================================================================================== */
+ /* ===================================================================================== */
+    @font-face {font-family: 'roboto_bold';src: url('../fonts/Roboto/Roboto-Bold.ttf');} 
+    @font-face{font-family: 'roboto_regular';src: url('../fonts/Roboto/Roboto-Regular.ttf');}
+    @font-face{font-family: 'baskvile';src: url('../fonts/baskerville/BASKVILL.TTF');}
+    @font-face{font-family: 'roboto_medium';src: url('../fonts/Roboto/Roboto-Medium.ttf');}
+    @font-face{font-family: 'roboto_thin';src: url('../fonts/Roboto/Roboto-Italic.ttf');}
+    @font-face{font-family: 'roboto_black';src: url('../fonts/Roboto/Roboto-Black.ttf');}
+/* ============================================================================================ */
+
+/* MAIN COLOR */
+/* ===================================================================================================================================================== */
+    :root{
+        --BoxPrimary: #041a2f;
+        --BoxSecondary: #f6f7fd;
+        --BoxSubPrimary: #071c2e;
+        --BoxSubSecondary: #08345e;
+        --BoxLines: #d3d3d3;
+        --Basic: white;
+    }
+/* ==================================================================================================================================================== */
+
+/* apply on scroll bar */
+/* ======================================================================================= */
+    /* width */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: white; 
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #041a2f;
+        border-radius: 14px; 
+    }
+/* ============================================================================================= */
+
+/* body style */
+/* =========================================================================================== */
+/* =========================================================================================== */
+    body{
+        padding: 0;
+        margin: 0;
+        font-family: roboto_regular;
+    }
+/* =============================================================================================== */
+
+/* TOP NAV QUESTION */
+/* =============================================================================================== */
+    .questions-status{
+        background: var(--BoxSubSecondary);
+        margin-top: 90px;
+    }
+    .question-nav{
+        display: flex;
+        justify-content: space-between;
+        padding: 0px 10px;
+    }
+    .left-nav{
+        display: flex;
+        justify-content: space-between;
+    }
+    .questions_recieved{
+        margin-top: 10px;
+    }
+    .short_summary{
+        color: var(--Basic);
+        font-family: roboto_bold;
+        font-size: 19px;
+        letter-spacing: 0.6px;
+        line-height: 20px;
+        margin-top: 5px;
+    }
+    .tabs-link{
+        margin-left: 10px;
+    }
+    .tabs-link ul{
+        padding: 0;
+        display: flex;
+    }
+    .tabs-link ul li{
+        padding: 0px 15px;
+        list-style: none;
+        margin-top: 15px;
+        position: relative;
+    }
+    .tabs-link ul li a{
+        color: var(--Basic);
+        font-family: roboto_bold;
+        letter-spacing: 0.6px;
+        line-height: 20px;
+        font-size: 16px;
+    }
+    .tabs-link ul li .active{
+        color: #14599d;
+    }
+    .tabs-link ul li::before{
+        content: "";
+        position: absolute;
+        background: var(--Basic);
+        width: 100%;
+        height: 3px;
+        bottom: -17px;
+        left: -2px;
+    }
+
+    .right-nav{
+        position: relative;
+    }
+    .Ask_btn{
+        display: flex;
+        text-align: center;
+    }
+    .user_profile_image img{
+        border-radius: 14px;
+        object-fit: fill;
+    }
+    .user_profile_image {
+        width: 50px;
+        height: 50px;
+        background: var(--Basic);
+        border-radius: 14px;
+        padding: 2px;
+    }
+    .user_name{
+        background: var(--Basic);
+        font-family: roboto_bold;
+        text-transform: capitalize;
+        font-size: 16px;
+        padding: 7px;
+        border-radius: 4px;
+        margin: 10px 10px;
+    }
+    .ask_question{
+        padding: 7px 20px;
+        font-family: roboto_bold;
+        font-size: 13px;
+        border: none;
+        outline: none;
+        background-color: #14599d;
+        border-radius: 4px;
+        text-transform: capitalize;
+        color: white;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+
+    .create_question_pop{
+        position: absolute;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        border-radius: 14px;
+        padding: 10px;
+        z-index: 200;
+        background: white;
+        margin: 0 10px;
+        display: none;
+        z-index: 20;
+        width: 400px;
+        right: 20px;
+        top: 10px;
+    }
+    .addition_input{
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1.5px solid #d3d3d3;
+        padding-bottom: 10px;
+    }
+    .choose_image_file button{
+        background: #14599d;
+        color: white;
+        border-radius: 14px;
+        border: none;
+        outline: none;
+        padding: 5px 20px;
+        font-size: 14px;
+        font-family: roboto_bold;
+        cursor: pointer;letter-spacing: 0.6px;
+    }
+    .choose_where_to_post_question{
+        font-family: roboto_medium;
+        margin-left: 20px;
+    }
+    .select_section{
+        border: 1px solid #d3d3d3;
+        border-radius: 4px;
+        padding: 3px 4px;
+    }
+    .select_section option{
+        background: white;
+        padding: 5px;
+        font-family: roboto_medium;
+        font-size: 15px;
+    }
+    .image_view{
+        margin-top: 10px;
+        max-width: 300px;
+        max-height: 300px;
+        display: none;
+    }
+    .image_view img{
+        border-radius: 4px;
+    }
+    .add_text_question{
+        margin-top: 10px;
+        width: 100%;
+        position: relative;
+    }
+    .add_text_question textarea{
+        width: 100%;
+        height: 100%;
+        border: none;
+        font-family: roboto_medium;
+    }
+    .add_text_question{
+        border-radius: 14px;
+    }
+    .submit_question{
+        width: 100%;
+        margin-top: 20px;
+    }
+    .submit_question button{
+        background: #071c2e;
+        border: none;
+        outline: none;
+        padding: 5px 10px;
+        width: 100%;
+        color: white;
+        font-family: roboto_bold;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 15px;
+        letter-spacing: 0.6px;
+    }
+ 
+/* =============================================================================================== */
+
+/* FULL QUESTION TAB */
+/* =============================================================================================== */
+    .down-section{
+        margin-top: 30px;
+    }
+    .single-element{
+        display: flex;
+    }
+    .question-tab{
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        border-radius: 14px;
+        margin: 10px
+    }
+    .full-question{
+        display: flex;
+    }
+    .question-found{
+        width: 60%;
+        overflow: auto;
+        min-height: 200px;
+        max-height: 470px;
+    }
+    .question-text{
+        padding: 10px;
+    }
+    .question-title{
+        font-family: roboto_bold;
+        font-size: 20px;
+        letter-spacing: 0.6px;
+        line-height: 21px;
+    }
+    .question-full-text{
+        font-size: 16px;
+        margin-top: 8px;
+        line-height: 22px;
+        letter-spacing: 0.6px;
+    }
+    .question-image{
+        padding: 10px;
+    }
+    .question-photo{
+        background: var(--BoxSecondary);
+        border-radius: 6px;
+        width: 100%;
+        height: 300px;
+    }
+    .question-photo img{
+        border-radius: 6px;
+    }
+    .answer-founded{
+        width: 40%;
+        background: var(--BoxSubSecondary);
+        border-top-right-radius: 14px;
+        border-bottom-right-radius: 14px;
+    }
+    .answer-title{
+        font-family: roboto_bold;
+        font-size: 18px;
+        letter-spacing: 0.6px;
+        line-height: 21px;
+        text-align: center;
+        color: var(--Basic);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        padding: 10px;
+        border-top-right-radius: 14px;
+    }
+    .answer-list{
+        overflow: auto;
+        min-height: 200px;
+        max-height: 265px;
+        padding: 10px;
+    }
+    .each-answer{
+        display: flex;
+        margin: 0px 0px 20px 0px;
+    }
+    .profile-image{
+        background: var(--BoxSecondary);
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        margin-top: 4px;
+    }
+    .profile-image img{
+        border-radius: 50%;
+    }
+    .answer-detail{
+        margin-left: 20px;
+    }
+    .answer-name{
+        color: var(--Basic);
+        font-family: roboto_bold;
+        letter-spacing: 0.6px;
+        font-size: 16px;
+    }
+    .time-posted{
+        font-size: 14px;
+        margin-left: 10px;
+        color: var(--BoxLines);
+        text-transform: capitalize;
+        letter-spacing: 0.6px;
+        line-height: 20px;
+    }
+    .answer-found{
+        margin-top: 6px;
+        letter-spacing: 0.6px;
+        font-size-adjust: 15px;
+        font-family: roboto_medium;
+        color: var(--Basic);
+        line-height: 20px;
+    }
+    .add-answer{
+        /* position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0; */
+        background: var(--BoxSubSecondary);
+        border-bottom-right-radius: 14px;
+        display: flex;
+        padding: 10px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+    .my-photo img{
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+    }
+    .my-photo{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--BoxSecondary);
+        margin-top: 3px;
+    }
+    .add-text textarea{
+        width: 100%;
+        height: 100%;
+        background: var(--BoxSecondary);
+        font-family: roboto_medium;
+        font-size: 15px;
+        letter-spacing: 0.6px;
+        border: none;
+        outline: none;
+    }
+    .add-text{
+        padding: 5px;
+        border-radius: 6px;
+        margin: 0px 10px;
+        background: var(--BoxSecondary);
+        width: 100%;
+    }
+    .post-answer{
+        margin-top: 10px;
+    }
+    .post-answer button{
+        background: var(--BoxPrimary);
+        color: var(--Basic);
+        font-family: roboto_bold;
+        font-size: 15px;
+        letter-spacing: 0.6px;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 4px;
+
+    }
+    .getAnswer{
+        color: var(--Basic);
+        font-size: 16px;
+        font-family: roboto_bold;
+        letter-spacing: 0.6px;
+    }
+/* =============================================================================================== */
+
+/* MEDIA QUESRY */
+/* ================================================================================================ */
+    @media screen and (max-width: 991px){
+        .full-question{
+            flex-direction: column;
+        }
+        .question-found{
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            min-height: 100%;
+            max-height: 100%;
+        }
+        .answer-founded{
+            width: 100%;
+            border-top-right-radius: 0px;
+            border-bottom-right-radius: 0px;
+        }
+        .answer-title{
+            border-top-right-radius: 0px;
+        }
+    }
+/* ================================================================================================ */

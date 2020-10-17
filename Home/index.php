@@ -34,15 +34,10 @@
        <meta name="robots" content="index, follow"/>
        <meta name="apple-mobile-web-app-capable" content="yes">
 
-       <!-- index, used to repesent intelligent box on search engine and it browser -->
        <title>intelligentBox</title>
 
-       <!-- intelligent box logo, present on search engine and on browse header -->
        <link rel="shortcut icon" href="../Images/favicon.png" type="image/x-icon">
-
-       <!-- external style link, type css file-->
        <link rel="stylesheet" href="../Assets/css/activity_stream.box.css">
-       <link href="emoji/emoji-picker/lib/css/emoji.css" rel="stylesheet">
 
        <!-- external css file/ libraries -->
        <link rel="stylesheet" href="../Lib/bootstrap/css/bootstrap.min.css">
@@ -57,22 +52,21 @@
        <link rel="stylesheet" href="../Lib/theme-color/violet-theme.css">
        <link rel="stylesheet" href="../Lib/venobox/venobox.css">
    
+
+       <link rel="stylesheet" href="../Lib/font-awesome/css/font-awesome.min.css">   
    </head>
-   <body id="wrap">
+   <body class="bg-white" id="wrap">
 
         <!-- Section that will hold header -->
-        <!-- =============================================================================================================================== -->
         <!-- =============================================================================================================================== -->
         <div class="header-holder">
             <?php require_once ("../header/header.php"); ?>
         </div>
         <!-- end header section -->
         <!-- =============================================================================================================================== -->
-        <!-- =============================================================================================================================== -->
 
 
         <!-- down-section -->
-        <!-- ============================================================================================================================== -->
         <!-- ============================================================================================================================== -->
         <div class="container">
             <div class="separet_content">
@@ -83,12 +77,10 @@
 
                 <!-- middle side content -->
                 <!-- ==================================================================================================== -->
-                <!-- ==================================================================================================== -->
                 <div class="main">
                     <div class="middle-side-content">
 
                         <!-- UPPER SECTION -->
-                        <!-- ========================================================================================================================== -->
                         <!-- ========================================================================================================================== -->
                         <div class="upper-section-user">
                             <!-- filter posts -->
@@ -96,13 +88,15 @@
                             <div class="filter-pots">
                                 <div class="filter-post-link">
                                     <div class="input-posts">
-                                        <ul class="nav" role="tablist">
-                                            <!--  questions -->
-                                            <li><a class="active" data-toggle="tab" href="#posts" role="tab">
-                                                <div class="status-1"><i class="fa fa-tree"></i> Posts</div>
-                                            </a></li>
-                                            <!-- end questions -->
-                                        </ul>
+                                        <div class="link-post">
+                                            <ul class="nav" role="tablist">
+                                                <!--  questions -->
+                                                <li><a class="active" data-toggle="tab" href="#posts" role="tab">
+                                                    <div class="status-1"><i class="fa fa-tree"></i> Posts</div>
+                                                </a></li>
+                                                <!-- end questions -->
+                                            </ul>
+                                        </div>
                                         <div class="choose-link">
                                             <div class="pre-link">Filter posts</div>
                                             <div class="select_posts">
@@ -158,7 +152,7 @@
                                     <!-- ========================================================================================================== -->
                                     <div class="tab-content">
                                         <div class="active tab-pane psts ml-auto mr-auto" role="tabpanel" id="posts">
-                                            <div class="stream-title">activity stream</div>
+                                            <div class="stream-title">activities</div>
                                             <div class="trended-stream mt-4" id="show_posts">
 
                                             </div>

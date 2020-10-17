@@ -221,21 +221,21 @@
                                                 <!-- ============================================================================================================================== -->
                                                 <div class="settingsbody">
                                                     <div class="bodysettings">
-                                                        <a href="../Group-discusion/Groups.php" class="settings-link"><div class="publicPost d-flex">
-                                                            <i class="fa fa-rss mr-2"></i>
-                                                            <div>Discover groups</div>
+                                                        <a href="../Group-discusion/Groups.php" class="settings-link"><div class="publicPost">
+                                                            <div class="setting-icon"><i class="fa fa-rss mr-2"></i></div>
+                                                            <div class="link-label">Discover groups</div>
                                                         </div></a>
-                                                        <div class="publicPost d-flex" onclick="createGroupSection()">
-                                                            <i class="fa fa-plus mr-2"></i>
-                                                            <div>create group</div>
+                                                        <div class="publicPost" onclick="createGroupSection()">
+                                                            <div class="setting-icon"><i class="fa fa-plus mr-2"></i></div>
+                                                            <div class="link-label">create group</div>
                                                         </div>
-                                                        <a href="settings.php" class="settings-link"><div class="publicPost d-flex">
-                                                            <i class="fa fa-cog mr-2"></i>
-                                                            <div>Settings</div>
+                                                        <a href="settings.php" class="settings-link"><div class="publicPost">
+                                                            <div class="setting-icon"><i class="fa fa-cog mr-2"></i></div>
+                                                            <div class="link-label">Settings</div>
                                                         </div></a>
-                                                        <a href="Signout.box.php" style="color: #071c2e"><div class="challengeSetting d-flex">
-                                                            <i class="fa fa-sign-out mr-2"></i>
-                                                            <div>log out</div>
+                                                        <a href="Signout.box.php" style="color: #071c2e"><div class="challengeSetting">
+                                                            <div class="setting-icon"><i class="fa fa-sign-out mr-2"></i></div>
+                                                            <div class="link-label">log out</div>
                                                         </div></a>
                                                     </div>
                                                 </div>
@@ -282,6 +282,8 @@
                                                         <div class="conditions">
                                                             <a href="../About/Privacy.php" style="color: black;"><div>Terms & Condition</div></a>
                                                             <a href="../About/terms_condition/terms_condition.php" style="color: black"><div>Privacy and Safety</div></a>
+                                                            <a href="../About/terms_condition.php" style="color: black;"><div>Terms & Condition</div></a>
+                                                            <a href="../About/Privacy.php" style="color: black"><div>Privacy and Safety</div></a>
                                                         </div>
                                                         <div class="Terms_body collapse" id="terms">
                                                                                      

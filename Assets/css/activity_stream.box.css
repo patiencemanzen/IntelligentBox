@@ -1,28 +1,27 @@
-    /* 
-        //////////////////////////////////////////////////////
+/* 
+    //////////////////////////////////////////////////////
 
-        INTELLIGENT BOX
-        DESIGNED & DEVELOPED by Manirabona Patience
-        
-        author: Mnirabona Patience,
-        Email:  Hseal419@gmail.com,
-        location: Kigali,Rwanda,
-        pro: Intelligent Box E-learning,
-        version: 1.0.0
+    INTELLIGENT BOX
+    DESIGNED & DEVELOPED by Manirabona Patience
     
-        //////////////////////////////////////////////////////
-    */
+    author: Mnirabona Patience,
+    Email:  Hseal419@gmail.com,
+    location: Kigali,Rwanda,
+    pro: Intelligent Box E-learning,
+    version: 1.0.0
 
-    /* external font family */
-    /* =================================================================================================================================================== */
-    /* =================================================================================================================================================== */
+    //////////////////////////////////////////////////////
+*/
+
+/* external font family */
+/* =================================================================================================================================================== */
     @font-face {font-family: 'roboto_bold';src: url('../fonts/Roboto/Roboto-Bold.ttf');} 
     @font-face{font-family: 'roboto_regular';src: url('../fonts/Roboto/Roboto-Regular.ttf');}
     @font-face{font-family: 'baskvile';src: url('../fonts/baskerville/BASKVILL.TTF');}
     @font-face{font-family: 'roboto_medium';src: url('../fonts/Roboto/Roboto-Medium.ttf');}
 
-    /* MAIN COLOR */
-    /* ===================================================================================================================================================== */
+/* MAIN COLOR */
+/* ===================================================================================================================================================== */
     :root{
         --BoxPrimary: #041a2f;
         --BoxSecondary: #f6f7fd;
@@ -31,11 +30,10 @@
         --BoxLines: #d3d3d3;
         --Basic: white;
     }
-    /* ==================================================================================================================================================== */
+/* ==================================================================================================================================================== */
 
-    /* apply on scroll bar */
-    /* =================================================================================================================================================== */
-    /* =================================================================================================================================================== */
+/* apply on scroll bar */
+/* =================================================================================================================================================== */
     /* width */
     ::-webkit-scrollbar {
         width: 10px;
@@ -51,9 +49,10 @@
         background: var(--BoxPrimary);
         border-radius: 4px; 
     }
+/* ==================================================================================================================================================== */
 
-    /* body style */
-    /* ====================================================================================================================================== */
+/* body style */
+/* ====================================================================================================================================== */
     body{
         padding: 0;
         margin: 0;
@@ -79,16 +78,15 @@
         margin-top: 30px;
     }
 
-    /* UPPER CONTENT STYLE */
-    /* ================================================================================================================================================== */
+/* UPPER CONTENT STYLE */
+/* ================================================================================================================================================== */
     .separet_content{
         padding: 20px 20px;
         background: var(--Basic);
         margin-top: 80px;
         height: 100%;
+        box-shadow: 0 0 10px rgba(0,0,0, 0.3);
     }
-
-
     .down-content{
         margin-top: 85px;
         background-color: var(--Basic);
@@ -107,7 +105,6 @@
     }
     .top-nav-status ul li {
         padding: 10px 10px;
-        /* background: #818181; */
         border-bottom: 2px solid #14599d;
         margin-left: 0 auto;
     }
@@ -141,18 +138,18 @@
     }
     .input-posts ul li{
         background: var(--Basic);
-        border-top-left-radius: 8px;
-        border-top-right-radius: 8px;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
         padding: 10px 16px;
         box-shadow: 0 0px 3px rgba(0,0,0, 0.3);
         z-index: 1;
     }
     .input-posts ul li a{
         font-family: roboto_bold;
-        line-height: 19px;
-        letter-spacing: 0.4px;
-        font-weight: 560;
-        color: var(--BoxPrimary)
+        line-height: 20px;
+        letter-spacing: 0.6px;
+        color: var(--BoxPrimary);
+        font-size: 15px;
     }
     .choose-link{
         display: flex;
@@ -226,8 +223,10 @@
         align-items: center;
         color: var(--BoxPrimary);
         font-family: roboto_bold;
-        letter-spacing: 0.3px;
+        letter-spacing: 0.6px;
         font-size: 20px;
+        cursor: pointer;
+        text-transform: capitalize;
     }
     .what-going-on div{
         margin-top: 15px;
@@ -255,7 +254,7 @@
         background: var(--BoxSecondary);
         font-family: roboto_bold;
         text-transform: capitalize;
-        font-size: 17px;
+        font-size: 18px;
         border-radius: 20px;
         padding: 9px 15px 9px 15px;
         margin-top: 20px;
@@ -263,159 +262,101 @@
         margin-right: 10px;
     }
 
-    /* post style */
-    /* ================================================================================================================================================ */
-    /* ================================================================================================================================================ */
+/* post style */    
+/* ================================================================================================================================================ */
+/* ================================================================================================================================================ */
     .each-post{
-        padding: 10px 5px;
+        padding: 10px;
         border-top: 2px solid var(--BoxLines);
+        box-shadow: 0 0 3px rgba(0,0,0, 0.3);
+        border-radius: 4px;
+        margin: 10px 0px 20px 0px;
+    }
+    .poster-identity{
+        display: flex;
+    }
+    .poster-detail{
+        margin-left: 10px;
     }
     .poster-img{
         background: var(--BoxSecondary);
-        border-radius: 50px;
-        width: 50px;
-        height: 50px;
+        border-radius: 4px;
+        width: 45px;
+        height: 45px;
         margin-top: 3px;
     }
     .poster-img img{
-        border-radius: 100%;
+        border-radius: 4px;
     }
     .poster-name{
         font-family: roboto_bold;
         text-transform: capitalize;
-        letter-spacing: 0.7px;
-        font-weight: 570;
+        letter-spacing: 0.6px;
         margin-top: 5px;
-        line-height: 18px;
+        line-height: 20px;
         font-size: 15px;
+    }
+    .post-short-info{
+        font-family: roboto_bold;
+        font-size: 15px;
+        letter-spacing: 0.6px;
+        line-height: 20px;
+        text-transform: capitalize;
+    }
+    .time-shared{
+        color: var(--BoxLines);
+        font-family: roboto_bold;
+        letter-spacing: 0.6px;
+        font-size: 14px;
+        margin-left: 10px;
     }
     .post-caption{
         font-family: roboto_medium;
-        letter-spacing: 0.3px;
-        line-height: 19px;
-        font-weight: 560;
-        font-size: 14px;
-        word-break: break-all;
-        margin-top: 5px;
+        letter-spacing: 0.6px;
+        line-height: 22px;
+        font-size: 16px;
+        margin-top: 7px;
     }
 
     .full-post {
         width: 100%;
-        margin-left: 5px;
     }
     .media{
         background: var(--BoxSecondary);
         width: 100%;
         height: 300px;
-        border-radius: 14px;
+        border-radius: 4px;
     }
     .media img{
-        border-radius: 14px;
+        border-radius: 4px;
         height: 100%;
         width: 100%;
-    }
-    .media video{
-        border-radius: 14px;
-        height: 100%;
-        width: 100%;
-        object-fit: fill;
-    }
-    .video-controls{
-        width: 100%;
-        position: absolute;
-        bottom: 10px;
-        color: var(--Basic);
-        padding: 10px;
-        font-family: roboto_bold;
-        animation: fade 1000ms ease-in-out forwards;
-    }
-    @keyframes fade{
-        0%{
-            opacity: 0;
-            transform: scale(0.1);
-            transform-origin: bottom;
-        }
-        100%{
-            opacity: 1;
-            transform: scale(1);
-        }
-    }
-    .video-stream-line{
-        background: #f2f2f2;
-        width: 100%;
-        border-radius: 10px;
-    }
-    .video-stream-line div{
-        background-color: var(--BoxPrimary);
-        padding: 2px;
-        border-radius: 10px;
-    }
-    .control-video{
-        position: absolute;
-        top: 40%;
-        left: 40%;
-        padding: 16px 20px 15px 20px;
-        border-radius: 50%;
-        color: var(--Basic);
-        cursor: pointer;
-        font-size: 40px;
-        animation: fade 500ms ease-in-out forwards;
-        /* filter: blur(1px);
-        -webkit-filter: blur(1px); */
-        /* background: rgba(0,0,0, 0.6);
-        border: 2px solid var(--Basic); */
-    }
-    @keyframes fade{
-        0%{
-            opacity: 0;
-            transform: scale(0.1);
-        }
-        100%{
-            opacity: 1;
-            transform: scale(1);
-        }
-    }
-    .control-video:hover{
-        animation: fadout 500ms ease-in-out forwards;
-    }
-    .pause-play .fa{
-        color: var(--Basic);
-    }
-    .mute-unmute{
-        margin-left: 10px;
-        margin-top: 10px;
-        font-size: 15px;
-        cursor: pointer;
     }
 
-    .status-number{
-        margin-top: 10px;
-    }
-    .type-media img{
-        border-radius: 4px;
-        width: 100%;
-        height: 100%;
-    }
     .user-accurate-feeling{
         font-family: roboto_bold;
+        margin-top: 5px;
     }
     .time-post{
-        background: var(--BoxSecondary);
+        background: #eee;
         padding: 7px 8px 6px 8px;
         border-radius: 10px;
         cursor: pointer;
+        letter-spacing: 0.6px;
+        font-size: 15;
     }
     .user-feelings div{
-        background: var(--BoxSecondary);
+        background: #eee;
         padding: 7px 10px 6px 10px;
-        border-radius: 10px;
-        margin-right: 10px;
+        border-radius: 6px;
         font-family: roboto_bold;
         cursor: pointer;
+        letter-spacing: 0.6px;
+        margin-left: 10px;
     }
     .user-feelings div span{
         font-family: roboto_bold;
-        font-size: 14px;
+        font-size: 15px;
         letter-spacing: 0.6px;
     }
     .icon-comment{
@@ -425,26 +366,37 @@
     }
     .user-feelings div .fa{
         font-size: 17px;
+        margin-right: 7px;
+    }
+
+    .add-comment{
+        border-top: 2px solid #d3d3d3;
+        padding: 10px 0px 0px 0px;
     }
     .commenter-image{
         width: 40px;
         height: 40px;
         border-radius: 50%;
         background: var(--BoxSecondary);
+        margin-top: 7px;
     }
     .commenter-image img{
         border-radius: 100%;
     }
-    .textarea-section{width: 100%;margin-right: 10px;}
+    .textarea-section{
+        width: 100%;
+        margin-right: 10px;
+    }
     .text-input textarea{
         border: none;
         outline: none;
         width: 100%;
         height: 100%;
-        background-color: var(--BoxSecondary);
+        background-color: #eee;
         font-family: roboto_medium;
-        letter-spacing: 0.3px;
+        letter-spacing: 0.6px;
         line-height: 19px;
+        color: var(--BoxSubSecondary);
     }
     .text-input{
         padding: 5px;
@@ -453,19 +405,22 @@
         margin: 0px 10px;
         width: 100%;
         height: 100%;
-        background-color: #f7f6fd;
+        background-color: #eee;
+        font-size: 15px;
     }
     .post button{
-        background: var(--BoxSecondary);
+        background: #eee;
         color: var(--BoxPrimary);
         border-radius: 4px;
-        padding: 5px 10px;
+        padding: 7px 10px;
         border: none;
         margin-left: 10px;
         font-family: roboto_bold;
         cursor: pointer;
         text-transform: capitalize;
-        font-size: 17px;
+        font-size: 16px;
+        margin-top: 7px;
+        letter-spacing: 0.6px;
     }
     .list-comments{
         border: 1px solid var(--BoxLines);
@@ -553,6 +508,9 @@
         border-radius: 4px;
         width: 100%;
     }
+    .answerer-detail{
+        width: 100%;
+    }
     .answerer-image{
         width: 45px;
         height: 45px;
@@ -566,34 +524,42 @@
         font-family: roboto_bold;
         text-align: left;
         text-transform: capitalize;
+        letter-spacing: 0.6px;
     }
     .answer{
         background: var(--BoxSecondary);
         border-radius: 4px;
         padding: 5px;
         text-align: left;
-        font-family: roboto_regular;
-        font-weight: 550;
-        line-height: 19px;
+        font-family: roboto_medium;
+        line-height: 20px;
         word-break: break-all;
+        font-size: 15px;
+        letter-spacing: 0.6px;
+        width: 100%;
     }
     .question-comment, .question-likes{
         font-family: roboto_medium;
     }
     .accurancy div{
-        background: var(--BoxSecondary);
+        background: #eee;
         padding: 4px 8px 4px 8px;
-        border-radius: 10px;
+        border-radius: 4px;
         margin-right: 5px;
         margin-top: 10px;
-        font-size: 13px;
+        font-size: 14px;
         cursor: pointer;
+        letter-spacing: 0.6px;
+        font-family: roboto_bold;
     }
     .accurancy div span{
         font-family: roboto_bold;
     }
     .accurancy div .fa{
         font-size: 15px;
+    }
+    .commenting-section{
+        margin-top: 8px;
     }
     .comment-add-comment{
         margin-top: 5px;
@@ -605,7 +571,7 @@
     .commeter-image-down{
         width: 40px;
         height: 40px;
-        background: var(--BoxSecondary);
+        background: #eee;
         border-radius: 50%;
     }
     .textarea-add-comment textarea{
@@ -614,20 +580,22 @@
         border: none;
         outline: none;
         font-family: roboto_medium;
+        background: #eee;
+        color: var(--BoxSubSecondary);
     }
     .textarea-add-comment{
         border-radius: 4px;
-        border: 1px solid var(--BoxLines);
         padding: 5px;
         margin-left: 5px;
         width: 100%;
+        background: #eee;
     }
     .post-comment-written{
         margin-left: 5px;
         margin-right: 3px;
     }
     .post-comment-written button{
-        background: var(--BoxSecondary);
+        background: #eee;
         color: var(--BoxPrimary);
         padding: 6px;
         border-radius: 4px;
@@ -636,6 +604,9 @@
         font-family: roboto_bold;
         text-transform: capitalize;
         border: none;
+        margin-left: 10px;
+        font-size: 14px;
+        letter-spacing: 0.6px;
     }
     .comment-found-comment{
         border: 1px solid var(--BoxLines);
@@ -649,6 +620,16 @@
         padding: 10px 5px;
         display: flex;
     }
+    .comment-comment-detail{
+       margin-left: 10px;
+    }
+    .poster-comment-name{
+        font-family: roboto_bold;
+        letter-spacing: 0.6px;
+        line-height: 20px;
+        font-size: 14px;
+        text-transform: capitalize;
+    }
     .commenter-image-found img{
         border-radius: 50%;
     }
@@ -660,16 +641,14 @@
     }
     .real-comment-found{
         font-family: roboto_medium;
-        letter-spacing: 0.3px;
-        line-height: 17px;
-        margin-left: 5px;
-        font-size: 12.5px;
+        letter-spacing: 0.6px;
+        line-height: 20px;
+        font-size: 14px;
     }
     .time-commented{
         font-family: roboto_bold;
-        font-size: 12px;
+        font-size: 13px;
         color: var(--BoxLines);
-        margin-left: 5px;
     }
     /* end post */
     /* end middle side */
@@ -681,21 +660,6 @@
     /* right side */
     /* ========================================================================================================================================================= */
     /* ========================================================================================================================================================= */
-    /* .right-side-content{
-        border-radius: 4px;
-        position: fixed;
-        top: 0;
-        right: 0;
-        z-index: 1;
-        height: 100%;
-        width: 10rem;
-        overflow-x: hidden;
-    } */
-    /* .right-section{
-        width: 400px; 
-        position: sticky;
-        bottom: 0;
-    } */
 
     /* home title */
     /* ========================================================================================================== */
@@ -766,12 +730,15 @@
         font-family: roboto_bold;
         text-transform: capitalize;
         text-align: left;
+        font-size: 14px;
     }
     .learner-desc{
         width: 100%;
     }
     .learner-name{
         width: 100%;
+        font-size: 14px;
+        letter-spacing: 0.6px;
     }
     .follow button{
         background-color: var(--BoxPrimary);
@@ -784,6 +751,7 @@
         font-size: 13px;
         cursor: pointer;
         width: 100%;
+        letter-spacing: 0.6px;
     }
     .following button{
         background-color: var(--Basic);
@@ -795,25 +763,29 @@
         font-size: 13px;
         cursor: pointer;
         color: var(--BoxPrimary);
+        letter-spacing: 0.6px;
     }
     .learner-bio{
         font-family: roboto_regular;
-        font-size: 13px;
-        line-height: 18px;
-        letter-spacing: 0.4px;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.6px;
     }
     .trainer-accurate{
         background: var(--BoxSecondary);
         padding: 5px;
-        font-family: roboto_medium;
+        font-family: roboto_bold;
         text-align: left;
         text-transform: capitalize;
-        font-size: 13px;
+        font-size: 14px;
         border-radius: 4px;
+        letter-spacing: 0.6px;
     }
     .trainer-accurate div{
-        font-family: roboto_medium;
+        font-family: roboto_bold;
         margin-right: 10px;
+        font-size: 14px;
+        letter-spacing: 0.6px;
     }
     .trainer-accurate div span{
         font-family: roboto_bold;
@@ -942,9 +914,9 @@
         text-transform: capitalize;
         text-align: left;
         color: var(--Basic);
-        letter-spacing: 0.3px;
-        font-size: 14px;
-        margin-top: 10px;
+        font-size: 16px;
+        margin-top: 5px;
+        letter-spacing: 1px;
     }
     .group-bio{
         font-family: roboto_medium;

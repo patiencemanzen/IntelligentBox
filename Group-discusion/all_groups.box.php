@@ -20,7 +20,12 @@
         }
 
         public function all_groups ($user_email){
-            $select_all_groups = "SELECT * FROM user_groups WHERE group_name NOT IN (SELECT DISTINCT group_name FROM user_group_member WHERE User_email='$user_email') AND group_name NOT IN (SELECT DISTINCT group_name FROM user_groups WHERE email='$user_email')";
+            $select_identity = "SELECT * FROM intelligent_users WHERE email='$user_email'";
+            $execute_identity = mysqli_query($this->Frequency(), $select_identity);
+            $fetch_identity = mysqli_fetch_assoc($execute_identity);
+                $get_Identity = $fetch_identity['identity'];
+
+            $select_all_groups = "SELECT * FROM user_groups WHERE user_identity != '$get_Identity' AND user_identity NOT IN (SELECT DISTINCT user_identity FROM user_group_member WHERE user_identity = '$get_Identity')";
             $execute_all_groups = mysqli_query($this->Frequency(), $select_all_groups);
             while($fetch_all_groups = mysqli_fetch_assoc($execute_all_groups)){
                 $groups_profile_image = $fetch_all_groups['group_profile_image'];
@@ -44,15 +49,12 @@
                         <div class="department-image">
                             <img src="<?php echo '../Images/groups/'.$groups_profile_image; ?>" alt="" width="100%" height="100%">
                             <div class="department-name"><?php echo $group_name; ?></div>
-                            <div class="study-now" id="<?php echo $group_identity; ?>" onclick="join_goup(this)">Join now</div>
+                            <div class="study-now" id="<?php echo $group_identity; ?>" onclick="join_group(this)">Join now</div>
                         </div>
                         <div class="department-bio"><?php echo $group_bio; ?></div>
-                        <div class="department-status d-flex justify-content-between">
-                            <div class="members"><i class="fa fa-user-circle-o"></i> <span><?php echo $this->count_member($group_identity); ?></span></div>
-                            <div class="courses"><i class="fa fa-graduation-cap"></i> <span>0</span></div>
-                            <div class="trainer"><i class="fa fa-assistive-listening-systems"></i> <span><?php echo $Trainer; ?></span></div>
-                            <div class="likes"><i class="fa fa-thumbs-o-up"></i> <span>0</span></div>
-                        </div>
+                        <div class="members"><i class="fa fa-user-circle-o"></i> Members <span><?php echo $this->count_member($group_identity); ?></span></div>
+                        <div class="trainer"><i class="fa fa-assistive-listening-systems"></i> Joined Instructor <span><?php echo $Trainer; ?></span></div>
+                        <a href="../Group-discusion/each-group.php?group=<?php echo $url_encode; ?>&function=view">View this group</a>
                     </div>
                     <!-- end each department -->
                     <!-- ====================================================================================================== -->
@@ -84,9 +86,14 @@
             }
         }
 
-        public function search_groups($search){
+        public function search_groups($search, $user_email){
+            $select_identity = "SELECT * FROM intelligent_users WHERE email='$user_email'";
+            $execute_identity = mysqli_query($this->Frequency(), $select_identity);
+            $fetch_identity = mysqli_fetch_assoc($execute_identity);
+                $get_Identity = $fetch_identity['identity'];
+
             $main_search = strtolower($search);
-            $select_group = "SELECT * FROM user_groups WHERE group_name LIKE '%$main_search%'";
+            $select_group = "SELECT * FROM user_groups WHERE group_name LIKE '%$main_search%' AND user_identity != '$get_Identity'";
             $execute_group = mysqli_query($this->Frequency(), $select_group);
             if(mysqli_num_rows($execute_group) > 0){
                 while($fetch_all_groups = mysqli_fetch_assoc($execute_group)){
@@ -114,12 +121,8 @@
                                 <div class="study-now" id="<?php echo $group_identity; ?>" onclick="join_goup(this)">Join now</div>
                             </div>
                             <div class="department-bio"><?php echo $group_bio; ?></div>
-                            <div class="department-status d-flex justify-content-between">
-                                <div class="members"><i class="fa fa-user-circle-o"></i> <span><?php echo $this->count_member($group_identity); ?></span></div>
-                                <div class="courses"><i class="fa fa-graduation-cap"></i> <span>0</span></div>
-                                <div class="trainer"><i class="fa fa-assistive-listening-systems"></i> <span><?php echo $Trainer; ?></span></div>
-                                <div class="likes"><i class="fa fa-thumbs-o-up"></i> <span>0</span></div>
-                            </div>
+                            <div class="members"><i class="fa fa-user-circle-o"></i> Members <span><?php echo $this->count_member($group_identity); ?></span></div>
+                            <div class="trainer"><i class="fa fa-square"></i> Joined instructor <span><?php echo $Trainer; ?></span></div>
                         </div>
                         <!-- end each department -->
                         <!-- ====================================================================================================== -->
@@ -157,7 +160,7 @@
     // if request is to search group
     // ==========================================================================================================
     if(isset($_POST['search'])){
-        $new_interface->search_groups($_POST['search']);
+        $new_interface->search_groups($_POST['search'], $_POST['userMail']);
     }
 
 ?>

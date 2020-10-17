@@ -143,6 +143,35 @@ function submit_reply(obj){
     });
 }
 
+function rel_question(){
+    $(document).ready(function(){
+        var user_email = document.getElementById("hiddenEmail").value;
+        $("#rel-question").load("question_answers.box.php", {
+            rel_question: user_email
+        });
+    });
+}
+function rel_question_recieved(){
+    $(document).ready(function(){
+        var user_email = document.getElementById("hiddenEmail").value;
+        $("#rel_question_recieved").load("question_answers.box.php", {
+            rel_question: user_email
+        });
+    });
+}
+rel_question();
+rel_question_recieved();
+
+function all_questions(){
+    var user_email = document.getElementById("hiddenEmail").value;
+    $(document).ready(function(){
+        $(".single-element").load("question_answers.box.php",{
+            gt_question_list: user_email
+        });
+    });
+}
+all_questions();
+
 
 setTimeout(function(){
     $(".Display_error").fadeOut("slow");

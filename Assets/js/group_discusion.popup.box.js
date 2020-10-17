@@ -131,6 +131,57 @@ $(document).mouseup(function(e){
         all_trades.hide();
     }
 });
+
+function group_media(){
+    var hiddenIdentity = document.getElementById("hiddenIdentity").value;
+    $(document).ready(function(){
+        $("#posted-images").load("group_discussion_content.box.php", {
+            group_media: hiddenIdentity
+        });
+    });
+}
+group_media();
+
+function group_bio(){
+    var hiddenIdentity = document.getElementById("hiddenIdentity").value;
+    $(document).ready(function(){
+        $("#group_bio").load("group_discussion_content.box.php", {
+            group_bio: hiddenIdentity
+        });
+    });
+}
+group_bio();
+
+function short_group_desc(){
+    var hiddenIdentity = document.getElementById("hiddenIdentity").value;
+    $(document).ready(function(){
+        $("#short_desc").load("group_discussion_content.box.php", {
+            short_desc: hiddenIdentity
+        });
+    });
+}
+short_group_desc();
+
+function group_bio_device(){
+    var hiddenIdentity = document.getElementById("hiddenIdentity").value;
+    $(document).ready(function(){
+        $("#group_bio_device").load("group_discussion_content.box.php", {
+            group_bio: hiddenIdentity
+        });
+    });
+}
+group_bio_device();
+
+function short_group_desc_device(){
+    var hiddenIdentity = document.getElementById("hiddenIdentity").value;
+    $(document).ready(function(){
+        $("#short_desc_device").load("group_discussion_content.box.php", {
+            short_desc: hiddenIdentity
+        });
+    });
+}
+short_group_desc_device();
+
 // =========================================================================================================================================
 // =========================================================================================================================================
 

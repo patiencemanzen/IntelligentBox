@@ -108,11 +108,15 @@ function resultSection(){
     document.getElementById("search-result").style.display = "block";
     $(document).ready(function(){
         var user_name = document.getElementById("search").value;
+        var user_mail = document.getElementById("user_mail").value;
         if(user_name == ""){
 
         }else{
             $("#search_result_show").load("../header/header_content.php", {
-                searchUser: user_name
+                searchUser: user_name,
+                mail: user_mail
+            }, function(){
+                document.getElementById("load_search").style.display = "none";
             });
         }
 
@@ -129,11 +133,13 @@ function resultSection_small(){
     document.getElementById("search-result_small").style.display = "block";
     $(document).ready(function(){
         var user_name = document.getElementById("searc_small").value;
+        var user_mail = document.getElementById("user_mail").value;
         if(user_name == ""){
            
         }else{
             $("#small_search_result").load("../header/header_content.php", {
-                searchUser: user_name
+                searchUser: user_name,
+                mail: user_mail
             });
         }
     });

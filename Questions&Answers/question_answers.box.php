@@ -9,29 +9,31 @@
     // ===========================================================================================================
     class Deliberation extends Scyllar {
 
-        private function count_date($selected_date){
-            $PostedDate = $selected_date;
-            $currDate = Date("Y-m-d h:i:s");
-
-            $date1 = strtotime($PostedDate);  
-            $date2 = strtotime($currDate);  
-            
-            $diff = abs($date2 - $date1); 
-            $years = floor($diff / (365*60*60*24));  
-            $months = floor(($diff - $years * 365*60*60*24) / (30*60*60*24));
-            $days = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24)/ (60*60*24)); 
-            $hours = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24 - $days*60*60*24) / (60*60)); 
-            $minutes = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24 - $days*60*60*24 - $hours*60*60)/ 60);
-            $seconds = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24 - $days*60*60*24 - $hours*60*60 - $minutes*60)); 
-
-            if($days > 30){
-               return $PostedDate;
-            }if($hours < 24){
-                return $hours." Hour(s) ago";
-            }
-            if($days < 30){
-                return $days." Day(s) ago";
-            }
+        function timeAgo($time_ago){
+            $time_ago = strtotime($time_ago);
+            $cur_time   = time();
+            $time_elapsed   = $cur_time - $time_ago;
+            $seconds    = $time_elapsed ;
+            $minutes    = round($time_elapsed / 60 );
+            $hours      = round($time_elapsed / 3600);
+            $days       = round($time_elapsed / 86400 );
+            $weeks      = round($time_elapsed / 604800);
+            $months     = round($time_elapsed / 2600640 );
+            $years      = round($time_elapsed / 31207680 );
+            // Seconds
+            if($seconds <= 60){return "just now";}
+            //Minutes
+            else if($minutes <=60){if($minutes==1){return "one minute ago";}else{return "$minutes minutes ago";}}
+            //Hours
+            else if($hours <=24){if($hours==1){return "an hour ago";}else{return "$hours hrs ago";}}
+            //Days
+            else if($days <= 7){if($days==1){return "yesterday";}else{return "$days days ago";}}
+            //Weeks
+            else if($weeks <= 4.3){if($weeks==1){return "a week ago";}else{return "$weeks weeks ago";}}
+            //Months
+            else if($months <=12){if($months==1){return "a month ago";}else{return "$months months ago";}}
+            //Years
+            else{if($years==1){return "one year ago";}else{return "$years years ago";}}
         }
 
         public function count_recieved_questions ($user_email){
@@ -59,9 +61,9 @@
             <?php }
         }
 
-        public function spread_question($questionier, $questions, $question_depend, $support_image){
+        public function spread_question($questionier, $questions, $question_depend, $support_image, $question_desc){
             $question_created_on = Date("Y-m-d h:m:s");
-            $insert_question = "INSERT INTO user_question VALUE ('','$questionier','someone','$question_depend','$support_image','$questions','new','$question_created_on')";
+            $insert_question = "INSERT INTO user_question VALUE ('','$questionier','someone','$question_depend','$support_image','$questions','$question_desc','new','$question_created_on')";
             $execute_creation = mysqli_query($this->Frequency(), $insert_question);
             if($execute_creation){
                 return true;
@@ -79,8 +81,10 @@
                    $media_support = $fetch_my_question['media_support'];
                    $user_email_owner = $fetch_my_question['user_email_owner'];
                    $question = $fetch_my_question['question'];
+                   $question_desc = $fetch_my_question['question_desc'];
                    $created_on = $fetch_my_question['created_on'];
                    $question_identity = $fetch_my_question['identity'];
+                   $question_depend = $fetch_my_question['question_depend'];
 
                     $select_user_image = "SELECT profile_image FROM user_profile_image WHERE usr_email='$user_email_owner' AND status_image='1'";
                     $execute_image = mysqli_query($this->Frequency(), $select_user_image);
@@ -108,18 +112,27 @@
                    } ?>
                    
                     <div class="each_answer">
-                        <div><div class="questioner_profile_image"><img src="<?php echo '../Images/profile-img/profile-image/'.$fetch_image['profile_image']; ?>" alt="" width="100%" height="100%"></div></div>
+                        <div class="user-top-detail">
+                            <div class="questioner_profile_image"><img src="<?php echo '../Images/profile-img/profile-image/'.$fetch_image['profile_image']; ?>" alt="" width="100%" height="100%"></div>
+                            <div class="user-detail">
+                                <div class="user-name"><?php echo $firstName; ?> <?php echo $lastName; ?></div>
+                                <div class="time_asked">Asked <?php echo $this->timeAgo($created_on); ?></div>
+                            </div>
+                            <div class="view_question" data-toggle="tooltip" data-placement="bottom" title="View this question"><a href="each-question.php?que_identity=<?php echo $question_identity; ?>"><i class="fa fa-eye"></i></a></div>
+                        </div>
                         <div class="question_area">
-                            <div class="questioner_full_name"><?php echo $firstName; ?> <?php echo $lastName; ?></div>
-                            <div class="full_question"><?php echo $question; ?></div>
+                            <div class="question-title"><?php echo $question; ?></div>
+                            <div class="full_question"><?php echo $question_desc; ?></div>
                             <?php if($media_support == ""){?>
                             <?php }else{?>
                                 <div class="question_img"><img src="<?php echo '../Images/Question&Answer/'.$media_support; ?>" alt="" width="100%" height="100%"></div>
                             <?php } ?>
                             <div class="short_detail_time">
-                                <div class="time_asked">asked <?php echo $this->count_date($created_on); ?></div>
+                                <div class="time_asked">asked <?php echo $this->timeAgo($created_on); ?></div>
                                 <!-- <div class="Viewed_time"> Viewed <?php echo $views; ?> time </div> -->
                                 <div class="Viewed_time" id="<?php echo $question_identity; ?>" onclick="like_dislike(this)"><i class="fa fa-thumbs-o-up"></i> <span><?php echo $question_like; ?></span></div>
+                                <div class="Viewed_time"> Viewed <?php echo $views; ?> time </div>
+                                <div class="Viewed_time ml-2" id="<?php echo $question_identity; ?>" onclick="like_dislike(this)"><i class="fa fa-thumbs-o-up"></i> <span><?php echo $question_like; ?></span></div>
                             </div>
                             <div class="ansewers_recieved_full">
                                 <div class="summary_answer_count"><div class="count_answers">Answers (<span><?php echo $this->count_answer($question_identity)?></span>)</div></div>
@@ -130,9 +143,11 @@
                         </div>
                     </div>
                <?php }
-            }else{
-
-            }
+            }else{ ?>
+                <div class="each_answer">
+                    <div class="getAnswer"><?php echo "Ask your question now!" ?></div>
+                </div>
+           <?php }
         }
 
         public function count_likes($question_identity){
@@ -189,6 +204,7 @@
                 while($fetch_answer = mysqli_fetch_assoc($execute_answer)){
                     $user_identity = $fetch_answer['user_identity'];
                     $user_answer = $fetch_answer['answer'];
+                    $date = $fetch_answer['created_on'];
 
                     $selectProfileDetail = "SELECT * FROM intelligent_users WHERE identity='$user_identity'";
                     $executeDetail = mysqli_query($this->Frequency(), $selectProfileDetail);
@@ -200,14 +216,14 @@
                     $select_user_image = "SELECT profile_image FROM user_profile_image WHERE usr_email='$user_email' AND status_image='1'";
                     $execute_image = mysqli_query($this->Frequency(), $select_user_image);
                         $fetch_image = mysqli_fetch_assoc($execute_image);  ?>  
-                        <div class="each_answer">
+                        <div class="each_result">
                             <div><div class="answerer_profile_image">
                                 <img src="<?php echo '../Images/profile-img/profile-image/'.$fetch_image['profile_image']; ?>" alt="" width="100%" height="100%">
                                 <div class="answer_number"><?php echo $counter; ?></div>
                             </div></div>
                             <div class="full-answers">
-                                <div class="getAnswer"><?php echo $firstName; ?> <?php echo $lastName; ?> said "</div>
-                                <div class="getAnswer"><?php echo $user_answer; ?> "</div>
+                                <div class="getAnswer"><?php echo $firstName; ?> <?php echo $lastName; ?> <span class="time-el"><i class="fa fa-globe"></i> <?php echo $this->timeAgo($date); ?></span></div>
+                                <div class="getAnswer">Said " <?php echo $user_answer; ?> "</div>
                             </div>
                         </div>
           <?php $counter ++; }
@@ -234,6 +250,7 @@
                     $media_support = $fetch_count['media_support'];
                     $user_email_owner = $fetch_count['user_email_owner'];
                     $question = $fetch_count['question'];
+                    $question_desc = $fetch_count['question_desc'];
                     $created_on = $fetch_count['created_on'];
                     $question_identity = $fetch_count['identity'];
                     $question_depend = $fetch_count['question_depend'];
@@ -270,21 +287,30 @@
                     }else{  ?>
 
                         <div class="each_answer">
-                            <div><div class="questioner_profile_image"><img src="<?php echo '../Images/profile-img/profile-image/'.$fetch_image['profile_image']; ?>" alt="" width="100%" height="100%"></div></div>
+                            <div class="user-top-detail">
+                                <div class="questioner_profile_image"><img src="<?php echo '../Images/profile-img/profile-image/'.$fetch_image['profile_image']; ?>" alt="" width="100%" height="100%"></div>
+                                <div class="user-detail">
+                                    <?php if($question_depend == 'personal'){?>
+                                        <div class="user-name"><?php echo $firstName; ?> <?php echo $lastName; ?> <span class="dedicate"><i class="fa fa-user"></i> sent to you</span></div>
+                                    <?php }else if($question_depend == "all_users"){?>
+                                        <div class="user-name"><?php echo $firstName; ?> <?php echo $lastName; ?> <span class="dedicate"><i class="fa fa-group"></i> includes you</span></div>
+                                    <?php }else{?>
+                                        <div class="user-name"><?php echo $firstName; ?> <?php echo $lastName; ?></div>
+                                    <?php } ?>
+                                    <div class="time_asked">Asked <?php echo $this->timeAgo($created_on); ?></div>
+                                </div>
+                                <div class="view_question" data-toggle="tooltip" data-placement="bottom" title="View this question"><a href="each-question.php?que_identity=<?php echo $question_identity; ?>"><i class="fa fa-eye"></i></a></div>
+                            </div>
                             <div class="question_area">
-                                <?php if($question_depend == 'personal'){?>
-                                    <div class="questioner_full_name"><?php echo $firstName; ?> <?php echo $lastName; ?><i class="fa fa-user"></i> sent to you </div>
-                                <?php }else if($question_depend == "all_users"){?>
-                                    <div class="questioner_full_name"><?php echo $firstName; ?> <?php echo $lastName; ?> <i class="fa fa-group"></i> includes you </div>
-                                <?php }else{?>
-                                    <div class="questioner_full_name"><?php echo $firstName; ?> <?php echo $lastName; ?></div>
-                                <?php } ?>
-                                <div class="full_question"><?php echo $question; ?></div>
+                                <div class="question-title"><?php echo $question; ?></div>
+                                <div class="full_question"><?php echo $question_desc; ?></div>
                                 <div class="question_img"><img src="<?php echo '../Images/Question&Answer/'.$media_support; ?>" alt="" width="100%" height="100%"></div>
                                 <div class="short_detail_time">
-                                    <div class="time_asked">asked <?php echo $this->count_date($created_on); ?></div>
+                                    <div class="time_asked">asked <?php echo $this->timeAgo($created_on); ?></div>
                                     <!-- <div class="Viewed_time"> Viewed <?php echo $views; ?> time  </div> -->
                                     <div class="Viewed_time" id="<?php echo $question_identity; ?>" onclick="like_dislike(this)"><i class="fa fa-thumbs-o-up"></i> <span id="count_likes_recieved_<?php echo $question_identity; ?>">
+                                    <div class="Viewed_time"> Viewed <?php echo $views; ?> time  </div>
+                                    <div class="Viewed_time ml-2" id="<?php echo $question_identity; ?>" onclick="like_dislike(this)"><i class="fa fa-thumbs-o-up"></i> <span id="count_likes_recieved_<?php echo $question_identity; ?>">
                                         <script>
                                             setInterval(()=> {
                                                 var question_identity = "<?php echo $question_identity; ?>";
@@ -311,15 +337,18 @@
                                         <div class="textarea-reply"><textarea name="" id="" cols="30" rows="2" placeholder="Your thoughts..."></textarea></div>
                                         <div><button class="submit_answer" id="<?php echo $question_identity; ?>" onclick="submit_reply(this)">Reply</button></div>
                                     </div>
-                                    <div id="load-answer_question_<?php echo $question_identity; ?>" class="show_answers">
-                                        <script>
-                                            setInterval(()=>{
-                                                var question_identity = "<?php echo $question_identity; ?>";
-                                                $("#load-answer_question_<?php echo $question_identity; ?>").load("question_answers.box.php", {
-                                                    getQue_identity: question_identity
-                                                });
-                                            }, 1000);
-                                        </script>
+                                    <div class="show_answers">
+                                        <div class="left-side"></div>
+                                        <div class="all-answer" id="load-answer_question_<?php echo $question_identity; ?>">
+                                            <script>
+                                                setInterval(()=>{
+                                                    var question_identity = "<?php echo $question_identity; ?>";
+                                                    $("#load-answer_question_<?php echo $question_identity; ?>").load("question_answers.box.php", {
+                                                        getQue_identity: question_identity
+                                                    });
+                                                }, 1000);
+                                            </script>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -338,11 +367,181 @@
             $executeDetail = mysqli_query($this->Frequency(), $selectProfileDetail);
             $fetchDetail = mysqli_fetch_assoc($executeDetail); 
                 $lastName = $fetchDetail['lastName'];
+                $firstname = $fetchDetail['firstName'];
                 $user_identity = $fetchDetail['identity']; 
                 $created_on = Date("Y-m-d h:m:s");
+                $email = $fetchDetail['email'];
+
+            $seelect_question = "SELECT * FROM user_question WHERE identity='$que_id'";
+            $execute_question = mysqli_query($this->Frequency(), $seelect_question);
+            $fetch_question = mysqli_fetch_assoc($execute_question);
+                $user_email_owner  = $fetch_question['user_email_owner'];
 
             $Insert_answer = "INSERT INTO user_answer VALUE ('','$user_identity','$que_id','$answer','$created_on')";
             $execute_answer_insertion = mysqli_query($this->Frequency(), $Insert_answer);
+
+            $notification = "{$firstname} {$lastName} added answers to you question";
+            $created_on = Date("Y-m-d h:m:s");
+            $insert_notification = "INSERT INTO notifications VALUES ('','$email','$user_email_owner','../Questions&Answers/each-question.php?que_identity={$que_id}','$notification','question','0','new','on','$created_on')";
+            $execute_notification = mysqli_query($this->Frequency(), $insert_notification);
+        }
+
+        public function Rel_question($user_mail){
+            $select_department = "SELECT * FROM more_account_info WHERE email='$user_mail'";
+            $execute_department = mysqli_query($this->Frequency(), $select_department);
+            $fetch_department = mysqli_fetch_assoc($execute_department);
+                $department = $fetch_department['Department'];
+ 
+            $questions = "SELECT * FROM user_question WHERE user_email_to='$user_mail' OR question_depend='$department' OR question_depend='all_users' AND user_email_owner != '$user_mail' ORDER BY created_on DESC";
+            $execute_questions = mysqli_query($this->Frequency(), $questions);
+            if(mysqli_num_rows($execute_questions) > 0 ){
+                while($fetch_count = mysqli_fetch_assoc($execute_questions)){
+                    $user_email_owner = $fetch_count['user_email_owner'];
+                    $question = $fetch_count['question'];
+                    $question_desc = $fetch_count['question_desc'];
+                    // $created_on = $fetch_count['created_on'];
+                    // $question_identity = $fetch_count['identity'];
+                    // $question_depend = $fetch_count['question_depend'];
+ 
+                    $select_user_image = "SELECT profile_image FROM user_profile_image WHERE usr_email='$user_email_owner' AND status_image='1'";
+                    $execute_image = mysqli_query($this->Frequency(), $select_user_image);
+                        $fetch_image = mysqli_fetch_assoc($execute_image);  
+ 
+                    if($user_email_owner == $user_mail){
+                    }else{  ?>
+                        <div class="each-rel-que">
+                            <div class="right-count">
+                                <div class="que-image"><img src="<?php echo '../Images/profile-img/profile-image/'.$fetch_image['profile_image']; ?>" alt="profile image " width="100%" height="100%"></div>
+                            </div>
+                            <div class="question-rel">
+                                <div class="que-title"><?php echo $question; ?></div>
+                                <div class="que-desc"><?php echo $question_desc; ?></div>
+                            </div>
+                        </div>
+                <?php }
+                }
+            }else{ ?>
+                <div class="each_answer">
+                    <div class="getAnswer"><?php echo "Related questions" ?></div>
+                </div>
+        <?php }
+        }
+
+        public function all_question($user_mail){
+            $select_department = "SELECT * FROM more_account_info WHERE email='$user_mail'";
+            $execute_department = mysqli_query($this->Frequency(), $select_department);
+            $fetch_department = mysqli_fetch_assoc($execute_department);
+                $department = $fetch_department['Department'];
+ 
+            $questions = "SELECT * FROM user_question WHERE user_email_to='$user_mail' OR question_depend='$department' OR question_depend='all_users' OR question_depend='personal' AND user_email_owner != '$user_mail' ORDER BY created_on DESC";
+            $execute_questions = mysqli_query($this->Frequency(), $questions);
+            if(mysqli_num_rows($execute_questions) > 0 ){
+                while($fetch_count = mysqli_fetch_assoc($execute_questions)){
+                    $media_support = $fetch_count['media_support'];
+                    $user_email_owner = $fetch_count['user_email_owner'];
+                    $question = $fetch_count['question'];
+                    $question_desc = $fetch_count['question_desc'];
+                    $question_identity = $fetch_count['identity'];
+ 
+                    $select_user_image = "SELECT profile_image FROM user_profile_image WHERE usr_email='$user_email_owner' AND status_image='1'";
+                    $execute_image = mysqli_query($this->Frequency(), $select_user_image);
+                        $fetch_image = mysqli_fetch_assoc($execute_image);
+
+                    $select_user_image = "SELECT profile_image FROM user_profile_image WHERE usr_email='$user_mail' AND status_image='1'";
+                    $execute_image = mysqli_query($this->Frequency(), $select_user_image);
+                        $fetch_my_profile = mysqli_fetch_assoc($execute_image); 
+ 
+                    $select_my_image = "SELECT profile_image FROM user_profile_image WHERE usr_email='$user_mail' AND status_image='1'";
+                    $execute_my_image = mysqli_query($this->Frequency(), $select_my_image);
+                    $fetch_my_image = mysqli_fetch_assoc($execute_my_image);
+                        $my_image = $fetch_my_image['profile_image'];
+
+                    if($user_email_owner == $user_mail){
+                    }else{  ?>
+                        <div class="question-tab">
+                            <div class="full-question">
+                                <div class="question-found">
+                                    <div class="question-text">
+                                        <div class="question-title"><?php echo $question; ?></div>
+                                        <div class="question-full-text"><?php echo $question_desc; ?></div>
+                                    </div>
+                                    <div class="question-image">
+                                        <div class="question-photo"><img src="<?php echo '../Images/Question&Answer/'.$media_support; ?>" alt="question-image" width="100%" height="100%"></div>
+                                    </div>
+                                </div>
+                                <div class="answer-founded position-relative">
+                                    <div class="answer_revieved_all position-relative">
+                                        <div class="answer-title">Answer recieved on!</div>
+                                        <div class="answer-list" id="answers_to_<?php echo $question_identity; ?>" style="min-height: 270px;max-height: 270px;">
+                                            <script>
+                                                setInterval(() => {
+                                                    var question_identity = "<?php echo $question_identity; ?>";
+                                                    $(document).ready(function(){
+                                                        $("#answers_to_<?php echo $question_identity; ?>").load("question_answers.box.php",{
+                                                            que_identity_answres: question_identity
+                                                        });
+                                                    });
+                                                }, 1000);
+                                            </script>
+                                        </div>
+                                        <div class="add-answer">
+                                            <div class="div">
+                                                <div class="my-photo"><img src="<?php echo '../Images/profile-img/profile-image/'.$fetch_image['profile_image']; ?>" width="100%" height="100%"></div>
+                                                <div class="my-photo"><img src="<?php echo '../Images/profile-img/profile-image/'.$my_image; ?>" width="100%" height="100%"></div>
+                                            </div>
+                                            <div class="add-text"><textarea name="" id="" cols="30" rows="2" placeholder="Add your answers..."></textarea></div>
+                                            <div class="post-answer"><button id="<?php echo $question_identity; ?>" onclick="submit_reply(this)">Post</button></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                <?php }
+                }
+            }else{ ?>
+                <div class="each_answer">
+                    <div class="getAnswer"><?php echo "No questions recieved yet" ?></div>
+                </div>
+        <?php }
+        }
+
+        public function all_answers($question_identity){
+            $select_answer = "SELECT * FROM user_answer WHERE question_identity='$question_identity' ORDER BY identity DESC";
+            $execute_answer = mysqli_query($this->Frequency(), $select_answer);
+            if(mysqli_num_rows($execute_answer)){
+                $counter = 1;
+                while($fetch_answer = mysqli_fetch_assoc($execute_answer)){
+                    $user_identity = $fetch_answer['user_identity'];
+                    $user_answer = $fetch_answer['answer'];
+                    $date = $fetch_answer['created_on'];
+                                
+                    $selectProfileDetail = "SELECT * FROM intelligent_users WHERE identity='$user_identity'";
+                    $executeDetail = mysqli_query($this->Frequency(), $selectProfileDetail);
+                    $fetchDetail = mysqli_fetch_assoc($executeDetail); 
+                        $user_email = $fetchDetail['email'];
+                        $firstName = $fetchDetail['firstName'];
+                        $lastName = $fetchDetail['lastName'];
+                                
+                        $select_user_image = "SELECT profile_image FROM user_profile_image WHERE usr_email='$user_email' AND status_image='1'";
+                        $execute_image = mysqli_query($this->Frequency(), $select_user_image);
+                            $fetch_image = mysqli_fetch_assoc($execute_image);  ?>  
+
+                            <div class="each-answer">
+                                <div>
+                                    <div class="profile-image"><img src="<?php echo '../Images/profile-img/profile-image/'.$fetch_image['profile_image']; ?>" alt="" width="100%" height="100%"></div>
+                                    <div class="counter"><?php echo $counter; ?></div>
+                                </div>
+                                <div class="answer-detail">
+                                    <div class="answer-name"><?php echo $firstName; ?> <?php echo $lastName; ?> <span class="time-posted"><i class="fa fa-globe"></i> <?php echo $this->timeAgo($date); ?></span></div>
+                                    <div class="answer-found"><?php echo $user_answer; ?></div>
+                                </div>
+                            </div>
+                <?php $counter ++; }
+                }else{ ?>
+                    <div class="each_answer">
+                        <div class="getAnswer"><?php echo "No answers found on this question" ?></div>
+                    </div>
+            <?php }
         }
     }
 
@@ -366,45 +565,51 @@
     // =====================================================================================================================================
     if(isset($_POST['submit_question'])){
         $question = $_POST['question_text'];
+        $question_desc = $_POST['question_desc'];
         $question_depend = $_POST['question_depend'];
         $questionier = $_POST['user_email'];
 
-        $photo_support = 'IB_question_image'.time().'Box'.'--'.$_FILES['photo_support']['name'];
-        $file_size = $_FILES['photo_support']['size'];
-        $location = "../Images/Question&Answer/".$photo_support;
-        $imageFileType = pathinfo($location,PATHINFO_EXTENSION);
-        $valid_extensions = array("jpg","jpeg","png");
-
-        // check extension
-        if($_FILES['photo_support']['name'] == ""){
-            $empty = $_FILES['photo_support']['name'];
-            if($new_deliberation->spread_question($questionier, $question, $question_depend, $empty)){
-                header("location: index.php?success");
-                exit();
-             }else{
-                header("location: index.php?fail");
-                exit();
-             }
+        if(empty($question_desc) || empty($question)){
+            header("location: index.php?empty");
+            exit();
         }else{
-            if(!in_array(strtolower($imageFileType), $valid_extensions)) {
-                echo "extension not supported";
+            $photo_support = 'IB_question_image'.time().'Box'.'--'.$_FILES['photo_support']['name'];
+            $file_size = $_FILES['photo_support']['size'];
+            $location = "../Images/Question&Answer/".$photo_support;
+            $imageFileType = pathinfo($location,PATHINFO_EXTENSION);
+            $valid_extensions = array("jpg","jpeg","png");
+    
+            // check extension
+            if($_FILES['photo_support']['name'] == ""){
+                $empty = $_FILES['photo_support']['name'];
+                if($new_deliberation->spread_question($questionier, $question, $question_depend, $empty, $question_desc)){
+                    header("location: index.php?success");
+                    exit();
+                 }else{
+                    header("location: index.php?fail");
+                    exit();
+                 }
             }else{
-                if($file_size < 30971520){
-                    if(move_uploaded_file($_FILES['photo_support']['tmp_name'], $location)){
-                       if($new_deliberation->spread_question($questionier, $question, $question_depend, $photo_support)){
-                          header("location: index.php?success");
-                          exit();
-                       }else{
-                            header("location: index.php?fail");
+                if(!in_array(strtolower($imageFileType), $valid_extensions)) {
+                    echo "extension not supported";
+                }else{
+                    if($file_size < 30971520){
+                        if(move_uploaded_file($_FILES['photo_support']['tmp_name'], $location)){
+                           if($new_deliberation->spread_question($questionier, $question, $question_depend, $photo_support, $question_desc)){
+                              header("location: index.php?success");
+                              exit();
+                           }else{
+                                header("location: index.php?fail");
+                                exit();
+                           }
+                        }else{
+                            header("location: index.php?move_fail");
                             exit();
-                       }
+                        }
                     }else{
-                        header("location: index.php?move_fail");
+                        header("location: index.php?size");
                         exit();
                     }
-                }else{
-                    header("location: index.php?size");
-                    exit();
                 }
             }
         }
@@ -449,5 +654,23 @@
     // ==================================
     if(isset($_POST['que_identity'])){
         $new_deliberation->count_answer($_POST['que_identity']);
+    }
+
+    // if rquest is to fetch related question
+    // ===========================================================================================================================
+    if(isset($_POST['rel_question'])){
+        $new_deliberation->Rel_question($_POST['rel_question']);
+    }
+
+    // if request is to display all question
+    // =============================================================================================================
+    if(isset($_POST['gt_question_list'])){
+        $new_deliberation->all_question($_POST['gt_question_list']);
+    }
+
+    // if request is to display of all answers
+    // =========================================================================================================
+    if(isset($_POST['que_identity_answres'])){
+        $new_deliberation->all_answers($_POST['que_identity_answres']);
     }
 ?>

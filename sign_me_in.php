@@ -120,6 +120,7 @@
                 //  then navigate user to profile page 
                 header("Location: Profile/profile.php"); 
                 exit();
+                header("Location: Built-in-courses/");
             }
         }
     }

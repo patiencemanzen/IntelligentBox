@@ -31,7 +31,6 @@
     }
     // ============================================================================================================
 
-
     // CONFIGURE CLASS MYTHOLOGY
     // ============================================================================================================
     class Mythology extends Scyllar implements Neulon {
@@ -190,7 +189,16 @@
                 $lastname = $code['lastName'];
                 $digital = $code['verification_Code']; 
 
-            $body =  "Hello <b>{$name} {$lastname}</b>, Here is your intelligentbox activate code as IBox-- <b>{$digital} </b>, Please do not share this code for your account security!"; 
+            $body = "<div style='background: white;border-radius: 14px;box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);width: 300px'>
+                        <div style='background: #041a2f; color: white;padding: 10px;'>Intelligentbox</div>
+                        <div style='padding: 10px;background: white;'>
+                            <div style='color: #041a2f;font-size: 17px;'>Intelligentbox verification code</div>
+                            <div style='margin-top: 6px;font-siz: 16px;'>Hello <b>{$name} {$lastname}</b>, Here is your intelligentbox activate code amargin-top: 5px;s </div>
+                            <div style='margin-top: 7px;background:  #041a2f; color: white; letter-spacing: 0.6px;border-radius: 4px;padding: 5px;'>IBox-- <b>{$digital} </b></div>
+                            <div style='margin-top: 5px;font-size: 15px;>Please do not share this code for your account security!</div>
+                        </div>
+                      </div>
+                    "; 
 
             $mail = new PHPMailer();
 

@@ -410,28 +410,31 @@
             }
         }
 
-        private function count_date($selected_date){
-            $PostedDate = $selected_date;
-            $currDate = Date("Y-m-d h:i:s");
-
-            $date1 = strtotime($PostedDate);  
-            $date2 = strtotime($currDate);  
-            
-            $diff = abs($date2 - $date1); 
-            $years = floor($diff / (365*60*60*24));  
-            $months = floor(($diff - $years * 365*60*60*24) / (30*60*60*24));
-            $days = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24)/ (60*60*24)); 
-            $hours = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24 - $days*60*60*24) / (60*60)); 
-            $minutes = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24 - $days*60*60*24 - $hours*60*60)/ 60);
-            $seconds = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24 - $days*60*60*24 - $hours*60*60 - $minutes*60)); 
-
-            if($days > 30){
-               return $PostedDate;
-            }if($days < 30){
-                return $days." Day(s) ago";
-            }if($days < 0){
-                return $hours." Hour(s) ago";
-            }
+        public function timeAgo($time_ago){
+            $time_ago = strtotime($time_ago);
+            $cur_time   = time();
+            $time_elapsed   = $cur_time - $time_ago;
+            $seconds    = $time_elapsed ;
+            $minutes    = round($time_elapsed / 60 );
+            $hours      = round($time_elapsed / 3600);
+            $days       = round($time_elapsed / 86400 );
+            $weeks      = round($time_elapsed / 604800);
+            $months     = round($time_elapsed / 2600640 );
+            $years      = round($time_elapsed / 31207680 );
+            // Seconds
+            if($seconds <= 60){return "just now";}
+            //Minutes
+            else if($minutes <=60){if($minutes==1){return "one minute ago";}else{return "$minutes minutes ago";}}
+            //Hours
+            else if($hours <=24){if($hours==1){return "an hour ago";}else{return "$hours hrs ago";}}
+            //Days
+            else if($days <= 7){if($days==1){return "yesterday";}else{return "$days days ago";}}
+            //Weeks
+            else if($weeks <= 4.3){if($weeks==1){return "a week ago";}else{return "$weeks weeks ago";}}
+            //Months
+            else if($months <=12){if($months==1){return "a month ago";}else{return "$months months ago";}}
+            //Years
+            else{if($years==1){return "one year ago";}else{return "$years years ago";}}
         }
 
         public function recieve_challenge_request($group_identity){
@@ -472,7 +475,7 @@
                                 <div class="group-type"><?php if($group_privacy == "Private"){?> <i class="fa fa-lock mr-1"></i> Private group <?php }else{ ?> <i class="fa fa-unlock mr-1"></i> Public group <?php } ?></div>
                                 <div class="member-group-count"><?php echo $member; ?> Mmebers</div>
                             </div>
-                            <div><div class="time-sended-not"><?php echo $fetch_notification['notification'];?> <?php echo $this->count_date($get_current_titme); ?></div></div>
+                            <div><div class="time-sended-not"><?php echo $fetch_notification['notification'];?> <?php echo $this->timeAgo($get_current_titme); ?></div></div>
                         </div>
                     </div>
                 <?php }else if($get_notification_type == "accepted"){ ?>
@@ -484,7 +487,7 @@
                                 <div class="group-type"><?php if($group_privacy == "Private"){?> <i class="fa fa-lock mr-1"></i> Private group <?php }else{ ?> <i class="fa fa-unlock mr-1"></i> Public group <?php } ?></div>
                                 <div class="member-group-count"><?php echo $member; ?> Mmebers</div>
                             </div>
-                            <div><div class="time-sended-not"><?php echo $fetch_notification['notification'];?> <?php echo $this->count_date($get_current_titme); ?></div></div>
+                            <div><div class="time-sended-not"><?php echo $fetch_notification['notification'];?> <?php echo $this->timeAgo($get_current_titme); ?></div></div>
                         </div>
                     </div>
                 <?php  }else{ ?>
@@ -496,7 +499,7 @@
                                 <div class="group-type"><?php if($group_privacy == "Private"){?> <i class="fa fa-lock mr-1"></i> Private group <?php }else{ ?> <i class="fa fa-unlock mr-1"></i> Public group <?php } ?></div>
                                 <div class="member-group-count"><?php echo $member; ?> Mmebers</div>
                             </div>
-                            <div><div class="time-sended-not"><?php echo $fetch_notification['notification'];?> <?php echo $this->count_date($get_current_titme); ?></div></div>
+                            <div><div class="time-sended-not"><?php echo $fetch_notification['notification'];?> <?php echo $this->timeAgo($get_current_titme); ?></div></div>
                         </div>
                         <div class="accurate-challenge">
                             <div><button class="reject" id="<?php echo  $get_group_url; ?>" onclick="reject_challenge(this)">Reject</button></div>
@@ -663,6 +666,86 @@
                 </div>
            <?php }
         }
+
+        public function rel_groups($user_email, $group_ide){
+            $select_identity = "SELECT * FROM intelligent_users WHERE email='$user_email'";
+            $execute_identity = mysqli_query($this->Frequency(), $select_identity);
+            $fetch_identity = mysqli_fetch_assoc($execute_identity);
+                $get_Identity = $fetch_identity['identity'];
+
+            $select_groups = "SELECT * FROM user_groups WHERE identity != '$group_ide' AND user_identity != '$get_Identity' AND user_identity NOT IN (SELECT DISTINCT user_identity FROM user_group_member WHERE user_identity = '$get_Identity')";
+            $execute_groups = mysqli_query($this->Frequency(), $select_groups);
+            while($fetch_groups = mysqli_fetch_assoc($execute_groups)){
+                $group_name = $fetch_groups['group_name']; 
+                $group_image = $fetch_groups['group_profile_image']; 
+                $url_code = $fetch_groups['url_encode'];?>
+                <a href="each-group.php?group=<?php echo $url_code; ?>&function=view"><div class="each-group">
+                    <div><div class="group-img"><img src="<?php echo '../Images/groups/'.$group_image; ?>" alt="group_image" width="100%" height="100%"></div></div>
+                    <div class="group-rel-detail">
+                        <div class="group-name"><?php echo $group_name; ?></div>
+                        <div class="group-member"><?php $this->count_Mmeber_discussion($group_ide); ?> members</div>
+                    </div>
+                </div></a>
+            <?php }
+        }
+
+        public function group_media($group_identity){
+            $select_media = "SELECT * FROM user_group_post WHERE group_identity='$group_identity'";
+            $execute_media = mysqli_query($this->Frequency(), $select_media);
+            while($fetch_media = mysqli_fetch_assoc($execute_media)){
+                $group_name = $fetch_media['group_name'];
+                $media = $fetch_media['media_posted']; ?>
+                <div class="each-media"><img src="<?php echo '../Images/group_discusion/'.$media; ?>" alt="<?php echo $group_name; ?>' current image'" width="100%" height="100%"></div>
+            <?php }
+        }
+
+        function group_bio($identity){
+            $select_bio = "SELECT * FROM user_groups WHERE identity ='$identity'";
+            $execute_bio = mysqli_query($this->Frequency(), $select_bio);
+            $fetch_bio = mysqli_fetch_assoc($execute_bio);
+               $bio = $fetch_bio['group_bio'];
+               echo $bio;
+        }
+
+        function count_media($group_identity){
+            $count_media = 0;
+            $select_media = "SELECT * FROM user_group_post WHERE group_identity='$group_identity'";
+            $execute_media = mysqli_query($this->Frequency(), $select_media);
+            while($fetch_media = mysqli_fetch_assoc($execute_media)){
+                $count_media = $count_media + 1;
+            }
+            return $count_media;
+        }
+
+        function count_challenges($group_url_code){
+            $count_challenge = 0;
+            $select_challenges = "SELECT * FROM user_challenge WHERE host_user_identity='$group_url_code' OR defender_user_identity='$group_url_code'";
+            $execute_challenges = mysqli_query($this->Frequency(), $select_challenges);
+            while($fetch_challenge = mysqli_fetch_assoc($execute_challenges)){
+                $count_challenge = $count_challenge + 1;
+            }
+            return $count_challenge;
+        }
+
+        function group_short_desc($group_identity){ 
+            $select_url = "SELECT * FROM user_groups WHERE identity = '$group_identity'";
+            $execute_url = mysqli_query($this->Frequency(), $select_url);
+            $fetch_url = mysqli_fetch_assoc($execute_url);
+                $url_encode = $fetch_url['url_encode'];
+            ?>
+            <div class="table-detail">
+                <div class="member-count">Members</div>
+                <div class="count"><?php echo $this->count_Mmeber_discussion($group_identity)?></div>
+            </div>
+            <div class="table-detail">
+                <div class="member-count">Media/Posts</div>
+                <div class="count"><?php echo $this->count_media($group_identity); ?></div>
+            </div>
+            <div class="table-detail">
+                <div class="member-count">Challenges</div>
+                <div class="count"><?php echo $this->count_challenges($url_encode); ?></div>
+            </div>
+        <?php }
 
     }
 
@@ -842,5 +925,33 @@
     if(isset($_POST['suggest_request'])){
         $new_request = new Content();
         $new_request->outsideRequest($_POST['suggest_request']);
+    }
+
+    // if request is to display related group
+    // =======================================================================================================================================
+    if(isset($_POST['email_group_rel'])){
+        $new_request = new Content();
+        $new_request->rel_groups($_POST['email_group_rel'], $_POST['group_ide']);
+    }
+
+    // if request is to display group media
+    // =======================================================================================================================================
+    if(isset($_POST['group_media'])){
+        $new_request = new Content();
+        $new_request->group_media($_POST['group_media']);
+    }
+
+    // if request is to display group bio
+    // =========================================================================================================================================
+    if(isset($_POST['group_bio'])){
+        $new_request = new Content();
+        $new_request->group_bio($_POST['group_bio']);
+    }
+
+    // if request is to display bio
+    // ================================================================================================================================================
+    if(isset($_POST['short_desc'])){
+        $new_request = new Content();
+        $new_request->group_short_desc($_POST['short_desc']);
     }
 ?>

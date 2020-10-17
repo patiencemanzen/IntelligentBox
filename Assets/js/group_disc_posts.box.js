@@ -284,3 +284,15 @@ function getProfileImage(){
         });
     });
 }
+
+setInterval(() => {
+    getProfileImage_short_device();
+}, 1000);
+function getProfileImage_short_device(){
+    $(document).ready(function(){
+        var requestProfileImage = document.getElementById("hiddenEmail").value;
+        $(".user-image").load("group_discussion_content.box.php",{
+            getProfileImage: requestProfileImage
+        });
+    });
+}

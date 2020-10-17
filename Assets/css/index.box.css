@@ -1803,10 +1803,130 @@
    /* end developer style */
    /* ================================================================================================================================ */
    /* =============================================================================================================================== */
+.profession_detail .section-header .prof_title {
+    color: var(--Basic);
+    line-height: 35px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-family: roboto_bold;
+    text-align: center;
+    font-size: 30px;
+}
+.profession_detail p{
+    color: var(--Basic);
+    line-height: 24px;
+    font-family: roboto_medium;
+}
+/* ========================================================================================================================== */
 
-   /* MEDIA QUERY APPLY ON SMALL DEVICE AND EXTRA LARGE DEVICE */
-   /* ==================================================================================================================================== */
-   /* ==================================================================================================================================== */
+/* SHORT DESCRIPTION */
+/* ========================================================================================================================== */
+    .short-description{
+        background: white;
+        width: 100%;
+        padding: 50px 0px;
+    }
+    .description-content{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+    .each-descrption{
+        background: white;
+        width: 250px;
+        margin: 10px 20px;
+        text-align: center;
+    }
+    .desc-icon-outline{
+        font-size: 25px;
+    }
+    .desc-title{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-family: roboto_bold;
+        font-size: 18px;
+        letter-spacing: 0.6px;
+        color: var(--BoxPrimary);
+    }
+    .desc-icon{
+        font-size: 20px;
+        border-radius: 4px;
+        font-family: roboto_bold;
+        letter-spacing: 0.6px;
+    }
+    .title-txt{
+        font-size: 17px;
+        margin-left: 15px;
+    }
+    .desc-body{
+        margin-top: 15px;
+        font-family: roboto_medium;
+        letter-spacing: 0.6px;
+        font-size: 16px;
+        line-height: 22px;
+    }
+/* ================================================================================================================================= */
+
+/* footer */
+/* ================================================================================================================== */
+    .box-footer{
+        background: #041a2f;
+        padding: 20px 0px 20px 0px;
+        width: 100%;
+    }
+    .inner-footer{
+        border-radius: 4px;
+        padding: 5px;
+        box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 6px rgba(0,0,0, 0.4);
+        overflow: hidden;
+        background: white;
+    }
+    .condition{
+        padding: 5px;
+        float: left;
+        color: #041a2f;
+    }
+    .condition-icons .fa {
+        font-size: 23px;
+        color: #041a2f;
+    }
+    .condition-detail{
+        width: 200px;
+    }
+    .condition-title {
+        font-family: roboto_bold;
+        text-transform: capitalize;
+        line-height: 18px;
+    }
+    .conditio-body{
+        font-family: roboto_medium;
+        line-height: 18px;
+        letter-spacing: 0.2px;
+    }
+    .pre-footer-log{
+        background: #041a2f;
+        width: auto;
+        padding: 25px;
+        color: white;
+        font-family: roboto_bold;
+        font-size: 25px;
+        border-radius: 4px;
+    }
+    .copyright-footer{
+        color: white;
+        margin-top: 10px;
+        text-transform: capitalize;
+        text-align: center;
+        font-family: roboto_bold;
+        letter-spacing: 0.6px;
+    }
+/* end footer */
+/* =================================================================================================================== */
+
+/* MEDIA QUERY APPLY ON SMALL DEVICE AND EXTRA LARGE DEVICE */
+/* ==================================================================================================================================== */
+/* ==================================================================================================================================== */
    @media screen and (max-width: 1199px){
     .search-input{
         margin-left: 30px;

@@ -20,30 +20,32 @@
             $this->E_mail = $email;
         }
 
-        private function count_date($selected_date){
-            $PostedDate = $selected_date;
-            $currDate = Date("Y-m-d h:i:s");
-
-            $date1 = strtotime($PostedDate);  
-            $date2 = strtotime($currDate);  
-            
-            $diff = abs($date2 - $date1); 
-            $years = floor($diff / (365*60*60*24));  
-            $months = floor(($diff - $years * 365*60*60*24) / (30*60*60*24));
-            $days = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24)/ (60*60*24)); 
-            $hours = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24 - $days*60*60*24) / (60*60)); 
-            $minutes = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24 - $days*60*60*24 - $hours*60*60)/ 60);
-            $seconds = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24 - $days*60*60*24 - $hours*60*60 - $minutes*60)); 
-
-            if($days > 30){
-               return $PostedDate;
-            }if($days < 30){
-                return $days." Day(s) ago";
-            }if($days < 0){
-                return $hours." Hour(s) ago";
-            }
+        function timeAgo($time_ago){
+            $time_ago = strtotime($time_ago);
+            $cur_time   = time();
+            $time_elapsed   = $cur_time - $time_ago;
+            $seconds    = $time_elapsed ;
+            $minutes    = round($time_elapsed / 60 );
+            $hours      = round($time_elapsed / 3600);
+            $days       = round($time_elapsed / 86400 );
+            $weeks      = round($time_elapsed / 604800);
+            $months     = round($time_elapsed / 2600640 );
+            $years      = round($time_elapsed / 31207680 );
+            // Seconds
+            if($seconds <= 60){return "just now";}
+            //Minutes
+            else if($minutes <=60){if($minutes==1){return "one minute ago";}else{return "$minutes minutes ago";}}
+            //Hours
+            else if($hours <=24){if($hours==1){return "an hour ago";}else{return "$hours hrs ago";}}
+            //Days
+            else if($days <= 7){if($days==1){return "yesterday";}else{return "$days days ago";}}
+            //Weeks
+            else if($weeks <= 4.3){if($weeks==1){return "a week ago";}else{return "$weeks weeks ago";}}
+            //Months
+            else if($months <=12){if($months==1){return "a month ago";}else{return "$months months ago";}}
+            //Years
+            else{if($years==1){return "one year ago";}else{return "$years years ago";}}
         }
-
         
         // CONFIGURE POST
         // =====================================================================================================
@@ -58,11 +60,6 @@
             // =================================================================================================
             $insert_media = "INSERT user_group_post VALUE ('','$group_name','$group_identity','$identity','$email','$public_media','$media_section','$public_caption','$media_type','$created_on')";
             $execute_media_insertion = mysqli_query($this->Frequency(), $insert_media);
-            if($execute_media_insertion){
-                return true;
-            }else{
-                return false;
-            }
         }
 
         // DISPLAY POST THAT AVE BEEN POSTED EARLIER
@@ -82,7 +79,7 @@
                     // =============================
                     $select_date_posted = $fetch_posts['created_on'];
                     $today_date = date("d/m/Y");
-                    $Form_date = $this->count_date($select_date_posted);
+                    $Form_date = $this->timeAgo($select_date_posted);
 
                     $select_basic_info = "SELECT * FROM intelligent_users WHERE email='$poster_email'";
                     $execute_basic_info = mysqli_query($this->Frequency(), $select_basic_info);
@@ -103,35 +100,20 @@
 
                         <!-- each post shared -->
                         <!-- ============================================================================== -->
-                        <div class="each-post shadow-sm mt-3 mb-2 d-flex">
-                            <div><div class="poster-img"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%"></div></div>
-                            <div class="post-detail ml-2">
-                                <div class="poster-name"><?php echo $getFirstname; ?> <?php echo $getLastname; ?></div>
-                                <div class="poster-caption mb-1"> <?php echo $select_caption; ?> </div>
+                        <div class="each-post">
+                            <div class="poster-detail">
+                                <div class="poster-img"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%"></div>
+                                <div class="poster-text">
+                                    <div class="poster-name"><?php echo $getFirstname; ?> <?php echo $getLastname; ?></div>
+                                    <div class="posted_time"><i class="fa fa-globe"></i> <?php echo $Form_date; ?></div>
+                                </div>
+                            </div>
+                            <div class="post-detail">
+                                <div class="poster-caption mb-1"> <?php echo $select_caption; ?></div>
                                 <?php if($select_media_posted == ""){}else{ ?>
-                                    <!-- if post is video -->
-                                    <?php if($select_media_type == "mp4"){?>
-                                        <div class="media-posted">
-                                            <video src="<?php echo $videoPath.$select_media_posted; ?>" loop width="100%" height="100%"></video>
-                                            <div class="control-video d-flex"><i class="fa fa-play" onclick="playOrPause(this)" id="playBtn"></i></div>
-                                            <div class="video-controls">
-                                                <div class="video-status mb-2">
-                                                    <div class="status-number d-flex justify-content-between">
-                                                        <div id="currentTime">00:00 / 00:00</div>
-                                                        <small></small>
-                                                    </div>
-                                                </div>
-                                                <div class="video-stream-line" id="seek-bar"><div id="fill"></div></div>
-                                            </div>
-                                        </div>
-                                    <?php }else{?>
-                                        <!-- if post is photo -->
-                                        <div class="media-posted">
-                                            <div class="media-type"><img src="<?php echo $photoPath.$select_media_posted; ?>" alt="" width="100%" height="100%"></div>
-                                        </div>
-                                    <?php } ?>
+                                    <div class="media-posted"><img src="<?php echo $photoPath.$select_media_posted; ?>" alt="" width="100%" height="100%"> </div>
                                 <?php } ?>
-                                <div class="user-accurate mt-2">
+                                <div class="user-accurate">
                                     <div class="list-accurate d-flex justify-content-between">
                                         <div class="comments" data-toggle="collapse" data-target="#comment_found_<?php echo $post_identity; ?>" id="<?php echo $post_identity; ?>">
                                             <i class="fa fa-comment-o mr-2" id="<?php echo $post_identity; ?>"></i>
@@ -202,8 +184,8 @@
 
                                 <!-- give user privelege to add comments -->
                                 <!-- ================================================================================================================= -->
-                                <div class="add-comment mt-2">
-                                    <div class="comment-area d-flex justify-content-between">
+                                <div class="add-comment">
+                                    <div class="comment-area">
                                         <div class="commeter-pre"><div class="commenter-img"><img src="<?php echo '../Images/profile-img/profile-image/'.$my_profile_image; ?>" alt="" width="100%" height="100%"></div></div>
                                         <div style="width: 100%;"><div class="comment-textarea"><textarea name="" id="" cols="30" rows="1" placeholder="write a commets..."></textarea></div></div>
                                         <div class="post-button ml-3">
@@ -373,7 +355,7 @@
                         <div><div class="commenter-image-found"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%"></div></div>
                         <div>
                             <div class="real-comment-found"><?php echo $getComment_replied; ?></div>
-                            <div class="time-commented"><?php echo $this->count_date($getStartdate); ?></div>
+                            <div class="time-commented"><?php echo $this->timeAgo($getStartdate); ?></div>
                         </div>
                     </div>
            <?php  }  
@@ -518,15 +500,15 @@
         $location = "../Images/group_discusion/".$filename;
         $imageFileType = pathinfo($location,PATHINFO_EXTENSION);
 
-        $valid_extensions = array("jpg","jpeg","png","mp4","");
+        $valid_extensions = array("jpg","jpeg","png","mp4");
 
         if($_FILES['file_media']['name'] == ""){
             $empty = $_FILES['file_media']['name'];
             if($newFames->save_post($empty, $imageFileType, $caption_inputed, $email_inputted, $media_section_type, $Get_group_name, $getGroup_identity)){
-                header("location: Group_admin.php?group={$url_code}");
+                header("location: Group_admin.php?group={$url_code}&group_adm_ver={$email_inputted}");
                 exit();
             }else{
-                header("location: Group_admin.php?group={$url_code}");
+                header("location: Group_admin.php?group={$url_code}&group_adm_ver={$email_inputted}");
                 exit();
             }
         }else{
@@ -538,15 +520,15 @@
                     if(move_uploaded_file($_FILES['file_media']['tmp_name'],$location)){
                         $newFames = new Discussion_illumination($user_poster_email);
                         if($newFames->save_post($filename, $imageFileType, $caption_inputed, $email_inputted, $media_section_type, $Get_group_name, $getGroup_identity)){
-                            header("location: Group_admin.php?group={$url_code}");
+                            header("location: Group_admin.php?group={$url_code}&group_adm_ver={$email_inputted}");
                             exit();
                         }else{
-                            header("location: Group_admin.php?group={$url_code}");
+                            header("location: Group_admin.php?group={$url_code}&group_adm_ver={$email_inputted}");
                             exit();
                         }
                     }
                 }else{
-                    header("location: Group_admin.php?group={$url_code}");
+                    header("location: Group_admin.php?group={$url_code}&group_adm_ver={$email_inputted}");
                     exit();
                 }
             }
@@ -574,35 +556,25 @@
         if($_FILES['file_media']['name'] == ""){
             $empty = $_FILES['file_media']['name'];
             if($newFames->save_post($empty, $imageFileType, $caption_inputed, $email_inputted, $media_section_type, $Get_group_name, $getGroup_identity)){
-                header("location: index.php?group={$url_code}&msg=success");
+                header("location: index.php?group={$url_code}&group_id={$getGroup_identity}&group_member_ver={$email_inputted}&msg=success");
                 exit();
             }else{
-                header("location: index.php?group={$url_code}&msg=fail");
+                header("location: index.php?group={$url_code}&group={$url_code}&group_id={$getGroup_identity}&group_member_ver={$email_inputted}&msg=fail");
                 exit();
             }
         }else{
-           // check extension
-            if(!in_array(strtolower($imageFileType), $valid_extensions)) {
-                header("location: index.php?group={$url_code}&msg=extentension");
-                exit();
-            }else{
-                if($file_size < 20971520){
-                    if(move_uploaded_file($_FILES['file_media']['tmp_name'],$location)){
-                        $newFames = new Discussion_illumination($user_poster_email);
-                        if($newFames->save_post($filename, $imageFileType, $caption_inputed, $email_inputted, $media_section_type, $Get_group_name, $getGroup_identity)){
-                            header("location: index.php?group={$url_code}&msg=success");
-                            exit();
-                        }else{
-                            header("location: index.php?group={$url_code}&msg=fail");
-                            exit();
-                        }
-                    }else{
-                        header("location: index.php?group={$url_code}&msg=move_fail");
-                    }
+            if(move_uploaded_file($_FILES['file_media']['tmp_name'],$location)){
+                $newFames = new Discussion_illumination($user_poster_email);
+                if($newFames->save_post($filename, $imageFileType, $caption_inputed, $email_inputted, $media_section_type, $Get_group_name, $getGroup_identity)){
+                    header("location: index.php?group={$url_code}&group={$url_code}&group_id={$getGroup_identity}&group_member_ver={$email_inputted}&msg=success");
+                    exit();
                 }else{
-                    header("location: index.php?group={$url_code}&msg=size");
+                    header("location: index.php?group={$url_code}&group={$url_code}&group_id={$getGroup_identity}&group_member_ver={$email_inputted}&msg=fail");
                     exit();
                 }
+            }else{
+                header("location: index.php?group={$url_code}&group={$url_code}&group_id={$getGroup_identity}&group_member_ver={$email_inputted}&msg=move_fail");
+                exit();
             }
         }
     }

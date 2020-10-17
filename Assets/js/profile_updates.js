@@ -25,6 +25,8 @@ function previewBackgroundImage(){
 // ============================================================================================================================
 function submit_background_image(){    
     $(document).ready(function(){
+        obj.innerHTML = "updating...";
+        loader.style.display = "block";
         var fd = new FormData();
         var files = $('#profileImage')[0].files[0];
         fd.append('backgroundImage',files);

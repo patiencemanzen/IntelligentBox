@@ -146,10 +146,24 @@
                     <!-- ============================================================================== -->
                     <div class="nav-item"  data-toggle="tooltip" data-placement="bottom" title="History">
                         <a class="nav-link" href="../Religion/"><i class="fa fa-navicon" data-toggle="tooltip" data-placement="bottom" title="History"></i> <span class="pre-top"> Religions </span></a>
-                        <!-- <div class="counter">9+</div> -->
                     </div>
                     <!-- end history -->
                     <!-- ================================================================================ -->
+
+                    <!-- courses -->
+                    <!-- ============================================================================== -->
+                    <div class="nav-item">
+                        <a class="" href="../Built-in-courses/"><i class="fa fa-graduation-cap" data-toggle="tooltip" data-placement="bottom" title="Courses"></i> <span class="pre-top"> Courses </span></a>
+                    </div>
+                    <!-- ================================================================================ -->
+
+                    <!-- courses -->
+                    <!-- ============================================================================== -->
+                    <div class="nav-item">
+                        <a class="" href="../Questions&Answers/question.php"><i class="fa fa-question" data-toggle="tooltip" data-placement="bottom" title="Courses"></i> <span class="pre-top">Questions & Answers</span></a>
+                    </div>
+                    <!-- ================================================================================ -->
+
 
                      <!-- usr profile image and search -->
                     <!-- ================================================================================================================ -->
@@ -283,6 +297,14 @@
                         <!-- <div class="counter">9+</div> -->
                     </div>
                     <!-- end history -->
+                    <!-- ================================================================================ -->
+
+
+                    <!-- courses -->
+                    <!-- ============================================================================== -->
+                    <div class="nav-item question">
+                        <a class="question" href="../Questions&Answers/question.php"><i class="fa fa-question" data-toggle="tooltip" data-placement="bottom" title="Questions and answers"></i> <span class="pre-top">Que</span></a>
+                    </div>
                     <!-- ================================================================================ -->
 
 

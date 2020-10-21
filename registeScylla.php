@@ -208,12 +208,12 @@
 
             $mail = new PHPMailer();
 
-             // SMTP settings
+            // SMTP settings
             $mail->isSMTP();
-            $mail->Host = "smtp.gmail.com";
+            $mail->Host = "mail.intelligentbox.rw";
             $mail->SMTPAuth = true;
-            $mail->Username = "intelligentbox732@gmail.com";
-            $mail->Password = 'intelligentBox2020';
+            $mail->Username = "users@intelligentbox.rw";  // current password 'Homo_sapience@intelligentbox'
+            $mail->Password = 'IntelligentBoxUsers';
             $mail->Port = 465;    //587
             $mail->SMTPSecure = "ssl";   // tls
             
@@ -229,28 +229,6 @@
             }else{
                 return false;
             }
-
-            // SMTP settings
-            // $mail->isSMTP();
-            // $mail->Host = "mail.intelligentbox.rw";
-            // $mail->SMTPAuth = true;
-            // $mail->Username = "users@intelligentbox.rw";  // current password 'Homo_sapience@intelligentbox'
-            // $mail->Password = 'IntelligentBoxUsers';
-            // $mail->Port = 465;    //587
-            // $mail->SMTPSecure = "ssl";   // tls
-            
-            // Email settings
-            // $mail->isHTML(true);       
-            // $mail->setFrom($sender, $sender_name);      // specify who sending email (sender)
-            // $mail->addAddress($this->_email);    // specify where email sended (reciever)
-            // $mail->Subject = $subject;
-            // $mail->Body = $body;
-
-            // if($mail->send()){
-            //     return true;
-            // }else{
-            //     return false;
-            // }
         }
     }
     // ===============================================================================================================

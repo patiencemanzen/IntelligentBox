@@ -811,10 +811,6 @@
             </div>
           </div>
 
-          <div class="dash-nav-all tab-pane" role="tabpanel" id="schools">
-            <span>schools</span>
-          </div>
-
         </div>
 
       </div>
@@ -873,22 +869,45 @@
                 </div>
               </div>
             </a></li>
+        </ul>
+        <button type="button" class="btn btn-success updates" data-toggle="modal" data-target="#myModal">User updates</button>
 
-          <li><a class="nav-link" data-toggle="tab" href="#schools" role="tab">
-              <div class="world-creater">
-                <div class="creater-history">
-                  <div class="profile-image-create"><img src="../../Images/dash_image/teacher-a-stack-of-books.jpg" alt=""
-                      width="100%" height="100%"></div>
-                  <div class="create-detail">
-                    <div class="opri-name">Schools advertize</div>
-                    <div class="pre-posts">Schools 456</div>
-                    <div class="top-story">Ads 46</div>
-                    <div class=""></div>
-                  </div>
+        <!-- The Modal -->
+        <div class="modal" id="myModal">
+          <div class="modal-dialog">
+            <div class="modal-content position-relative" style=" background: #08345e; 
+                  box-shadow: 0 0 5px #2196f3;
+                  border-radius: 14px">
+            
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">Share updates to users</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              
+              <!-- Modal body -->
+              <div class="modal-body">
+                <div class="updates-text" id="updates-text"><textarea name="" id="updates" cols="30" rows="10" placeholder="Write your updates..."></textarea></div>
+              </div>
+              
+              <!-- Modal footer -->
+              <div class="modal-footer d-flex justify-content-between">
+                <button type="button" class="btn-cancle-updates" data-dismiss="modal">Close</button>
+                <div class="send-update"><button onclick="share_updates(this)">Send updates</button></div>
+              </div>
+
+              <div class="loader" id="loader">
+                <div class="load">
+                  <div class="shape shape-1"></div>
+                  <div class="shape shape-2"></div>
+                  <div class="shape shape-3"></div>
+                  <div class="shape shape-4"></div>
                 </div>
               </div>
-            </a></li>
-        </ul>
+              
+            </div>
+          </div>
+        </div>
 
         <div class="backup ml-auto mr-auto">
           <a id="slide" onclick="backupDatabase(obj)">
@@ -930,11 +949,9 @@
   <script src="../../Lib/material/js/material-dashboard?v=2.1.1.js"></script>
   <script src="../../Lib/now-ui-kit/now-ui-kit.js"></script>
   <script src="../../Lib/bootstrap/js/bootstrap-material-design.min.js"></script>
+  <script src="../../Lib/ckeditor/ckeditor.js"></script>
   <script>
-    $(document).ready(function () {
-      //init DateTimePickers
-      md.initFormExtendedDatetimepickers();
-    });
+      CKEDITOR.replace('content');
   </script>
   <!-- end libraries -->
   <!-- ========================================================================================================================== -->

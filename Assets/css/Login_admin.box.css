@@ -1,141 +1,143 @@
 /* EXTERNAL FORNT FAMLY*/
 /* =================================================================================================================================================== */
 /* =================================================================================================================================================== */
-@font-face {font-family: 'roboto_bold';src: url('../fonts/Roboto/Roboto-Bold.ttf');} 
-@font-face{font-family: 'roboto_regular';src: url('../fonts/Roboto/Roboto-Regular.ttf');}
-@font-face{font-family: 'baskvile';src: url('../fonts/baskerville/BASKVILL.TTF');}
-@font-face{font-family: 'roboto_medium';src: url('../fonts/Roboto/Roboto-Medium.ttf');}
-@font-face{font-family: 'roboto_black';src: url('../fonts/Roboto/Roboto-Black.ttf');}
+    @font-face {font-family: 'roboto_bold';src: url('../fonts/Roboto/Roboto-Bold.ttf');} 
+    @font-face{font-family: 'roboto_regular';src: url('../fonts/Roboto/Roboto-Regular.ttf');}
+    @font-face{font-family: 'baskvile';src: url('../fonts/baskerville/BASKVILL.TTF');}
+    @font-face{font-family: 'roboto_medium';src: url('../fonts/Roboto/Roboto-Medium.ttf');}
+    @font-face{font-family: 'roboto_black';src: url('../fonts/Roboto/Roboto-Black.ttf');}
 
 /* IN COMMON */
-body{
-    background: #041a2f;
-}
+    body{
+        background: #041a2f;
+    }
 
 /* DASHBOARD NAVBAR */
 /* ========================================================================================================================================== */
-.dash-navbar{
-    background: #041a2f;
-    display: flex;
-    justify-content: space-around;
-    padding: 5px 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
-.dash-navbar .logo{
-    color: white;
-    font-family: roboto_bold;
-    font-size: 25px;
-    letter-spacing: 0.5px;
-    text-transform: capitalize;
-}
-.dash-navbar .link-home{
-    margin-top: 8px;
-}
-.dash-navbar .link-home a{
-    color: white;
-    list-style: none;
-    text-decoration: none;
-    font-family: roboto_bold;
-    font-size: 16px;
-    cursor: pointer;
-}
+    .dash-navbar{
+        background: #041a2f;
+        display: flex;
+        justify-content: space-around;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+    .dash-navbar .logo{
+        font-family: roboto_bold;
+        font-size: 25px;
+        letter-spacing: 0.5px;
+        text-transform: capitalize;
+    }
+    .dash-navbar .logo a{
+        color: white;
+    }
+    .dash-navbar .link-home{
+        margin-top: 8px;
+    }
+    .dash-navbar .link-home a{
+        color: white;
+        list-style: none;
+        text-decoration: none;
+        font-family: roboto_bold;
+        font-size: 16px;
+        cursor: pointer;
+    }
 /* =============================================================================================================================================== */
 
 /* ADMIN LOGIN */
 /* =============================================================================================================================================== */
-.logn-interface{
-    background: white;
-    margin: 0 auto;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
-    text-align: center;
-    width: 350px;
-    margin-top: 50px;
-    padding: 20px 10px;
-}
-.title-logo{
-    font-family: roboto_bold;
-    font-size: 20px;
-    text-transform: capitalize;
-}
+    .logn-interface{
+        background: white;
+        margin: 0 auto;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+        text-align: center;
+        width: 350px;
+        margin-top: 50px;
+        padding: 20px 10px;
+    }
+    .title-logo{
+        font-family: roboto_bold;
+        font-size: 20px;
+        text-transform: capitalize;
+    }
 
-.login-inputs{
-    margin-top: 20px;
-}
-.admin-email input{
-    border: none;
-    outline: none;
-    font-family: roboto_medium;
-}
-.admin-email {
-    border: 2px solid #d3d3d3;
-    border-radius: 20px;
-    padding: 7px;
-}
-.admin-password input{
-    border: none;
-    outline: none;
-    font-family: roboto_medium;
-}
-.admin-password {
-    border: 2px solid #d3d3d3;
-    border-radius: 20px;
-    padding: 7px;
-    margin-top: 10px;
-    background: white;
-}
-.error-log{
-    font-family: roboto_medium;
-    font-size: 13px;
-    color: red;
-    margin-top: 10px;
-}
-.forget-password{
-    font-family: roboto_bold;
-    font-size: 14px;
-    margin-top: 10px;
-    color: #041a2f;
-}
-.submit_info .submit{
-    background: #041a2f;
-    padding: 5px 20px;
-    width: 100%;
-    border: none;
-    outline: none;
-    border-radius: 4px;
-    color: white;
-    font-family: roboto_bold;
-    text-transform: capitalize;
-    cursor: pointer;
-    margin-top: 10px;
-}
+    .login-inputs{
+        margin-top: 20px;
+    }
+    .admin-email input{
+        border: none;
+        outline: none;
+        font-family: roboto_medium;
+    }
+    .admin-email {
+        border: 2px solid #d3d3d3;
+        border-radius: 20px;
+        padding: 7px;
+    }
+    .admin-password input{
+        border: none;
+        outline: none;
+        font-family: roboto_medium;
+    }
+    .admin-password {
+        border: 2px solid #d3d3d3;
+        border-radius: 20px;
+        padding: 7px;
+        margin-top: 10px;
+        background: white;
+    }
+    .error-log{
+        font-family: roboto_medium;
+        font-size: 13px;
+        color: red;
+        margin-top: 10px;
+    }
+    .forget-password{
+        font-family: roboto_bold;
+        font-size: 14px;
+        margin-top: 10px;
+        color: #041a2f;
+    }
+    .submit_info .submit{
+        background: #041a2f;
+        padding: 5px 20px;
+        width: 100%;
+        border: none;
+        outline: none;
+        border-radius: 4px;
+        color: white;
+        font-family: roboto_bold;
+        text-transform: capitalize;
+        cursor: pointer;
+        margin-top: 10px;
+    }
 /* ========================================================================================================================================== */
  /* ERROR HANDLING */
 /* ==================================================================================================== */
-.Display_error {
-    display: block;
-    background: #071c2e;
-    position: fixed;
-    right: 100px;
-    top:  300px;
-    color: #89ff00;
-    font-weight: 570;
-    box-shadow: 0 0 10px rgba(0,0,0, 0.3);
-    line-height: 19px;
-    display: flex;
-    border-radius: 4px;
-}
-.Display_error .error-icon{
-    background: #08345e;
-    padding: 10px;
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
-}
-.check-word_error{
-    font-family: roboto_bold;
-    padding: 10px;
-    letter-spacing: 0.5px;
-    line-height: 19px;
-    font-weight: 560;
-}
+    .Display_error {
+        display: block;
+        background: #071c2e;
+        position: fixed;
+        right: 100px;
+        top:  300px;
+        color: #89ff00;
+        font-weight: 570;
+        box-shadow: 0 0 10px rgba(0,0,0, 0.3);
+        line-height: 19px;
+        display: flex;
+        border-radius: 4px;
+    }
+    .Display_error .error-icon{
+        background: #08345e;
+        padding: 10px;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+    }
+    .check-word_error{
+        font-family: roboto_bold;
+        padding: 10px;
+        letter-spacing: 0.5px;
+        line-height: 19px;
+        font-weight: 560;
+    }
 /* =================================================================================================== */

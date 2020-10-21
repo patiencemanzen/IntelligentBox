@@ -10,6 +10,19 @@ function display_user(){
     });
 }
 
+// count message on small device
+// =========================================================================================================================
+setInterval(() => {
+    count_messages_small();
+}, 1000);
+function count_messages_small(){
+    $(document).ready(function(){
+        var user_mail = document.getElementById("user_mail").value;
+        $("#count_message_small").load("../header/header_content.php", {
+            countMessage: user_mail
+        });
+    });
+}
 
 // message pcking
 // ============================================================================================================
@@ -18,7 +31,7 @@ const data_selected = []; // array data user selected
 function display_me(obj){
     if(obj.checked){
        data_selected.push(obj.value);
-       openConv();
+    //    openConv();
     }else{ 
         data_selected.pop(obj.value);
     }
@@ -41,15 +54,33 @@ setInterval(() => {
 }, 1000);
 
 
-function openConv(){
-    document.getElementById("hold-messaging").style.display = "none";
-    selected_user_length = data_selected.length; // count selected data
-    
+function open_short_conv_area(obj){
+   var data_selected = obj.id;
+   var email = document.getElementById("hiddenEmail").value;
     $(document).ready(function(){
+        obj.innerHTML = "Opening Tab...";
         var email = document.getElementById("hiddenEmail").value;
         $("#message_section_holder").load("../header/message_content.php", {
-            data_inputted: data_selected,
-            getUser: email
+            short_conv_area: data_selected,
+            getUser_conv: email
+        }, function(){
+            obj.innerHTML = "Opened!";
+        });
+    });
+}
+
+function delete_conv_section(obj){
+    var user_deletion_email = obj.id;
+    var email = document.getElementById("hiddenEmail").value;
+    $(document).ready(function(){
+        obj.parentNode.parentNode.innerHTML = "Deleting conv...";
+        $(this).load("../header/message_content.php", {
+            user_delete_email: user_deletion_email,
+            my_use_email: email
+        }, function(){
+            obj.parentNode.parentNode.innerHTML = "Deleted";
+            getListChart();
+            getListChart_small_device();
         });
     });
 }
@@ -84,12 +115,16 @@ function sendMessageExpand(obj){
         obj.parentNode.previousElementSibling.style.border = "2px solid red";
     }else{
         $(document).ready(function(){
+            obj.style.display = 'none';
+            obj.nextElementSibling.style.display = "block";
             var email = document.getElementById("hiddenEmail").value;
             $(this).load("../header/message_content.php", {
                 getArrayData: datas,
                 getMessage: messages,
                 messeger: email
             }, function(){
+                obj.style.display = 'block';
+                obj.nextElementSibling.style.display = "none";
                 obj.innerHTML = '<i class="fa fa-paper-plane bg-white"></i>';
                 messages.innerHTML = "";
             });
@@ -97,16 +132,17 @@ function sendMessageExpand(obj){
     }
 }
 
-function expand_message_area(obj){    
-    $(document).ready(function(){
-        document.getElementById("message-area").style.display = "none";
-        document.getElementById("message_section_holder").style.display = "none";
-        var email = document.getElementById("hiddenEmail").value;
-        $("#expanded_conv").load("../header/message_content.php", {
-            expand_inputted: data_selected,
-            getUser: email
-        });
-    });
+function minumize_message(obj){
+    var section = obj.parentNode.parentNode.parentNode;
+    section.style.bottom = "-440px";
+}
+function maximize_message(obj){
+    var section = obj.parentNode.parentNode.parentNode;
+    section.style.bottom = "20px";
+}
+function close_message(obj){
+    var section = obj.parentNode.parentNode.parentNode;
+    section.style.display = "none";
 }
 
 // LIST DOW ALL VARID CHART

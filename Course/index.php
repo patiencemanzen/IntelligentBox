@@ -1,17 +1,3 @@
-<!-- 
-	//////////////////////////////////////////////////////
-
-    INTELLIGENT BOX
-    DESIGNED & DEVELOPED by Manirabona Patience
-    
-    author: Mnirabona Patience,
-    Email:  Hseal419@gmail.com,
-    location: Kigali,Rwanda,
-    pro: Intelligent Box E-learning,
-    version: 1.0.0
-    
-	//////////////////////////////////////////////////////
--->
 <?php 
   session_start();
   if(isset($_SESSION['Email'])){
@@ -140,8 +126,8 @@
                     
                     <!-- group present -->
                     <!-- ========================================================================================================================================== -->
-                    <div class="groups-list-down">
-                        <div class="section-title text-center down-subtile">More Groups</div>
+                    <div class="groups-list-down mt-3">
+                        <div class="each-group-title">More Groups</div>
                         <div class="group-list" id="displayslider">
 
                         </div>
@@ -157,7 +143,6 @@
         <!-- ==================================================================================================================== -->
  
        <!-- javascript external file, type js  and libraries-->
-       <!-- ================================================ -->
        <!-- ======================================================================= -->
        <script src="../Assets/js/courses.box.js"></script>
        <script src="../Assets/js/Course_content.box.js"></script>
@@ -167,17 +152,6 @@
        <script src="../Lib/material/js/material-dashboard?v=2.1.1.js"></script>
        <script src="../Lib/now-ui-kit/now-ui-kit.js"></script>
        <script src="../Lib/bootstrap/js/bootstrap-material-design.min.js"></script>
-       <script src="../Lib/slick/slick.js"></script>
-       <script>
-            // initialize slick
-            $('.group-list').slick({
-                dots: true,
-                slidesToShow: 3,
-                slidesToScroll: 1,
-                autoplay: true,
-                autoplaySpeed: 5000
-            });
-        </script> 
         <!-- end libraries -->
         <!-- ================================================================================================================================= -->
    </body>

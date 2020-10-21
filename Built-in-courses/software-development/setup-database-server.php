@@ -101,7 +101,7 @@
                     <div class="rate">4.6 <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-half-o"></i></div>
                 </div>
                 <div class="course-image">
-                    <div class="c-image"><img src="../../Images/course-img/setup-database-server.jpg" alt="backend application" width="100%" height="100%"></div>
+                    <div class="c-image"><img src="../../Images/course-img/setup-database-server.png" alt="backend application" width="100%" height="100%"></div>
                 </div>
             </div>
         </div>

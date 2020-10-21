@@ -9,6 +9,16 @@
     // =========================================================================================================
     class Course_interface extends Scyllar {
 
+        public function popularWords($word){
+            if(strlen($word)<= 160){
+                $word= $word."";
+                }else{
+                $word= substr($word, 0, 160);
+                $word= $word."...";
+            }
+            return $word;
+        }
+
         public function show_classes ($user_email){
             $select_identity = "SELECT * FROM intelligent_users WHERE email='$user_email'";
             $execute_identity = mysqli_query($this->Frequency(), $select_identity);
@@ -44,13 +54,13 @@
                 <div class="eachdepartment">
                     <div class="department-image">
                         <img src="<?php echo '../Images/class_img/'.$getProfileImage; ?>" alt="" width="100%" height="100%">
-                        <div class="department-name"><?php echo $getClassName; ?></div>
                         <div class="study-now" id="<?php echo $getClass_identity; ?>" onclick="join_class(this)">join now</div>
                     </div>
+                    <div class="department-name"><?php echo $getClassName; ?></div>
                     <div class="department-bio"><?php echo $getClass_desc; ?></div>
-                    <div class="department-status d-flex justify-content-between">
-                        <div class="members"><i class="fa fa-user-circle-o"></i> <span><?php echo $count_learner; ?></span></div>
-                        <div class="courses"><i class="fa fa-graduation-cap"></i> <span><?php echo $countCourse; ?></span></div>
+                    <div class="department-stat">
+                        <div class="members"><i class="fa fa-user-circle-o"></i> Members <span><?php echo $count_learner; ?></span></div>
+                        <div class="courses mt-1"><i class="fa fa-graduation-cap"></i> Courses <span><?php echo $countCourse; ?></span></div>
                     </div>
                 </div>
                 <!-- end each department -->
@@ -99,7 +109,7 @@
                             <div class="group-name"><?php echo $group_name; ?></div>
                         </div>
                         <div class="department-bio-group mt-3"><?php echo $this->popularWords($group_bio); ?></div>
-                        <div class="creater">By <?php echo $firstname; ?> <?php echo $lastname; ?></div>
+                        <div class="group-creater">By <?php echo $firstname; ?> <?php echo $lastname; ?></div>
                         <div class="group-status d-flex justify-content-between">
                             <div class="members">Members <span><?php echo $this->count_member($group_identity); ?></span></div>
                             <div class="trainer" id="<?php echo $group_identity; ?>" onclick="join_goup(this)"><i class="fa fa-plus"></i> join now</div>

@@ -1,17 +1,3 @@
-<!-- 
-	//////////////////////////////////////////////////////
-
-    INTELLIGENT BOX
-    DESIGNED & DEVELOPED by Manirabona Patience
-    
-    author: Mnirabona Patience,
-    Email:  Hseal419@gmail.com,
-    location: Kigali,Rwanda,
-    pro: Intelligent Box E-learning,
-    version: 1.0.0
-    
-	//////////////////////////////////////////////////////
--->
 <?php 
   session_start();
   if(isset($_SESSION['Email'])){
@@ -181,4 +167,10 @@
 
    </body>
 </html>
-<?php } } ?>
+<?php }else{
+    header("location: profile.php");
+    exit();
+} }else{
+    header("location: ../account_shortcut.box.php");
+    exit();
+} ?>

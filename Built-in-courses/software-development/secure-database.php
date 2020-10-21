@@ -95,7 +95,7 @@
                     <!-- <div class="rate">4.6 <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-half-o"></i></div> -->
                 </div>
                 <div class="course-image">
-                    <div class="c-image"><img src="../../Images/course-img/Database-Security.jpg" alt="database security" width="100%" height="100%"></div>
+                    <div class="c-image"><img src="../../Images/course-img/Database-Security.png" alt="database security" width="100%" height="100%"></div>
                 </div>
             </div>
         </div>

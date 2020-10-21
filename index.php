@@ -1,18 +1,4 @@
-<!-- 
-	//////////////////////////////////////////////////////
-
-    INTELLIGENT BOX
-    DESIGNED & DEVELOPED by Manirabona Patience
-    
-    author: Mnirabona Patience,
-    Email:  Hseal419@gmail.com,
-    location: Kigali,Rwanda,
-    pro: Intelligent Box E-learning,
-    version: 1.0.0
-    
-	//////////////////////////////////////////////////////
--->
- <!DOCTYPE html>
+<!DOCTYPE html>
  <html lang="en">
     <head>
         <!-- meta tags -->
@@ -26,13 +12,10 @@
         <meta name="robots" content="index, follow"/>
         <meta name="apple-mobile-web-app-capable" content="yes">
 
-        <!-- index, used to repesent intelligent box on search engine and it browser -->
         <title>intelligentBox</title>
 
-        <!-- intelligent box logo, present on search engine and on browse header -->
         <link rel="shortcut icon" href="Images/favicon.png" type="image/x-icon">
 
-        <!-- external style link, type css file-->
         <link rel="stylesheet" href="Assets/css/index.box.css">
         <link rel="stylesheet" href="Assets/css/preloader.btn.css">
 
@@ -40,37 +23,25 @@
         <link rel="stylesheet" href="Lib/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="Lib/material/css/material-dashboard.css?v=2.1.1">
         <link rel="stylesheet" href="Lib/now-ui-kit/now-ui-kit.css?v=1.3.0">
-        <link rel="stylesheet" href="Lib/animate/animate.min.css">
         <link rel="stylesheet" href="Lib/font-awesome/css/font-awesome.min.css">
-        <link rel="stylesheet" href="Lib/jquery/jquery.fancybox.css">
-        <link rel="stylesheet" href="Lib/lightbox/css/lightbox.min.css">
-        <link rel="stylesheet" href="Lib/owlcarousel/assets/owl.carousel.min.css">
-        <link rel="stylesheet" href="Lib/slick/slick.css">
-        <link rel="stylesheet" href="Lib/theme-color/violet-theme.css">
-        <link rel="stylesheet" href="Lib/venobox/venobox.css">
         <link rel="stylesheet" href="Lib/slick/slick.css">
     
     </head>
     <body>
         <!-- Top navbar present -->
         <!-- ============================================================================================================ -->
-        <!-- ============================================================================================================ -->
-        <!-- ============================================================================================================ -->
         <nav class="header-fixed">
             <div class="inner-header-1">
                 <!-- container intelligent box title -->
-                <!-- =================================================================================================== -->
                 <!-- ==================================================================================================== -->
                 <div class="container d-flex">
                     <div class="intelligent-box-logo"> intelligent box </div>
                 </div>
                 <!-- end container -->
                 <!-- =================================================================================================== -->
-                <!-- =================================================================================================== -->
             </div>
 
             <!-- second navbar -->
-            <!-- =============================================================================================================== -->
             <!-- ================================================================================================================ -->
             <div class="sub-nav">
                 <div class="container">
@@ -92,13 +63,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="sign-in-btn create-account">
-                            <ul>
-                                <li class="all_trades_found" onclick="openTrade()"><a>All trades</a></li>
-                                <li class="dis_short_devs"><a class="" data-toggle="tab" href="#signmeup" role="tab">
-                                     I don't have account?, Sign me up
-                                </a></li>
-                            </ul>
+                        <div class="segment-link">
+                            <ul><li class="dis_short_devs"><a href="account_shortcut.box.php">Have an account?, Sign me in </a></li></ul>
                         </div>
 
                         <!-- show all trades supported -->
@@ -119,37 +85,19 @@
         </nav>
         <!-- end top navbar present -->
         <!-- ====================================================================================================================== -->
-        <!-- ====================================================================================================================== -->
 
         
         <!-- TOP BACKGROUND IMAGE -->
-        <!-- ====================================================================================================== -->
         <!-- ====================================================================================================== -->
         <div class="carousel slide shadow-none" data-ride="carousel" id="slides">
             <div class="carousel-inner shadow-none">
                 <ul class="carousel-indicators">
                     <li class="active" data-target="#slides" data-slide-to="0"></li>
                     <li class="" data-target="#slides" data-slide-to="1"></li>
-                    <li class="" data-target="#slides" data-slide-to="2"></li>
-                    <li class="" data-target="#slides" data-slide-to="3"></li>
-                    <li class="" data-target="#slides" data-slide-to="4"></li>
-                    <li class="" data-target="#slides" data-slide-to="5"></li>
-                    <li class="" data-target="#slides" data-slide-to="6"></li>
-                    <li class="" data-target="#slides" data-slide-to="7"></li>
                 </ul>
                 <div class="carousel-inner shadow-sm">
-                    <!-- start carousel items -->
-                    <div class="carousel-item shadow-sm">
-                        <img src="Images/index-img/slides/slide-1.jpg" alt="active_slides" class="shadow-none" height="100%" width="100%">
-                    </div>
-                    <div class="carousel-item"><img src="Images/index-img/slides/slide-4.jpg" alt="second_slide" height="100%" width="100%"></div>
-                    <div class="carousel-item"><img src="Images/index-img/slides/slide-5.jpg" alt="third_slide" height="100%" width="100%"></div>
-                    <div class="carousel-item"><img src="Images/index-img/slides/slide-6.jpg" alt="fouth_Slide" height="100%" width="100%"></div>
-                    <div class="carousel-item"><img src="Images/index-img/slides/slide-7.jpg" alt="fifth_slide" height="100%" width="100%"></div>
-                    <div class="carousel-item"><img src="Images/index-img/slides/slide-8.jpg" alt="sixth_slide" height="100%" width="100%"></div>
-                    <div class="carousel-item active"><img src="Images/index-img/slides/slide-9.jpg" alt="seventh_slide" height="100%" width="100%"></div>
-                    <div class="carousel-item"><img src="Images/index-img/slides/slide-10.jpg" alt="eigth_slide" height="100%" width="100%"></div>
-                    <!-- end carousel items -->
+                    <div class="carousel-item active"><img src="Images/index-img/slides/slide-11.png" alt="seventh_slide" height="100%" width="100%"></div>
+                    <div class="carousel-item"><img src="Images/index-img/slides/slide-12.png" alt="eigth_slide" height="100%" width="100%"></div>
                 </div>
             </div>
             <div class="over-carousel">
@@ -159,11 +107,15 @@
                         belongs to those who prepare for it today.so, "start where you are. Use what you have. Do what you can". 
                         We never fail, We success or learn.
                     </p>
+                    <!-- <div class="what-we-offer">
+                        <div class="sign-me-btn"><a href="account_shortcut.box.php">Sign me in</a></div>
+                        <div class="create-account">What we Offer</div>
+                    </div> -->
                 </div>
+                <div class="div"></div>
            </div>  
         </div>
         <!-- end image non slide -->
-        <!-- ============================================================================================================================================= -->
         <!-- ============================================================================================================================================= -->
 
 
@@ -912,7 +864,7 @@
 
             <!-- SHORT DESCRIPTION -->
             <!-- ===================================================================================================================================================================== -->
-            <div class="short-description">
+            <section class="short-description" id="short_info">
                 <div class="container">
                     <div class="description-content">
                         <div class="each-descrption">
@@ -974,7 +926,7 @@
                         </div>
                     </div>       
                 </div>
-            </div>
+            </section>
             <!-- ===================================================================================================================================================================== -->
 
             <!-- footer -->
@@ -1053,32 +1005,13 @@
             <script src="Assets/js/index.forgetPassword.box.js"></script>
             <script src="Assets/js/index.contuct_us.box.js"></script>
             <script src="Assets/js/index.show_trades.box.js"></script>
+            <script src="Assets/js/personal_info.js"></script>
 
-            <script src="Lib/bootstrap/js/bootstrap.min.js" type="text/javascript"></script> 
-            <script src="Lib/bootstrap/js/bootstrap-datepicker.js"></script> 
-            <script src="Lib/custom/custom.js"></script>
-            <script src="Lib/date-picker/bootstrap-switch.js"></script>
-            <script src="Lib/date-picker/nouislider.min.js"></script>
-            <script src="Lib/easing/easing.min.js"></script>
-            <script src="Lib/jquery/jquery-migrate.min.js"></script>
-            <script src="Lib/jquery/jquery.bootstrap-wizard.js"></script>
-            <script src="Lib/jquery/jquery.counterup.js"></script>
-            <script src="Lib/jquery/jquery.fancybox.pack.js"></script>
+            <script src="Lib/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
             <script src="Lib/jquery/jquery.min.js"></script>
             <script src="Lib/jquery/jquery-3.3.1.min"></script>
-            <script src="Lib/jquery/jquery.mixitup.js"></script>
-            <script src="Lib/jquery/jquery.poptrox.min.js"></script>
-            <script src="Lib/jquery/jquery.validate.min.js"></script>
-            <script src="Lib/jquery/perfect-scrollbar.jquery.min.js"></script>
-            <script src="Lib/lightbox/js/lightbox-plus-jquery.min.js"></script>
             <script src="Lib/material/js/material-dashboard?v=2.1.1.js"></script>
             <script src="Lib/now-ui-kit/now-ui-kit.js"></script>
-            <script src="Lib/owlcarousel/owl.carousel.js"></script>
-            <script src="Lib/popper/popper.min.js"></script>
-            <script src="Lib/skel/skel.min.js"></script>
-            <script src="Lib/slick/slick.js"></script>
-            <script src="Lib/superfish/superfish.js"></script>
-            <script src="Lib/venobox/venobox.js"></script>
             <script src="Lib/wow/wow.min.js"></script>
             <script src="Lib/slick/slick.js"></script>
             <script src="Lib/bootstrap/js/bootstrap-material-design.min.js"></script>

@@ -1,5 +1,4 @@
 <?php 
-
     //  INITIALIZE DATABASE CONNECTION
     // =======================================================================================================
     require_once ("../Scyllar.php");
@@ -16,8 +15,6 @@
             $this->E_mail = $email;
         }
 
-        // COUNT_DATE
-        // ========================================================================================================
         function timeAgo($time_ago){
             $time_ago = strtotime($time_ago);
             $cur_time   = time();
@@ -86,20 +83,31 @@
             }
         }
 
-        // DISPLAY SHORT MESSAGING AREA
-        // ================================================================================================================================
-        public function message_area($inputted_data){ 
+        public function start_conv($inputted_data, $email){ 
             $arrlength = count($inputted_data);
             $first_email = $inputted_data[0];
             for($x = 0; $x < $arrlength; $x++) {
-                echo $inputted_data[$x];
-                echo "<br>";
-            } ?>
+                $check_exist = "SELECT * FROM messages WHERE sender_email = '$email' AND reciever_email = '$inputted_data[$x]' OR reciever_email='$email' AND sender_email = '$inputted_data[$x]'";
+                $execute_exist = mysqli_query($this->Frequency(), $check_exist);
+                if(mysqli_num_rows($execute_exist) > 0){
+
+                }else{
+                    $created_on = Date("Y-m-d h:m:s");
+                    $insert_conv = "INSERT INTO messages VALUES ('','$email','$inputted_data[$x]','New conversation from {$inputted_data[$x]}','0','new','on','$created_on')";
+                    $execute_new_conv = mysqli_query($this->Frequency(), $insert_conv);
+                }
+            } 
+        }
+
+        // DISPLAY SHORT MESSAGING AREA
+        // ================================================================================================================================
+        public function message_area($inputted_data){ 
+            $first_email = $inputted_data; ?>
             <div class="message-area" id="message-area">
                 <div class="message-holder">
                     <input type="hidden" name="hidden_reciever_email" id="hidden_reciever_email" value="<?php echo $first_email; ?>">
                     <div class="message-title d-flex">
-                        <?php if($arrlength == 1){
+                        <?php
                             $select_all_basic = "SELECT * FROM intelligent_users WHERE email='$first_email'";
                             $execute_basic = mysqli_query($this->Frequency(), $select_all_basic);
                             $fetch_basic = mysqli_fetch_assoc($execute_basic);
@@ -110,27 +118,21 @@
                             $executeimage = mysqli_query($this->Frequency(), $select_profile_image);
                             $fetch_profile_image = mysqli_fetch_assoc($executeimage);
                                 $profile_image = $fetch_profile_image['profile_image'];
-                            ?>
-                            <div class="image-holder">
-                                <div class="reciever-image">
-                                    <img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%">
-                                    <!-- <div class="online-user-full-conv"><div class="inner-full-conv"></div></div> -->
-                                </div>
+                        ?>
+                        <div class="image-holder">
+                            <div class="reciever-image">
+                                <img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%">
+                                <!-- <div class="online-user-full-conv"><div class="inner-full-conv"></div></div> -->
                             </div>
-                            <div class="user-name ml-2">
-                                <div><?php echo $firstname; ?> <?php echo $lastname; ?></div>
-                                <div id="messenger_email"><?php echo $first_email; ?></div>
-                            </div>
-                        <?php } else {?>
-                            <div class="user-name ml-2">
-                                <div>New <?php echo $arrlength; ?> conversion</div>
-                                <div id="messenger_email"><?php echo $first_email; ?> + <?php echo $arrlength-1; ?></div>
-                            </div>
-                        <?php } ?>
+                        </div>
+                        <div class="user-name ml-2">
+                            <div><?php echo $firstname; ?> <?php echo $lastname; ?></div>
+                            <div id="messenger_email"><?php echo $first_email; ?></div>
+                        </div>
+
                         <div class="remove-chart d-flex">
                             <div class="minimize-chats" onclick="mini_chats()"><i class="fa fa-arrow-down"></i></div>
                             <div class="pull-up" onclick="max_chat()"><i class="fa fa-arrow-up"></i></div>
-                            <div class="file-attach" onclick="expand_message_area(this)"><i class="fa fa-expand"></i></div>
                             <div class="remove-chart-history" onclick="close_short_message()"><i class="fa fa-times"></i></div>
                         </div>
                     </div>
@@ -176,7 +178,7 @@
                                 <div class="type-message">
                                     <textarea name="" rows="2" class="position-relative" id="myMessage" placeholder="Type your message..." id="text" onclick="init()"></textarea>
                                 </div>
-                                <div class="btn-send-messages"><button id="<?php  for($x = 0; $x < $arrlength; $x++) { echo $inputted_data[$x]; } ?>" onclick="sendMessage(this)" class="btn-send-message"><i class="fa fa-paper-plane-o bg-white"></i></button></div>
+                                <div class="btn-send-messages"><button id="<?php  echo $inputted_data; ?>" onclick="sendMessage(this)" class="btn-send-message"><i class="fa fa-paper-plane-o bg-white"></i></button></div>
                             </div>
                         </div>
                     </div>
@@ -188,20 +190,21 @@
         // ================================================================================================================
         public function Save_message($messenger, $messages, $reciever){
             $created_on = Date("Y-m-d h:m:s");
-            $insert_message = "INSERT INTO messages VALUE ('','$messenger','$reciever','$messages','0','new','on','$created_on')";
+            $insert_message = "INSERT INTO messages VALUES ('','$messenger','$reciever','$messages','0','new','on','$created_on')";
             $execute_message = mysqli_query($this->Frequency(), $insert_message);
         }
 
         // DISPLAY ALL MESSAGE RECIEVED
         // ========================================================================================================================
         public function fetch_messages($sender, $reciever){
-            $select_all_message = "SELECT * FROM messages WHERE sender_email='$sender' AND reciever_email='$reciever' OR sender_email='$reciever' AND reciever_email='$sender' ORDER BY created_on ASC";
+            $select_all_message = "SELECT * FROM messages WHERE sender_email='$sender' AND reciever_email='$reciever' OR sender_email='$reciever' AND reciever_email='$sender' ORDER BY identity ASC";
             $execute_message = mysqli_query($this->Frequency(), $select_all_message);
             if(mysqli_num_rows($execute_message) > 0){
                 while($fetch_message = mysqli_fetch_assoc($execute_message)){
                     $sender_email = $fetch_message['sender_email'];
                     $reciever_email = $fetch_message['reciever_email'];
                     $message_recieved = $fetch_message['message'];
+
                     $send = date_create($fetch_message['created_on']);
                     $formatHour = date_format($send,"H:m"); 
 
@@ -263,14 +266,14 @@
                 $execute_message_text = mysqli_query($this->Frequency(), $select_message_text);
                 $fetch_message_text = mysqli_fetch_array($execute_message_text); 
 
-                $select_message_txt = "SELECT * FROM messages WHERE sender_email='$user_email' AND reciever_email='$my_email' OR sender_email='$my_email' AND reciever_email='$user_email' AND message_display='on' ORDER BY created_on DESC";
+                $select_message_txt = "SELECT * FROM messages WHERE sender_email='$user_email' AND reciever_email='$my_email' OR sender_email='$my_email' AND reciever_email='$user_email' AND message_display='on' ORDER BY created_on asc";
                 $execute_message_txt = mysqli_query($this->Frequency(), $select_message_txt);
                 $fetch_message_txt = mysqli_fetch_assoc($execute_message_txt);
                     $txt_mailer = $fetch_message_txt['sender_email']; 
                     $txt_date = $fetch_message_txt['created_on']; ?>
                 <li><a class="position-relative" id="<?php echo $user_email; ?>" onclick="unsetMessage(this)" data-toggle="tab" href="#conv_<?php echo $user_identity; ?>" role="tab">
                     <div class="each-conv position-relative">
-                        <div><div class="conv-owner-image position-relative">
+                        <div class="pos-img"><div class="conv-owner-image position-relative">
                             <img src="<?php echo '../Images/profile-img/profile-image/'.$profile; ?>" alt="" width="100%" height="100%">
                         </div></div>
                         <div class="message-own">
@@ -373,187 +376,10 @@
             <?php }
         }
 
-        // EXPAND MSG_AREA
-        // ===========================================================================================================================================
-        public function Expand_Msg_area($data_inputted, $my_email){
-            $arrlength = count($data_inputted);
-            $first_email = $data_inputted[0];
-            for($x = 0; $x < $arrlength; $x++) {
-                echo $data_inputted[$x];
-                echo "<br>";
-            } 
-            
-            $select_all_basic = "SELECT * FROM intelligent_users WHERE email='$first_email'";
-            $execute_basic = mysqli_query($this->Frequency(), $select_all_basic);
-            $fetch_basic = mysqli_fetch_assoc($execute_basic);
-                $firstname = $fetch_basic['firstName'];
-                $lastname = $fetch_basic['lastName'];
-
-            $conv = 0;    
-            $select_each_conv = "SELECT * FROM intelligent_users WHERE email IN (SELECT DISTINCT reciever_email FROM messages WHERE sender_email = '$my_email') OR email IN (SELECT DISTINCT sender_email FROM messages WHERE reciever_email = '$my_email') AND Verified = 'complete' ORDER BY firstName ASC";
-            $execute_each_conv = mysqli_query($this->Frequency(), $select_each_conv);
-            while($fetch_each_conv = mysqli_fetch_assoc($execute_each_conv)){    
-                $conv = $conv + 1;
-            }
-
-            $select_my_profile = "SELECT * FROM user_profile_image WHERE usr_email='$my_email' AND status_image = '1'";
-            $execute_my_profile = mysqli_query($this->Frequency(), $select_my_profile);
-            $fetch_my_profile = mysqli_fetch_assoc($execute_my_profile);
-                $profile_Owner = $fetch_my_profile['profile_image'];  
-            ?>
-            <div class="expand-message">
-                <div class="left-side-coneversion">
-                    <div class="conv-title">
-                        <div class="search-conv">
-                            <i class="fa fa-search"></i><input type="text" onkeyup="" name="" id="search-conv" placeholder="Search conversation..">
-                        </div>
-                        <div><div class="conv-notice"> <?php echo $conv; ?> Chats </div></div>
-                    </div>
-                    <div class="conv-list">
-                        <div class="conv-holder">
-                            <ul class="nav" role="tablist" id="list_down_li_chart">
-                                
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- <div class="add-chat">
-                        <!-- <div class="add-convesation"><i class="fa fa-plus"></i></div>
-                    </div> -->
-                </div>
-                <div class="rigt-side-chart-area position-relative">
-
-                    <!-- when it come to small deivice expand this div-->
-                    <!-- ==================================================== ============================================-->
-                    <!-- =================================================================================================== -->
-                    <div class="expand-left" onclick="openConv()"><i class="fa fa-navicon"></i></div>
-                    <div id="sideBar-conv" class="sideBar shadow-sm">
-                        <div class="conv-title">
-                            <div class="search-conv">
-                                <i class="fa fa-search"></i><input type="text" name="" id="search-conv" placeholder="Search conversation..">
-                            </div>
-                            <div><div class="conv-notice"><?php echo $conv; ?> Chats </div></div>
-                            <div class="closebtn" onclick="closeConv()">&times;</div>
-                        </div>
-                        <div class="conv-list">
-                            <div class="conv-holder">
-                                <ul class="nav" role="tablist" id="tablist_nav">
-                                   
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end small deivce -->
-                    <!-- ========================================================================================================= -->
-                    <!-- ========================================================================================================= -->
-
-                    <!-- BIG AREA OF CONVARSION -->
-                    <!-- ============================================================================================================== -->
-                    <div class="converstion-expand-full">
-                        <div class="tab-content">
-                            <input type="hidden" name="" id="hiddenEmail" value="<?php echo $my_email; ?>">
-                            <!-- ACTIVE CHART WHEN USER CLICKED -->
-                            <!-- ====================================================== -->
-                            <div class="active tab-pane" role="tabpanel" id="Active_chart">
-                                <div class="text-center-title-days">
-                                    <?php echo$firstname; ?> <?php echo $lastname; ?>
-                                </div>
-
-                                <div class="conv-full-txt" id="getMessage">
-                                    <script>
-                                        setInterval(()=> {
-                                            var obj_id = "<?php echo $first_email; ?>";
-                                            var my_email = document.getElementById("hiddenEmail").value;
-                                            $("#getMessage").load("../header/message_content.php", {
-                                                user_info_message: obj_id,
-                                                my_email: my_email
-                                            });
-                                        }, 1000);
-                                    </script>
-                                </div>  
-                                <div class="add-more-message-input">
-                                    <div class="input-form-textarea">
-                                        <!-- <div><div class="attachmentfile mt-4" onclick="open_file()"><i class="fa fa-paperclip"></i></div></div> -->
-                                        <div class="textarea-message"><textarea name="" class="position-relative" id="myMessage" rows="1" placeholder="Write message..."></textarea></div>
-                                        <div><div class="send-message-clip mt-4" id="<?php  for($x = 0; $x < $arrlength; $x++) { echo $data_inputted[$x]; } ?>" onclick="sendMessageExpand(this)"><i class="fa fa-paper-plane-o"></i></div></div>
-                                    </div>
-                                </div>   
-                            </div>
-                            <!-- ================================================================================================================================================== -->
-
-                            <!-- common chart -->
-                            <!-- =================================================================================================================================================== -->
-                            <?php
-                                $select_each_conv = "SELECT * FROM intelligent_users WHERE email IN (SELECT DISTINCT reciever_email FROM messages WHERE sender_email = '$my_email') OR email IN (SELECT DISTINCT sender_email FROM messages WHERE reciever_email = '$my_email') AND Verified = 'complete' ORDER BY firstName ASC";
-                                $execute_each_conv = mysqli_query($this->Frequency(), $select_each_conv);
-                                while($fetch_each_conv = mysqli_fetch_assoc($execute_each_conv)){ 
-                                    $user_email = $fetch_each_conv['email'];
-                                    $fisrtName = $fetch_each_conv['firstName'];
-                                    $lastName = $fetch_each_conv['lastName']; 
-                                    $user_identity = $fetch_each_conv['identity'];
-
-                                    $select_profile = "SELECT * FROM user_profile_image WHERE usr_email='$user_email' AND status_image = '1'";
-                                    $execute_profile = mysqli_query($this->Frequency(), $select_profile);
-                                    $fetch_profile = mysqli_fetch_assoc($execute_profile);
-                                        $profile = $fetch_profile['profile_image'];
-                            ?>
-                            <div class="tab-pane" role="tabpanel" id="conv_<?php echo $user_identity; ?>">
-                                <div class="text-center-title-days"><?php echo$fisrtName; ?> <?php echo $lastName; ?></div>
-                                <div class="conv-full-txt" id="getMessage_<?php echo $user_identity; ?>">
-
-                                    <script>
-                                        setInterval(()=> {
-                                            var obj_id = "<?php echo $user_email; ?>";
-                                            var my_email = document.getElementById("hiddenEmail").value;
-                                            $("#getMessage_<?php echo $user_identity; ?>").load("../header/message_content.php", {
-                                                user_info_message: obj_id,
-                                                my_email: my_email
-                                            });
-                                        }, 1000);
-                                    </script>
-
-                                </div>
-                                <div class="add-more-message-input">
-                                    <div class="input-form-textarea">
-                                        <!-- <div><div class="attachmentfile" onclick="open_file()"><i class="fa fa-paperclip"></i></div></div> -->
-                                        <div class="textarea-message"><textarea name="" class="position-relative" id="myMessage" data-emojiable="true" data-emoji-input="unicode" rows="1" placeholder="Write message..."></textarea></div>
-                                        <div><div class="send-message-clip" id="<?php  for($x = 0; $x < $arrlength; $x++) { echo $data_inputted[$x]; } ?>" onclick="sendMessageExpand(this)"><i class="fa fa-paper-plane-o"></i></div></div>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php } ?>
-                        <!-- end common chart -->
-                        <!-- ==================================================================================================================================== -->
-                        </div>
-                    </div>
-                    <div class="cancel-big-message">
-                        <div class="minimize" onclick="minumize_message(this)"><i class="fa fa-minus"></i></div>   
-                        <div class="expand" onclick="maximize_message(this)"><i class="fa fa-expand"></i></div>
-                        <div class="expand" onclick="close_message(this)"><i class="fa fa-times"></i></div>
-                    </div>
-                </div>
-            </div>
-            <script>
-                function minumize_message(obj){
-                    var section = obj.parentNode.parentNode.parentNode;
-                    section.style.bottom = "-440px";
-                }
-                function maximize_message(obj){
-                    var section = obj.parentNode.parentNode.parentNode;
-                    section.style.bottom = "20px";
-                }
-                function close_message(obj){
-                    var section = obj.parentNode.parentNode.parentNode;
-                    section.style.display = "none";
-                }
-            </script>
-        <?php }
-        // ==========================================================================================================================================================
-
-
         // PRESENT MESSAGE FOUND ON EACH CONV
         // ==========================================================================================================================================================
         public function Message_found($sender, $reciever){
-            $select_all_message = "SELECT * FROM messages WHERE sender_email='$sender' AND reciever_email='$reciever' OR sender_email='$reciever' AND reciever_email='$sender' ORDER BY created_on ASC";
+            $select_all_message = "SELECT * FROM messages WHERE sender_email='$sender' AND reciever_email='$reciever' OR sender_email='$reciever' AND reciever_email='$sender' ORDER BY identity ASC";
             $execute_message = mysqli_query($this->Frequency(), $select_all_message);
             while($fetch_message = mysqli_fetch_assoc($execute_message)){
                 $sender_email = $fetch_message['sender_email'];
@@ -606,10 +432,10 @@
                 <?php }else { ?>
                     <div class="sender-area-message">
                         <div class="person-send">
-                            <div><div class="user-conv-image"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_reciever; ?>" alt="" height="100%" width="100%"></div></div>
+                            <div><div class="user-conv-image"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_sender; ?>" alt="" height="100%" width="100%"></div></div>
                             <div class="message-detail-conv-send">
                                 <div class="messager-name-time">
-                                    <div class="name-messager"><?php $reciever_firstname; ?> <?php echo $reciever_lastName; ?></div>
+                                    <div class="name-messager"><?php echo $sender_firstname; ?> <?php echo $sender_lastName; ?></div>
                                     <div class="time-elaspe"><?php echo $formatHour; ?></div>
                                 </div>
                                 <div class="full-message"><?php echo $message_recieved; ?></div>
@@ -678,6 +504,14 @@
             <?php }
             }
         }
+
+        public function delete_converstion($user_deletion_email){
+            $delete_conv1 = "UPDATE messages SET Sender_active='false' WHERE sender_email = '$this->E_mail' AND reciever_email = '$user_deletion_email'";
+            $execute_deletion1 = mysqli_query($this->Frequency(), $delete_conv1);
+
+            $delete_conv2 = "UPDATE messages SET reciever_active='false' WHERE reciever_email = '$this->E_mail' AND sender_email = '$user_deletion_email'";
+            $execute_deletion2 = mysqli_query($this->Frequency(), $delete_conv2);
+        }
     }
 
 
@@ -697,7 +531,7 @@
     if(isset($_POST['data_inputted'])){
         $new_content = new Message_content($_POST['getUser']);
         $inputted_data = $_POST['data_inputted'];
-        $new_content->message_area($inputted_data);
+        $new_content->start_conv($inputted_data, $_POST['getUser']);  
     }
 
     // if( request is to save message
@@ -712,13 +546,6 @@
     if(isset($_POST['getCharter'])){
         $new_content = new Message_content($_POST['my_email']);
         $new_content->fetch_messages($_POST['my_email'], $_POST['getCharter']);
-    }
-
-    // if request is to expand message area
-    // ======================================================================================================
-    if(isset($_POST['expand_inputted'])){
-        $new_content = new Message_content($_POST['getUser']);
-        $new_content->Expand_Msg_area($_POST['expand_inputted'], $_POST['getUser']);
     }
 
     // if request is to display all chart link
@@ -754,5 +581,19 @@
     if(isset($_POST['fr_email'])){
         $new_search = new Message_content($_POST['fr_email']);
         $new_search->unsetMessage($_POST['my_emails'], $_POST['fr_email']);
+    }
+
+    // if request is to convert into short form
+    // ==========================================================================================================
+    if(isset($_POST['short_conv_area'])){
+        $new_search = new Message_content($_POST['getUser_conv']);
+        $new_search->message_area($_POST['short_conv_area']);
+    }
+
+    // if rquest is to delete converstion
+    // ===============================================================================================================
+    if(isset($_POST['user_delete_email'])){
+        $new_search = new Message_content($_POST['my_use_email']);
+        $new_search->delete_converstion($_POST['user_delete_email']);
     }
 ?>

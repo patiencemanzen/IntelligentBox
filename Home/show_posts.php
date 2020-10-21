@@ -59,7 +59,6 @@
                     // count date
                     // =============================
                     $select_date_posted = $fetch_posts['created_on'];
-                    $today_date = date("d/m/Y");
                     $Form_date = $this->timeAgo($select_date_posted);
 
                     $select_basic_info = "SELECT * FROM intelligent_users WHERE email='$poster_email'";
@@ -81,12 +80,6 @@
                         <!-- profile last updated view // each post -->
                         <!-- ========================================================================================================= -->
                         <div class="each-post mt-3" id="<?php echo 'post_status_'.$post_identity; ?>">
-                            <div class="arrangement-section d-flex">
-                                <div class="poster-identity"><a href="public_profile.box.php" ><div class="poster-img" id="load_profile_post" data-toggle="tooltip" data-placement="bottom" title="<?php echo $getFirstname; ?> <?php echo $getLastname; ?>' profile" ><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" width="100%" height="100%"></div></a></div>
-                                <div class="full-post ml-2">
-                                    <!-- poster name -->
-                                    <div class="poster-name"><?php echo $getFirstname; ?> <?php echo $getLastname; ?></div>
-
                             <div class="arrangement-section">
                                 <div class="poster-identity">
                                     <a href="public_profile.box.php" ><div class="poster-img" id="load_profile_post" data-toggle="tooltip" data-placement="bottom" title="<?php echo $getFirstname; ?> <?php echo $getLastname; ?>' profile" ><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" width="100%" height="100%"></div></a>
@@ -101,7 +94,7 @@
                                 </div>
                                 <div class="full-post">
                                     <!-- post caption -->
-                                    <div class="post-caption"><?php echo $select_caption; ?> Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit nostrum in aliquid similique et ullam debitis provident ipsum suscipit repudiandae. Officiis ipsam, quaerat autem omnis ratione aliquam id est nostrum sapiente accusantium porro dolor ea dolorum, nam architecto pariatur itaque.</div>
+                                    <div class="post-caption"><?php echo $select_caption; ?> </div>
 
                                     <!-- if post is video -->
                                     <?php if($select_media_posted == ""){?>
@@ -149,7 +142,7 @@
                                                         <i class="fa fa-comment" style="color: #08345e;" id="<?php echo $post_identity; ?>"></i>
                                                    <?php }else{ ?>
                                                         <i class="fa fa-comment-o" id="<?php echo $post_identity; ?>"></i>
-                                                   <?php } ?> <span id="comment_div"> Comments </span> <span id="count-comments_<?php echo $post_identity; ?>">
+                                                   <?php } ?> <span><span id="comment_div"> Comments </span> <span id="count-comments_<?php echo $post_identity; ?>"></span>
                                                 <script>
                                                     setInterval(()=> {
                                                         $(document).ready(function(){

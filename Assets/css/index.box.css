@@ -159,17 +159,17 @@
         background: white;
         padding: 0;
     }
-    .sign-in-btn ul{
+    .segments-link ul{
         padding: 0;
     }
-    .sign-in-btn ul li{
+    .segment-link ul li{
         float: left;
         list-style: none;
         padding: 7px 14px;
         cursor: pointer;
         position: relative;
     }
-    .sign-in-btn ul li::before{
+    .segment-link ul li::before{
         content: "";
         position: absolute;
         /* z-index: -1; */
@@ -185,14 +185,15 @@
         transition-timing-function: ease-out;
         border-radius: 30%;
     }
-    .sign-in-btn ul li:hover::before,.sign-in-btn ul li:focus::before{
+    .segment-link ul li:hover::before,.segment-link ul li:focus::before{
         left: 0;
         right: 0;
     }
-    .sign-in-btn ul li a{
+    .segment-link ul li a{
         color: #041a2f;
         font-family: roboto_bold;
-        letter-spacing: 0.3px;
+        letter-spacing: 0.6px;
+        font-size: 16px;
     }
 
 
@@ -515,9 +516,31 @@
         letter-spacing: 0.6px;
         font-weight: 590;
         text-align: center;
+        line-height: 25px;
+    }
+    .what-we-offer{
+        margin-top: 40px;
+        display: inline-flex;
+    }
+    .create-account{
+        background-color: #041a2f;
+        padding: 7px 20px;
+        margin-left: 20px;
+        border-radius: 4px;
+        font-size: 16px;
+        letter-spacing: 0.6px;
+        text-transform: capitalize;
+    }
+    .sign-me-btn{
+        background-color: white;
+        padding: 7px 20px;
+        border-radius: 4px;
+        font-size: 16px;
+        letter-spacing: 0.6px;
+        text-transform: capitalize;
     }
     .carousel-item{
-        height: 60vh;
+        height: 80vh;
         background: #f6f7fd;
         box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 6px rgba(0,0,0, 0.4);
         background-size: cover;
@@ -538,6 +561,7 @@
         padding: 50px;
         background: url(../../Images/index-img/fixed_background.jpg) center center no-repeat;
         background-size: cover;
+        background-attachment: fixed;
         overflow: hidden;
         position: relative;
         text-align: center;
@@ -866,11 +890,11 @@
         border-radius: 4px;
     }
     .course-desc{
-        padding: 20px;
+        padding: 15px 20px;
         font-family: roboto_bold;
         text-align: center;
-        letter-spacing: 0.3px;
-        line-height: 19px;
+        letter-spacing: 0.6px;
+        line-height: 20px;
         font-size: 15px;
     }
     .course-sub-desc{
@@ -879,6 +903,7 @@
         text-align: center;
         line-height: 20px;
         font-size: 14px;
+        letter-spacing: 0.6px;
     }
 
     /* INTELLIGENT SELF */
@@ -1138,11 +1163,13 @@
        color: white;
        font-family: roboto_bold;
        text-transform: capitalize;
-       border-radius: 4px;
+       border-radius: 24px;
        text-align: center;
        cursor: pointer;
        margin-top: 50px;
        width: 100%;
+       letter-spacing: 0.6px;
+       font-size: 16px;
    }
    .trainer-choise{
         background: #071c2e;

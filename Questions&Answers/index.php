@@ -1,17 +1,3 @@
-<!-- 
-	//////////////////////////////////////////////////////
-
-    INTELLIGENT BOX
-    DESIGNED & DEVELOPED by Manirabona Patience
-    
-    author: Mnirabona Patience,
-    Email:  Hseal419@gmail.com,
-    location: Kigali,Rwanda,
-    pro: Intelligent Box E-learning,
-    version: 1.0.0
-    
-	//////////////////////////////////////////////////////
--->
 <?php 
   session_start();
   if(isset($_SESSION['Email'])){
@@ -34,13 +20,10 @@
        <meta name="robots" content="index, follow"/>
        <meta name="apple-mobile-web-app-capable" content="yes">
 
-       <!-- index, used to repesent intelligent box on search engine and it browser -->
        <title>Questions and Answers</title>
 
-       <!-- intelligent box logo, present on search engine and on browse header -->
        <link rel="shortcut icon" href="../Images/favicon.png" type="image/x-icon">
 
-       <!-- external style link, type css file-->
        <link rel="stylesheet" href="../Assets/css/Questions&Answers.box.css">
 
        <!-- external css file/ libraries -->
@@ -217,12 +200,6 @@
        <script src="../Lib/material/js/material-dashboard?v=2.1.1.js"></script>
        <script src="../Lib/slick/slick.js"></script>
        <script src="../Lib/bootstrap/js/bootstrap-material-design.min.js"></script>
-       <script>
-           $(document).ready(function() {
-           //init DateTimePickers
-           md.initFormExtendedDatetimepickers();
-           });
-       </script> 
         <script>
             // initialize slick
             $(document).ready(function(){
@@ -256,4 +233,7 @@
         </script>
    </body>
 </html>
-<?php } ?>
+<?php }else{
+    header("location: ../account_shortcut.box.php");
+    exit();
+} ?>

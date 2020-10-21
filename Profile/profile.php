@@ -1,17 +1,3 @@
-<!-- 
-	//////////////////////////////////////////////////////
-
-    INTELLIGENT BOX
-    DESIGNED & DEVELOPED by Manirabona Patience
-    
-    author: Mnirabona Patience,
-    Email:  Hseal419@gmail.com,
-    location: Kigali,Rwanda,
-    pro: Intelligent Box E-learning,
-    version: 1.0.0
-    
-	//////////////////////////////////////////////////////
--->
 <?php 
   session_start();
   if(isset($_SESSION['Email'])){
@@ -34,13 +20,10 @@
         <meta name="robots" content="index, follow"/>
         <meta name="apple-mobile-web-app-capable" content="yes">
 
-        <!-- index, used to repesent intelligent box on search engine and it browser -->
         <title>intelligentBox.profile</title>
 
-        <!-- intelligent box logo, present on search engine and on browse header -->
         <link rel="shortcut icon" href="../Images/favicon.png" type="image/x-icon">
 
-        <!-- external style link, type css file-->
         <link rel="stylesheet" href="../Assets/css/profile.box.css">
 
         <!-- external css file/ libraries -->
@@ -48,35 +31,26 @@
         <link rel="stylesheet" href="../Lib/material/css/material-dashboard.css?v=2.1.1">
         <link rel="stylesheet" href="../Lib/now-ui-kit/now-ui-kit.css?v=1.3.0">
         <link rel="stylesheet" href="../Lib/now-ui-kit/now-ui-kit.css">
-        <link rel="stylesheet" href="../Lib/animate/animate.min.css">
         <link rel="stylesheet" href="../Lib/font-awesome/css/font-awesome.min.css">
-        <link rel="stylesheet" href="../Lib/jquery/jquery.fancybox.css">
-        <link rel="stylesheet" href="../Lib/lightbox/css/lightbox.min.css">
-        <link rel="stylesheet" href="../Lib/owlcarousel/assets/owl.carousel.min.css">
-        <link rel="stylesheet" href="../Lib/slick/slick.css">
-        <link rel="stylesheet" href="../Lib/theme-color/violet-theme.css">
-        <link rel="stylesheet" href="../Lib/venobox/venobox.css">
         <link rel="stylesheet" href="../Assets/css/pre-loader-image.css">
+        <link rel="stylesheet" href="../Lib/lightbox/css/lightbox.min.css">
 
         <!-- pdf file -->
         <script src="../Lib/Pdf/pdf.js"></script>
         <script src="../Lib/Pdf/pdf.worker.js"></script>
     
     </head>
-    <body >
+    <body class="bg-white">
 
         <!-- Section that will hold header -->
-        <!-- ======================================================================================================== -->
         <!-- ========================================================================================================== -->
         <div class="header-holder">
             <?php require_once ("../header/header.php"); ?>
         </div>
         <!-- end header section -->
-        <!-- ============================================================================================================= -->
         <!-- ========================================================================================================== -->    
 
         <!-- down section -->
-        <!-- ========================================================================================================================= -->
         <!-- ========================================================================================================================= -->
         <div class="down-section">
             <div class="profile-container-resizer container">
@@ -86,7 +60,6 @@
                         <!-- END GLOBAL EMAIL -->
 
                         <!-- top profile section -->
-                        <!-- ============================================================================================================= -->
                         <!-- ============================================================================================================= -->
                         <div class="top-side-profile position-relative">
                             
@@ -142,7 +115,7 @@
                             <!-- ====================================================================================================================== -->
                             <div class="profile-detail">
                                 <div class="user-detail-profile d-flex">
-                                    <div class="profile-image-user">
+                                    <div class="profile-image-user" id="user-profile-image">
                                         <!-- get profile image -->
                                         <!-- =============================== -->
                                         <span id="getProfileimage"></span>
@@ -151,15 +124,24 @@
                                         <div class="edit-profile"  data-toggle="tooltip" data-placement="bottom" title="Edit profile image" onclick="openEditSection()"><i class="fa fa-camera-retro"></i></div>
                                         <div class="edit-profile-image" id="edit_profile_image_section">
                                             <div class="profile-image-preview">
-                                                <div class="profile-image-title position-relative">preview image for profile <i class="fa fa-times" onclick="document.getElementById('edit_profile_image_section').style.display = 'none'"></i></div>
+                                                <div class="profile-image-title position-relative" id="profile-image-title">preview image for profile <i class="fa fa-times" onclick="document.getElementById('edit_profile_image_section').style.display = 'none'"></i></div>
                                                 <div class="preview-image-profile" id="preview-profile">
-                                                    <img src="" alt="" id="preview-profile-image" width="100%" height="100%">
+                                                    <img src="" alt="preview profile image update" id="preview-profile-image" width="100%" height="100%">
                                                 </div>
                                                 <div class="choose-image-profile">
                                                     <input type="file" name="profileImage" id="profileImageFile" accept="image/png,image/jpg,image/jpeg" style="display: none;">
-                                                    <div class="choose-profile-image"><button type="button" onclick="trigger_profile_image()">choose profile image</button></div>
-                                                    <div class="update-profile"><button type="button" name="submitprofileImage" onclick="submit_profile_image()">update</button></div>
-                                                    <div class="update-profile" id="error_found"></div>
+                                                    <div class="choose-profile-image d-flex justify-content-between">
+                                                        <button type="button" id="choose-profile-image" onclick="preview_profile_image(this)">choose profile image</button>
+                                                        <div class="intelligent_loader mr-3">
+                                                            <div class="shape shape-1"></div>
+                                                            <div class="shape shape-3"></div>
+                                                            <div class="shape shape-4"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="update-profile">
+                                                        <button type="button" id="submit-profile-image" name="submitprofileImage" onclick="submit_profile_image(this)"> update </button>
+                                                        <div class="" id="error_found"></div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -223,19 +205,19 @@
                                                     <div class="bodysettings">
                                                         <a href="../Group-discusion/Groups.php" class="settings-link"><div class="publicPost">
                                                             <div class="setting-icon"><i class="fa fa-rss mr-2"></i></div>
-                                                            <div class="link-label">Discover groups</div>
+                                                            <div class="link-label ml-3 mt-4">Discover groups</div>
                                                         </div></a>
                                                         <div class="publicPost" onclick="createGroupSection()">
                                                             <div class="setting-icon"><i class="fa fa-plus mr-2"></i></div>
-                                                            <div class="link-label">create group</div>
+                                                            <div class="link-label ml-3 mt-4">create group</div>
                                                         </div>
                                                         <a href="settings.php" class="settings-link"><div class="publicPost">
                                                             <div class="setting-icon"><i class="fa fa-cog mr-2"></i></div>
-                                                            <div class="link-label">Settings</div>
+                                                            <div class="link-label ml-3 mt-4">Settings</div>
                                                         </div></a>
                                                         <a href="Signout.box.php" style="color: #071c2e"><div class="challengeSetting">
                                                             <div class="setting-icon"><i class="fa fa-sign-out mr-2"></i></div>
-                                                            <div class="link-label">log out</div>
+                                                            <div class="link-label ml-3 mt-4">log out</div>
                                                         </div></a>
                                                     </div>
                                                 </div>
@@ -280,13 +262,8 @@
                                                 <div class="settings-footer">
                                                     <div class="about-box">
                                                         <div class="conditions">
-                                                            <a href="../About/Privacy.php" style="color: black;"><div>Terms & Condition</div></a>
-                                                            <a href="../About/terms_condition/terms_condition.php" style="color: black"><div>Privacy and Safety</div></a>
                                                             <a href="../About/terms_condition.php" style="color: black;"><div>Terms & Condition</div></a>
                                                             <a href="../About/Privacy.php" style="color: black"><div>Privacy and Safety</div></a>
-                                                        </div>
-                                                        <div class="Terms_body collapse" id="terms">
-                                                                                     
                                                         </div>
                                                         <div class="copyright">intelligent box <i class="fa fa-copyright"></i> 2020</div>
                                                     </div>
@@ -299,12 +276,10 @@
                                         <!-- end dropdown -->
                                     </div>
                                     <!-- end congs section of popups -->
-                                    <!-- ======================================================================================================================== -->
                                     <!-- ========================================================================================================================= -->
 
 
                                     <!-- edition of background image -->
-                                    <!-- ================================================================================================================================== -->
                                     <!-- ================================================================================================================================== -->
                                     <div class="edit-background-image-section">
                                         <div class="edit-background-image mt-1 ml-3" onclick="openBackgroundEdit()" data-toggle="tooltip" data-placement="bottom" title="Edit background image"><i class="fa fa-camera-retro"></i></div>  
@@ -312,16 +287,23 @@
                                         <!-- ============================================================ -->
                                         <div class="edit-background" id="edit-background_image">
                                             <div class="image-preview">
-                                                <div class="preview-title position-relative">preview image for background <i class="fa fa-times" onclick="document.getElementById('edit-background_image').style.display = 'none'"></i></div>
+                                                <div class="preview-title position-relative" id="preview-title">preview image for background <i class="fa fa-times" onclick="document.getElementById('edit-background_image').style.display = 'none'"></i></div>
                                                 <span id="holdError"></span>
                                                 <div class="preview" id="previewImage">
-                                                    <img src="" alt="" id="preview_image" width="100%" height="100%">
+                                                    <img src="" alt="preview background image updates" id="preview_image" width="100%" height="100%">
                                                 </div>
                                                 <form enctype="multipart/form-data">
                                                     <div class="choose-image">
-                                                        <input type="file" name="backgroundImage" id="profileImage" accept='image/png,image/jpeg,image/jpg' style="display: none;">
-                                                        <div class="update-btn"><button type="button" id="btn_upload" onclick="submit_background_image()">update</button></div>
-                                                        <div class="choose-file"><button type="button" onclick="triggerInputFile_background()">choose image</button></div>
+                                                        <input type="file" name="backgroundImage" id="profileImage" style="display: none;">
+                                                        <div class="update-btn" id="update-btn"><button type="button" id="btn_upload" onclick="submit_background_image(this)">update</button></div>
+                                                        <div class="choose-file d-flex justify-content-between">
+                                                            <button type="button" id="submit-background" onclick="previewBackgroundImage(this)">choose image</button>
+                                                            <div class="intelligent_loader mr-3">
+                                                                <div class="shape shape-1"></div>
+                                                                <div class="shape shape-3"></div>
+                                                                <div class="shape shape-4"></div>
+                                                            </div>
+                                                        </div>
                                                         <div class="choose-file" id="error_foud"></div>
                                                     </div>
                                                 </form>
@@ -329,28 +311,22 @@
                                         </div>
                                         <!-- end background image edit -->
                                         <!-- =================================================================== -->
-                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <!-- end settings icons -->
-                            <!-- ========================================================================================================= -->
                             <!-- =========================================================================================================== -->
                         </div>
                         <!-- end top side background image -->
-                        <!-- ============================================================================================================================= -->
-                        <!-- ============================================================================================================================= -->
                         <!-- ============================================================================================================================== -->
                     
 
 
                         <!-- down based section -->
                         <!-- ========================================================================================================================================== -->
-                        <!-- ========================================================================================================================================== -->
-                        <!-- ========================================================================================================================================== -->
                         <div class="down-sectio-alignment">
                         <div class="alignment d-flex justify-content-between">
                             <!-- right side of section -->
-                            <!-- ======================================================================================================== -->
                             <!-- ======================================================================================================== -->
                             <div class="right-section" style="width: 100%">
                                     <?php if($user_title == "student"){?>
@@ -616,7 +592,6 @@
                                                 </div>
                                                 <!-- end my trainer -->
                                                 <!-- ===================================================================================================================================== -->
-                                                <!-- ===================================================================================================================================== -->
 
                                             </div>
                                         </div>
@@ -624,7 +599,6 @@
 
                                 </div>
                                 <!-- End Tabs course,trainer and question -->
-                                <!-- ================================================================================================================= -->
                                 <!-- ================================================================================================================== -->
 
 
@@ -666,15 +640,14 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <div class="card-body-content">
+                                        <div class="card-body-conten">
                                             <!-- Tab panes -->
                                             <div class="tab-content">
 
                                                 <!-- tab for profile image posted before -->
                                                 <!-- ================================================================================================================ -->
-                                                <!-- ================================================================================================================ -->
                                                 <div class="tab-pane active" id="home1" role="tabpanel">
-                                                    <div class="holder" id="hold_last_post">
+                                                    <div class="holder p-3" id="hold_last_post">
                                                         <div class="container-spnner">
                                                             <div class="shape shape-1"></div>
                                                             <div class="shape shape-2"></div>
@@ -685,14 +658,11 @@
                                                 </div>
                                                 <!-- end tab for profile posted before -->
                                                 <!-- ================================================================================================================== -->
-                                                <!-- ================================================================================================================== -->
-
 
                                                 <!-- post shared before -->
                                                 <!-- ================================================================================================================== -->
-                                                <!-- ================================================================================================================== -->
                                                 <div class="tab-pane" id="profile1" role="tabpanel">
-                                                    <div class="profile-posted-holder" id="hold_profile_image_post">
+                                                    <div class="profile-posted-holder p-3" id="hold_profile_image_post">
                                                         <div class="container-spnner">
                                                             <div class="shape shape-1"></div>
                                                             <div class="shape shape-2"></div>
@@ -771,14 +741,41 @@
                                 <!-- gallery section -->
                                 <!-- ======================================================================================================================================== -->
                                 <!-- =========================================================================================================================================== -->
-                                <div class="user-friend">
-                                    <div class="label_tab"> Photos </div>
-                                    <div class="galleries-list mt-2" id="get_all_photos">                                       
-                                        <div class="container-spnner">
-                                            <div class="shape shape-1"></div>
-                                            <div class="shape shape-2"></div>
-                                            <div class="shape shape-3"></div>
-                                            <div class="shape shape-4"></div>
+                                <div class="about-supporter">
+                                    <div class="user-friend">
+                                        <div class="top_nav_shared">
+                                            <ul class="nav d-flex justify-content-between" role="tablist">
+                                                <li><a class="active" data-toggle="tab" href="#posted-profile-photo" role="tab">
+                                                    <div class="shared_content_link">Profile Photos</div>
+                                                </a></li>
+                                                <li><a class="" data-toggle="tab" href="#posted-background-photo" role="tab">
+                                                    <div class="shared_content_link">Background Photos</div>
+                                                </a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="friend-list_files mt-2" style=" min-height: 200px;max-height: 400px;">
+                                            <div class="tab-content">
+                                                <div class="tab-pane active" role="tabpanel" id="posted-profile-photo" style>
+                                                    <div class="galleries-list mt-2" id="get_all_photos">                                       
+                                                        <div class="container-spnner">
+                                                            <div class="shape shape-1"></div>
+                                                            <div class="shape shape-2"></div>
+                                                            <div class="shape shape-3"></div>
+                                                            <div class="shape shape-4"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane" role="tabpanel" id="posted-background-photo">
+                                                    <div class="galleries-list mt-2" id="get_background_photos">                                       
+                                                        <div class="container-spnner">
+                                                            <div class="shape shape-1"></div>
+                                                            <div class="shape shape-2"></div>
+                                                            <div class="shape shape-3"></div>
+                                                            <div class="shape shape-4"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -813,11 +810,10 @@
 
                                 <!-- shared content -->
                                 <!-- ================================================================================================================================================== -->
-                                <!-- ================================================================================================================================================== -->
                                 <div class="about-supporter">
                                     <div class="user-friend">
                                         <div class="top_nav_shared">
-                                            <ul class="nav" role="tablist">
+                                            <ul class="nav d-flex justify-content-between" role="tablist">
                                                 <li><a class="active" data-toggle="tab" href="#shared_notes_files" role="tab">
                                                     <div class="shared_content_link">Shared Notes</div>
                                                 </a></li>
@@ -854,11 +850,9 @@
                                     </div>
                                 </div>
                                 <!-- end shared content -->
-                                <!-- ============================================================================================================================================================= -->
                                 <!-- ==================================================================================================================================================================== -->
 
                                 <!-- new trainer -->
-                                <!-- ===================================================================================================================================================================== -->
                                 <!-- ====================================================================================================================================================================== -->
                                 <div class="user-friend">
                                     <div class="label_tab"> Follow More trainers </div>
@@ -1006,9 +1000,7 @@
         <!-- ========================================================================================================================================================= -->
     
         <!-- javascript external file, type js  and libraries-->
-        <!-- ================================================ -->
         <!-- ======================================================== -->
-
         <script src="../Assets/js/profile.openPopUp.box.js"></script>
         <script src="../Assets/js/video_controll.box.js"></script>
         <script src="../Assets/js/profile.load.data.js"></script>
@@ -1020,56 +1012,15 @@
 
         <script src="../Lib/ckeditor/ckeditor.js"></script>
         <script src="../Lib/bootstrap/js/bootstrap.min.js" type="text/javascript"></script> 
-        <script src="../Lib/bootstrap/js/bootstrap-datepicker.js"></script> 
-        <script src="../Lib/custom/custom.js"></script>
-        <script src="../Lib/date-picker/bootstrap-switch.js"></script>
-        <script src="../Lib/date-picker/nouislider.min.js"></script>
-        <script src="../Lib/easing/easing.min.js"></script>
-        <script src="../Lib/jquery/jquery-migrate.min.js"></script>
-        <script src="../Lib/jquery/jquery.bootstrap-wizard.js"></script>
-        <script src="../Lib/jquery/jquery.counterup.js"></script>
-        <script src="../Lib/jquery/jquery.fancybox.pack.js"></script>
         <script src="../Lib/jquery/jquery.min.js"></script>
-        <script src="../Lib/jquery/jquery.mixitup.js"></script>
-        <script src="../Lib/jquery/jquery.poptrox.min.js"></script>
-        <script src="../Lib/jquery/jquery.validate.min.js"></script>
-        <script src="../Lib/jquery/perfect-scrollbar.jquery.min.js"></script>
-        <script src="../Lib/lightbox/js/lightbox-plus-jquery.min.js"></script>
         <script src="../Lib/material/js/material-dashboard?v=2.1.1.js"></script>
         <script src="../Lib/now-ui-kit/now-ui-kit.js"></script>
-        <script src="../Lib/owlcarousel/owl.carousel.js"></script>
-        <script src="../Lib/popper/popper.min.js"></script>
-        <script src="../Lib/skel/skel.min.js"></script>
-        <script src="../Lib/slick/slick.js"></script>
-        <script src="../Lib/superfish/superfish.js"></script>
-        <script src="../Lib/venobox/venobox.js"></script>
-        <script src="../Lib/wow/wow.min.js"></script>
-        <script src="../Lib/bootstrap/js/bootstrap-material-design.min.js"></script>
-        <script>
-            $(document).ready(function() {
-            //init DateTimePickers
-            md.initFormExtendedDatetimepickers();
-            });
-        </script> 
-        <script>
-            $(document).ready(function() {
-                // the body of this function is in assets/js/now-ui-kit.js
-                nowuiKit.initSliders();
-            });
-        
-            function scrollToDownload() {
-                if ($('.section-download').length != 0) {
-                $("html, body").animate({
-                    scrollTop: $('.section-download').offset().top
-                }, 1000);
-                }
-            }
-        </script>
+        <script src="../Lib/lightbox/js/lightbox-plus-jquery.min.js"></script>
+        <script src="../Lib/bootstrap/js/bootstrap-material-design.min.js"></script> 
         <script>
             CKEDITOR.replace('content');
         </script>
         <!-- end libraries -->
-        <!-- ================================================================================================================================= -->
         <!-- =================================================================================================================================== -->
 
     </body>

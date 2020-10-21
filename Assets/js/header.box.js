@@ -4,14 +4,14 @@ function openNotificationArea(){
     var notification = document.getElementById("notification_popUp");
     if(notification.style.display == "block"){
         notification.style.display = "none";
+    }else{
+        notification.style.display = "block";
         $(document).ready(function(){
             var user_mail = document.getElementById("user_mail").value;
             $("#count_notification").load("../header/header_content.php", {
               unsetCount_notification: user_mail
             });
         });
-    }else{
-        notification.style.display = "block";
     }
 }
 
@@ -112,6 +112,7 @@ function resultSection(){
         if(user_name == ""){
 
         }else{
+            document.getElementById("load_search").style.display = "block";
             $("#search_result_show").load("../header/header_content.php", {
                 searchUser: user_name,
                 mail: user_mail

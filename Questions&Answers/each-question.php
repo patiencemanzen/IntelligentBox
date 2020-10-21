@@ -272,6 +272,6 @@
     header("Location: index.php");
     exit();
 } }else{
-    header("Location: ../account_shortcut.box.php?session");
+    header("Location: ../account_shortcut.box.php");
     exit();
 } ?>

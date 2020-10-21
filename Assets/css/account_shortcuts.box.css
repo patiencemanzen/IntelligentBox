@@ -259,8 +259,12 @@
 }
 .usr-image img{
     width: 100%;
+    height: 100%;
     border-top-left-radius: 14px;
     border-top-right-radius: 14px;
+}
+.usr-image{
+    height: 150px;
 }
 .user-name{
     text-align: center;

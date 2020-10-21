@@ -91,6 +91,7 @@
     }
     .right-section{
         margin-right: 30px;
+        width: 55%;
     }
     .user-background-image{
         background: #f6f7fd;
@@ -239,6 +240,7 @@
     .card-body-content{
         border-radius: 4px;
         margin-top: 5px;
+        width: 100%;
     }
     .tab-content{width: 100%;}
     #courses{
@@ -1462,6 +1464,7 @@
         border-radius: 100%;
         margin-left: 5px;
         margin-top: 5px;
+        background: #f6f7fd
     }
     .commenter-image img{
         border-radius: 100%;
@@ -1477,6 +1480,7 @@
         width: 100%;
         height: 100%;
         font-family: roboto_medium;
+        font-size: 15px
     }
     .text-input{
         border: 1px solid #d3d3d3;

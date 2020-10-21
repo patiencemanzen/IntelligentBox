@@ -1,21 +1,5 @@
-<!-- 
-	//////////////////////////////////////////////////////
-
-    INTELLIGENT BOX
-    DESIGNED & DEVELOPED by Manirabona Patience
-    
-    author: Mnirabona Patience,
-    Email:  Hseal419@gmail.com,
-    location: Kigali,Rwanda,
-    pro: Intelligent Box E-learning,
-    version: 1.0.0
-    
-	//////////////////////////////////////////////////////
--->
-
 <?php 
     //  INITIALIZE DATABASE CONNECTION
-    //  =============================================================================================================
     // ==============================================================================================================
     require_once ("Scyllar.php");
     // ==============================================================================================================
@@ -36,6 +20,16 @@
         public function __construct($particle,$getEmail){
             $this->atmosphere = $particle;
             $this->email = $getEmail;
+        }
+
+        public function popularBio($word){
+            if(strlen($word)<= 100){
+                $word= $word."";
+                }else{
+                $word= substr($word, 0, 100);
+                $word= $word."...";
+            }
+            return $word;
         }
 
         // FETCHING  PARTICLES
@@ -72,7 +66,7 @@
                                 <button type="button" id="<?php echo $user_email; ?>" onclick="followUser(this)">Follow</button>
                             </div>
                         </div>
-                        <div class="user-sug-bio"><?php echo $bio; ?></div>
+                        <div class="user-sug-bio"><?php echo $this->popularBio($bio); ?></div>
                     </div>
                 </div>
 
@@ -113,7 +107,7 @@
                                 <button type="button" id="<?php echo $user_email; ?>" onclick="followUser(this)">Follow</button>
                             </div>
                         </div>
-                        <div class="user-sug-bio"><?php echo $bio; ?></div>
+                        <div class="user-sug-bio"><?php echo $this->popularBio($bio); ?></div>
                     </div>
                 </div>
 

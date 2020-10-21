@@ -82,7 +82,6 @@ function checkInput(obj){
             beforeSend:()=>{},
             complete:()=>{},
             success:(data)=>{
-                // console.log(data);
                 $(".Msg").load("registeScylla.php",{
                     getFirstname: firstname,
                     getLastname: lastname,

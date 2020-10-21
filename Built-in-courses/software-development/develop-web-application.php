@@ -102,7 +102,7 @@
                     <div class="rate">4.6 <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-half-o"></i></div>
                 </div>
                 <div class="course-image">
-                    <div class="c-image"><img src="../../Images/course-img/develop-web-application.jpg" alt="" width="100%" height="100%"></div>
+                    <div class="c-image"><img src="../../Images/course-img/develop-web-application.png" alt="" width="100%" height="100%"></div>
                 </div>
             </div>
         </div>
@@ -1937,13 +1937,16 @@
                         <div class="scrollspy-1">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                  <a class="nav-link" href="#section1">1: Introduction</a>
+                                  <a class="nav-link" href="#section1">1: Define PHP language and its basics</a>
                                 </li>
                                 <li class="nav-item">
-                                  <a class="nav-link" href="#section2">2: Trigonometry Concepts</a>
+                                  <a class="nav-link" href="#section2">2: Use of PHP program flow control </a>
                                 </li>
                                 <li class="nav-item">
-                                  <a class="nav-link" href="#section3">3: Triangle and applications</a>
+                                  <a class="nav-link" href="#section3">3: Install and configure a PHP server </a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link" href="#section4">4: Introduce Frameworks </a>
                                 </li>
                               </ul>
                         </div>

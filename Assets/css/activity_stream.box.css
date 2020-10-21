@@ -192,11 +192,11 @@
     .create-title{
         font-family: roboto_bold;
         font-weight: 580;
-        letter-spacing: 0.5px;
+        letter-spacing: 0.6px;
         color: var(--BoxPrimary);
         text-align: center;
         text-transform: capitalize;
-        font-size: 15px;
+        font-size: 17px;
         border-bottom: 2px solid var(--BoxLines);
         padding: 10px;
     }
@@ -251,15 +251,20 @@
         border-top: none;
     }
     .stream-title{
-        background: var(--BoxSecondary);
+        background: var(--BoxSubSecondary);
         font-family: roboto_bold;
+        text-align: center;
+        color: white;
         text-transform: capitalize;
         font-size: 18px;
         border-radius: 20px;
         padding: 9px 15px 9px 15px;
+        margin: 20px 5px 0px 5px;
+        letter-spacing: 0.6px;
+    }
+    .trended-stream{
+        padding: 0 50px;
         margin-top: 20px;
-        margin-left: 10px;
-        margin-right: 10px;
     }
 
 /* post style */    
@@ -267,10 +272,9 @@
 /* ================================================================================================================================================ */
     .each-post{
         padding: 10px;
-        border-top: 2px solid var(--BoxLines);
-        box-shadow: 0 0 3px rgba(0,0,0, 0.3);
-        border-radius: 4px;
-        margin: 10px 0px 20px 0px;
+        box-shadow: 0 0 5px rgba(0,0,0, 0.3);
+        border-radius: 14px;
+        margin: 10px 0px 30px 0px;
     }
     .poster-identity{
         display: flex;
@@ -280,7 +284,7 @@
     }
     .poster-img{
         background: var(--BoxSecondary);
-        border-radius: 4px;
+        border-radius: 14px;
         width: 45px;
         height: 45px;
         margin-top: 3px;
@@ -315,7 +319,7 @@
         letter-spacing: 0.6px;
         line-height: 22px;
         font-size: 16px;
-        margin-top: 7px;
+        margin-top: 10px;
     }
 
     .full-post {
@@ -1395,7 +1399,6 @@
 
     /* MEDIA QUERY APPLY ON SMALL DEVICE */
     /* =========================================================================================================================================== */
-    /* =========================================================================================================================================== */
     @media screen and (max-width: 1199px){
         .psts{
             background-color: var(--Basic);
@@ -1460,6 +1463,13 @@
             margin-right: 22rem; /* Same as the width of the sidenav */
             margin-top: 30px;
             width: 100%;
+        }
+        .separet_content{
+           box-shadow: 0 0 0px rgba(0,0,0, 0.3);
+        }
+        .trended-stream{
+            padding: 3px;
+            margin-top: 20px;
         }
     }
 
@@ -1600,5 +1610,4 @@
         }
     }
     /* END MEDIA QUERY APPLY ONN SMALL DEVICE */
-    /* =========================================================================================================================================== */
     /* =========================================================================================================================================== */

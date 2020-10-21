@@ -318,7 +318,7 @@
                             </div></div>
                             <div class="discovery-detail">
                                 <div class="dis-name"><?php echo $firstName; ?> <?php echo $lastName; ?></div>
-                                <div class="dis-dep">& <?php echo $people_email; ?></div>
+                                <div class="dis-dep"><?php echo $people_email; ?></div>
                             </div>
                         </div>
                         <div class="follow-over"><button class="follow-discovery" id="<?php echo $people_email; ?>" onclick="invite(this)">Invite</button></div>

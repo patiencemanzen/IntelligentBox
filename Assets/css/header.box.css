@@ -72,7 +72,7 @@
         position: sticky;
         top: 0;
         z-index: 99;
-        box-shadow: 0 0 1px rgba(165, 122, 122, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 10px rgba(0,0,0, 0.4);
+        box-shadow: 0 0 10px rgba(0,0,0, 0.3);
     }
     .small-dev-nav{
         cursor: pointer;
@@ -128,7 +128,6 @@
 /* nav-icons style */
 /* ======================================================================================================================================== */
     .nav-icons{
-        /* overflow: hidden; */
         background: white;
         position: relative;
         box-shadow: 0 0 10px rgba(0,0,0, 0.3);
@@ -137,15 +136,14 @@
     }
     .nav-icons .nav-item{
         background: white;
-        margin-right: 0px;
         position: relative;
     }
     .nav-icons .nav-item a{
         color: #041a2f;
         font-family: roboto_bold;
         cursor: pointer;
-        letter-spacing: 0.3px;
-        line-height: 18px;
+        letter-spacing: 0.6px;
+        line-height: 20px;
     }
     .nav-icons .nav-item a .fa{
         font-size: 16px;
@@ -216,7 +214,7 @@
     }
     .each-notification{
         background: #f6f7fd;
-        padding: 6px 13px;
+        padding: 7px 10px;
         position: relative;
         background: white;
         border-top: 2px solid #d3d3d3;
@@ -227,9 +225,9 @@
         top: 7px;
         background: #041a2f;
         color: white;
-        padding: 2px 6px;
-        border-radius: 50%;
-        font-size: 13px;
+        padding: 3px 5px;
+        border-radius: 4px;
+        font-size: 14px;
     }
     .present-msg-type{
         position: absolute;
@@ -244,8 +242,9 @@
     }
     .time-ageo{
         color: #d3d3d3;
-        font-size: 12px;
+        font-size: 14px;
         font-family: roboto_bold;
+        margin-left: 6px;
     }
     .noti-img-def img{
         border-radius: 50%;
@@ -264,14 +263,16 @@
         font-family: roboto_medium;
     }
     .noti-detali .noti-lesson{
-        text-transform: capitalize;
-        font-size: 13px;
-        font-family: roboto_regular;
+        font-size: 14px;
+        font-family: roboto_medium;
+        letter-spacing: 0.6px;
+        line-height: 20px;
     }
     .name-noti{
-        font-family: roboto_medium;
-        font-size: 14px;
+        font-family: roboto_bold;
+        font-size: 15px;
         text-transform: capitalize;
+        letter-spacing: 0.6px;
     }
     .error_occur{
         text-align: center;
@@ -351,7 +352,7 @@
     .search-everything{
         width: 100%; 
         margin-right: 10px;
-        padding: 3px;
+        margin-top: 2px;
     }
     .search-student-control{
         border: none;
@@ -359,6 +360,7 @@
         background-color: #f6f7fd;
         width: 100%;
         height: 100%;
+        margin-top: 1px;
     }
     .search-student-form input{
         font-family: roboto_medium;
@@ -366,7 +368,7 @@
     .search-student-form{
         padding: 4px 15px 4px 15px;
         font-family: roboto_regular;
-        border-radius: 20px;
+        border-radius: 4px;
         width: 100%;
         background-color: #f6f7fd;
         -webkit-transition: width 0.4s ease-in-out;
@@ -375,10 +377,13 @@
         margin-left: 5px;
     }
     .search-student-form .fa{
-        margin-top: 2.5px;
+        margin-top: 3px;
         cursor: pointer;
     }
-    .search-user-student{position: relative;}
+    .search-user-student{
+        position: relative;
+        margin-top: 2px;
+    }
     .search-result{
         position: absolute;
         top: 37px;

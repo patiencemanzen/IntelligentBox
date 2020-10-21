@@ -2,7 +2,7 @@
 
     // INITIALIZE DATABASE CONNECTION 
     // ==========================================================================================================
-    require_once ("../Scyllar.php");
+    require_once ("../../Scyllar.php");
     // ==========================================================================================================
 
     // CLASS LEARN_CONTENT
@@ -57,7 +57,7 @@
             $selectImage = "SELECT * FROM user_profile_image WHERE usr_email='$Email' AND status_image='1'";
             $executeImage = mysqli_query($this->Frequency(),$selectImage);
             $fetchImage = mysqli_fetch_assoc($executeImage); ?>
-                <img src="<?php echo '../Images/profile-img/profile-image/'.$fetchImage['profile_image'] ?>" width="100%" height="100%">
+                <img src="<?php echo '../../Images/profile-img/profile-image/'.$fetchImage['profile_image'] ?>" width="100%" height="100%">
         <?php }
     }
 

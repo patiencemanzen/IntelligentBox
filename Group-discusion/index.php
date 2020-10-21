@@ -1,17 +1,3 @@
-<!-- 
-	//////////////////////////////////////////////////////
-
-    INTELLIGENT BOX
-    DESIGNED & DEVELOPED by Manirabona Patience
-    
-    author: Mnirabona Patience,
-    Email:  Hseal419@gmail.com,
-    location: Kigali,Rwanda,
-    pro: Intelligent Box E-learning,
-    version: 1.0.0
-    
-	//////////////////////////////////////////////////////
--->
 <?php 
   session_start(); 
   if(isset($_SESSION['Email'])){
@@ -234,7 +220,7 @@
                             <!-- ================================================================================================================================ -->
                             <div class="group-detail">
                                 <div class="detail"><span class="pre-accu">trainer</span> <span><?php echo $Trainer; ?></span></div>
-                                <div class="detail d-flex">
+                                <div class="search-member d-flex">
                                     <i class="fa fa-search "></i>
                                     <input type="text" name="" id="search_member" class="search" placeholder="seach member with email.." autocomplete="off" onkeyup="openResult()">
                                     <div class="searched-result" id="searched-results">
@@ -506,7 +492,7 @@
 <div class="Authorize">Unauthorized way, <a href="Groups.php?joinmore">Help me now!</a></div>
 <?php }
   }else{
-    header("Location: ../account_shortcut.box.php?session");
+    header("Location: ../account_shortcut.box.php");
     exit();
   }
 ?>

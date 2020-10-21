@@ -106,7 +106,7 @@
                                 </div>
                             </div></a>
                             <a href="software-development/secure-database.php" style="color:  #041a2f;"><div class="each-course">
-                                <div class="course-image"><img src="../Images/course-img/Database-Security.jpg" alt="database security" width="100%" height="100%"></div>
+                                <div class="course-image"><img src="../Images/course-img/Database-Security.png" alt="database security" width="100%" height="100%"></div>
                                 <div class="course-desc">
                                     <div class="course-name">Secure a database</div>
                                     <div class="course-description">
@@ -121,7 +121,7 @@
                                 </div>
                             </div></a>
                             <a href="software-development/backend-application.php" style="color:  #041a2f;"><div class="each-course">
-                                <div class="course-image"><img src="../Images/course-img/backend.jpg" alt="backend applications" width="100%" height="100%"></div>
+                                <div class="course-image"><img src="../Images/course-img/backend.png" alt="backend applications" width="100%" height="100%"></div>
                                 <div class="course-desc">
                                     <div class="course-name">Develop backend applications</div>
                                     <div class="course-description">
@@ -135,7 +135,7 @@
                                 </div>
                             </div></a>
                             <a href="software-development/system-analysis-and-design.php" style="color:  #041a2f;"><div class="each-course">
-                                <div class="course-image"><img src="../Images/course-img/system-anlysis.jpg" alt="system analysis" width="100%" height="100%"></div>
+                                <div class="course-image"><img src="../Images/course-img/system-anlysis.png" alt="system analysis" width="100%" height="100%"></div>
                                 <div class="course-desc">
                                     <div class="course-name">system analysis and design</div>
                                     <div class="course-description">
@@ -149,7 +149,7 @@
                                 </div>
                             </div></a>
                             <a href="software-development/small-scale-ict-project.php" style="color:  #041a2f;"><div class="each-course">
-                                <div class="course-image"><img src="../Images/course-img/Small-scale.jpg" alt="small scale projects" width="100%" height="100%"></div>
+                                <div class="course-image"><img src="../Images/course-img/Small-scale.png" alt="small scale projects" width="100%" height="100%"></div>
                                 <div class="course-desc">
                                     <div class="course-name">Small scale ICT projects</div>
                                     <div class="course-description">
@@ -164,7 +164,7 @@
                                 </div>
                             </div></a>
                             <a href="software-development/setup-database-server.php" style="color:  #041a2f;"> <div class="each-course">
-                                <div class="course-image"><img src="../Images/course-img/setup-database-server.jpg" alt="setup database server" width="100%" height="100%"></div>
+                                <div class="course-image"><img src="../Images/course-img/setup-database-server.png" alt="setup database server" width="100%" height="100%"></div>
                                 <div class="course-desc">
                                     <div class="course-name">Setup database server</div>
                                     <div class="course-description">
@@ -177,7 +177,7 @@
                                 </div>
                             </div></a>
                             <a href="software-development/deploy-web-application.php" style="color:  #041a2f;"><div class="each-course">
-                                <div class="course-image"><img src="../Images/course-img/ictprojects.jpg" alt="deploy a web application" width="100%" height="100%"></div>
+                                <div class="course-image"><img src="../Images/course-img/develop-web-application.png" alt="deploy a web application" width="100%" height="100%"></div>
                                 <div class="course-desc">
                                     <div class="course-name">Deploy a web application</div>
                                     <div class="course-description">
@@ -192,7 +192,7 @@
                                 </div>
                             </div></a>
                             <a href="software-development/develop-web-application.php" style="color:  #041a2f;"><div class="each-course">
-                                <div class="course-image"><img src="../Images/course-img/develop-web-application.jpg" alt="develop web application" width="100%" height="100%"></div>
+                                <div class="course-image"><img src="../Images/course-img/develop-web-application.png" alt="develop web application" width="100%" height="100%"></div>
                                 <div class="course-desc">
                                     <div class="course-name">Develop a web application</div>
                                     <div class="course-description">

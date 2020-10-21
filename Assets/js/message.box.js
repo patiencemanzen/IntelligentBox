@@ -38,11 +38,11 @@ function format () {
 }
 
 // sidebar container all convasation on small device
-function openConv() {
+function openConversation() {
     document.getElementById("sideBar-conv").style.width = "330px";
 }
   
-function closeConv() {
+function openConversation() {
     document.getElementById("sideBar-conv").style.width = "0";
 }
 
@@ -50,10 +50,19 @@ function closeConv() {
 // WHEN USER CLICK NEW MESSAGE
 // ==========================================================================================================================
 function New_message(){
-    var cd_nav_trigger = document.getElementById("hold-messaging");
+    var cd_nav_trigger = document.getElementById("open-conv-ex");
     if(cd_nav_trigger.style.display == "none"){
         cd_nav_trigger.style.display = "block";
     }else{
         cd_nav_trigger.style.display = "none";
+    }
+}
+
+function open_full_conv(){
+    var conv = document.getElementById("expanded_conv");
+    if(conv.style.display == "block"){
+        conv.style.display = "none";
+    }else{
+        conv.style.display = "block";
     }
 }

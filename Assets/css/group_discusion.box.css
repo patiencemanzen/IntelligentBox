@@ -115,11 +115,12 @@
         padding: 5px 10px;
         margin-right: 10px;
         margin-top: 1px;
+        cursor: pointer;
     }
 
     .settings-and-info{
         box-shadow: 0 0 15px rgba(0,0,0, 0.3);
-        border-radius: 4px;
+        border-radius: 14px;
         position: absolute;
         right: 0px;
         background: white;
@@ -131,10 +132,12 @@
     }
     .settings-pre{
         font-family: roboto_bold;
-        font-size: 15px;
+        font-size: 16px;
         padding: 10px;
         border-bottom: 1.5px solid #d3d3d3;
         position: relative;
+        letter-spacing: 0.6px;
+        line-height: 21px;
     }
     .settings-pre .fa{
         position: absolute;
@@ -162,7 +165,7 @@
         background: #f6f7fd;
     }
     .discovery-detail{
-        margin-left: 5px;
+        margin-left: 10px;
         letter-spacing: 0.3px;
         line-height: 16px;
         margin-top: 4px;
@@ -170,20 +173,22 @@
     }
     .dis-name{
         font-family: roboto_medium;
-        font-size: 12.5px;
+        font-size: 14px;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
         width: 170px;
+        letter-spacing: 0.6px;
     }
     .dis-dep{
         font-family: roboto_medium;
-        font-size: 12.5px;
+        font-size: 13px;
         color: #d3d3d3;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
         width: 170px;
+        letter-spacing: 0.6px;
     }
     .follow-discovery{
         background: #071c2e;
@@ -193,9 +198,10 @@
         cursor: pointer;
         color: white;
         font-family: roboto_medium;
-        font-size: 12px;
+        font-size: 13px;
         padding: 3px 8px;
         margin-top: 5px;
+        letter-spacing: 0.6px;
     }
     .following{
         background: white;
@@ -205,18 +211,22 @@
         cursor: pointer;
         color: #071c2e;
         font-family: roboto_medium;
-        font-size: 12px;
+        font-size: 13px;
         padding: 3px 8px;
         margin-top: 5px; 
+        letter-spacing: 0.6px;
     }
     
     .title-settings{
         font-family: roboto_bold;
+        font-size: 15px;
+        letter-spacing: 0.6px;
+        padding: 2px 0px 5px 0px;
     }
     .reply-setting{
         font-family: roboto_regular;
         overflow: auto;
-        height: 200px;
+        height: 150px;
         overflow-x: hidden;
     }
     .group-description-settings{
@@ -272,9 +282,11 @@
     }
     .group-member {
         padding: 8px 0px 8px 8px;
-        background: white;
+        background: #08345e;
         border-bottom-right-radius: 4px;
         border-bottom-left-radius: 4px;
+        display: flex;
+        justify-content: space-between;
     }
     .friends-cover{
         color: white;
@@ -285,31 +297,35 @@
         text-transform: capitalize;
     }
     .group-detail{
-        margin-top: 10px;
+        display: flex;
     }
-    .detail-list .detail{
-        background: #f6f7fd;
+    .detail{
         font-family: roboto_bold;
         text-transform: capitalize;
-        border-radius: 4px;
-        padding: 5px 10px 5px 10px;
-        font-size: 15px;
         position: relative;
         margin-right: 8px;
-        font-size: 14px;
-        background: white;
+        font-size: 16px;
         letter-spacing: 0.6px;
+        color: white;
+        line-height: 20px;
+        margin-top: 7px;
     }
-    .detail-list .detail .search{
+    .search-member{
+       background-color: white;
+       border-radius: 4px;
+       padding: 2px 10px;
+       margin-right: 10px;
+    }
+    .search-member .search{
         border: none;
         outline: none;
         padding: 0px 10px 0px 10px;
-        background: #f6f7fd;
+        background: white;
         font-family: roboto_regular;
         font-size: 14px;
     }
-    .detail-list .detail .fa-search{
-        margin-top: 3px;
+    .search-member .fa-search{
+        margin-top: 7px;
     }
     .searched-result{
         position: absolute;

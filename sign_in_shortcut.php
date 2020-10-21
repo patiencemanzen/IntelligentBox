@@ -51,20 +51,11 @@
         // if user checked checkbox then set up cookies
         // ===========================================================
         public function set_up_cookies (){
-            if($this->remember_me == "forgetMe"){
-                setcookie("Scyllar_Email","",time() - 3600);
-                setcookie("Scyllar_password","",time() - 3600);
+            if(empty($this->remember_me)){
+               
             }else{
-                if(empty($this->remember_me)){
-                    if(isset($_COOKIE['Scyllar_Email'])){
-                        setcookie("Scyllar_Email","",time() - 3600);
-                    }if(isset($_COOKIE['Scyllar_password'])){
-                        setcookie("Scyllar_password","",time() - 3600);
-                    }
-                }else{
-                    setcookie("Scyllar_Email",$this->User_email,time() + (86400 * 30),'/');
-                    setcookie("Scyllar_password",$this->User_password,time() + (86400 * 30),'/');
-                }
+                setcookie("Scyllar_Email",$this->User_email,time() + (86400 * 30),'/');
+                setcookie("Scyllar_password",$this->User_password,time() + (86400 * 30),'/');
             }
         }
 

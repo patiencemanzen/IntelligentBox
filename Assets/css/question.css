@@ -69,7 +69,7 @@
 /* =============================================================================================== */
     .questions-status{
         background: var(--BoxSubSecondary);
-        margin-top: 90px;
+        margin-top: 88px;
     }
     .question-nav{
         display: flex;

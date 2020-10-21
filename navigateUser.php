@@ -1,18 +1,3 @@
-<!-- 
-	//////////////////////////////////////////////////////
-
-    INTELLIGENT BOX
-    DESIGNED & DEVELOPED by Manirabona Patience
-    
-    author: Mnirabona Patience,
-    Email:  Hseal419@gmail.com,
-    location: Kigali,Rwanda,
-    pro: Intelligent Box E-learning,
-    version: 1.0.0
-    
-	//////////////////////////////////////////////////////
--->
-
 <?php 
     // INITIALIZE SESSION
     // ======================================================================================================================
@@ -29,7 +14,6 @@
     interface ScyllarNavigator {
         public function updateCurrentInfo ();
         public function updateBackgroundImage();
-        public function updateExtraInfo($local,$ipAddress);
         public function session_setup($email);
     }
     // ==================================================================================================================
@@ -58,12 +42,7 @@
         }
 
         // UPDATE EXTRA INFORMATION
-        // =================================================================================================================================
-        public function updateExtraInfo($location,$ip_address){
-            $updateInfo = "UPDATE user_auto_detection SET location='$location',ip_address='$ip_address' WHERE email='$this->CurrentEmail'";
-            $executeUpdates = mysqli_query($this->Frequency(),$updateInfo);
-        }
-
+        // ================================================================================================================================
         public function session_setup($mail){
             $selectCurrentInfo = "SELECT * FROM intelligent_users WHERE email='$mail'";
             $executeCurrentInfo = mysqli_query($this->Frequency(),$selectCurrentInfo);
@@ -101,12 +80,12 @@
             $selectIdentity = "SELECT identity FROM intelligent_users WHERE email='$this->CurrentEmail'";
             $execute_identity = mysqli_query($this->Frequency(),$selectIdentity);
             $fetchIdentity = mysqli_fetch_assoc($execute_identity);
-            $identity = $fetchIdentity['identity'];
-            $created_on = date("d/m/Y");
+                $identity = $fetchIdentity['identity'];
+                $created_on = Date("Y-m-d h:m:s");
 
             // upload image
             // =============================================================
-            $setDefault = "INSERT INTO user_profile_background_image VALUE ('','$identity','$this->CurrentEmail','default.jpg','on','$created_on')";
+            $setDefault = "INSERT INTO user_profile_background_image VALUE ('','$identity','$this->CurrentEmail','user-default-background.png','on','$created_on')";
             $executeProfile = mysqli_query($this->Frequency(),$setDefault);
         }
     }
@@ -116,38 +95,10 @@
     $oldtitle = $_POST['choosen_class'];
     $currentE = $_POST['Email'];
 
-    // PLATFORM INFORMATION
-    // ==========================================================
-    
-    // user ip address
-    function get_client_ip(){
-        $ipaddress = '';
-        if (isset($_SERVER['HTTP_CLIENT_IP'])) {
-            $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
-        } else if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-            $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
-        } else if (isset($_SERVER['HTTP_X_FORWARDED'])) {
-            $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
-        } else if (isset($_SERVER['HTTP_FORWARDED_FOR'])) {
-            $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
-        } else if (isset($_SERVER['HTTP_FORWARDED'])) {
-            $ipaddress = $_SERVER['HTTP_FORWARDED'];
-        } else if (isset($_SERVER['REMOTE_ADDR'])) {
-            $ipaddress = $_SERVER['REMOTE_ADDR'];
-        } else {
-            $ipaddress = 'UNKNOWN';
-        }
-
-        return $ipaddress;
-    }
-
-    $PublicIP = get_client_ip();
-
     // IMPLEMENT CLASS MONARCH
     $newMonarch = new Monarch($oldtitle,$currentE);
     if($newMonarch->updateCurrentInfo()){
         $newMonarch->updateBackgroundImage();
-        $newMonarch->updateExtraInfo($fullLocation,$PublicIP);
         $newMonarch->session_setup($currentE);
     }else{        
         header("Location: index.php?updateDatabaseFail");

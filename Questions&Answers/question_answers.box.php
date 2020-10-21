@@ -129,7 +129,6 @@
                             <?php } ?>
                             <div class="short_detail_time">
                                 <div class="time_asked">asked <?php echo $this->timeAgo($created_on); ?></div>
-                                <!-- <div class="Viewed_time"> Viewed <?php echo $views; ?> time </div> -->
                                 <div class="Viewed_time" id="<?php echo $question_identity; ?>" onclick="like_dislike(this)"><i class="fa fa-thumbs-o-up"></i> <span><?php echo $question_like; ?></span></div>
                                 <div class="Viewed_time"> Viewed <?php echo $views; ?> time </div>
                                 <div class="Viewed_time ml-2" id="<?php echo $question_identity; ?>" onclick="like_dislike(this)"><i class="fa fa-thumbs-o-up"></i> <span><?php echo $question_like; ?></span></div>
@@ -285,7 +284,6 @@
                     } 
                     if($user_email_owner == $user_mail){
                     }else{  ?>
-
                         <div class="each_answer">
                             <div class="user-top-detail">
                                 <div class="questioner_profile_image"><img src="<?php echo '../Images/profile-img/profile-image/'.$fetch_image['profile_image']; ?>" alt="" width="100%" height="100%"></div>
@@ -306,9 +304,7 @@
                                 <div class="full_question"><?php echo $question_desc; ?></div>
                                 <div class="question_img"><img src="<?php echo '../Images/Question&Answer/'.$media_support; ?>" alt="" width="100%" height="100%"></div>
                                 <div class="short_detail_time">
-                                    <div class="time_asked">asked <?php echo $this->timeAgo($created_on); ?></div>
-                                    <!-- <div class="Viewed_time"> Viewed <?php echo $views; ?> time  </div> -->
-                                    <div class="Viewed_time" id="<?php echo $question_identity; ?>" onclick="like_dislike(this)"><i class="fa fa-thumbs-o-up"></i> <span id="count_likes_recieved_<?php echo $question_identity; ?>">
+                                    <div class="Viewed_time" id="<?php echo $question_identity; ?>" onclick="like_dislike(this)"><i class="fa fa-thumbs-o-up"></i> <span id="count_likes_recieved_<?php echo $question_identity; ?>"></span></div>
                                     <div class="Viewed_time"> Viewed <?php echo $views; ?> time  </div>
                                     <div class="Viewed_time ml-2" id="<?php echo $question_identity; ?>" onclick="like_dislike(this)"><i class="fa fa-thumbs-o-up"></i> <span id="count_likes_recieved_<?php echo $question_identity; ?>">
                                         <script>

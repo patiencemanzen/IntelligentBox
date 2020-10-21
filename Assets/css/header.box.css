@@ -288,8 +288,9 @@
         font-size: 16px;
         margin-top: 5px;
     }
-
-
+    .user-nav-image a{
+        display: flex;
+    }
     .pre-nav-image img{
         border-radius: 50%;
     }
@@ -298,6 +299,15 @@
         height: 30px;
         border-radius: 50%;
         background-color: #f6f7fd;
+        margin-top: 2.8px;
+    }
+    .user_top_name{
+        font-family: roboto_bold;
+        font-size: 14px;
+        letter-spacing: 0.7px;
+        color: #041a2f;
+        margin: 8px 5px 0px 5px;
+        text-transform: capitalize;
     }
 
     .navbar-nav-icons{
@@ -382,7 +392,6 @@
     }
     .search-user-student{
         position: relative;
-        margin-top: 2px;
     }
     .search-result{
         position: absolute;

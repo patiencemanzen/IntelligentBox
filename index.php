@@ -51,7 +51,7 @@
                         </div>
                         <div class="search_trades_layer position-relative">
                             <div class="search-input d-flex">
-                                <input type="text" name="search-everything" id="search-everything" placeholder="Seach trades..." autocomplete="off" oninput="openSearch()">
+                                <input type="text" name="search-everything" id="search-everything" placeholder="Seach your favorite trades..." autocomplete="off" oninput="openSearch()">
                                 <i class="fa fa-search"></i>
                             </div>
                             <div class="seach-output" id="search-pop">
@@ -89,38 +89,28 @@
         
         <!-- TOP BACKGROUND IMAGE -->
         <!-- ====================================================================================================== -->
-        <div class="carousel slide shadow-none" data-ride="carousel" id="slides">
-            <div class="carousel-inner shadow-none">
-                <ul class="carousel-indicators">
-                    <li class="active" data-target="#slides" data-slide-to="0"></li>
-                    <li class="" data-target="#slides" data-slide-to="1"></li>
-                </ul>
-                <div class="carousel-inner shadow-sm">
-                    <div class="carousel-item active"><img src="Images/index-img/slides/slide-11.png" alt="seventh_slide" height="100%" width="100%"></div>
-                    <div class="carousel-item"><img src="Images/index-img/slides/slide-12.png" alt="eigth_slide" height="100%" width="100%"></div>
-                </div>
+        <div class="top-background-image">
+            <div class="top-over-background">
+               <div class="container">
+                   <div class="top-mesg">
+                        <p> 
+                            Education opens up the mind, Expands it and allows you to improve your life for future, for tomorrow
+                            belongs to those who prepare for it today.so, "start where you are. Use what you have. Do what you can". 
+                            We never fail, We success or learn.
+                        </p>
+                   </div>
+                    <div class="what-we-offer">
+                        <div class="sign-me-btn-top"><a href="account_shortcut.box.php">Sign me in</a></div>
+                        <div class="create-account-top"><a href="">Create account</a></div>
+                    </div>
+               </div>
             </div>
-            <div class="over-carousel">
-                <div class="container carousel-caption-down wow fadeInLeft col-md-6">
-                    <p> 
-                        Education opens up the mind, Expands it and allows you to improve your life for future, for tomorrow
-                        belongs to those who prepare for it today.so, "start where you are. Use what you have. Do what you can". 
-                        We never fail, We success or learn.
-                    </p>
-                    <!-- <div class="what-we-offer">
-                        <div class="sign-me-btn"><a href="account_shortcut.box.php">Sign me in</a></div>
-                        <div class="create-account">What we Offer</div>
-                    </div> -->
-                </div>
-                <div class="div"></div>
-           </div>  
         </div>
         <!-- end image non slide -->
         <!-- ============================================================================================================================================= -->
 
 
         <!-- thumbnail -->
-        <!-- ==================================================================================================================================================== -->
         <!-- ==================================================================================================================================================== -->
         <div class="thumbnail ml-auto mr-auto">
             <div class="container">
@@ -189,7 +179,7 @@
                                     <div class="thumbnail-images"><img src="Images/index-img/thumbnail/thumbnail-3.jpg" alt="world_religion" width="100%" height="100%"></div>
                                     <div class="course-desc">The world religions and their ancient culture </div>
                                     <div class="course-sub-desc">
-                                        Big and many content about main world religion and it short history for
+                                        Much content about world religion and it short history for
                                         intellectual people to mantain our believe among our religions culture.
                                     </div>
                                 </div>
@@ -313,8 +303,9 @@
                                                                 <div class="inputs-form tab">
                                                                     <div class="present-section">
                                                                         <div>
-                                                                            Thank you for Using intelligent box, you will learn more thing about from history, religions and read more news from everywhere, explore many new connections and people you may like to share things. 
-                                                                            Build up your mind and be the one you wish to be in another words be different in this wrestle world, Just join us Today.
+                                                                            Thank you for Using intelligentBox, you will learn more thing from history, religions and read more news from everywhere, 
+                                                                            explore many new connections and people you may like to share things. 
+                                                                            Build up your mind and be the one you wish to be in another words be different, Just join us Today.
                                                                         </div>
                                                                     </div>
                                                                     <div class="student-choise" onclick="nextPrev(1)">Get stated</div>
@@ -421,8 +412,8 @@
                                                                     </div>
                                                                     <div class="noticed-word">
                                                                         <p>
-                                                                            Welcome to intelligent box we little bit customize your profile but soon you can do it yourself,
-                                                                            you can get what people shared on your timeline and choose which course and department you want to attend.
+                                                                            Welcome to intelligentbox, we customize your profile but soon you can do it yourself,
+                                                                            you can get what people shared on your timeline and choose which course and department you want to join.
                                                                         </p>
                                                                     </div>
                                                                     <div class="welcome-word">you are Welcome !!</div>
@@ -829,7 +820,7 @@
                                     <div class="self">
                                         <div class="Title_self">Intelligent  Box</div>
                                         <div class="desc_self">
-                                            Connect with world's education and learn about Profession skills from profession People from around world. 
+                                            Connect with world's education and learn more about Profession skills from around region. 
                                         </div>
                                         <div class="footer_copyright">
                                             IntelligentBox &copy; 2020, All Reserved
@@ -941,7 +932,7 @@
                             <div class="condition-icons mt-1"><i class="fab fa-teamspeak"></i> <i class="fa fa-institution"></i></div>
                             <div class="condition-detail ml-2">
                                 <div class="condition-title">Terms and Condition</div>
-                                <div class="conditio-body"> Read intelligent box terms and condition that every users and members apply regularly</div>
+                                <div class="conditio-body"> Read terms and conditions that every users and members apply regularly</div>
                             </div>
                         </div></a>
                         <!-- end terms and condition -->
@@ -953,7 +944,7 @@
                             <div class="condition-icons mt-1"><i class="fa fa-shield"></i></div>
                             <div class="condition-detail ml-2">
                                 <div class="condition-title">Privacy and Policy</div>
-                                <div class="conditio-body">Privacy, Safety and Security of intelligent box Information and logs of users and members</div>
+                                <div class="conditio-body">Privacy, Safety and Security of Information on users and members</div>
                             </div>
                         </div></a>
                         <!-- end privacy and policy -->

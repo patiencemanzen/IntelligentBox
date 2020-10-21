@@ -259,13 +259,10 @@
     .down-section{
         margin-top: 30px;
     }
-    .single-element{
-        display: flex;
-    }
     .question-tab{
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
         border-radius: 14px;
-        margin: 10px
+        margin: 10px 5px 20px 5px;
     }
     .full-question{
         display: flex;

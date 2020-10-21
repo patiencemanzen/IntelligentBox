@@ -237,7 +237,7 @@
                     <div class="search-user-student d-flex ml-auto mr-3">
                         <!--user-image -->
                         <!-- ================================================================================ -->
-                        <div class="user-nav-imssage">
+                        <div class="user-nav-image">
                             <a href="../Profile/profile.php">
                                 <div class="pre-nav-image" style="margin-top: 2px;" id="header_profile">  </div>
                                 <div class="user_top_name"><?php echo $lastName; ?></div>

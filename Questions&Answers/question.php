@@ -141,15 +141,6 @@
        <script src="../Lib/material/js/material-dashboard?v=2.1.1.js"></script>
        <script src="../Lib/bootstrap/js/bootstrap-material-design.min.js"></script>
        <script src="../Lib/slick/slick.js"></script>
-       <script>
-            $('.single-element').slick({
-                dots: true,
-                infinite: true,
-                speed: 300,
-                slidesToShow: 1,
-                adaptiveHeight: true
-            });
-       </script>
    </body>
 </html>
 <?php }else{

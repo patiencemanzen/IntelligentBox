@@ -2002,10 +2002,10 @@
    @media screen and (max-width: 991px){
        /* intelectual-skills style */
         /* ============================================================================================================= */
-        /* .search-index{
+        .search-index{
             display: none;
         }
-        .active-column,.thumb-1{
+        /* .active-column,.thumb-1{
             display: none;
         }
         .connect_world{
@@ -2107,7 +2107,7 @@
         .tab-content-container{ /* Card style */
             border-radius: 4px;
             width: 600px;
-            margin-left: 40px;
+            margin-left: 10px;
         }
         .user-option{
             height: 500px;
@@ -2148,6 +2148,9 @@
             display: none;
         }
     
+    }
+    @media screen and (max-width: 425px){
+       .short-description{display: none;}
     }
     @media screen and (max-width: 360px){
         .search-input{

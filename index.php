@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <meta name="description" content="E-learning website that help everyone who want to learn intellectual skills, software development, share what you're about and challenge with other connection and become profession in it. intelligent box is good website for you to become what you dream about and it connect you around the world with many other professions student and teacher." />
-        <meta name="keywords" content="social network rwanda,social media rwanda, learning rwanda, e-learning rwanda, share content, connect friends, create challenges, tvet rwanda, intelligentbox courses, create intelligentbox, skills, account, signin, online charting, online learning, courses, groups, intelligentbox rwanda, e-learning rwanda, connect rwanda, intelligentbox, microbox developers, microbox rwanda, help" />
+        <meta name="keywords" content="Learn software development effectively, Read more about world religions, Read more about world history, read more new around the world, connect with world's educations, Get connected with your friends and learn more, Learn software development online, top e-learning in rwanda, intelligentBox rwanda, Share more things about sofware development, rwanda tvet e-learning website, learn everything through intelligentBox,  intellectual skills about software development, Create your free account, microbox rwanda, microbox developer" />
         <meta name="author" content="Manirabona Patience" />
         <meta name="robots" content="index, follow"/>
         <meta name="apple-mobile-web-app-capable" content="yes">

@@ -184,4 +184,7 @@
 
    </body>
 </html>
-<?php } } ?>
+<?php } }else{
+    header("Location: ../Personal-account/account_shortcut.box.php");
+    exit();
+} ?>

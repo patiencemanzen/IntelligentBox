@@ -1026,5 +1026,6 @@
     </body>
     </html>
 <?php }else{
-    echo "session not recognized";
+    header("Location: ../Personal-account/account_shortcut.box.php");
+    exit();
  }?>

@@ -15,7 +15,7 @@
         unset($_SESSION['title']);
         session_destroy();
 
-        header("location: ../account_shortcut.box.php?logout");
+        header("location: ../Personal-account/account_shortcut.box.php?logout");
     }
  
 ?>

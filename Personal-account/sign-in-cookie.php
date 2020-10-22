@@ -6,7 +6,7 @@
 
         //  INITIALIZE DATABASE CONNECTION
         // =================================================================================================
-        require_once ("Scyllar.php");
+        require_once ("../Scyllar.php");
         // =================================================================================================
 
         // INITIALZE AND CONFIGURE INTERFACE
@@ -102,17 +102,8 @@
                     $_SESSION['title'] = $user_title;
                     
                     //  then navigate user to profile page
-                    header("location: Profile/profile.php");  
+                    header("location: ../Built-in-courses/");  
                 }
-                //  setup session and navigate user to profile page
-                $_SESSION['identity'] = $identity;
-                $_SESSION['Firstname'] = $firstname;
-                $_SESSION['Lastname'] = $lastname;
-                $_SESSION['Email'] = $email;
-                $_SESSION['title'] = $user_title;
-                
-                //  then navigate user to profile page
-                header("location: Built-in-courses/");  
             }
         }
 
@@ -132,7 +123,7 @@
                 $newHomoSapien->setup_session_redirect();
             }
         }else{
-            header("location: index.php?user_not_in");
+            header("location: account_shortcut.box.php?user_not_in");
             exit();
         }
 ?>

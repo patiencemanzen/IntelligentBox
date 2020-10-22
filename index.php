@@ -64,7 +64,7 @@
                             </div>
                         </div>
                         <div class="segment-link">
-                            <ul><li class="dis_short_devs"><a href="account_shortcut.box.php">Have an account?, Sign me in </a></li></ul>
+                            <ul><li class="dis_short_devs"><a href="Personal-account/create-account.box.php">Don't have an account?, Sign me Up </a></li></ul>
                         </div>
 
                         <!-- show all trades supported -->
@@ -100,8 +100,8 @@
                         </p>
                    </div>
                     <div class="what-we-offer">
-                        <div class="sign-me-btn-top"><a href="account_shortcut.box.php">Sign me in</a></div>
-                        <div class="create-account-top"><a href="">Create account</a></div>
+                        <div class="sign-me-btn-top"><a href="Personal-account/account_shortcut.box.php">Sign me in</a></div>
+                        <div class="create-account-top"><a href="Personal-account/create-account.box.php">Create account</a></div>
                     </div>
                </div>
             </div>

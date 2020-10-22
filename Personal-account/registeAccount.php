@@ -6,15 +6,15 @@
 
     // INITIALIZE DATABASE CONNECTION AND USER CODE
     // ===========================================================================================================
-    include_once ("Scyllar.php");
-    include_once ("User_local_info.php");
+    include_once ("../Scyllar.php");
+    include_once ("../User_local_info.php");
     // ===========================================================================================================
     
     // IMPORT PHPMAILER FILE
     // ==========================================================================================================
-    require_once "PHPMailer/PHPMailer.php";
-    require_once "PHPMailer/SMTP.php";
-    require_once "PHPMailer/Exception.php";
+    require_once "../PHPMailer/PHPMailer.php";
+    require_once "../PHPMailer/SMTP.php";
+    require_once "../PHPMailer/Exception.php";
     // ===========================================================================================================
 
     // INITIALIZE INTERFACE NEULON
@@ -113,7 +113,6 @@
         }
 
         // METHORD CHECK IF EMAIL EXIST IN OWER DATA
-        // =============================================================================================================
         // =============================================================================================================
         public function checkEmailExist(){
             $selectCurrentEmail = "SELECT * FROM intelligent_users WHERE email='$this->_email'";
@@ -235,11 +234,10 @@
 
     // GET DATA THANK HAVE BEEN INPUTED
     // ============================================================================================================
-    // ============================================================================================================
     $firstname = $_POST['getFirstname'];
     $lastname = $_POST['getLastname'];
     $email = $_POST['getEmail'];
-    $password = $_POST['getPassword'];
+    $password = $_POST['getPass'];
 
     $user_city = $_POST['user_city'];
     $user_country = $_POST['user_country'];
@@ -247,7 +245,7 @@
     $user_timezone = $_POST['user_timezone'];
     $user_isp = $_POST['user_isp'];
 
-    $getTitle = "student";
+    $getTitle = $_POST['getSection'];
     $verifyCode = rand(100000,999999);
 
     $Line = Date("Y-m-d h:m:s");
@@ -287,7 +285,6 @@
         $status = $th;
         $response = "Technical error, we're working to get it fixed, try again!";
     }
-
     // end mythology
     // =====================================================================================================================
 

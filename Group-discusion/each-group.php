@@ -194,6 +194,6 @@
     exit();
   } 
 }else{
-    header("Location: ../account_shortcut.box.php?session");
+    header("Location: ../Personal-account/account_shortcut.box.php");
     exit();
 } ?>

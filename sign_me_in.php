@@ -103,9 +103,8 @@
                 $_SESSION['title'] = $user_title;
                 
                 //  then navigate user to profile page 
-                header("Location: Profile/profile.php"); 
-                exit();
                 header("Location: Built-in-courses/");
+                exit();
             }
         }
     }

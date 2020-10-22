@@ -15,12 +15,12 @@
         <title>intelligentBox account</title>
 
         <link rel="shortcut icon" href="Images/favicon.png" type="image/x-icon">
-        <link rel="stylesheet" href="Assets/css/account_shortcuts.box.css">
+        <link rel="stylesheet" href="../Assets/css/account_shortcuts.box.css">
 
-        <link rel="stylesheet" href="Lib/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="Lib/material/css/material-dashboard.css?v=2.1.1">
-        <link rel="stylesheet" href="Lib/now-ui-kit/now-ui-kit.css?v=1.3.0">
-        <link rel="stylesheet" href="Lib/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../Lib/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../Lib/material/css/material-dashboard.css?v=2.1.1">
+        <link rel="stylesheet" href="../Lib/now-ui-kit/now-ui-kit.css?v=1.3.0">
+        <link rel="stylesheet" href="../Lib/font-awesome/css/font-awesome.min.css">
     </head>
     <body>
 
@@ -40,9 +40,10 @@
                 <div class="container">
                     <div class="links">
                         <ul>
-                            <li><a href="index.php"><i class="fa fa-user"></i> Create account/Home</a></li>
+                            <li><a href="../index.php">Home Page</a></li>
                             <li class="Privacy"><a href="About/Privacy.php"><i class="fa fa-shield"></i> Privacy and Safety</a></li>
                             <li class="Conditions"><a href="About/terms_condition.php"><i class="fa fa-institution"></i> Terms and Conditions</a></li>
+                            <li class="Privacy"><a href="create-account.box.php">Create account</a></li>
                         </ul>
                     </div>
                 </div>
@@ -100,7 +101,7 @@
                                     var user_email_cookie = document.getElementById("user_email_cookie").value;
                                     var user_password_cookie = "<?php echo $_COOKIE['Scyllar_password']; ?>";
 
-                                    $("#cookie_setting_down").load("show_trades.php", {
+                                    $("#cookie_setting_down").load("../show_trades.php", {
                                         cookie: "cookie",
                                         getCookie_email: user_email_cookie,
                                         getCookie_pass: user_password_cookie
@@ -119,14 +120,14 @@
 
         <!-- javascript external file, type js  and libraries-->
         <!-- ========================================================================================================================================== -->
-        <script src="Assets/js/sign_in_shortcut.box.js"></script>
-        <script src="Lib/bootstrap/js/bootstrap.min.js" type="text/javascript"></script> 
-        <script src="Lib/jquery/jquery.min.js"></script>
-        <script src="Lib/jquery/jquery-3.3.1.min"></script>
-        <script src="Lib/material/js/material-dashboard?v=2.1.1.js"></script>
-        <script src="Lib/now-ui-kit/now-ui-kit.js"></script>
-        <script src="Lib/wow/wow.min.js"></script>
-        <script src="Lib/bootstrap/js/bootstrap-material-design.min.js"></script>
+        <script src="../Assets/js/sign_in_shortcut.box.js"></script>
+        <script src="../Lib/bootstrap/js/bootstrap.min.js" type="text/javascript"></script> 
+        <script src="../Lib/jquery/jquery.min.js"></script>
+        <script src="../Lib/jquery/jquery-3.3.1.min"></script>
+        <script src="../Lib/material/js/material-dashboard?v=2.1.1.js"></script>
+        <script src="../Lib/now-ui-kit/now-ui-kit.js"></script>
+        <script src="../Lib/wow/wow.min.js"></script>
+        <script src="../Lib/bootstrap/js/bootstrap-material-design.min.js"></script>
         <script>
             // Initiate the wowjs animation library
             new WOW().init();

@@ -181,7 +181,7 @@
             <div class="user-login-session">
                 <div class="input-set">
                     <div class="close-user-session" onclick="unsetCookies()"><i class="fa fa-times"></i></div>
-                    <div class="usr-image"><img src="<?php echo 'Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%"></div>
+                    <div class="usr-image"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%"></div>
                     <div class="user-name mt-2 mb-1" id="user_name_cookie"><?php echo $getFirstname; ?> <?php echo $getLastname; ?></div>
                     <form action="sign-in-cookie.php" method="POST" id="formCookie">
                         <input type="hidden" name="submit_email" value="<?php echo $user_email; ?>">

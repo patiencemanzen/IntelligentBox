@@ -95,6 +95,7 @@
 
         <!-- javascript external file, type js  and libraries-->
         <!-- ================================================ -->
+        <script src="../Assets/js/all_groups.box.js"></script>
         <script src="../Lib/bootstrap/js/bootstrap.min.js" type="text/javascript"></script> 
         <script src="../Lib/jquery/jquery.min.js"></script>
         <script src="../Lib/material/js/material-dashboard?v=2.1.1.js"></script>
@@ -103,6 +104,6 @@
     </body>
 </html>
 <?php }else{
-    header("Location: ../account_shortcut.box.php");
+    header("Location: ../Personal-account/account_shortcut.box.php");
     exit();
 } ?>

@@ -800,6 +800,6 @@
         <div class="unauthorized_group">wrong token link, <a href="Groups.php?joingroups">Help me now!</a></div> 
    <?php }
 }else{
-    header("Location: ../account_shortcut.box.php?session");
+    header("Location: ../Personal-account/account_shortcut.box.php");
     exit();
 } ?>

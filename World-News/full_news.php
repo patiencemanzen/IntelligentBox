@@ -215,6 +215,6 @@
 <?php }else{
     header("location: index.php");
 } }else{
-    header("location: ../account_shortcut.box.php");
+    header("Location: ../Personal-account/account_shortcut.box.php");
     exit();
 } ?>

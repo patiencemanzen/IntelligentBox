@@ -709,6 +709,6 @@
    </body>
 </html>
 <?php } else {
-    header("Location: ../account_shortcut.box.php");
-    exit();
+   header("Location: ../Personal-account/account_shortcut.box.php");
+   exit();
 } ?>

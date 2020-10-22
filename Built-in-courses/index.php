@@ -265,6 +265,6 @@
     </body>
  </html>
  <?php }else{
-    header("Location: ../account_shortcut.box.php");
+    header("Location: ../Personal-account/account_shortcut.box.php");
     exit();
 }?>

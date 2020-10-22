@@ -85,9 +85,9 @@ function load_posts(){
         var post_type = "feeds";
         $("#activity_posts").load("show_posts.php",{
             getPost_email: global_mail,
-            getpost_type: post_type   ,
-            getPhotoPath: "../Images/activity_stream/",
-            getVideoPath: "../videos/activity_stream-vd/"
+            getCommonPost_type: post_type   ,
+            getPostPhotoPath: "../Images/activity_stream/",
+            getPostVideoPath: "../videos/activity_stream-vd/"
         });
     });
 }

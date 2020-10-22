@@ -492,4 +492,7 @@
 </html>
 <?php }
 
+}else{
+    header("Location: ../Personal-account/account_shortcut.box.php");
+    exit();
 } ?>

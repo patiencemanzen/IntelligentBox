@@ -1,7 +1,7 @@
 <?php
     //  INITIALIZE DATABASE CONNECTION
     // =================================================================================================
-    require_once ("Scyllar.php");
+    require_once ("../Scyllar.php");
     // =================================================================================================
 
     // INITIALIZE SESSION
@@ -94,7 +94,7 @@
                 $_SESSION['title'] = $user_title;
 
                 //  then navigate user to profile page 
-                header("Location: Built-in-courses/");
+                header("Location: ../Built-in-courses/");
             }
         }
     }

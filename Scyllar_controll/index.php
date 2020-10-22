@@ -38,7 +38,7 @@
         <div class="logn-interface">
             <div class="title-logo">Admin Login</div>
             <div class="login-inputs">
-              <form action="admin.php" method="POST" id="form-admin">
+              <form action="Admin.php" method="POST" id="form-admin">
                 <div class="admin-email" id="admin-email_input"><input type="text" name="admin-email" id="admin-email" placeholder="E-mail" autocomplete="off"></div>
                 <div class="admin-password" id="admin-password-input"><input type="password" name="admin-password" id="admin-password" placeholder="Password" autocomplete="off"></div>
                 <div class="error-log"></div>

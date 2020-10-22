@@ -996,7 +996,7 @@
             <script src="Assets/js/index.forgetPassword.box.js"></script>
             <script src="Assets/js/index.contuct_us.box.js"></script>
             <script src="Assets/js/index.show_trades.box.js"></script>
-            <script src="Assets/js/personal_info.js"></script>
+            <!-- <script src="Assets/js/personal_info.js"></script> -->
 
             <script src="Lib/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
             <script src="Lib/jquery/jquery.min.js"></script>

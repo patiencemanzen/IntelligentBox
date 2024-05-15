@@ -232,6 +232,7 @@ function previewNewsSmall(){
         if(file){
             const reader = new FileReader();
             reader.addEventListener("load",function(){
+                document.getElementById("image-story-preview").style.display = "block";
                 previewImage.setAttribute("src", this.result);
             });
             reader.readAsDataURL(file);

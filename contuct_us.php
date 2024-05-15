@@ -1,31 +1,13 @@
-<!-- 
-	//////////////////////////////////////////////////////
-
-    INTELLIGENT BOX
-    DESIGNED & DEVELOPED by Manirabona Patience
-    
-    author: Mnirabona Patience,
-    Email:  Hseal419@gmail.com,
-    location: Kigali,Rwanda,
-    pro: Intelligent Box E-learning,
-    version: 1.0.0
-    
-	//////////////////////////////////////////////////////
--->
 <?php 
 
     //  INITIALIZE AND INCLUDE PHPMAILER
     // ======================================================================================================
-    // ======================================================================================================
     use PHPMailer\PHPMailer\PHPMailer;
-    // ======================================================================================================
     // ======================================================================================================
   
     //  INCLUDE DATABASE CONNECTION FROM SCYLLA
     // =======================================================================================================
-    // =======================================================================================================
     require_once ("Scyllar.php");
-    // =======================================================================================================
     // =======================================================================================================
 
     // IMPORT PHPMAILER FILE
@@ -37,7 +19,6 @@
 
 
     // MAKE AND CONFIGURE INTERFACE
-    // ========================================================================================================
     // =========================================================================================================
     interface  Thoughts {
         public function validate_email();
@@ -47,7 +28,6 @@
 
 
     // MAKE AND CONFIGURE CLASS CALLED FEEDBACKS
-    // =============================================================================================================
     // =============================================================================================================
     class Feedbacks extends Scyllar implements Thoughts {
         private $firstname;
@@ -83,15 +63,15 @@
             $mail->isSMTP();
             $mail->Host = "mail.intelligentbox.rw";
             $mail->SMTPAuth = true;
-            $mail->Username = "create_sapience@intelligentbox.rw";
-            $mail->Password = 'human_sapience@2020';
+            $mail->Username = "users@intelligentbox.rw";  // current password 'Homo_sapience@intelligentbox'
+            $mail->Password = 'IntelligentBoxUsers';
             $mail->Port = 465;    //587
             $mail->SMTPSecure = "ssl";   // tls
             
             // Email settings
             $mail->isHTML(true);       
             $mail->setFrom($this->email, $this->firstname);      // specify who sending email (sender)
-            $mail->addAddress("create_sapience@intelligentbox.rw");    // specify where email sended (reciever)
+            $mail->addAddress("users@intelligentbox.rw");    // specify where email sended (reciever)
             $mail->Subject = $this->subject;
             $mail->Body = $this->body;
 

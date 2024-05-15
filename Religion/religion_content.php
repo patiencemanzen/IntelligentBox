@@ -9,6 +9,17 @@
     // ============================================================================================================
     class Religion_content extends Scyllar {
 
+        
+        public function popularWords($word){
+            if(strlen($word)<= 200){
+                $word= $word."";
+                }else{
+                $word= substr($word, 0, 200);
+                $word= $word."...";
+            }
+            return $word;
+        }
+
         public function each_religinon_continet($religion_continet, $religion_page){ ?>
             <!-- title categories, history -->
             <div class="top-title mt-5">
@@ -61,7 +72,7 @@
                 <!-- each story -->
                 <!-- ================================================================================================================================== -->
                 <div class="each-today-in-history">
-                    <div><div class="story-image"><img src="<?php echo '../Images/topics/'.$topics_image; ?>" alt="" width="100%" height="100%"></div> </div>
+                    <div style="width: 100%;"><div class="story-image"><img src="<?php echo '../Images/topics/'.$topics_image; ?>" alt="" width="100%" height="100%"></div> </div>
                     <div class="story-desc pt-3 pl-2 pr-2">
                         <div class="story-title-1 d-flex justify-content-between">
                             <div class=""><?php echo  $topic_title; ?></div>
@@ -206,7 +217,7 @@
                                         </div>
                                         <p class="long-story-desc">
                                             <span class="long-story-title"><?php echo $media_title; ?></span><hr>
-                                            <span class="story-holder-desc"><?php echo $media_body; ?></span>
+                                            <span class="story-holder-desc"><?php echo $this->popularWords($media_body); ?></span>
                                         </p>
                                     </div>
 
@@ -344,13 +355,13 @@
                 ?>
                 <!-- each story -->
                 <!-- ====================================================================================================================================== -->
-                <div class="each-today-in-history">
+                <a href="" style="color: black"><div class="each-today-in-history">
                     <div><div class="story-images"><img src="<?php echo '../Images/world-news-img/'.$getImage; ?>" alt="" width="100%" height="100%"></div> </div>
                     <p class="story-desc-down ml-2">
                         <span class="short-desc"><?php echo $fetch_topics['news_title']; ?></span><br><br>
-                        <span class="user-define-story"><?php echo $fetch_topics['news_description']; ?></span>
+                        <span class="user-define-story"><?php echo $this->popularWords($fetch_topics['news_description']); ?></span>
                     </p>
-                </div>
+                </div></a>
                 <!-- end each story -->
                 <!-- ============================================================================================================================================= -->
                 

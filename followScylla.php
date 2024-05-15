@@ -1,20 +1,5 @@
-<!-- 
-	//////////////////////////////////////////////////////
-
-    INTELLIGENT BOX
-    DESIGNED & DEVELOPED by Manirabona Patience
-    
-    author: Mnirabona Patience,
-    Email:  Hseal419@gmail.com,
-    location: Kigali,Rwanda,
-    pro: Intelligent Box E-learning,
-    version: 1.0.0
-    
-	//////////////////////////////////////////////////////
--->
 <?php
     //  INITIALIZE DATABASE CONNECTION
-    // =============================================================================================
     // =============================================================================================
     require_once ("Scyllar.php");
     // =============================================================================================
@@ -25,7 +10,6 @@
     }
 
     // INITIALIZE AND IMPLEMENTS CLASS CALLED UNIVARSE
-    // =============================================================================================
     // =============================================================================================
     class Univarse extends Scyllar  implements Astronuts {
         private $followingEmail;

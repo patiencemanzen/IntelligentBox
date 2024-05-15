@@ -9,6 +9,16 @@
     // =========================================================================================================
     class Course_interface extends Scyllar {
 
+        public function popularWords($word){
+            if(strlen($word)<= 160){
+                $word= $word."";
+                }else{
+                $word= substr($word, 0, 160);
+                $word= $word."...";
+            }
+            return $word;
+        }
+
         public function show_classes ($user_email){
             $select_identity = "SELECT * FROM intelligent_users WHERE email='$user_email'";
             $execute_identity = mysqli_query($this->Frequency(), $select_identity);
@@ -44,13 +54,13 @@
                 <div class="eachdepartment">
                     <div class="department-image">
                         <img src="<?php echo '../Images/class_img/'.$getProfileImage; ?>" alt="" width="100%" height="100%">
-                        <div class="department-name"><?php echo $getClassName; ?></div>
                         <div class="study-now" id="<?php echo $getClass_identity; ?>" onclick="join_class(this)">join now</div>
                     </div>
+                    <div class="department-name"><?php echo $getClassName; ?></div>
                     <div class="department-bio"><?php echo $getClass_desc; ?></div>
-                    <div class="department-status d-flex justify-content-between">
-                        <div class="members"><i class="fa fa-user-circle-o"></i> <span><?php echo $count_learner; ?></span></div>
-                        <div class="courses"><i class="fa fa-graduation-cap"></i> <span><?php echo $countCourse; ?></span></div>
+                    <div class="department-stat">
+                        <div class="members"><i class="fa fa-user-circle-o"></i> Members <span><?php echo $count_learner; ?></span></div>
+                        <div class="courses mt-1"><i class="fa fa-graduation-cap"></i> Courses <span><?php echo $countCourse; ?></span></div>
                     </div>
                 </div>
                 <!-- end each department -->
@@ -82,23 +92,28 @@
 
                 $select_user_image = "SELECT profile_image FROM user_profile_image WHERE usr_email='$creater' AND status_image='1'";
                 $execute_image = mysqli_query($this->Frequency(), $select_user_image);
-                $fetch_image = mysqli_fetch_assoc($execute_image); 
+                $fetch_image = mysqli_fetch_assoc($execute_image);
+                
+                $select_creater= "SELECT * FROM intelligent_users WHERE email='$creater'";
+                $execute_creater = mysqli_query($this->Frequency(), $select_creater);
+                $fetch_creater = mysqli_fetch_assoc($execute_creater);
+                    $firstname = $fetch_creater['firstName'];
+                    $lastname = $fetch_creater['lastName'];
 
                 if($group_privacy == "Public"){ ?>
                     <!-- each group -->
                     <!-- ============================================================================== -->
-                    <div class="eachdegroup mr-3 ml-2" >
+                    <div class="eachdegroup">
                         <div class="department-image-group">
                             <div class="group-background-image"><img src="<?php echo '../Images/groups/'.$groups_profile_image; ?>" alt="" width="100%" height="100%"></div>
-                            <div class="group-profile-image">
-                                <img src="<?php echo '../Images/profile-img/profile-image/'.$fetch_image['profile_image']; ?>" alt="" width="100%" height="100%">
-                            </div>
                             <div class="group-name"><?php echo $group_name; ?></div>
                         </div>
-                        <div class="department-bio-group mt-3"><?php echo $group_bio; ?></div>
+                        <div class="department-bio-group mt-3"><?php echo $this->popularWords($group_bio); ?></div>
+                        <div class="group-creater">By <?php echo $firstname; ?> <?php echo $lastname; ?></div>
                         <div class="group-status d-flex justify-content-between">
-                            <div class="members"><i class="fa fa-user-circle-o"></i> <span><?php echo $this->count_member($group_identity); ?></span></div>
+                            <div class="members">Members <span><?php echo $this->count_member($group_identity); ?></span></div>
                             <div class="trainer" id="<?php echo $group_identity; ?>" onclick="join_goup(this)"><i class="fa fa-plus"></i> join now</div>
+                            <a href="../Group-discusion/each-group.php?group=<?php echo $url_encode; ?>&function=view" style="color: #041a2f; "><div class="trainer"><i class="fa fa-eye"></i></div></a>
                         </div>
                     </div>
                     <!-- end each group -->
@@ -134,13 +149,6 @@
         public function get_department_course(){
             $select_department = "SELECT * FROM departments WHERE department_name != 'Obscurity'";
             $execute_deprtament = mysqli_query($this->Frequency(), $select_department); ?>
-                <!-- more course related to this -->
-                <!-- ========================================================================================================================================================================================== -->
-                <!-- ============================================================================================================================================================================================= -->
-                <div class="discuss-in-group  mt-4">
-                    <div class="title-learner">Discover more trades</div>
-                    <div class="group-list">
-
             <?php while($fetch_department = mysqli_fetch_assoc($execute_deprtament)){
                 $deptment_identity = $fetch_department['identity'];
                 $deptment_name = $fetch_department['department_name'];
@@ -165,8 +173,8 @@
                             <div class="trade-name ml-2"><?php echo $deptment_name; ?></div>
                         </div>
                     </div>
-                    <div class="trade-bio"><?php echo $department_bio; ?></div>
-                    <div class="user-accurate justify-content-between">
+                    <div class="trade-bio"><?php echo $this->popularWords($department_bio); ?></div>
+                    <div class="user-accurate d-flex justify-content-between">
                         <div class="member mt-2">Learners <span><?php echo $learner; ?></span></div>
                         <div class="challenge mt-2">courses <span><?php echo $departme_count_course; ?></span></div>
                         <div class="ask">
@@ -176,16 +184,9 @@
                         </div>
                     </div>
                 </div>
-                <!-- end each trades -->
-                <!-- =============================================================================================================================================== -->
                 <!-- =============================================================================================================================================== -->
 
             <?php } ?>
-                </div>
-                </div>
-                <!-- end more course related -->
-                <!-- ============================================================================================================================================================================================= -->
-                <!-- =============================================================================================================================================================================================== -->
         <?php }
 
         public function search_dep($user_search){

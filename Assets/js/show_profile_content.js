@@ -18,12 +18,21 @@ function show_departments(){
 // ================================================================================================================================
 setInterval(() => {
     show_all_photos();
+    show_background_photos ();
 }, 1000);
 function show_all_photos () {
     $(document).ready(function(){
         var globale_mail = document.getElementById("hiddenEmail").value;
         $("#get_all_photos").load("show_profile_content.php",{
             get_all_photos: globale_mail
+        });
+    });
+}
+function show_background_photos () {
+    $(document).ready(function(){
+        var globale_mail = document.getElementById("hiddenEmail").value;
+        $("#get_background_photos").load("show_profile_content.php",{
+            get_background_photos: globale_mail
         });
     });
 }

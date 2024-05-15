@@ -8,7 +8,6 @@
     // ===========================================================================================================
     include_once ("Scyllar.php");
     include_once ("User_local_info.php");
-    include_once ("Geo.box.php");
     // ===========================================================================================================
     
     // IMPORT PHPMAILER FILE
@@ -31,7 +30,6 @@
     }
     // ============================================================================================================
 
-
     // CONFIGURE CLASS MYTHOLOGY
     // ============================================================================================================
     class Mythology extends Scyllar implements Neulon {
@@ -39,6 +37,13 @@
         private $_lastname;
         private $_email;
         private $_password;
+
+        private $city;
+        private $country;
+        private $region;
+        private $timezone;
+        private $isp; 
+
         private $title;
         private $verify;
         private $dateSession;
@@ -65,11 +70,18 @@
 
         // INITIALIZE CONSTRUCTER
         // ===================================================================================================
-        public function __construct($firstname,$lastname,$email,$password,$title,$verityCode,$date,$executed){
+        public function __construct($firstname,$lastname,$email,$password,$title,$verityCode,$date,$executed,$user_city,$user_country,$user_timezone,$user_region,$user_isp){
             $this->_firstname = $this->sanitizeMySQL($this->Frequency(),trim($firstname));
             $this->_lastname = $this->sanitizeMySQL($this->Frequency(),trim($lastname));
             $this->_email = $this->sanitizeMySQL($this->Frequency(),trim($email));
             $this->_password = $this->sanitizeMySQL($this->Frequency(),trim($password));
+
+            $this->city = $this->sanitizeMySQL($this->Frequency(),trim($user_city));
+            $this->country = $this->sanitizeMySQL($this->Frequency(),trim($user_country));
+            $this->region = $this->sanitizeMySQL($this->Frequency(),trim($user_region));
+            $this->timezone = $this->sanitizeMySQL($this->Frequency(),trim($user_timezone));
+            $this->isp = $this->sanitizeMySQL($this->Frequency(),trim($user_isp));
+
             $this->title = $this->sanitizeMySQL($this->Frequency(),trim($title));
             $this->verify = $this->sanitizeMySQL($this->Frequency(),trim($verityCode));
             $this->dateSession = $this->sanitizeMySQL($this->Frequency(),trim($date));
@@ -154,25 +166,18 @@
                 $get_os = $ip_address->get_os();
             // ==============================================================================================================================
      
-            $country = "";
-            $city = "";
-            $query = @unserialize (file_get_contents('http://ip-api.com/php/'));
-            if ($query && $query['status'] == 'success') {
-                $country = $query['country'];
-                $city = $query['city'];
-            }
 
             // insert user anonymous information 
             // ===============================================================================================================================
             $created_on = Date("Y-m-d h:m:s");
-            $insertInfo = "INSERT INTO user_auto_detection VALUE ('','$this->_firstname','$this->_lastname','$this->_email','$city','$country','Complete','$get_browser','$get_device','$get_os','$get_ip_address','$created_on')";
+            $insertInfo = "INSERT INTO user_auto_detection VALUE ('','$this->_firstname','$this->_lastname','$this->_email','$this->city','$this->country','$this->timezone','$this->region','$this->isp','$get_browser','$get_device','$get_os','$get_ip_address','$created_on')";
             $executeInfo = mysqli_query($this->Frequency(),$insertInfo);
             // ===============================================================================================================================
 
             // INsert notification settings
             // ==============================================================================================================================
             $created_on = Date("Y-m-d h:m:s");
-            $insert_new = "INSERT INTO notification_settings VALUE ('','$this->_email','Badge_on','Off','Off','Off','Off','$created_on')";
+            $insert_new = "INSERT INTO notification_settings VALUE ('','$this->_email','Badge_on','On','Off','Off','Off','$created_on')";
             $execute_new = mysqli_query($this->Frequency(), $insert_new);
         }
 
@@ -190,7 +195,16 @@
                 $lastname = $code['lastName'];
                 $digital = $code['verification_Code']; 
 
-            $body =  "Hello <b>{$name} {$lastname}</b>, Here is your intelligentbox activate code as IBox-- <b>{$digital} </b>, Please do not share this code for your account security!"; 
+            $body = "<div style='background: white;border-radius: 14px;box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);width: 300px'>
+                        <div style='background: #041a2f; color: white;padding: 10px;'>Intelligentbox</div>
+                        <div style='padding: 10px;background: white;'>
+                            <div style='color: #041a2f;font-size: 17px;'>Intelligentbox verification code</div>
+                            <div style='margin-top: 6px;font-siz: 16px;'>Hello <b>{$name} {$lastname}</b>, Here is your intelligentbox activate code amargin-top: 5px;s </div>
+                            <div style='margin-top: 7px;background:  #041a2f; color: white; letter-spacing: 0.6px;border-radius: 4px;padding: 5px;'>IBox-- <b>{$digital} </b></div>
+                            <div style='margin-top: 5px;font-size: 15px;>Please do not share this code for your account security!</div>
+                        </div>
+                      </div>
+                    "; 
 
             $mail = new PHPMailer();
 
@@ -226,6 +240,13 @@
     $lastname = $_POST['getLastname'];
     $email = $_POST['getEmail'];
     $password = $_POST['getPassword'];
+
+    $user_city = $_POST['user_city'];
+    $user_country = $_POST['user_country'];
+    $user_region = $_POST['user_region'];
+    $user_timezone = $_POST['user_timezone'];
+    $user_isp = $_POST['user_isp'];
+
     $getTitle = "student";
     $verifyCode = rand(100000,999999);
 
@@ -234,8 +255,7 @@
 
     // execute class Mythology 
     // ============================================================================================================
-    // ============================================================================================================
-    $implementNeulon = new Mythology($firstname,$lastname,$email,$password,$getTitle,$verifyCode,$Line,$executed_date);
+    $implementNeulon = new Mythology($firstname,$lastname,$email,$password,$getTitle,$verifyCode,$Line,$executed_date,$user_city,$user_country,$user_timezone,$user_region,$user_isp);
     try {
         if($implementNeulon->validateEmail() == false){
             $status = "Fail";
@@ -269,7 +289,6 @@
     }
 
     // end mythology
-    // =====================================================================================================================
     // =====================================================================================================================
 
     // send data by json files

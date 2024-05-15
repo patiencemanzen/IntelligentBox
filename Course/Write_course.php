@@ -1,17 +1,3 @@
-<!-- 
-	//////////////////////////////////////////////////////
-
-    INTELLIGENT BOX
-    DESIGNED & DEVELOPED by Manirabona Patience
-    
-    author: Mnirabona Patience,
-    Email:  Hseal419@gmail.com,
-    location: Kigali,Rwanda,
-    pro: Intelligent Box E-learning,
-    version: 1.0.0
-    
-	//////////////////////////////////////////////////////
--->
 <?php 
   session_start();
   if(isset($_SESSION['Email'])){
@@ -63,48 +49,29 @@
        <meta name="robots" content="index, follow"/>
        <meta name="apple-mobile-web-app-capable" content="yes">
 
-       <!-- index, used to repesent intelligent box on search engine and it browser -->
        <title>intelligentBox</title>
 
-       <!-- intelligent box logo, present on search engine and on browse header -->
        <link rel="shortcut icon" href="../Images/intelligent_box_brand.png" type="image/x-icon">
 
-       <!-- external style link, type css file-->
        <link rel="stylesheet" href="../Assets/css/write_course.box.css">
 
        <!-- external css file/ libraries -->
        <link rel="stylesheet" href="../Lib/bootstrap/css/bootstrap.min.css">
        <link rel="stylesheet" href="../Lib/material/css/material-dashboard.css?v=2.1.1">
        <link rel="stylesheet" href="../Lib/now-ui-kit/now-ui-kit.css?v=1.3.0">
-       <link rel="stylesheet" href="../Lib/animate/animate.min.css">
        <link rel="stylesheet" href="../Lib/font-awesome/css/font-awesome.min.css">
-       <link rel="stylesheet" href="../Lib/jquery/jquery.fancybox.css">
-       <link rel="stylesheet" href="../Lib/lightbox/css/lightbox.min.css">
-       <link rel="stylesheet" href="../Lib/owlcarousel/assets/owl.carousel.min.css">
-       <link rel="stylesheet" href="../Lib/slick/slick.css">
-       <link rel="stylesheet" href="../Lib/theme-color/violet-theme.css">
-       <link rel="stylesheet" href="../Lib/venobox/venobox.css">
-   
    </head>
    <body>
 
         <!-- Section that will hold header -->
-        <!-- ============================================================================================================= -->
-        <!-- ============================================================================================================= -->
         <!-- ============================================================================================================= -->
         <div class="header-holder">
             <?php require_once ("../header/header.php"); ?>
         </div>
         <!-- end header section -->
         <!-- ============================================================================================================= -->
-        <!-- ============================================================================================================= -->
-        <!-- ============================================================================================================= -->
-
-
 
         <!-- start body section -->
-        <!-- ============================================================================================================ -->
-        <!-- ============================================================================================================ -->
         <!-- ============================================================================================================ -->
         <div class="container">
             <div class="body-section col-md-8 mr-auto ml-auto mt-5">
@@ -137,7 +104,6 @@
                 <!-- ====================================================================================================== -->
 
                 <!-- left-side-content -->
-                <!-- ============================================================================================================ -->
                 <!-- ============================================================================================================ -->
                 <div class="down-side">
                     <div class="left-holder">
@@ -193,69 +159,23 @@
                     </div>
                 </div>
                 <!-- end left side-content -->
-                <!-- ================================================================================================================ -->
                 <!-- ================================================================================================================= -->
 
             </div>
         </div>
         <!-- end body section -->
-        <!-- ======================================================================================================== -->
-        <!-- ========================================================================================================= -->
         <!-- ========================================================================================================= -->
         
- 
        <!-- javascript external file, type js  and libraries-->
-       <!-- ================================================ -->
        <!-- ======================================================================= -->
        <script src="../Assets/js/full_department.box.js"></script>
 
        <script src="../Lib/bootstrap/js/bootstrap.min.js" type="text/javascript"></script> 
-       <script src="../Lib/bootstrap/js/bootstrap-datepicker.js"></script> 
-       <script src="../Lib/custom/custom.js"></script>
-       <script src="../Lib/date-picker/bootstrap-switch.js"></script>
-       <script src="../Lib/date-picker/nouislider.min.js"></script>
-       <script src="../Lib/easing/easing.min.js"></script>
-       <script src="../Lib/jquery/jquery-migrate.min.js"></script>
-       <script src="../Lib/jquery/jquery.bootstrap-wizard.js"></script>
-       <script src="../Lib/jquery/jquery.counterup.js"></script>
-       <script src="../Lib/jquery/jquery.fancybox.pack.js"></script>
        <script src="../Lib/jquery/jquery.min.js"></script>
-       <script src="../Lib/jquery/jquery.mixitup.js"></script>
-       <script src="../Lib/jquery/jquery.poptrox.min.js"></script>
-       <script src="../Lib/jquery/jquery.validate.min.js"></script>
-       <script src="../Lib/jquery/perfect-scrollbar.jquery.min.js"></script>
-       <script src="../Lib/lightbox/js/lightbox-plus-jquery.min.js"></script>
        <script src="../Lib/material/js/material-dashboard?v=2.1.1.js"></script>
        <script src="../Lib/now-ui-kit/now-ui-kit.js"></script>
-       <script src="../Lib/owlcarousel/owl.carousel.js"></script>
-       <script src="../Lib/popper/popper.min.js"></script>
-       <script src="../Lib/skel/skel.min.js"></script>
-       <script src="../Lib/slick/slick.js"></script>
-       <script src="../Lib/superfish/superfish.js"></script>
-       <script src="../Lib/venobox/venobox.js"></script>
        <script src="../Lib/wow/wow.min.js"></script>
        <script src="../Lib/ckeditor/ckeditor.js"></script>
-       <script>
-           $(document).ready(function() {
-                //init DateTimePickers
-                md.initFormExtendedDatetimepickers();
-           });
-       </script> 
-       <script>
-           $(document).ready(function() {
-                // the body of this function is in assets/js/now-ui-kit.js
-                nowuiKit.initSliders();
-           });
-       
-           function scrollToDownload() {
-       
-             if ($('.section-download').length != 0) {
-               $("html, body").animate({
-                 scrollTop: $('.section-download').offset().top
-               }, 1000);
-             }
-           }
-       </script>
        <script>
             CKEDITOR.replace('content');
         </script>
@@ -264,4 +184,7 @@
 
    </body>
 </html>
-<?php } } ?>
+<?php } }else{
+    header("Location: ../Personal-account/account_shortcut.box.php");
+    exit();
+} ?>

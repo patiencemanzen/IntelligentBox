@@ -1,18 +1,4 @@
-<!-- 
-	//////////////////////////////////////////////////////
-
-    INTELLIGENT BOX
-    DESIGNED & DEVELOPED by Manirabona Patience
-    
-    author: Mnirabona Patience,
-    Email:  Hseal419@gmail.com,
-    location: Kigali,Rwanda,
-    pro: Intelligent Box E-learning,
-    version: 1.0.0
-    
-	//////////////////////////////////////////////////////
--->
- <!DOCTYPE html>
+<!DOCTYPE html>
  <html lang="en">
     <head>
         <!-- meta tags -->
@@ -20,19 +6,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-        <meta name="description" content="E-learning website that help everyone who want to learn intellectual skills like software development, share what you're about and challenge with other connection and become profession in it. intelligent box is good website for you to become what you dream about and it connect you around the world with many other professions student and teacher." />
-        <meta name="keywords" content="social network,social media, learning, e-learning, share, friends, challenges, e-tvet, courses, schools, create, skills, account, signin, online charting, online learning, courses, groups, intelligentbox rwanda, e-learning rwanda, connect, intelligentbox, microbox, box rwanda, help" />
+        <meta name="description" content="E-learning website that help everyone who want to learn intellectual skills, software development, share what you're about and challenge with other connection and become profession in it. intelligent box is good website for you to become what you dream about and it connect you around the world with many other professions student and teacher." />
+        <meta name="keywords" content="social network rwanda,social media rwanda, learning rwanda, e-learning rwanda, share content, connect friends, create challenges, tvet rwanda, intelligentbox courses, create intelligentbox, skills, account, signin, online charting, online learning, courses, groups, intelligentbox rwanda, e-learning rwanda, connect rwanda, intelligentbox, microbox developers, microbox rwanda, help" />
         <meta name="author" content="Manirabona Patience" />
         <meta name="robots" content="index, follow"/>
         <meta name="apple-mobile-web-app-capable" content="yes">
 
-        <!-- index, used to repesent intelligent box on search engine and it browser -->
         <title>intelligentBox</title>
 
-        <!-- intelligent box logo, present on search engine and on browse header -->
         <link rel="shortcut icon" href="Images/favicon.png" type="image/x-icon">
 
-        <!-- external style link, type css file-->
         <link rel="stylesheet" href="Assets/css/index.box.css">
         <link rel="stylesheet" href="Assets/css/preloader.btn.css">
 
@@ -40,36 +23,25 @@
         <link rel="stylesheet" href="Lib/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="Lib/material/css/material-dashboard.css?v=2.1.1">
         <link rel="stylesheet" href="Lib/now-ui-kit/now-ui-kit.css?v=1.3.0">
-        <link rel="stylesheet" href="Lib/animate/animate.min.css">
         <link rel="stylesheet" href="Lib/font-awesome/css/font-awesome.min.css">
-        <link rel="stylesheet" href="Lib/jquery/jquery.fancybox.css">
-        <link rel="stylesheet" href="Lib/lightbox/css/lightbox.min.css">
-        <link rel="stylesheet" href="Lib/owlcarousel/assets/owl.carousel.min.css">
         <link rel="stylesheet" href="Lib/slick/slick.css">
-        <link rel="stylesheet" href="Lib/theme-color/violet-theme.css">
-        <link rel="stylesheet" href="Lib/venobox/venobox.css">
     
     </head>
     <body>
         <!-- Top navbar present -->
         <!-- ============================================================================================================ -->
-        <!-- ============================================================================================================ -->
-        <!-- ============================================================================================================ -->
         <nav class="header-fixed">
             <div class="inner-header-1">
                 <!-- container intelligent box title -->
-                <!-- =================================================================================================== -->
                 <!-- ==================================================================================================== -->
                 <div class="container d-flex">
                     <div class="intelligent-box-logo"> intelligent box </div>
                 </div>
                 <!-- end container -->
                 <!-- =================================================================================================== -->
-                <!-- =================================================================================================== -->
             </div>
 
             <!-- second navbar -->
-            <!-- =============================================================================================================== -->
             <!-- ================================================================================================================ -->
             <div class="sub-nav">
                 <div class="container">
@@ -79,7 +51,7 @@
                         </div>
                         <div class="search_trades_layer position-relative">
                             <div class="search-input d-flex">
-                                <input type="text" name="search-everything" id="search-everything" placeholder="Seach trades..." autocomplete="off" oninput="openSearch()">
+                                <input type="text" name="search-everything" id="search-everything" placeholder="Seach your favorite trades..." autocomplete="off" oninput="openSearch()">
                                 <i class="fa fa-search"></i>
                             </div>
                             <div class="seach-output" id="search-pop">
@@ -91,13 +63,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="sign-in-btn create-account">
-                            <ul>
-                                <li class="all_trades_found" onclick="openTrade()"><a>All trades</a></li>
-                                <li class="dis_short_devs"><a class="" data-toggle="tab" href="#signmeup" role="tab">
-                                     I don't have account?, Sign me up
-                                </a></li>
-                            </ul>
+                        <div class="segment-link">
+                            <ul><li class="dis_short_devs"><a href="Personal-account/create-account.box.php">Don't have an account?, Sign me Up </a></li></ul>
                         </div>
 
                         <!-- show all trades supported -->
@@ -118,56 +85,32 @@
         </nav>
         <!-- end top navbar present -->
         <!-- ====================================================================================================================== -->
-        <!-- ====================================================================================================================== -->
 
         
         <!-- TOP BACKGROUND IMAGE -->
         <!-- ====================================================================================================== -->
-        <!-- ====================================================================================================== -->
-        <div class="carousel slide shadow-none" data-ride="carousel" id="slides">
-            <div class="carousel-inner shadow-none">
-                <ul class="carousel-indicators">
-                    <li class="active" data-target="#slides" data-slide-to="0"></li>
-                    <li class="" data-target="#slides" data-slide-to="1"></li>
-                    <li class="" data-target="#slides" data-slide-to="2"></li>
-                    <li class="" data-target="#slides" data-slide-to="3"></li>
-                    <li class="" data-target="#slides" data-slide-to="4"></li>
-                    <li class="" data-target="#slides" data-slide-to="5"></li>
-                    <li class="" data-target="#slides" data-slide-to="6"></li>
-                    <li class="" data-target="#slides" data-slide-to="7"></li>
-                </ul>
-                <div class="carousel-inner shadow-sm">
-                    <!-- start carousel items -->
-                    <div class="carousel-item shadow-sm">
-                        <img src="Images/index-img/slides/slide-1.jpg" alt="active_slides" class="shadow-none" height="100%" width="100%">
+        <div class="top-background-image">
+            <div class="top-over-background">
+               <div class="container">
+                   <div class="top-mesg">
+                        <p> 
+                            Education opens up the mind, Expands it and allows you to improve your life for future, for tomorrow
+                            belongs to those who prepare for it today.so, "start where you are. Use what you have. Do what you can". 
+                            We never fail, We success or learn.
+                        </p>
+                   </div>
+                    <div class="what-we-offer">
+                        <div class="sign-me-btn-top"><a href="Personal-account/account_shortcut.box.php">Sign me in</a></div>
+                        <div class="create-account-top"><a href="Personal-account/create-account.box.php">Create account</a></div>
                     </div>
-                    <div class="carousel-item"><img src="Images/index-img/slides/slide-4.jpg" alt="second_slide" height="100%" width="100%"></div>
-                    <div class="carousel-item"><img src="Images/index-img/slides/slide-5.jpg" alt="third_slide" height="100%" width="100%"></div>
-                    <div class="carousel-item"><img src="Images/index-img/slides/slide-6.jpg" alt="fouth_Slide" height="100%" width="100%"></div>
-                    <div class="carousel-item"><img src="Images/index-img/slides/slide-7.jpg" alt="fifth_slide" height="100%" width="100%"></div>
-                    <div class="carousel-item"><img src="Images/index-img/slides/slide-8.jpg" alt="sixth_slide" height="100%" width="100%"></div>
-                    <div class="carousel-item active"><img src="Images/index-img/slides/slide-9.jpg" alt="seventh_slide" height="100%" width="100%"></div>
-                    <div class="carousel-item"><img src="Images/index-img/slides/slide-10.jpg" alt="eigth_slide" height="100%" width="100%"></div>
-                    <!-- end carousel items -->
-                </div>
+               </div>
             </div>
-            <div class="over-carousel">
-                <div class="container carousel-caption-down wow fadeInLeft col-md-6">
-                    <p> 
-                        Education opens up the mind, Expands it and allows you to improve your life for future, for tomorrow
-                        belongs to those who prepare for it today.so, "start where you are. Use what you have. Do what you can". 
-                        We never fail, We success or learn.
-                    </p>
-                </div>
-           </div>  
         </div>
         <!-- end image non slide -->
-        <!-- ============================================================================================================================================= -->
         <!-- ============================================================================================================================================= -->
 
 
         <!-- thumbnail -->
-        <!-- ==================================================================================================================================================== -->
         <!-- ==================================================================================================================================================== -->
         <div class="thumbnail ml-auto mr-auto">
             <div class="container">
@@ -236,7 +179,7 @@
                                     <div class="thumbnail-images"><img src="Images/index-img/thumbnail/thumbnail-3.jpg" alt="world_religion" width="100%" height="100%"></div>
                                     <div class="course-desc">The world religions and their ancient culture </div>
                                     <div class="course-sub-desc">
-                                        Big and many content about main world religion and it short history for
+                                        Much content about world religion and it short history for
                                         intellectual people to mantain our believe among our religions culture.
                                     </div>
                                 </div>
@@ -360,8 +303,9 @@
                                                                 <div class="inputs-form tab">
                                                                     <div class="present-section">
                                                                         <div>
-                                                                            Thank you for Using intelligent box, you will learn more thing about from history, religions and read more news from everywhere, explore many new connections and people you may like to share things. 
-                                                                            Build up your mind and be the one you wish to be in another words be different in this wrestle world, Just join us Today.
+                                                                            Thank you for Using intelligentBox, you will learn more thing from history, religions and read more news from everywhere, 
+                                                                            explore many new connections and people you may like to share things. 
+                                                                            Build up your mind and be the one you wish to be in another words be different, Just join us Today.
                                                                         </div>
                                                                     </div>
                                                                     <div class="student-choise" onclick="nextPrev(1)">Get stated</div>
@@ -468,8 +412,8 @@
                                                                     </div>
                                                                     <div class="noticed-word">
                                                                         <p>
-                                                                            Welcome to intelligent box we little bit customize your profile but soon you can do it yourself,
-                                                                            you can get what people shared on your timeline and choose which course and department you want to attend.
+                                                                            Welcome to intelligentbox, we customize your profile but soon you can do it yourself,
+                                                                            you can get what people shared on your timeline and choose which course and department you want to join.
                                                                         </p>
                                                                     </div>
                                                                     <div class="welcome-word">you are Welcome !!</div>
@@ -876,7 +820,7 @@
                                     <div class="self">
                                         <div class="Title_self">Intelligent  Box</div>
                                         <div class="desc_self">
-                                            Connect with world's education and learn about Profession skills from profession People from around world. 
+                                            Connect with world's education and learn more about Profession skills from around region. 
                                         </div>
                                         <div class="footer_copyright">
                                             IntelligentBox &copy; 2020, All Reserved
@@ -909,6 +853,73 @@
             </div>
             <!-- ============================================================================================================================================= -->
 
+            <!-- SHORT DESCRIPTION -->
+            <!-- ===================================================================================================================================================================== -->
+            <section class="short-description" id="short_info">
+                <div class="container">
+                    <div class="description-content">
+                        <div class="each-descrption">
+                           <div class="desc-icon-outline"><i class="fa fa-graduation-cap"></i></div>
+                           <div class="desc-title"><span>Study on intelligentBox</span></div>
+                           <div class="desc-body">
+                               An easy way to learn more things in different ways, combined or divided, share 
+                               what you got on Intelligentbox, More challenges and collaboration between you, 
+                               instructor and your near friends efficiently. 
+                           </div>
+                        </div>
+                        <div class="each-descrption">
+                           <div class="desc-icon-outline"><i class="fa fa-tv"></i></div>
+                           <div class="desc-title"><span>Teach on intelligentBox</span></div>
+                           <div class="desc-body">
+                               You can teach on intelligentbox and share with world
+                               what you know, Let the audience know your expiriences and knowledge,
+                               create a class that will help more people to level up their skills
+                               and world's generations.
+                           </div>
+                        </div>
+                        <div class="each-descrption">
+                           <div class="desc-icon-outline"><i class="fa fa-share-alt"></i></div>
+                           <div class="desc-title"><span>Share what you're about</span></div>
+                           <div class="desc-body">
+                               Did you know that the only thing that can make you move
+                               to another step is to collaborate and share you can do,
+                               what you know and what you're about, Let the world know
+                               you're thinking now.
+                           </div>
+                        </div>
+                        <div class="each-descrption">
+                           <div class="desc-icon"><i class="fa fa-globe"></i></div>
+                           <div class="desc-title"><span>World History</span></div>
+                           <div class="desc-body">
+                               Read more about world'history through intelligentbox,
+                               Let buld world's future but let not forget our future,
+                               Find out the most world history content and also get 
+                               today in history.
+                           </div>
+                        </div>
+                        <div class="each-descrption">
+                           <div class="desc-icon"><i class="fa fa-book"></i></div>
+                           <div class="desc-title"><span>More about Religions</span></div>
+                           <div class="desc-body">
+                               Read what world's religions is talking about in now days,
+                               More religion articles and each religion content, short 
+                               description about it, let share what we know about it also. 
+                           </div>
+                        </div>
+                        <div class="each-descrption">
+                           <div class="desc-icon"><i class="fa fa-newspaper-o"></i></div>
+                           <div class="desc-title"><span>World News</span></div>
+                           <div class="desc-body">
+                               Do you know that you can read world's news and talk about world's 
+                               news in different ways, share what news happening arround, 
+                               let keep up with with world's news around.
+                           </div>
+                        </div>
+                    </div>       
+                </div>
+            </section>
+            <!-- ===================================================================================================================================================================== -->
+
             <!-- footer -->
             <!-- ===================================================================================================================================================================== -->
             <!-- ===================================================================================================================================================================== -->
@@ -921,7 +932,7 @@
                             <div class="condition-icons mt-1"><i class="fab fa-teamspeak"></i> <i class="fa fa-institution"></i></div>
                             <div class="condition-detail ml-2">
                                 <div class="condition-title">Terms and Condition</div>
-                                <div class="conditio-body"> Read intelligent box terms and condition that every users and members apply regularly</div>
+                                <div class="conditio-body"> Read terms and conditions that every users and members apply regularly</div>
                             </div>
                         </div></a>
                         <!-- end terms and condition -->
@@ -933,7 +944,7 @@
                             <div class="condition-icons mt-1"><i class="fa fa-shield"></i></div>
                             <div class="condition-detail ml-2">
                                 <div class="condition-title">Privacy and Policy</div>
-                                <div class="conditio-body">Privacy, Safety and Security of intelligent box Information and logs of users and members</div>
+                                <div class="conditio-body">Privacy, Safety and Security of Information on users and members</div>
                             </div>
                         </div></a>
                         <!-- end privacy and policy -->
@@ -985,59 +996,31 @@
             <script src="Assets/js/index.forgetPassword.box.js"></script>
             <script src="Assets/js/index.contuct_us.box.js"></script>
             <script src="Assets/js/index.show_trades.box.js"></script>
+            <!-- <script src="Assets/js/personal_info.js"></script> -->
 
-            <script src="Lib/bootstrap/js/bootstrap.min.js" type="text/javascript"></script> 
-            <script src="Lib/bootstrap/js/bootstrap-datepicker.js"></script> 
-            <script src="Lib/custom/custom.js"></script>
-            <script src="Lib/date-picker/bootstrap-switch.js"></script>
-            <script src="Lib/date-picker/nouislider.min.js"></script>
-            <script src="Lib/easing/easing.min.js"></script>
-            <script src="Lib/jquery/jquery-migrate.min.js"></script>
-            <script src="Lib/jquery/jquery.bootstrap-wizard.js"></script>
-            <script src="Lib/jquery/jquery.counterup.js"></script>
-            <script src="Lib/jquery/jquery.fancybox.pack.js"></script>
+            <script src="Lib/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
             <script src="Lib/jquery/jquery.min.js"></script>
             <script src="Lib/jquery/jquery-3.3.1.min"></script>
-            <script src="Lib/jquery/jquery.mixitup.js"></script>
-            <script src="Lib/jquery/jquery.poptrox.min.js"></script>
-            <script src="Lib/jquery/jquery.validate.min.js"></script>
-            <script src="Lib/jquery/perfect-scrollbar.jquery.min.js"></script>
-            <script src="Lib/lightbox/js/lightbox-plus-jquery.min.js"></script>
             <script src="Lib/material/js/material-dashboard?v=2.1.1.js"></script>
             <script src="Lib/now-ui-kit/now-ui-kit.js"></script>
-            <script src="Lib/owlcarousel/owl.carousel.js"></script>
-            <script src="Lib/popper/popper.min.js"></script>
-            <script src="Lib/skel/skel.min.js"></script>
-            <script src="Lib/slick/slick.js"></script>
-            <script src="Lib/superfish/superfish.js"></script>
-            <script src="Lib/venobox/venobox.js"></script>
             <script src="Lib/wow/wow.min.js"></script>
+            <script src="Lib/slick/slick.js"></script>
             <script src="Lib/bootstrap/js/bootstrap-material-design.min.js"></script>
             <script>
-                $(document).ready(function() {
-                //init DateTimePickers
-                md.initFormExtendedDatetimepickers();
+                // initialize slick
+                $('.description-content').slick({
+                    dots: true,
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    autoplay: true,
+                    autoplaySpeed: 5000
                 });
             </script> 
             <script>
-                $(document).ready(function() {
-                    // the body of this function is in assets/js/now-ui-kit.js
-                    nowuiKit.initSliders();
-                });
-            
-                function scrollToDownload() {
-            
-                if ($('.section-download').length != 0) {
-                    $("html, body").animate({
-                    scrollTop: $('.section-download').offset().top
-                    }, 1000);
-                }
-                }
                 // Initiate the wowjs animation library
                 new WOW().init();
             </script>
             <!-- end libraries -->
-            <!-- ================================================================================================================================================== -->
             <!-- ================================================================================================================================================== -->
             
     </body>

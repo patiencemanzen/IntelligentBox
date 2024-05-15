@@ -204,7 +204,7 @@
         margin-top: 5px;
     }
     .user-name div{
-        width: 110px;
+        width: 130px;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -257,6 +257,7 @@
         color: #777;
         font-family: roboto_bold;
         font-weight: 560;
+        margin-left: 10px;
     }
     .you-message .message-text{
         background: #041a2f;
@@ -440,6 +441,10 @@
     /* expanded message area */
     /* ===================================================================================================================================== */
     /* ===================================================================================================================================== */
+    #expanded_conv{
+        display: none;
+        width: 100%;
+    }
     .expand-message{
         position: fixed;
         bottom: 10px;
@@ -481,6 +486,13 @@
         text-align: center;  
         font-size: 15px;
         color: #041a2f;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+    }
+    .add-convesation .fa{
+        margin-top: 8px;
+        cursor: pointer;
     }
     .search-conv input{
         width: 100%;
@@ -566,6 +578,13 @@
         border-radius: 50%;
         margin-left: 10px;
     }
+    .converstion-expand-full{
+        /* margin-top: 10px; */
+        width: 500px;
+        height: 100%;
+        overflow: auto;
+        overflow-x: hidden;
+    }
     .conv-holder{
         overflow: auto;
         height: 400px;
@@ -594,12 +613,16 @@
     .conv-holder ul{
         display: flex;
         flex-direction: column;
+        padding: 0;
+    }
+    .conv-holder ul li{
+        padding: 4px 10px;
+        border-bottom: 1px solid black;
+        background: #08345e;
     }
 
     .each-conv{
         display: flex;
-        padding: 4px 10px 5px 10px;
-        border-bottom: 1px solid black;
         width: 100%;
         background: #08345e;
         color: white;
@@ -612,18 +635,21 @@
         background: white;
         color: #041a2f;
     }
+    .pos-img{
+        position: relative;
+    }
     .conv-owner-image img{
         border-radius: 50%;
     }
     .conv-owner-image{
-        width: 40px;
-        height: 40px;
+        width: 45px;
+        height: 45px;
         background: #f6f7fd;
         border-radius: 50%;
         position: relative;
     }
     .message-own {
-        margin-left: 10px;
+        margin-left: 15px;
         width: 100%;
         margin-top: 3px;
     }
@@ -634,34 +660,35 @@
     }
     .messager-name .n1{
         font-family: roboto_bold;
-        font-family: 12px;
-        letter-spacing: 0.5px;
+        font-size: 14px;
+        letter-spacing: 0.6px;
         text-transform: capitalize;
     }
     .time-status{
         font-size: 12px;
-        color: green;
-        font-family: roboto_medium;
-        letter-spacing: 0.5px;
+        color: #0d71ce;
+        font-family: roboto_bold;
+        letter-spacing: 0.6px;
     }
     .message-short{
         margin-top: 1px;
-        font-size: 12px;
+        font-size: 14px;
         font-family: roboto_medium;
         width: 260px;
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
+        letter-spacing: 0.6px;
     }
     .counter-link-message{
-        background: rgb(175, 6, 6);
-        border-radius: 4px;
+        background: crimson;
+        border-radius: 6px;
         padding: 2px 5px;
         font-family: roboto_bold;
-        font-weight: 560;
         position: absolute;
         bottom: 5px;
         right: 20px;
+        font-size: 13px;
     }
 
     /* apply when it come to small */
@@ -708,16 +735,93 @@
     /* ==================================================================================================================================== */
 
 
-
     .text-center-title-days{
+        position: sticky;
+        top: 0;
         font-family: roboto_bold;
         text-transform: capitalize;
         text-align: center;
         margin-bottom: 10px;
-        background: #f6f7fd;
+        background: white;
         padding: 10px;
-        border-top-right-radius: 6px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        font-size: 15px;
+        border-top-right-radius: 6px;
+    }
+    .message-setting{
+        background: white;
+        border-radius: 14px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        z-index: 99;
+        padding: 5px;
+        display: none;
+    }
+    .expand-message-each{
+        background: white;
+        border-radius: 4px;
+        padding: 0px 3px;
+        color: #071c2e;
+        font-size: 19px;
+        cursor: pointer;
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        background: #041a2f;
+        color: white;
+        padding: 2px 5px;
+    }
+    .each-setting-list{
+        padding: 2px;
+    }
+    .each-setting-msg{
+        background: white;
+        border-top: 1px solid #d3d3d3;
+        padding: 5px 8px;
+        font-family: roboto_bold;
+        letter-spacing: 0.6px;
+        font-size: 14px;
+        cursor: pointer;
+    }
+    .visible_div{
+        display: none;
+        margin-top: 3px;
+        background: #08345e;
+        color: white;
+        padding: 2px 5px;
+        border-radius: 6px;
+    }
+    .mesg-del{
+        font-family: roboto_bold;
+        font-weight: 590;
+        font-size: 14px;
+    }
+    .delete_option{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 3px;
+    }
+    .no_option{
+        border-radius: 6px;
+        background: crimson;
+        color: white;
+        padding: 2px 5px;
+        font-family: roboto_bold;
+        font-weight: 590;
+        font-size: 12px;
+        cursor: pointer;
+    }
+    .yes_option{
+        border-radius: 6px;
+        background: #041a2f;
+        color: white;
+        padding: 2px 5px;
+        font-family: roboto_bold;
+        font-weight: 590;
+        font-size: 12px;
+        cursor: pointer;
     }
     .conv-full-txt::-webkit-scrollbar {
         width: 6px;
@@ -733,8 +837,8 @@
     }
     .conv-full-txt{
         margin-top: 10px;
-        width: 450px;
-        height: 375px;
+        width: 100%;
+        height: 385px;
         overflow: auto;
         overflow-x: hidden;
     }
@@ -888,22 +992,84 @@
         margin-top: 10px;
         cursor: pointer;
     }
+    
+    .message_container_loader {
+        position: relative;
+        width: 25px;
+        height: 25px;
+        border-radius: 15px;
+        -webkit-animation: rotation 1s infinite;
+                animation: rotation 1s infinite;
+        background: #041a2f;  
+        display: none;      
+    }
+    .message_container_loader .shape {
+        position: absolute;
+        width: 10px;
+        height: 2px;
+    }
+    .message_container_loader .shape.shape-1 {
+        left: 0;
+        background-color: #2196f3;
+        border-top-left-radius: 10px;
+    }
+    .message_container_loader .shape.shape-2 {
+        right: 0;
+        background-color: #34A853;
+        border-top-right-radius: 10px;
+    }
+    .message_container_loader .shape.shape-3 {
+        bottom: 0;
+        background-color: #89ff00;
+        border-bottom-left-radius: 10px;
+    }
+    .message_container_loader .shape.shape-4 {
+        bottom: 0;
+        right: 0;
+        background-color: #0d71ce;
+        border-bottom-right-radius: 10px;
+    }
+    
+    @-webkit-keyframes rotation {
+        from {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+        }
+        to {
+        -webkit-transform: rotate(720deg);
+                transform: rotate(720deg);
+        }
+    }
+    
+    @keyframes rotation {
+        from {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+        }
+        to {
+        -webkit-transform: rotate(720deg);
+                transform: rotate(720deg);
+        }
+    }
     /* end big message area */
     /* ============================================================================================================================================ */
 
 
     /* create new message */
     /* ============================================================================================================================================ */
-    /* .create-new-message{
-        display: none;
-    } */
+    .create-new-message{
+        position: relative;
+    }
+    .open-conv-ex{
+       position: absolute;
+       bottom: 0px;
+       right: -4rem;
+       display: none;
+    }
     .hold-messaging{
         position: relative;
-        position: fixed;
-        bottom: 30px;
-        right: 50px;
         z-index: 100;
-        display: none;
+        display: block;
         animation: new_message 300ms ease-in-out forwards;
         transform-origin: bottom right;
     }
@@ -1082,7 +1248,6 @@
         background: white;
         border-radius: 50em;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        overflow: hidden;
         white-space: nowrap;
         z-index: 150;
         text-align: center;
@@ -1107,7 +1272,17 @@
         font-size: 19px;
         margin-top: 10px;
     }
-
+    .counter_mesag{
+        background: crimson;
+        padding: 2px 5px;
+        border-radius: 6px;
+        font-family: roboto_bold;
+        font-size: 13px;
+        position: absolute;
+        top: 0px;
+        right: 0;
+        color: white;
+    }
     /* end new message */
     /* ============================================================================================================================================= */
 
@@ -1220,6 +1395,20 @@
             height: 390px;
             overflow: auto;
             overflow-x: hidden;
+        }
+        .search-conv{
+            padding: 5px;
+            margin-right: 5px;
+            display: none;
+        }
+        .each-conv{
+            width: 100%;
+        }
+        .messager-name .n1{
+            font-family: roboto_bold;
+            font-family: 12px;
+            letter-spacing: 0.5px;
+            text-transform: capitalize;
         }
     }
     @media screen and (max-width: 500px){

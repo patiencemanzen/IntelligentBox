@@ -1,27 +1,26 @@
-<!-- 
-	//////////////////////////////////////////////////////
-
-    INTELLIGENT BOX
-    DESIGNED & DEVELOPED by Manirabona Patience
-    
-    author: Mnirabona Patience,
-    Email:  Hseal419@gmail.com,
-    location: Kigali,Rwanda,
-    pro: Intelligent Box E-learning,
-    version: 1.0.0
-    
-	//////////////////////////////////////////////////////
--->
 <?php 
   session_start();
-  if(isset($_SESSION['Email'])){
-      $Session_email_call = $_SESSION['Email'];
-      $firstName = $_SESSION['Firstname'];
-      $lastName = $_SESSION['Lastname'];
-      $user_title = $_SESSION['title'];
+    if(isset($_SESSION['Email'])){
+        $Session_email_call = $_SESSION['Email'];
+        $firstName = $_SESSION['Firstname'];
+        $lastName = $_SESSION['Lastname'];
+        $user_title = $_SESSION['title'];
 
-      if(isset($_REQUEST['group'])){
-        $url_page_data = $_REQUEST['group'];
+        // INITIALIZE DATABASE CONNECTION
+        // =====================================================================================================
+        require_once ("../Scyllar.php");
+        $new_connection = new Scyllar();
+        // =====================================================================================================
+
+        if(isset($_REQUEST['group'])){
+            $url_page_data = $_REQUEST['group'];
+            if($_REQUEST['group_adm_ver'] == $Session_email_call){
+                $select_admin = "SELECT email FROM user_groups WHERE url_encode = '$url_page_data'";
+                $execute_verification = mysqli_query($new_connection->Frequency(), $select_admin);
+                if(mysqli_num_rows($execute_verification) > 0){
+                    $fetch_email_admin = mysqli_fetch_assoc($execute_verification);
+                    $admin = $fetch_email_admin['email'];
+                    if($_REQUEST['group_adm_ver'] == $admin){
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,37 +36,19 @@
        <meta name="robots" content="index, follow"/>
        <meta name="apple-mobile-web-app-capable" content="yes">
 
-       <!-- index, used to repesent intelligent box on search engine and it browser -->
        <title>intelligentBox</title>
 
-       <!-- intelligent box logo, present on search engine and on browse header -->
        <link rel="shortcut icon" href="../Images/favicon.png" type="image/x-icon">
-
-       <!-- external style link, type css file-->
        <link rel="stylesheet" href="../Assets/css/group_admin.box.css">
 
        <!-- external css file/ libraries -->
        <link rel="stylesheet" href="../Lib/bootstrap/css/bootstrap.min.css">
        <link rel="stylesheet" href="../Lib/material/css/material-dashboard.css?v=2.1.1">
        <link rel="stylesheet" href="../Lib/now-ui-kit/now-ui-kit.css?v=1.3.0">
-       <link rel="stylesheet" href="../Lib/animate/animate.min.css">
        <link rel="stylesheet" href="../Lib/font-awesome/css/font-awesome.min.css">
-       <link rel="stylesheet" href="../Lib/jquery/jquery.fancybox.css">
-       <link rel="stylesheet" href="../Lib/lightbox/css/lightbox.min.css">
-       <link rel="stylesheet" href="../Lib/owlcarousel/assets/owl.carousel.min.css">
-       <link rel="stylesheet" href="../Lib/slick/slick.css">
-       <link rel="stylesheet" href="../Lib/theme-color/violet-theme.css">
-       <link rel="stylesheet" href="../Lib/venobox/venobox.css">
-   
    </head>
-   <body>
+   <body class="bg-white">
     <?php 
-        // INITIALIZE DATABASE CONNECTION
-        // =====================================================================================================
-        require_once ("../Scyllar.php");
-        $new_connection = new Scyllar();
-        // =====================================================================================================
-
         // UNCLASSFIED VARIABLE
         // =====================================================================================================
         $select_group_info = "SELECT * FROM user_groups WHERE url_encode='$url_page_data'";
@@ -111,20 +92,13 @@
          
             <!-- Section that will hold header -->
             <!-- ================================================================================================================================== -->
-            <!-- ================================================================================================================================== -->
-            <!-- ================================================================================================================================== -->
             <div class="header-holder">
                 <?php require_once ("../header/header.php"); ?>
             </div>
             <!-- end header section -->
             <!-- =================================================================================================================================== -->
-            <!-- =================================================================================================================================== -->
-            <!-- =================================================================================================================================== -->
-
 
             <!-- start body section -->
-            <!-- ================================================================================================================================ -->
-            <!-- ================================================================================================================================ -->
             <!-- ================================================================================================================================ -->
             <div class="body-section mt-5">
                 <div class=" d-flex align-content-center align-items-center alignment">
@@ -136,7 +110,6 @@
 
 
                     <!-- admin panel tools -->
-                    <!-- =================================================================================================================================== -->
                     <!-- =================================================================================================================================== -->
                     <div class="admin-panel">
                         <div class="panel-holder">
@@ -260,10 +233,8 @@
                     </div>
                     <!-- end panel tools -->
                     <!-- ================================================================================================================================== -->
-                    <!-- ================================================================================================================================== -->
 
                     <!-- ADMIN PANEL ON SMALL DEVICE -->
-                    <!-- ======================================================================================================================================== -->
                     <!-- ======================================================================================================================================== -->
                     <div id="smallAdmin" class="smallAdmin">
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -381,10 +352,8 @@
                     </div>
                     <!-- END SMALL DEVICE NOTICE -->
                     <!-- ======================================================================================================================================== -->
-                    <!-- ======================================================================================================================================== -->
 
                     <!-- left-side-content -->
-                    <!-- =================================================================================================================================== -->
                     <!-- =================================================================================================================================== -->
                     <div class="left-side col-xs-12 col-sm-12 col-md-6">
 
@@ -427,7 +396,6 @@
                                                     
                                                         <!-- discver trainers -->
                                                         <!-- ============================================================================================================================================= -->
-                                                        <!-- ============================================================================================================================================= -->
                                                         <div class="each-setting">
                                                             <div class="title-settings">Trainers</div>
                                                             <div class="reply-setting" id="discover-trainer">
@@ -435,7 +403,6 @@
                                                             </div>
                                                         </div>
                                                         <!-- end discovery trainer -->
-                                                        <!-- =========================================================================================================================================================== -->
                                                         <!-- ================================================================================================================================================================ -->
                                                         
                                                     </div>
@@ -445,7 +412,6 @@
 
                                             </div>
                                             <!-- end top popup discovry -->
-                                            <!-- ================================================================================================================================================================================= -->
                                             <!-- ================================================================================================================================================================================= -->
 
                                             <div class="search-member position-relative">
@@ -487,11 +453,9 @@
                             </div>
                             <!-- end top background -->
                             <!-- =============================================================================================================== -->
-                            <!-- =============================================================================================================== -->
 
 
                             <!-- start tab for configuration and settings connected with admin panel -->
-                            <!-- ================================================================================================================ -->
                             <!-- ================================================================================================================ -->
                             <div class="tab-content">
                                 <!-- tab for group descript -->
@@ -611,13 +575,10 @@
                                 <!-- end tab Rules -->
                             </div>
                             <!-- end settings and connection with admin panel-->
-                            <!-- ========================================================================================================================================== -->
                             <!-- =========================================================================================================================================== -->
-
 
 
                             <!-- create post -->
-                            <!-- =========================================================================================================================================== -->
                             <!-- ============================================================================================================================================== -->
                             <div class="position-relative">
                                 <div class="create-post mt-4">
@@ -662,12 +623,9 @@
                             </div>
                             <!-- end create post -->
                             <!-- ==================================================================================================================================== -->
-                            <!-- ==================================================================================================================================== -->
-                        
 
 
                             <!-- tabs for group element and member discusion and media connected with navbar down top background image-->
-                            <!-- ===================================================================================================================================== -->
                             <!-- ====================================================================================================================================== -->
                             <div class="department-name-course mr-auto ml-auto">
 
@@ -767,12 +725,10 @@
                             </div>
                             <!-- end media,discussion and member tabs content -->
                             <!-- ==================================================================================================================================== -->
-                            <!-- ==================================================================================================================================== -->
 
                         </div>
                     </div>
                     <!-- end left side-content -->
-                    <!-- ============================================================================================================================= -->
                     <!-- ============================================================================================================================= -->
 
                 </div>
@@ -815,72 +771,35 @@
             </div>
             <!-- end body section -->
             <!-- ==================================================================================================================================== -->
-            <!-- ==================================================================================================================================== -->
-            <!-- ==================================================================================================================================== -->
             
     
         <!-- javascript external file, type js  and libraries-->
-        <!-- ================================================ -->
-        <!-- =========================================================================== -->
         <!-- =========================================================================== -->
         <script src="../Assets/js/group_admin.box.js"></script>
         <script src="../Assets/js/group_discussion_posts.box.js"></script>
         <script src="../Assets/js/group_discussion_content.js"></script>
 
         <script src="../Lib/bootstrap/js/bootstrap.min.js" type="text/javascript"></script> 
-        <script src="../Lib/bootstrap/js/bootstrap-datepicker.js"></script> 
-        <script src="../Lib/custom/custom.js"></script>
-        <script src="../Lib/date-picker/bootstrap-switch.js"></script>
-        <script src="../Lib/date-picker/nouislider.min.js"></script>
-        <script src="../Lib/easing/easing.min.js"></script>
-        <script src="../Lib/jquery/jquery-migrate.min.js"></script>
-        <script src="../Lib/jquery/jquery.bootstrap-wizard.js"></script>
-        <script src="../Lib/jquery/jquery.counterup.js"></script>
-        <script src="../Lib/jquery/jquery.fancybox.pack.js"></script>
         <script src="../Lib/jquery/jquery.min.js"></script>
-        <script src="../Lib/jquery/jquery.mixitup.js"></script>
-        <script src="../Lib/jquery/jquery.poptrox.min.js"></script>
-        <script src="../Lib/jquery/jquery.validate.min.js"></script>
-        <script src="../Lib/jquery/perfect-scrollbar.jquery.min.js"></script>
-        <script src="../Lib/lightbox/js/lightbox-plus-jquery.min.js"></script>
         <script src="../Lib/material/js/material-dashboard?v=2.1.1.js"></script>
         <script src="../Lib/now-ui-kit/now-ui-kit.js"></script>
-        <script src="../Lib/owlcarousel/owl.carousel.js"></script>
-        <script src="../Lib/popper/popper.min.js"></script>
-        <script src="../Lib/skel/skel.min.js"></script>
-        <script src="../Lib/slick/slick.js"></script>
-        <script src="../Lib/superfish/superfish.js"></script>
-        <script src="../Lib/venobox/venobox.js"></script>
-        <script src="../Lib/wow/wow.min.js"></script>
         <script src="../Lib/bootstrap/js/bootstrap-material-design.min.js"></script>
-        <script>
-            $(document).ready(function() {
-            //init DateTimePickers
-            md.initFormExtendedDatetimepickers();
-            });
-        </script> 
-        <script>
-            $(document).ready(function() {
-                // the body of this function is in assets/js/now-ui-kit.js
-                nowuiKit.initSliders();
-            });
-        
-            function scrollToDownload() {
-        
-                if ($('.section-download').length != 0) {
-                $("html, body").animate({
-                    scrollTop: $('.section-download').offset().top
-                }, 1000);
-                }
-            }
-        </script>
         <!-- end libraries -->
         <!-- =========================================================================================================================== -->
-        <!-- =========================================================================================================================== -->
-
    </body>
 </html>
-<?php }else{
-        echo "not assigned"; 
-   }
-   } ?>
+<?php }else{ ?>
+   <div class="unathorized">Unauthorized link detected, <a href="Groups.php?joingroups">Help me now!</a></div>
+<?php }  }else{ ?>
+   <div class="unauthorized_group">unauthorized group link, <a href="Groups.php?joingroups">Help me now!</a></div>
+<?php }
+    } else { ?>
+        <div class="unauthorized_group">That not right, <a href="Groups.php?joingroups">Help me now!</a></div>
+    <?php }
+}else{ ?>
+        <div class="unauthorized_group">wrong token link, <a href="Groups.php?joingroups">Help me now!</a></div> 
+   <?php }
+}else{
+    header("Location: ../Personal-account/account_shortcut.box.php");
+    exit();
+} ?>

@@ -188,6 +188,47 @@
             $insert_religion_content = "INSERT INTO user_religion_post VALUE ('','$religion_email','$user_email','$media_posted','$media_type','$post_title','$poste_sub_title','$post_desc','$religion_section','$religion_continet','$section_side','0','$created_on')";
             $execute_religion_content = mysqli_query($this->Frequency(), $insert_religion_content);
         }
+
+        public function user_updates($updates){
+            $selectIdentity = "SELECT email FROM intelligent_users";
+            $execute_identity = mysqli_query($this->Frequency(),$selectIdentity);
+            $fetchIdentity = mysqli_fetch_assoc($execute_identity);
+                $user_email = $fetchIdentity['email'];
+
+                $subject = "IntelligentBox New Updates Now";
+                $sender = "users@intelligentbox.rw";
+                $sender_name = "IntelligentBox";
+
+                $body = "<div style='border-radius: 14px; margin: 10px;'>
+                            <div style='background: ##08345e;padding: 10px;text-align: center;color: white;'>IntelligentBox</div>
+                            <div style='margin-top: 10px;padding: 10px;'>{$updates}</div>
+                         </div>"; 
+
+                $mail = new PHPMailer();
+
+                // SMTP settings
+                $mail->isSMTP();
+                $mail->Host = "mail.intelligentbox.rw";
+                $mail->SMTPAuth = true;
+                $mail->Username = "users@intelligentbox.rw";  // current password 'Homo_sapience@intelligentbox'
+                $mail->Password = 'IntelligentBoxUsers';
+                $mail->Port = 465;    //587
+                $mail->SMTPSecure = "ssl";   // tls
+            
+                // Email settings
+                $mail->isHTML(true);       
+                $mail->setFrom($sender, $sender_name);      // specify who sending email (sender)
+                $mail->addAddress($user_email);    // specify where email sended (reciever)
+                $mail->Subject = $subject;
+                $mail->Body = $body;
+
+                if($mail->send()){
+                    return true;
+                }else{
+                    return false;
+                }
+
+        }
     }
 
     // IMPLEMENT CLASS SEGMENTS
@@ -349,5 +390,11 @@
                 echo "File upload fail";
             }
         }
+    }
+
+    // if request is to share updates
+    // =============================================================================================================================================================
+    if(isset($_POST['update_user'])){
+        $new_segments->user_updates($_POST['update_user']);
     }
 ?>

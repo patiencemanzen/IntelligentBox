@@ -1,0 +1,418 @@
+/* //////////////////////////////////////////////////////
+
+    INTELLIGENT BOX
+    DESIGNED & DEVELOPED by Manirabona Patience
+    
+    author: Mnirabona Patience,
+    Email:  Hseal419@gmail.com,
+    location: Kigali,Rwanda,
+    pro: Intelligent Box E-learning,
+    version: 1.0.0 
+ ////////////////////////////////////////////////////// */
+
+ /* external font family */
+ @font-face {font-family: 'roboto_bold';src: url('../fonts/Roboto/Roboto-Bold.ttf');} 
+ @font-face{font-family: 'roboto_regular';src: url('../fonts/Roboto/Roboto-Regular.ttf');}
+ @font-face{font-family: 'baskvile';src: url('../fonts/baskerville/BASKVILL.TTF');}
+ @font-face{font-family: 'roboto_medium';src: url('../fonts/Roboto/Roboto-Medium.ttf');}
+
+
+ /* body stle */
+ /* ===================================================================================================================================================== */
+    body{
+        padding: 0;
+        margin: 0;
+        font-family: roboto_regular;
+        background-color: white;
+        letter-spacing: 0.2px;
+    }
+/* ==================================================================================================================================================== */
+
+/* MAIN COLOR */
+/* ===================================================================================================================================================== */
+    :root{
+        --BoxPrimary: #041a2f;
+        --BoxSecondary: #f6f7fd;
+        --BoxSubPrimary: #071c2e;
+        --BoxSubSecondary: #08345e;
+        --BoxLines: #d3d3d3;
+        --Basic: white;
+    }
+/* ==================================================================================================================================================== */
+
+/* apply on scroll bar */
+/* ============================================================================================================ */
+    /* width */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: var(--Basic); 
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: var(--BoxPrimary);
+        border-radius: 4px; 
+    }
+/* ================================================================================================================== */
+
+/* Top navbar style */
+/* ============================================================================================================ */
+    nav{
+        padding: 0;
+        z-index: 99;
+        position: sticky;
+        top: 0;
+    }
+    .inner-header-1{
+        background: #041a2f;
+        width: 100%;
+        padding: 15px;
+        text-align: center;
+    }
+    .intelligent-box-logo{
+        text-align: center;
+        color: var(--Basic);
+        font-weight: bold;
+        font-size: 25px;
+        text-transform: capitalize;
+        letter-spacing: 0.6px;
+    }
+    .header-fixed{
+        box-shadow: 0 0 15px rgba(0,0,0, 0.4);
+    }
+/* ================================================================================================================ */
+
+/* page links */
+/* ========================================================================================================================= */
+    .page_links{
+        background: var(--Basic);
+        text-align: center;
+    }
+    .links ul{
+        padding: 0;
+        text-align: center;
+        display: flex;
+    }
+    .links ul li{
+        padding: 8px 20px;
+        list-style: none;
+    }
+    .links ul li a{
+        color: var(--BoxPrimary);
+        font-family: roboto_bold;
+        letter-spacing: 0.5px;
+        text-transform: capitalize;
+        font-size: 15px;
+    }
+    .links ul li a .fa{
+        font-size: 16px;
+        margin-right: 10px;
+    }
+/* ================================================================================================================================== */
+
+/* down section */
+/* ========================================================================================================================================= */
+.down-input-forms{
+    background: var(--Basic);
+    width: 100%;
+    height: 80vh;
+    position: relative;
+}
+.black-back{
+    background: var(--BoxPrimary);
+    width: 50%;
+    height: 80vh;
+    float: right;
+}
+.background-text{
+    position: absolute;
+    font-size: 10rem;
+    font-family: roboto_bold;
+    letter-spacing: 1px;
+    line-height: 25px;
+    bottom: 50%;
+    left: 10%;
+    opacity: 0.2;
+}
+.background-text .left-text{
+    color: var(--BoxPrimary);
+}
+.background-text .right-text{
+    color: var(--Basic);
+}
+.sign-users{
+    position: absolute;
+    bottom: 32%;
+    left: 35%;
+}
+.inner-content{
+    background: var(--Basic);
+    border-radius: 14px;
+    box-shadow: 0 0 10px rgba(0,0,0, 0.3);
+    width: 400px;
+    padding: 10px;
+}
+.forms{
+    margin-top: 30px;
+}
+.account-title{
+    width: 100%;
+    text-align: center;
+    font-family: roboto_bold;
+    font-size: 18px;
+    letter-spacing: 0.6px;
+    margin-top: 10px;
+    position: relative;
+}
+/* .account-title::before{
+    content: "";
+    position: absolute;
+    width: 110px;
+    height: 2px;
+    background: var(--BoxPrimary);
+    bottom: -5px;
+    left: 8.5rem;
+} */
+.user-email input{
+    border: none;
+    outline: none;
+    font-family: roboto_medium;
+    font-weight: 590;
+    font-size: 15px;
+    width: 100%;
+    height: 100%;
+}
+.user-email {
+    background: var(--Basic);
+    border: 1px solid #d3d3d3;
+    padding: 10px;
+    border-radius: 4px;
+}
+.user-password input{
+    border: none;
+    outline: none;
+    font-family: roboto_medium;
+    font-weight: 590;
+    font-size: 15px;
+    width: 100%;
+    height: 100%;
+}
+.user-password{
+    background: var(--Basic);
+    border: 1px solid #d3d3d3;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+.remember-me{
+    font-family: roboto_bold;
+    letter-spacing: 0.6px;
+    font-size: 15px;
+}
+.signin-btn{
+    margin-top: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+.btn-signin{
+    background: var(--BoxPrimary);
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    padding: 6px 20px;
+    color: var(--Basic);
+    font-family: roboto_bold;
+    letter-spacing: 0.6px;
+}
+.btn-signin .fa{
+    margin-right: 5px;
+}
+.remember-me{
+    margin-bottom: 4px;
+}
+.forget-password{
+    font-size: 16px;
+    margin-top: px;
+}
+.forget-password a{
+    color: var(--BoxPrimary);
+    font-family: roboto_bold;
+}
+
+.user-login-session{
+    position: absolute; 
+    background: white;
+    width: 250px;
+    bottom: 20px;
+    left: 50px;
+    border-radius: 14px;
+    padding: 2px;
+    box-shadow: 0 0 10px rgba(0,0,0, 0.3);
+    transition: .5s;
+}
+.usr-image img{
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+}
+.usr-image{
+    height: 150px;
+}
+.user-name{
+    text-align: center;
+    font-family: roboto_bold;
+    font-size: 16px;
+    text-transform: capitalize;
+    letter-spacing: 0.6px;
+}
+.submit-btn-session{
+    padding: 0px 5px;
+}
+.submit-co_user{
+    background: #041a2f;
+    color: white;
+    border-radius: 4px; 
+    width: 100%;
+    border: none;
+    padding: 5px;
+    outline: none;
+    font-family: roboto_bold;
+    cursor: pointer;
+}
+.close-user-session{
+    background: whitesmoke;
+    padding: 2px 7px;
+    color: #041a2f;
+    top: 5px; 
+    right: 5px;
+    position: absolute;
+    border-radius: 14px;
+    cursor: pointer;
+    text-align: center;
+}
+/* =============================================================================================================================== */
+
+/* MEDIA QUERY */
+/* ===================================================================================================================================== */
+@media screen and (max-width: 1024px){
+    .background-text{
+        font-size: 9rem;
+        left: 5%;
+    }
+    .sign-users{
+        bottom: 32%;
+        left: 30%;
+    }
+}
+@media screen and (max-width: 768px){
+    .background-text{
+        font-size: 7rem;
+        left: 30px;
+    }
+    .sign-users{
+        bottom: 32%;
+        left: 25%;
+    }
+}
+@media screen and (max-width: 425px){
+    .Conditions, .Privacy{
+        display: none;
+    }
+    .black-back{
+        background: var(--BoxPrimary);
+        width: 100%;
+        height: 75vh;
+        float: none;
+    }
+    .down-input-forms{
+        height: 75vh;
+    }
+    .background-text{
+        font-size: 3rem;
+        left: 60px;
+        color: white;
+        opacity: 0.8;
+        bottom: 30px;
+    }
+    .background-text .left-text{
+        color: var(--Basic);
+    }
+    .sign-users{
+        bottom: 32%;
+        left: 10%;
+    }
+    .inner-content{
+        width: 350px;
+    }
+    .account-title::before{
+        width: 110px;
+        bottom: -10px;
+        left: 7rem;
+    }
+}
+@media screen and (max-width: 375px){
+    .background-text{
+        font-size: 3rem;
+        left: 30px;
+    }
+    .background-text .left-text{
+        color: var(--Basic);
+    }
+    .sign-users{
+        bottom: 32%;
+        left: 4%;
+    }
+    .inner-content{
+        width: 350px;
+    }
+    .account-title::before{
+        width: 110px;
+        bottom: -10px;
+        left: 7rem;
+    }
+}
+@media screen and (max-width: 335px){
+    .background-text{
+        font-size: 3rem;
+        left: 15px;
+    }
+    .sign-users{
+        bottom: 32%;
+        left: 2.5%;
+    }
+    .inner-content{
+        width: 320px;
+    }
+    .account-title::before{
+        width: 110px;
+        bottom: -10px;
+        left: 6rem;
+    }
+}
+@media screen and (max-width: 315px){
+    .background-text{
+        font-size: 2.5rem;
+        left: 15px;
+    }
+    .sign-users{
+        bottom: 32%;
+        left: 2.5%;
+    }
+    .inner-content{
+        width: 285px;
+    }
+    .account-title::before{
+        width: 110px;
+        bottom: -10px;
+        left: 5rem;
+    }
+}
+/* ===================================================================================================================================== */

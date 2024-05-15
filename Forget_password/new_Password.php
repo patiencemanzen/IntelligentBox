@@ -13,12 +13,10 @@
 
     // INITIALIZE DATABASE CONNECTION
     // ============================================================
-    // ============================================================
     require_once ("../Scyllar.php");
     // ============================================================
 
     // INITIALIZE INTERFACE
-    // ============================================================
     // =============================================================
     interface NewData {
         public function updatePassword();
@@ -57,7 +55,7 @@
         public function sendEmail(){
             $subject = "Password changed successfully on Intelligent Box account";
             $sender = "intelligentbox@gmail.com";
-            $sender_name = "Intelligent box";
+            $sender_name = "IntelligentBox";
 
             $select_info = "SELECT * FROM intelligent_users WHERE email='$this->User_mail'";
             $execute_info = mysqli_query($this->Frequency(), $select_info);
@@ -73,10 +71,10 @@
 
             // SMTP settings
             $mail->isSMTP();
-            $mail->Host = "smtp.gmail.com";
+            $mail->Host = "mail.intelligentbox.rw";
             $mail->SMTPAuth = true;
-            $mail->Username = "intelligentbox732@gmail.com";
-            $mail->Password = 'Homo_sapience@intelligentbox';
+            $mail->Username = "users@intelligentbox.rw";  // current password 'Homo_sapience@intelligentbox'
+            $mail->Password = 'IntelligentBoxUsers';
             $mail->Port = 465;    //587
             $mail->SMTPSecure = "ssl";   // tls
             

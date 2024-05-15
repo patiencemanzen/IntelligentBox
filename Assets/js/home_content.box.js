@@ -188,14 +188,15 @@ function like_dislike(obj){
 // WHEN IT COMES TO POST COMMENT REPLY
 // =================================================================================================================================================
 function comment_reply(obj){
+    var comment_id = obj.id;
+    var comments = obj.parentNode.previousElementSibling.lastChild.lastChild.value;
+
     $(document).ready(function(){
-        var comment_id = obj.id;
-        console.log(comment_id);
-        var comments = obj.parentNode.previousElementSibling.lastChild.value;
         if(comments == ""){
-            obj.parentNode.previousElementSibling.lastChild.parentNode.style.border = "1px solid red";
+            obj.parentNode.previousElementSibling.lastChild.lastChild.parentNode.style.border = "1px solid red";
         }else{
             var commeter_email = document.getElementById("hiddenEmail").value;
+            obj.innerHTML = "Posting...";
             $(this).load("show_posts.php",{
                  getComment_id: comment_id,
                  getComment: comments,
@@ -203,7 +204,7 @@ function comment_reply(obj){
             },function(){
                 obj.style.border = "none";
                 obj.style.background = "#041a2f";
-                obj.parentNode.previousElementSibling.lastChild.parentNode.style.border = "1px solid #d3d3d3";
+                obj.parentNode.previousElementSibling.lastChild.lastChild.parentNode.style.border = "1px solid #d3d3d3";
                 comment = "";
                 display_post();
             });

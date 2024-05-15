@@ -1,0 +1,568 @@
+/* //////////////////////////////////////////////////////
+
+    INTELLIGENT BOX
+    DESIGNED & DEVELOPED by Manirabona Patience
+    
+    author: Mnirabona Patience,
+    Email:  Hseal419@gmail.com,
+    location: Kigali,Rwanda,
+    pro: Intelligent Box E-learning,
+    version: 1.0.0 
+ ////////////////////////////////////////////////////// */
+
+ /* external font family */
+ /* ===================================================================================================================================================== */
+    @font-face {font-family: 'roboto_bold';src: url('../fonts/Roboto/Roboto-Bold.ttf');} 
+    @font-face{font-family: 'roboto_regular';src: url('../fonts/Roboto/Roboto-Regular.ttf');}
+    @font-face{font-family: 'baskvile';src: url('../fonts/baskerville/BASKVILL.TTF');}
+    @font-face{font-family: 'roboto_medium';src: url('../fonts/Roboto/Roboto-Medium.ttf');}
+/* ===================================================================================================================================================== */
+
+ /* body stle */
+ /* ===================================================================================================================================================== */
+    body{
+        padding: 0;
+        margin: 0;
+        background-color: white;
+    }
+    *{
+        letter-spacing: 0.6px;
+        line-height: 20px;
+    }
+/* ==================================================================================================================================================== */
+
+/* MAIN COLOR */
+/* ===================================================================================================================================================== */
+    :root{
+        --BoxPrimary: #041a2f;
+        --BoxSecondary: #f6f7fd;
+        --BoxSubPrimary: #071c2e;
+        --BoxSubSecondary: #08345e;
+        --BoxLines: #d3d3d3;
+        --Basic: white;
+    }
+/* ==================================================================================================================================================== */
+
+/* apply on scroll bar */
+/* ============================================================================================================ */
+    /* width */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: var(--Basic); 
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: var(--BoxPrimary);
+        border-radius: 4px; 
+    }
+/* ================================================================================================================== */
+
+/* GROUP CONTENT*/
+/* ====================================================================================================================== */
+    .group-content .container{
+        display: flex;
+    }
+    .group-content{
+        margin-top: 65px;
+        margin-bottom: 20px;
+    }
+    .left-content{
+        /* width: 40%; */
+        margin: 0px 10px 0px 0px;
+    }
+    .related_group{
+        padding: 10px;
+    }
+    .rel-title{
+        font-family: roboto_bold;
+        letter-spacing: 0.6px;
+        line-height: 20px;
+        font-size: 16px;
+        margin-top: 20px;
+    }
+    .groups-list{
+        margin-top: 20px;
+    }
+    .each-group{
+        display: flex;
+        margin: 10px 0px;
+        padding: 5px;
+        border-radius: 6px;
+        color: var(--BoxSubSecondary);
+    }
+    .each-group:hover{
+        background-color: rosybrown;
+        color: var(--BoxSubSecondary);
+    }
+    .group-img img{
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+        border-radius: 50%;
+    }
+    .group-img{
+        border-radius: 50%;
+        background-color: var(--BoxSecondary);
+        width: 35px;
+        height: 35px;
+    }
+    .group-rel-detail{
+        margin-left: 10px;
+    }
+    .group-name{
+        font-family: roboto_bold;
+        letter-spacing: 0.6px;
+        font-size: 14px;
+        width: 130px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-transform: capitalize;
+    }
+    .group-member{
+        font-family: roboto_bold;
+        letter-spacing: 0.6px;
+        font-size: 14px;
+        width: 130px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-transform: capitalize;
+    }
+
+    .right-content{
+        padding: 0px 30px 0px 0px;
+        width: 100%;
+    }
+    .top-background-section{
+        background-color: var(--Basic);
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+    .top-background-image{
+        background-color: var(--BoxSecondary);
+        height: 300px;
+    }
+    .top-background-group-detail{
+        background: var(--Basic);
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .group-desc{
+        font-family: roboto_bold;
+        font-size: 15px;
+        margin-top: 5px;
+        line-height: 20px;
+    }
+    .join-btn button{
+        background: var(--BoxSubSecondary);
+        border: none;
+        outline: none;
+        border-radius: 6px;
+        padding: 5px 20px;
+        color: var(--Basic);
+        font-family: roboto_bold;
+        font-size: 15px;
+        cursor: pointer;
+    }
+
+    /* GROUP-DESC */
+    /* ================================================================================================================== */
+    .group-short-desc{
+        display: flex;
+        margin-top: 30px;
+    }
+    .group-desc-content{
+        width: 40%;
+        background: var(--Basic);
+        border-radius: 6px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        padding: 10px;
+    }
+    .group-detail{
+        padding: 10px;
+    }
+    .group-name-title{
+        font-size: 15px;
+        font-family: roboto_bold;
+        text-align: center;
+        text-transform: capitalize;
+        background: var(--BoxSubPrimary);
+        padding: 7px;
+        border-radius: 6px;
+        color: var(--Basic);
+    }
+    .sort-group-detail{
+        margin-top: 30px;
+    }
+    .created_by{
+        display: flex;
+        border-top: 1px solid var(--BoxLines);
+        border-bottom: 1px solid var(--BoxLines);
+        padding: 10px;
+    }
+    .creater-img img{
+        width: 100%;
+        height: 100%;
+        border-radius: 4px;
+    }
+    .creater-img{
+        width: 55px;
+        height: 50px;
+        background: var(--BoxSecondary);
+        border-radius: 4px;
+        margin-top: 5px;
+    }
+    .creater-detail{
+        margin-left: 20px;
+    }
+    .creater-name{
+        font-family: roboto_bold;
+        font-size: 16px;
+        width: 230px;
+        white-space: nowrap;
+        text-transform: capitalize;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        text-align: center;
+    }
+    .join-creater{
+        background: var(--BoxPrimary);
+        padding: 3px 20px;
+        color: var(--Basic);
+        font-family: roboto_bold;
+        margin-top: 6px;
+        border-radius: 4px;
+        text-align: center;
+        cursor: pointer;
+    }
+    .table-content{
+        margin-top: 20px;
+    }
+    .member{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+    .desc-1{
+        font-family: roboto_bold;
+        font-size: 16px;
+        text-align: left;
+    }
+    .desc-re{
+        font-family: roboto_bold;
+        font-size: 15px;
+        text-align: right;
+    }
+    .group-bio{
+        display: flex;
+        background: var(--BoxSecondary);
+        margin-top: 20px;
+        border-radius: 14px;
+        overflow: hidden;
+    }
+    .none{
+        padding: 2px;
+        background: var(--BoxSubSecondary);
+    }
+    .bio{
+        font-family: roboto_bold;
+        font-size: 15px;
+        line-height: 20px;
+        text-align: center;
+        background: var(--BoxSecondary);
+        padding: 10px;
+    }
+/* ======================================================================================================================= */
+
+/* GROUP POST */
+/* ======================================================================================================================== */
+    .group-posts{
+        margin-right: 20px;
+        width: 60%;
+    }
+    .each-activity{
+        box-shadow: 0 0 5px rgb(0, 0, 0, 0.3);
+        background: var(--Basic);
+        padding: 10px;
+        border-radius: 6px;
+        margin: 0px 0px 20px 0px;
+    }
+    .poster-info{
+        display: flex;
+    }
+    .poster-image img{
+        border-radius: 4px;
+    }
+    .poster-image{
+        width: 45px;
+        height: 40px;
+        border-radius: 4px;
+        background: #f6f7fd;
+    }
+    .poster-txt{
+        margin-left: 10px;
+    }
+    .main-target{
+        width: 100%;
+    }
+    .poster-detail{
+        width: 100%;
+    }
+    .poster-name{
+        font-family: roboto_bold;
+        font-size: 15px;
+        text-transform: capitalize;
+        letter-spacing: 0.6px;
+        line-height: 20px;
+    }
+    .posted-time{
+        font-size: 14px;
+        font-family: roboto_bold;
+        letter-spacing: 0.6px;
+        line-height: 20px;
+    }
+    .caption-require{
+        font-family: roboto_medium;
+        margin-top: 10px;
+        width: 100%;
+    }
+    .media img{
+        border-radius: 4px;
+        margin-top: 3px;
+    }
+    .media video{
+        border-radius: 4px;
+        object-fit: fill;
+        width: 100%;
+        height: 100%;
+        min-width: 100%;
+        min-height: 100%;
+    }
+    .media{
+        background: #f6f7fd;
+        border-radius: 4px;
+        position: relative;
+        margin-top: 10px;
+    }
+    .user-accurancy{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+    .user-accurancy div{
+        font-family: roboto_bold;
+        padding: 5px 10px;
+        background: #f6f7fd;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .user-accurancy div .fa{
+        font-size: 17px;
+    }
+    .add-comment .fa{
+        display: none;
+    }
+    .add-comments-area{
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .user-site-image img{
+        border-radius: 50%;
+    }
+    .user-site-image{
+        width: 50px;
+        height: 49px;
+        border-radius: 50%;
+        background: #f6f7fd;
+    }
+    .comment-textarea textarea{
+        width: 100%;
+        height: 100%;
+        border: none;
+        outline: none;
+        font-family: roboto_medium;
+    }
+    .comment-textarea{
+        border: 1px solid #d3d3d3;
+        padding: 5px;
+        border-radius: 4px;
+        margin: 5px 10px;
+        width: 100%;
+    }
+    .btn-add-comment{
+        margin: 5px 5px;
+        padding: 5px 10px;
+        background: #041a2f;
+        color: white;
+        font-family: roboto_bold;
+        border-radius: 4px;
+        cursor: pointer;
+        outline: none;
+        border: none;
+    }
+    .list-comment-found{
+        margin-top: 10px;
+        min-height: 180px;
+        max-height: 300px;
+        overflow: auto;
+        overflow-x: hidden;
+    }
+    .each-comment{
+        border-top: 1px solid #d3d3d3;
+        padding: 10px 0;
+    }
+    .inner-commet{
+        display: flex;
+    }
+    .commeter-img img{
+        border-radius: 50%;
+    }
+    .commeter-img{
+        width: 40px;
+        height: 39px;
+        border-radius: 50%;
+        background: #f6f7fd;
+    }
+    .comment{
+        margin-left: 10px;
+    }
+    .commeter-name{
+        font-family: roboto_medium;
+    }
+    .real-comment{
+        margin-top: 5px;
+        font-family: roboto_regular;
+    }
+    .commeter-image-down img{
+        border-radius: 50%;
+    }
+    .commeter-image-down{
+        width: 40px;
+        height: 40px;
+        background: #f6f7fd;
+        border-radius: 50%;
+    }
+    .textarea-add-comment textarea{
+        width: 100%;
+        height: 100%;
+        border: none;
+        outline: none;
+        font-family: roboto_medium;
+    }
+    .textarea-add-comment{
+        border-radius: 4px;
+        border: 1px solid #d3d3d3;
+        padding: 5px;
+        margin-left: 5px;
+        width: 100%;
+    }
+    .post-comment-written{
+        margin-left: 5px;
+        margin-right: 3px;
+        margin-top: 5px;
+    }
+    .post-comment-written button{
+        background: #f6f7fd;
+        color: #041a2f;
+        padding: 6px;
+        border-radius: 4px;
+        cursor: pointer;
+        outline: none;
+        font-family: roboto_bold;
+        text-transform: capitalize;
+        border: none;
+    }
+    .comment-found-comment{
+        border: 1px solid #d3d3d3;
+        border-top: none;
+        margin-top: 5px;
+        border-radius: 4px;
+        overflow-x: hidden;
+        overflow: auto;
+        max-height: 200px;
+    }
+    .each-comment-found{
+        border-top: 1px solid #d3d3d3;
+        padding: 10px 5px;
+        display: flex;
+    }
+    .commenter-image-found img{
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+    }
+    .commenter-image-found{
+        width: 30px;
+        height: 30px;
+        background: #f6f7fd;
+        border-radius: 50%;
+    }
+    .real-comment-found{
+        font-family: roboto_medium;
+        letter-spacing: 0.6px;
+        line-height: 17px;
+        margin-left: 5px;
+        font-size: 14px;
+    }
+    .time-commented{
+        font-family: roboto_bold;
+        font-size: 13px;
+        color: #d3d3d3;
+        margin-left: 5px;
+    }
+    .no-data-found{
+        font-family: roboto_bold;
+        font-size: 17px;
+        color: var(--BoxLines);
+        line-height: 21px;
+    }
+/* =========================================================================================================================== */
+
+/* MEDIA QUERY */
+/* =========================================================================================================================== */
+@media screen and (max-width: 1199px){
+    .creater-name{
+        width: 200px;
+    }
+}
+@media screen and (max-width: 991px){
+    .left-content{
+        display: none;
+    }
+    .right-content{
+        padding: 0px 0px 0px 0px;
+    }
+    .group-short-desc{
+        flex-direction: column-reverse;
+    }
+    .group-desc-content{
+        width: 100%;
+    }
+    .group-posts{
+        width: 100%;
+        margin-top: 20px;
+    }
+    .top-background-group-detail{
+        flex-direction: column;
+    }
+    .join-btn{
+        margin-top: 7px;
+    }
+}
+@media screen and (max-width: 500px){
+    .pre-accu{
+        display: none;
+    }
+}
+/* =========================================================================================================================== */

@@ -20,28 +20,31 @@
             $this->E_mail = $email;
         }
 
-        private function count_date($selected_date){
-            $PostedDate = $selected_date;
-            $currDate = Date("Y-m-d h:i:s");
-
-            $date1 = strtotime($PostedDate);  
-            $date2 = strtotime($currDate);  
-            
-            $diff = abs($date2 - $date1); 
-            $years = floor($diff / (365*60*60*24));  
-            $months = floor(($diff - $years * 365*60*60*24) / (30*60*60*24));
-            $days = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24)/ (60*60*24)); 
-            $hours = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24 - $days*60*60*24) / (60*60)); 
-            $minutes = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24 - $days*60*60*24 - $hours*60*60)/ 60);
-            $seconds = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24 - $days*60*60*24 - $hours*60*60 - $minutes*60)); 
-
-            if($days > 30){
-               return $PostedDate;
-            }if($days < 30){
-                return $days." Day(s) ago";
-            }if($days < 0){
-                return $hours." Hour(s) ago";
-            }
+        function timeAgo($time_ago){
+            $time_ago = strtotime($time_ago);
+            $cur_time   = time();
+            $time_elapsed   = $cur_time - $time_ago;
+            $seconds    = $time_elapsed ;
+            $minutes    = round($time_elapsed / 60 );
+            $hours      = round($time_elapsed / 3600);
+            $days       = round($time_elapsed / 86400 );
+            $weeks      = round($time_elapsed / 604800);
+            $months     = round($time_elapsed / 2600640 );
+            $years      = round($time_elapsed / 31207680 );
+            // Seconds
+            if($seconds <= 60){return "just now";}
+            //Minutes
+            else if($minutes <=60){if($minutes==1){return "one minute ago";}else{return "$minutes minutes ago";}}
+            //Hours
+            else if($hours <=24){if($hours==1){return "an hour ago";}else{return "$hours hrs ago";}}
+            //Days
+            else if($days <= 7){if($days==1){return "yesterday";}else{return "$days days ago";}}
+            //Weeks
+            else if($weeks <= 4.3){if($weeks==1){return "a week ago";}else{return "$weeks weeks ago";}}
+            //Months
+            else if($months <=12){if($months==1){return "a month ago";}else{return "$months months ago";}}
+            //Years
+            else{if($years==1){return "one year ago";}else{return "$years years ago";}}
         }
 
         
@@ -81,8 +84,7 @@
                     // count date
                     // =============================
                     $select_date_posted = $fetch_posts['created_on'];
-                    $today_date = date("d/m/Y");
-                    $Form_date = $this->count_date($select_date_posted);
+                    $Form_date = $this->timeAgo($select_date_posted);
 
                     $select_basic_info = "SELECT * FROM intelligent_users WHERE email='$poster_email'";
                     $execute_basic_info = mysqli_query($this->Frequency(), $select_basic_info);
@@ -102,13 +104,18 @@
 
                         <!-- each activty -->
                         <!-- ================================================================================================================================================================================ -->
-                        <div class="each-activity">
-                            <div><div class="poster-image"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" width="100%" height="100%"></div></div>
+                        <div class="each-activity" style="border: 1px solid #d3d3d3">
+                            <div class="poster-info">
+                                <div class="poster-image"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" width="100%" height="100%"></div>
+                                <div class="poster-txt">
+                                    <div class="poster-name"><?php echo $getFirstname; ?> <?php echo $getLastname; ?></div>
+                                    <div class="posted-time"><i class="fa fa-globe"></i> <?php echo $Form_date; ?></div>
+                                </div>
+                            </div>
                             <div class="main-target">
                                 <div class="poster-detail">
-                                    <div class="poster-name"><?php echo $getFirstname; ?> <?php echo $getLastname; ?></div>
                                     <div class="caption-require">
-                                        <span><?php echo $select_caption; ?></span>
+                                        <span><?php echo $select_caption; ?> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab voluptatibus repudiandae totam perspiciatis nesciunt quae, soluta quas asperiores vitae unde voluptatem natus adipisci aut sed explicabo laudantium. Praesentium, animi. Iusto.</span>
                                     </div>
                                     <?php if($select_media_posted == ""){ }else{ ?>
                                         <!-- if post is video -->
@@ -127,7 +134,6 @@
                                                 </div>
                                             </div>
                                         <?php }else{?>
-                                            <!-- if post is photo -->
                                             <div class="media">
                                                 <img src="<?php echo $photoPath.$select_media_posted; ?>" alt="" width="100%" height="100%">
                                             </div>
@@ -208,7 +214,139 @@
             }else{ ?>
                 <div class="no-data-found d-flex flex-column text-center">
                     <i class="fa fa-camera-retro"></i>
-                    <span>Create more posts,update profile image and shared what you are thinking </span>
+                    <span> No posts shared in this group </span>
+                </div>
+            <?php }
+        }
+
+        public function view_post($post_type,$photoPath, $group_identity){
+            $select_posts = "SELECT * FROM user_group_post WHERE post_type='$post_type' AND group_identity='$group_identity' ORDER BY created_on DESC  LIMIT 3";
+            $execute_posts = mysqli_query($this->Frequency(), $select_posts);
+            if(mysqli_num_rows($execute_posts) > 0){
+                while($fetch_posts = mysqli_fetch_assoc($execute_posts)){
+                    $select_media_posted = $fetch_posts['media_posted'];
+                    $select_caption = $fetch_posts['media_caption'];
+                    $select_media_type = $fetch_posts['media_type'];
+                    $poster_email = $fetch_posts['poster_email'];
+                    $post_identity = $fetch_posts['identity'];
+
+                    // count date
+                    // =============================
+                    $select_date_posted = $fetch_posts['created_on'];
+                    $Form_date = $this->timeAgo($select_date_posted);
+
+                    $select_basic_info = "SELECT * FROM intelligent_users WHERE email='$poster_email'";
+                    $execute_basic_info = mysqli_query($this->Frequency(), $select_basic_info);
+                    $fetch_basic_info = mysqli_fetch_assoc($execute_basic_info);
+                    $getFirstname = $fetch_basic_info['firstName'];
+                    $getLastname = $fetch_basic_info['lastName'];
+
+                    $select_poster_img = "SELECT profile_image FROM user_profile_image WHERE usr_email='$poster_email' AND status_image='1'";
+                    $execute_profile_image = mysqli_query($this->Frequency(),$select_poster_img);
+                    $fetch_image = mysqli_fetch_assoc($execute_profile_image);
+                    $profile_image = $fetch_image['profile_image'];  
+                    
+                    $select_my_profile_image = "SELECT profile_image FROM user_profile_image WHERE usr_email='$this->E_mail' AND status_image='1'";
+                    $execute_my_image = mysqli_query($this->Frequency(), $select_my_profile_image);
+                    $fetch_my_image = mysqli_fetch_assoc($execute_my_image);
+                        $my_profile_image = $fetch_my_image['profile_image'];  ?>
+
+                        <!-- each activty -->
+                        <!-- ================================================================================================================================================================================ -->
+                        <div class="each-activity" style="border: 1px solid #d3d3d3">
+                            <div class="poster-info">
+                                <div class="poster-image"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" width="100%" height="100%"></div>
+                                <div class="poster-txt">
+                                    <div class="poster-name"><?php echo $getFirstname; ?> <?php echo $getLastname; ?></div>
+                                    <div class="posted-time"><i class="fa fa-globe"></i> <?php echo $Form_date; ?></div>
+                                </div>
+                            </div>
+                            <div class="main-target">
+                                <div class="poster-detail">
+                                    <div class="caption-require">
+                                        <span><?php echo $select_caption; ?> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab voluptatibus repudiandae totam perspiciatis nesciunt quae, soluta quas asperiores vitae unde voluptatem natus adipisci aut sed explicabo laudantium. Praesentium, animi. Iusto.</span>
+                                    </div>
+                                    <?php if($select_media_posted == ""){ }else{ ?>
+                                        <div class="media">
+                                            <img src="<?php echo $photoPath.$select_media_posted; ?>" alt="" width="100%" height="100%">
+                                        </div>
+                                    <?php } ?>
+                                    
+                                    <div class="user-accurancy">
+                                        <div class="comment-count" data-toggle="collapse" data-target="#comment-found-onpost_<?php echo $post_identity; ?>" id="<?php echo $post_identity; ?>">
+                                            <i class="fa fa-comment-o mr-1" id="<?php echo $post_identity; ?>"></i> 
+                                            <span class="pre-accu"> Comments </span> <span id="count_comments_found_post_<?php echo $post_identity; ?>">
+                                                <script>
+                                                    setInterval(() => {
+                                                        $(document).ready(function(){
+                                                            var post_idintity = "<?php echo $post_identity; ?>";
+                                                            var user_email = document.getElementById("hiddenEmail").value;
+                                                            var post_type = "feeds";
+
+                                                            $("#count_comments_found_post_<?php echo $post_identity; ?>").load("group_posts.box.php",{
+                                                                post_count_comment: post_idintity,
+                                                                user_comments_mail: user_email,
+                                                            });
+                                                        });
+                                                    }, 1000);
+                                                </script>
+                                            </span>
+                                        </div>
+                                        <div class="likes" id="<?php echo $post_identity; ?>" onclick="like_dislike(this)">
+                                            <i class="fa fa-heart-o mr-1" id=""></i> 
+                                            <span class="pre-accu"> Likes </span> <span id="count_likes_found_post_<?php echo $post_identity; ?>">
+                                                <script>
+                                                    setInterval(() => {
+                                                        $(document).ready(function(){
+                                                            var post_idintity = "<?php echo $post_identity; ?>";
+                                                            var user_email = document.getElementById("hiddenEmail").value;
+                                                            var post_type = "feeds";
+
+                                                            $("#count_likes_found_post_<?php echo $post_identity; ?>").load("group_posts.box.php",{
+                                                                count_post_like: post_idintity,
+                                                                user_mail: user_email,
+                                                                getPost_type: post_type
+                                                            });
+                                                        });
+                                                    }, 1000);
+                                                </script>
+                                            </span>
+                                        </div>
+                                        <div class="add-comment" data-toggle="collapse" data-target="#add_comment"><span class="pre-add-comment"> Add your comment </span> <i class="fa fa-comment"></i></div>
+                                    </div>
+                                    <div class="comment-section-addition collapse" id="add_comment">
+                                        <div class="add-comments-area">
+                                            <div><div class="user-site-image"><img src="<?php echo '../Images/profile-img/profile-image/'.$my_profile_image; ?>" alt="" width="100%" height="100%"></div></div>
+                                            <div><div class="comment-textarea"><textarea name="" id="" cols="30" rows="2" placeholder="Write text comments..."></textarea></div></div>
+                                            <div class=""><button class="btn-add-comment" id="<?php echo $post_identity; ?>" onclick="add_comment(this)">post</button></div>
+                                        </div>
+                                        <div id="hold-error-occur"></div>
+                                    </div>
+                                    <div class="comment-found collapse" id="comment-found-onpost_<?php echo $post_identity; ?>">
+                                        <div class="list-comment-found" id="getComment_<?php echo $post_identity; ?>">
+                                            <script>
+                                                var post_identity = "<?php echo $post_identity; ?>";
+                                                var user_email = document.getElementById("hiddenEmail").value;
+                                                var comment_post_type = "feeds";
+
+                                                $("#getComment_<?php echo $post_identity; ?>").load("group_posts.box.php",{
+                                                    post_display_comments: post_identity,
+                                                    getMail: user_email,
+                                                    getPost_type: comment_post_type
+                                                });
+                                            </script>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end each activty -->
+                        <!-- ============================================================================================================================================= -->
+                <?php }
+            }else{ ?>
+                <div class="no-data-found d-flex flex-column text-center">
+                    <i class="fa fa-camera-retro"></i>
+                    <span> No posts shared in this group </span>
                 </div>
             <?php }
         }
@@ -652,5 +790,12 @@
     if(isset($_POST['getProfile_post_email'])){
         $newFames = new Post_Illumination($_POST['getProfile_post_email']);
         $newFames->show_posts($_POST['getPost_type'],$_POST['getVideoPath'],$_POST['getPath']);
+    }
+
+    // IF RQUEST IS TO DISPLAY VIEW POST/
+    // =================================================================================================================================================
+    if(isset($_POST['getviewPost_email'])){
+        $newFames = new Post_Illumination($_POST['getviewPost_email']);
+        $newFames->view_post($_POST['getpost_type'],$_POST['getPhotoPath'], $_POST['group_identity']);
     }
 ?>

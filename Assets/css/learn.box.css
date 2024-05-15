@@ -1,892 +1,909 @@
-    /* 
-        //////////////////////////////////////////////////////
+/* 
+    //////////////////////////////////////////////////////
 
-        INTELLIGENT BOX
-        DESIGNED & DEVELOPED by Manirabona Patience
+    INTELLIGENT BOX
+    DESIGNED & DEVELOPED by Manirabona Patience
+    
+    author: Mnirabona Patience,
+    Email:  Hseal419@gmail.com,
+    location: Kigali,Rwanda,
+    pro: Intelligent Box E-learning,
+    version: 1.0.0
+    
+    //////////////////////////////////////////////////////
+*/
+
+/* external font family */
+@font-face {font-family: 'roboto_bold';src: url('../fonts/Roboto/Roboto-Bold.ttf');} 
+@font-face{font-family: 'roboto_regular';src: url('../fonts/Roboto/Roboto-Regular.ttf');}
+@font-face{font-family: 'baskvile';src: url('../fonts/baskerville/BASKVILL.TTF');}
+@font-face{font-family: 'roboto_medium';src: url('../fonts/Roboto/Roboto-Medium.ttf');}
+
+
+/* apply on scroll bar */
+/* =========================================================================================================================== */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: white; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #041a2f;
+    border-radius: 4px; 
+}
+/* ========================================================================================================================== */
+
+/* body style */
+/* ======================================================================================================================== */
+body{
+    padding: 0;
+    margin: 0;
+    font-family: roboto_regular;
+    background: white;
+}
+code{
+    font-family: roboto_medium;
+    font-weight: 560;
+    letter-spacing: 0.3px;
+    line-height: 19px;
+}
+*{
+    font-family: roboto_medium;
+}
+/* =============================================================================================================================== */
+
+/* card-header style */
+/* ===================================================================================================================================== */
+.down-section-learn{
+    margin-top: 80px;
+}
+.card-header{
+    font-family: roboto_regular;
+}
+/* nav-item-box */
+.nav-item-box{
+    padding: 10px;
+}
+.nav-item-box .active{
+    border: 1px solid #d3d3d3;
+}
+.nav-item-box .nav-link-box{
+    color: white;
+    font-size: 15px;
+    border: none;
+    text-transform: capitalize;
+}
+/* ========================================================================================================================================================= */
+
+/* SOFTWARE DEVELOPMENT STYLE AREA */
+/* ================================================================================================================================================================ */
+.separeter-division{
+display: flex;
+width: 100%;
+background: white;
+}
+/* ================================================================================================================================================================ */
+
+/* left-section-course-lessons style */
+/* ================================================================================================================================================================== */
+.left-section-course-lessons{
+    background: white;
+    height: 100%;
+    padding: 7px 10px 10px 10px;
+    width: 100%;
+}
+.course-title{
+    padding: 10px;
+    border-radius: 3px;
+    margin-top: 10px;
+    /* box-shadow: 0 0 5px rgba(0,0,0, 0.3); */
+}
+.top-title{
+    font-size: 19px;
+    margin-left: 10px;
+    text-transform: capitalize;
+}
+.user_image_learn{
+    display: flex;
+    border-radius: 30px;
+    padding: 5px 10px 5px 5px;
+    margin-top: 10px;
+}
+.user_image_learn:hover{
+    background: #f6f7fd;
+}
+.user_image_pro{
+    width: 35px;
+    height: 35px;
+    background: #f6f7fd;
+    border-radius: 50%;
+}
+.user_image_pro img{
+    border-radius: 50%;
+    object-fit: fill;
+}
+.username{
+    font-family: roboto_bold;
+    margin-top: 8px;
+    margin-left: 12px;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 200px;
+    font-size: 16px;
+    text-transform: capitalize;
+    letter-spacing: 0.6px;
+}
+.table-content{
+    margin-top: 20px;
+}
+.right-merge{
+    text-align: right;
+    text-transform: capitalize;
+}
+.course-name{
+    font-family: roboto_bold;
+    text-transform: capitalize;
+    text-align: left;
+}
+.courses{
+    background: white;
+    padding: 10px;
+    border-radius: 3px;
+    margin-top: 30px;
+    box-shadow: 0 0 5px rgba(0,0,0, 0.3);
+}
+.course-lessons{
+    background: white;
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid #d3d3d3;
+    cursor: pointer;
+}
+.course-name-get{
+    font-family: roboto_bold;
+    text-transform: capitalize;
+    text-align: left;
+}
+.course-count,.learners{
+    color: #d3d3d3;
+    margin-top: 13px;
+}
+.course-count span,.learners span{
+    color: rgb(204, 140, 140);
+}
+.lessons{width: 100%;}
+.lessons ul li{width: 100%;}
+.lessons ul{width: 100%;padding: 0;}
+.lessons ul li a div{width: 100%;}
+.nav-tabs .active .each-lessons{
+    border: 1px solid #041a2f;
+}
+.each-lessons{
+    background: white;
+    padding: 10px;
+    border-radius: 3px;
+    margin-top: 10px; 
+    box-shadow: 0 0 5px rgba(0,0,0, 0.3);
+}
+.lessons-number{
+    color: #d3d3d3;
+    font-family: roboto_bold;
+    text-transform: capitalize;
+    text-align: left;
+}
+.lessons-name-right{
+    font-family: roboto_bold;
+    text-transform: capitalize;
+    text-align: left;
+    color: #041a2f;
+}
+.expand{
+    margin-left: 20px;
+}
+/* end left-section-course-lessons style */
+
+/* middle-each-lessons-content style */
+.middle-each-lessons-content{
+    background: white;
+    padding: 15px 10px 10px 10px;
+    width: 100%;
+    margin-top: 35px;
+}
+.course-img{
+    position: relative;
+    background: #f6f7fd;
+    border-radius: 4px;
+    height: 200px;
+    width: 450px;
+}
+.course-img img{
+    border-radius: 4px;
+}
+.course-name-img{
+    font-family: roboto_bold;
+    text-transform: capitalize;
+    text-align: left;
+    position: absolute;
+    bottom: 10px;
+    color: white;
+    left: 10px;
+    font-size: 16px;
+}
+.get-full-lesson{
+    width: 450px;
+}
+.get-full-lesson p{
+    font-family: roboto_regular;
+    text-align: left;
+    font-size: 14px;
+}
+.get-full-lesson p ul{
+    font-family: roboto_bold;
+}
+.content-course{
+    border: 1px solid #d3d3d3;
+    margin-top: 10px;
+    border-radius: 4px;
+    padding: 0 10px 0 10px;
+}
+.course-example{
+    border: 1px solid #d3d3d3;
+    margin-top: 10px;
+    border-radius: 4px;
+    padding: 0 10px 0 10px;
+}
+.example_title{
+    background: #041a2f;
+    color: white;
+    padding: 3px 10px 3px 10px;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    margin-top: 10px;
+    font-family: roboto_regular;
+    text-transform: capitalize;
+}
+.real_example{
+    padding: 5px 5px 5px 30px;
+    font-family: roboto_bold;
+    text-transform: capitalize;
+}
+.answer_example button{
+    background: rgb(9, 95, 9);
+    color: white;
+    padding: 3px 10px 3px 10px;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+}
+.solution{
+    font-family: roboto_regular;
+    margin-top: 5px;
+    background: whitesmoke;
+    border-radius: 4px;
+    padding: 5px;
+}
+.exercises{
+    border: 1px solid #d3d3d3;
+    margin-top: 10px;
+    border-radius: 4px;
+    padding: 0 10px 0 10px;
+}
+.exercises_title{
+    font-family: roboto_bold;
+    text-transform: capitalize;
+    padding: 10px 5px 5px 5px;
+}
+.each-exercises{
+    padding: 5px 5px 5px 30px;
+    font-family: roboto_bold;
+}
+.number-ex{
+    padding: 5px 5px 5px 30px;
+}
+.question_answer{
+    border: 1px solid #d3d3d3;
+    margin-top: 10px;
+    border-radius: 4px;
+    padding: 0 10px 0 10px;
+}
+
+/* each-question style */
+.each-question{
+    border: 2px solid #d3d3d3;
+    padding: 4px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.each-question label{
+    text-transform: capitalize;
+    font-family: roboto_bold;
+}
+.qustionair{
+    border-radius: 4px;
+    padding: 5px;
+    border: 1px solid #d3d3d3;
+}
+.questioneir-img{
+    border-radius: 100%;
+    width: 100px;
+    height: 60px;
+    margin-top: 5px;
+    margin-left: 4px;
+}
+.questioneir-img img{
+    border-radius: 100%;
+}
+.questionair-name{
+    text-transform: capitalize;
+    font-family: roboto_bold;
+    font-size: 15px;
+    text-align: left;
+}
+.question-full{
+    background: #f6f7fd;
+    padding: 5px;
+    border-radius: 4px;
+    text-align: left;
+    font-family: roboto_regular;
+    width: 100%;
+    font-size: 13px;
+}
+.accurancy{
+    margin-top: 5px;
+    padding: 3px;
+    cursor: pointer;
+}
+.accurancy .fa{
+    font-size: 16px;
+}
+
+/* answer style */
+/* The actual timeline (the vertical ruler) */
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: #041a2f;
+    top: 0;
+    bottom: 0;
+    left: 10%;
+    margin-left: -3px;
+}
+
+/* Container around content */
+.right{
+    padding: 10px 10px;
+    position: relative;
+    background-color: white;
         
-        author: Mnirabona Patience,
-        Email:  Hseal419@gmail.com,
-        location: Kigali,Rwanda,
-        pro: Intelligent Box E-learning,
-        version: 1.0.0
-        
-        //////////////////////////////////////////////////////
-    */
+}
 
-    /* external font family */
-    @font-face {font-family: 'roboto_bold';src: url('../fonts/Roboto/Roboto-Bold.ttf');} 
-    @font-face{font-family: 'roboto_regular';src: url('../fonts/Roboto/Roboto-Regular.ttf');}
-    @font-face{font-family: 'baskvile';src: url('../fonts/baskerville/BASKVILL.TTF');}
-    @font-face{font-family: 'roboto_medium';src: url('../fonts/Roboto/Roboto-Medium.ttf');}
+/* The circles on the timeline */
+.right::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -9px;
+    background-color: #041a2f;
+    border: 4px solid white;
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+}
 
-    *{
-        font-family: roboto_medium;
-    }
+/* Place the container to the right */
+.right {
+    left: 10.6%;
+}
 
-    /* apply on scroll bar */
-    /* width */
-    ::-webkit-scrollbar {
-        width: 10px;
-    }
+/* Add arrows to the right container (pointing left) */
+.right::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 18px;
+    width: 0;
+    z-index: 1;
+    left: 5px;
+    border: medium solid #041a2f;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent #041a2f transparent transparent;
+}
 
-    /* Track */
-    ::-webkit-scrollbar-track {
-        background: white; 
-    }
+/* Fix the circle for containers on the right side */
+.right::after {
+    left: -16px;
+}
+.content{
+    border: 1px solid #d3d3d3;
+    padding: 3px;
+    border-radius: 4px;
+    width: 300px;
+}
+.answerer-image{
+    width: 50px;
+    height: 45px;
+    border-radius: 100%;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+.answerer-image img{
+    border-radius: 100%;
+}
+.answerer-name{
+    font-family: roboto_bold;
+    text-align: left;
+    text-transform: capitalize;
+}
+.answer{
+    background: #f6f7fd;
+    border-radius: 4px;
+    padding: 3px;
+    text-align: left;
+    font-family: roboto_regular;
+    font-size: 13px;
+}
+/* end middle-each-lessons-content style */
 
-    /* Handle */
-    ::-webkit-scrollbar-thumb {
-        background: #041a2f;
-        border-radius: 4px; 
-    }
+/* right-section-status-user style */
+.right-section-status-user{
+    background-color: white;
+    padding: 10px 10px 10px 10px;
+    width: 100%;
+}
+.title-learner{
+    font-family: roboto_bold;
+    text-transform: capitalize;
+    text-align: left;
+    padding: 10px;
+    font-size: 16px;
+}
+.admin-image-ame{
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+}
+.admin-image{
+    border-radius: 100%;
+    background-color: #f6f7fd;
+    padding: 2px;
+    height: 68px;
+    width: 70px;
+}
+.admin-image img{
+    border-radius: 100%;
+    height: 100%;
+    width: 100%;
+}
+.group-name{
+    font-family: roboto_bold;
+    text-transform: capitalize;
+    text-align: left;
+    color: white;
+    margin-top: 20px;
+}
+.learners-list{
+    padding: 10px;
+    min-width: 250px;
+}
+.top-learner{
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0,0,0, 0.3);
+}
+.learner-desc {width: 100%;}
+.learner-name{width: 100%;}
+.learner-bio{width: 100%;}
 
-    /* body style */
-    body{
-        padding: 0;
-        margin: 0;
-        font-family: roboto_regular;
-        background: white;
-    }
-    code{
-        font-family: roboto_medium;
-        font-weight: 560;
-        letter-spacing: 0.3px;
-        line-height: 19px;
-    }
+.each-learner{
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 3px rgba(0,0,0, 0.3);
+}
+.learner-image{
+    background: white;
+}
+.img{
+    border-radius: 100%;
+    border: 1px solid #d3d3d3;
+    padding: 2px;
+    background: #f6f7fd;
+    width: 50px;
+    height: 50px;
+}
+.img img{
+    border-radius: 100%;
+    height: 100%;
+    width: 100%;
+    object-fit: fill;
+}
+.learner-desc{
+    margin-left: 6px;
+}
+.name{
+    font-family: roboto_bold;
+    text-transform: capitalize;
+    text-align: left;
+    width: 100%;
+}
+.name div{
+    width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.follow button{
+    background-color: #041a2f;
+    color: white;
+    padding: 3px 10px 3px 10px;
+    font-family: roboto_bold;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    font-size: 13px;
+    cursor: pointer;
+}
+.following button{
+    background-color: white;
+    color: #041a2f;
+    padding: 3px 10px 3px 10px;
+    font-family: roboto_;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    font-size: 13px;
+    border: 1px solid #d3d3d3;
+    cursor: pointer;
+}
+.learner-bio{
+    font-family: roboto_medium;
+    font-size: 13px;
+    width: 100%;
+    color: #d3d3d3;
+    letter-spacing: 0.4px;
+    line-height: 17.5px;
+}
+.discuss-in-group{
+    box-shadow: 0 0 5px rgba(0,0,0, 0.3);
+    border-radius: 4px;
+}
+.each-group{
+    border-radius: 4px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 3px rgba(0,0,0, 0.3);
+}
+.group-list{
+    padding: 10px;
+}
+.group-image{
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    position: relative;
+    height: 130px;
+    background-color: whitesmoke;
+}
+.group-image img{
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.admin-image-ame{
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+}
+.admin-image{
+    border-radius: 100%;
+    background-color: #f6f7fd;
+    padding: 2px;
+    height: 68px;
+    width: 70px;
+}
+.admin-image img{
+    border-radius: 100%;
+    height: 100%;
+    width: 100%;
+}
+.group-name{
+    font-family: roboto_bold;
+    text-transform: capitalize;
+    text-align: left;
+    color: white;
+    margin-top: 20px;
+}
+.group-bio{
+    font-family: roboto_regular;
+    font-size: 13px;
+    padding: 10px;
+    letter-spacing: 0.5px;
+    line-height: 17.5px;
+}
+.user-accurate{
+    padding: 10px 7px;
+    border-top: 1.5px solid #d3d3d3;
+    font-family: roboto_bold;
+    text-transform: capitalize;
+    overflow: hidden;
+}
+.user-accurate div{
+    float: left;
+    margin-right: 7px;
+    margin-left: 7px;
+}
+.user-accurate .member, .likes{
+    float: left;
+    margin-top: 7px;
+}
+.user-accurate div span{
+    font-family: roboto_bold;
+}
+.ask button{
+    background-color: #041a2f;
+    color: white;
+    font-size: 13px;
+    border: none;
+    outline: none;
+    padding: 5px 10px 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-family: roboto_bold;
+}
+.trainer-accurate{
+    background: #f6f7fd;
+    padding: 5px;
+    font-family: roboto_medium;
+    text-align: left;
+    text-transform: capitalize;
+    font-size: 13px;
+    border-radius: 4px;
+}
+.trainer-accurate div span{
+    font-family: roboto_bold;
+}
+.student-image{
+    background: white;
+}
+.name-student{
+    font-family: roboto_bold;
+    text-transform: capitalize;
+    text-align: left;
+    width: 150px;
+    letter-spacing: 0.5px;
+    line-height: 18px;
+}
+.introduction-course{
+    font-family: roboto_medium;
+    text-transform: capitalize;
+}
+.short-def span{
+    color: green;
+    font-family: roboto_medium;
+}
+.examples-title{
+    background: #041a2f;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-family: roboto_medium;
+    text-transform: capitalize;
+    width: auto;
+}
+p{
+    font-family: roboto_regular;
+}
+p div{
+    font-family: roboto_regular;
+}
+.angles{
+    background: #f6f7fd;
+    font-family: roboto_medium;
+    padding: 5px 6px;
+    display: flex;
+    justify-content: space-between;
+}
+.Solution-title{
+    background: white;
+    padding: 5px 8px;
+    font-family: roboto_bold;
+    text-transform: capitalize;
+    border-radius: 4px;
+    border: 1px solid #d3d3d3;
+}
+.exercise-title{
+    background: #062a4b;
+    color: white;
+    padding: 5px 10px;
+    text-transform: capitalize;
+    font-family: roboto_medium;
+}
+.each-exercise{
+    padding: 5px 10px;
+    background: #f6f7fd;
+    font-family: roboto_regular;
+}
+.each-sub-lessons{
+    background: #062a4b;
+    text-align: center;
+    color: white;
+    font-family: roboto_medium;
+    text-transform: capitalize;
+    font-size: 14px;
+    padding: 5px 0px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+.subtitle-lessons{
+    font-family: roboto_bold;
+    text-transform: capitalize;
+    color: #041a2f;
+}
+.title-ph{
+    font-family: roboto_bold;
+    text-transform: capitalize;
+    color: #041a2f;
+}
+.law{
+    font-family: roboto_medium;
+    color: #041a2f;
+}
+h5{
+    font-family: roboto_medium;
+    color: #041a2f;
+}
+.card-link{
+    color: #041a2f;
+    font-family: roboto_bold;
+    text-transform: capitalize;
+}
+.hightlights{
+    background: #f6f7fd;
+    padding: 5px;
+    font-family: roboto_medium;
+    width: 100%;
+}
 
-    /* card-header style */
-    .down-section-learn{
-        margin-top: 80px;
-    }
-    .card-header{
-        font-family: roboto_regular;
-    }
+.container-spnner {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    -webkit-animation: rotation 1s infinite;
+            animation: rotation 1s infinite;
 
-    /* nav-item-box */
-    .nav-item-box{
-        padding: 10px;
+}
+.container-spnner .shape {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+}
+.container-spnner .shape.shape-1 {
+    left: 0;
+    background-color: #0d71ce;
+    border-top-left-radius: 10px;
+}
+.container-spnner .shape.shape-2 {
+    right: 0;
+    background-color: #062a4b;
+    border-top-right-radius: 10px;
+}
+.container-spnner .shape.shape-3 {
+    bottom: 0;
+    background-color: #071c2e;
+    border-bottom-left-radius: 10px;
+}
+.container-spnner .shape.shape-4 {
+    bottom: 0;
+    right: 0;
+    background-color: #0d71ce;
+    border-bottom-right-radius: 10px;
+}
+
+@-webkit-keyframes rotation {
+    from {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
     }
-    .nav-item-box .active{
-        border: 1px solid #d3d3d3;
+    to {
+        -webkit-transform: rotate(720deg);
+                transform: rotate(720deg);
     }
-    .nav-item-box .nav-link-box{
-        color: white;
-        font-size: 15px;
-        border: none;
-        text-transform: capitalize;
+}
+
+@keyframes rotation {
+    from {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
     }
+    to {
+        -webkit-transform: rotate(720deg);
+                transform: rotate(720deg);
+    }
+}
+/* end right-section-status-user style */
+/* end down section */
+/* END SOFTWARE DEVELOPMENT STYLE AREA */
+/* ================================================================================================================ */
+/* ================================================================================================================ */
 
 
-    /* SOFTWARE DEVELOPMENT STYLE AREA */
-    /* ================================= */
-
-    /* down section style */
-    /* left-section-course-lessons style */
-    .left-section-course-lessons{
-        background: white;
-        height: 100%;
-        padding: 7px 10px 10px 10px;
-        width: 100%;
-    }
-    .user_image_learn{
-        display: flex;
-        border-radius: 30px;
-        padding: 5px 10px 5px 5px;
-    }
-    .user_image_learn:hover{
-        background: #f6f7fd;
-    }
-    .user_image_pro{
-        width: 35px;
-        height: 35px;
-        background: #f6f7fd;
-        border-radius: 50%;
-    }
-    .user_image_pro img{
-        border-radius: 50%;
-        object-fit: fill;
-    }
-    .username{
-        font-family: roboto_bold;
-        margin-top: 8px;
-        margin-left: 7px;
-        text-align: center;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        width: 100px;
-    }
-
-
+/* MEDIA QUERY */
+/* ============================================================================================================================= */
+/* ============================================================================================================================= */
+ @media screen and (max-width: 1200px){
+     .right-section-status-user{
+         display: none;
+     }
+     .left-section-course-lessons{
+         width: 400px;
+     }
+ }
+ @media screen and (max-width: 967px){
     .separeter-division{
-        box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 15px rgba(0,0,0, 0.4);
-        display: flex;
+        flex-direction: column;
+    }
+    .left-section-course-lessons{
         width: 100%;
     }
-    .course-title{
-        padding: 10px;
-        border-radius: 3px;
-        margin-top: 10px;
-        /* width: 260px; */
-        box-shadow: 0 0 5px rgba(0,0,0, 0.3);
-    }
-    .course-name{
-        font-family: roboto_bold;
-        text-transform: capitalize;
-        text-align: left;
+    .middle-each-lessons-content{
+        width: 100%;
     }
     .courses{
-        background: white;
-        padding: 10px;
-        border-radius: 3px;
-        margin-top: 10px;
-        box-shadow: 0 0 5px rgba(0,0,0, 0.3);
+        overflow: auto;
+        overflow-y: hidden;
+        display: flex;
     }
     .course-lessons{
-        background: white;
-        padding: 10px;
-        border-radius: 3px;
-        border: 1px solid #d3d3d3;
-        cursor: pointer;
+        margin-right: 10px;
+        width: auto;
     }
-    .course-name-get{
-        font-family: roboto_bold;
-        text-transform: capitalize;
-        text-align: left;
-    }
-    .course-count,.learners{
-        color: #d3d3d3;
-        margin-top: 13px;
-    }
-    .course-count span,.learners span{
-        color: black;
-    }
-    .lessons{width: 100%;}
-    .lessons ul li{width: 100%;}
-    .lessons ul{width: 100%;}
-    .lessons ul li a div{width: 100%;}
-    .nav-tabs .active .each-lessons{
-        border: 1px solid #d3d3d3;
+    .lessons-link, nav, .nav-tabs{
+        display: flex;
     }
     .each-lessons{
-        background: white;
-        padding: 10px;
-        border-radius: 3px;
-        margin-top: 10px; 
-        box-shadow: 0 0 5px rgba(0,0,0, 0.3);
+        float: left;
     }
-    .lessons-number{
-        color: #d3d3d3;
-        font-family: roboto_bold;
-        text-transform: capitalize;
-        text-align: left;
-    }
-    .lessons-name-right{
-        font-family: roboto_bold;
-        text-transform: capitalize;
-        text-align: left;
-        color: #041a2f;
-    }
-    .expand{
-        margin-left: 20px;
-    }
-    /* end left-section-course-lessons style */
 
-    /* middle-each-lessons-content style */
-    .middle-each-lessons-content{
-        background: white;
-        padding: 15px 10px 10px 10px;
+
+    .course-img{
+        width: 100%;
+    }
+    .attend-course{
+        width: 100%;
+    }
+    .content-course{
+        width: 100%;
+    }
+    .get-full-lesson{
         width: 100%;
     }
     .course-img{
-        position: relative;
-        background: #f6f7fd;
-        border-bottom-left-radius: 4px;
-        border-bottom-right-radius: 4px;
-        height: 200px;
-        width: 450px;
-    }
-    .course-img img{
-        border-bottom-left-radius: 4px;
-        border-bottom-right-radius: 4px;
-    }
-    .course-name-img{
-        font-family: roboto_bold;
-        text-transform: capitalize;
-        text-align: left;
-        position: absolute;
-        bottom: 10px;
-        color: white;
-        left: 10px;
-        font-size: 16px;
-    }
-    .get-full-lesson{
-        width: 450px;
-    }
-    .get-full-lesson p{
-        font-family: roboto_regular;
-        text-align: left;
-        font-size: 14px;
-    }
-    .get-full-lesson p ul{
-        font-family: roboto_bold;
-    }
-    .content-course{
-        border: 1px solid #d3d3d3;
-        margin-top: 10px;
-        border-radius: 4px;
-        padding: 0 10px 0 10px;
-    }
-    .course-example{
-        border: 1px solid #d3d3d3;
-        margin-top: 10px;
-        border-radius: 4px;
-        padding: 0 10px 0 10px;
-    }
-    .example_title{
-        background: #041a2f;
-        color: white;
-        padding: 3px 10px 3px 10px;
-        border: none;
-        outline: none;
-        border-radius: 3px;
-        margin-top: 10px;
-        font-family: roboto_regular;
-        text-transform: capitalize;
-    }
-    .real_example{
-        padding: 5px 5px 5px 30px;
-        font-family: roboto_bold;
-        text-transform: capitalize;
-    }
-    .answer_example button{
-        background: rgb(9, 95, 9);
-        color: white;
-        padding: 3px 10px 3px 10px;
-        border: none;
-        outline: none;
-        border-radius: 3px;
-    }
-    .solution{
-        font-family: roboto_regular;
-        margin-top: 5px;
-        background: whitesmoke;
-        border-radius: 4px;
-        padding: 5px;
-    }
-    .exercises{
-        border: 1px solid #d3d3d3;
-        margin-top: 10px;
-        border-radius: 4px;
-        padding: 0 10px 0 10px;
-    }
-    .exercises_title{
-        font-family: roboto_bold;
-        text-transform: capitalize;
-        padding: 10px 5px 5px 5px;
-    }
-    .each-exercises{
-        padding: 5px 5px 5px 30px;
-        font-family: roboto_bold;
-    }
-    .number-ex{
-        padding: 5px 5px 5px 30px;
-    }
-    .question_answer{
-        border: 1px solid #d3d3d3;
-        margin-top: 10px;
-        border-radius: 4px;
-        padding: 0 10px 0 10px;
-    }
-
-    /* each-question style */
-    .each-question{
-        border: 2px solid #d3d3d3;
-        padding: 4px;
-        border-radius: 4px;
-        margin-bottom: 10px;
-        margin-top: 10px;
-    }
-    .each-question label{
-        text-transform: capitalize;
-        font-family: roboto_bold;
-    }
-    .qustionair{
-        border-radius: 4px;
-        padding: 5px;
-        border: 1px solid #d3d3d3;
-    }
-    .questioneir-img{
-        border-radius: 100%;
-        width: 100px;
-        height: 60px;
-        margin-top: 5px;
-        margin-left: 4px;
-    }
-    .questioneir-img img{
-        border-radius: 100%;
-    }
-    .questionair-name{
-        text-transform: capitalize;
-        font-family: roboto_bold;
-        font-size: 15px;
-        text-align: left;
-    }
-    .question-full{
-        background: #f6f7fd;
-        padding: 5px;
-        border-radius: 4px;
-        text-align: left;
-        font-family: roboto_regular;
-        width: 100%;
-        font-size: 13px;
-    }
-    .accurancy{
-        margin-top: 5px;
-        padding: 3px;
-        cursor: pointer;
-    }
-    .accurancy .fa{
-        font-size: 16px;
-    }
-
-    /* answer style */
-    /* The actual timeline (the vertical ruler) */
-    .timeline {
-        position: relative;
-        max-width: 1200px;
-        margin: 0 auto;
-        overflow-x: hidden;
-    }
-
-    /* The actual timeline (the vertical ruler) */
-    .timeline::after {
-        content: '';
-        position: absolute;
-        width: 6px;
-        background-color: #041a2f;
-        top: 0;
-        bottom: 0;
-        left: 10%;
-        margin-left: -3px;
-    }
-
-    /* Container around content */
-    .right{
-        padding: 10px 10px;
-        position: relative;
-        background-color: white;
-            
-    }
-
-    /* The circles on the timeline */
-    .right::after {
-        content: '';
-        position: absolute;
-        width: 25px;
-        height: 25px;
-        right: -9px;
-        background-color: #041a2f;
-        border: 4px solid white;
-        top: 15px;
-        border-radius: 50%;
-        z-index: 1;
-    }
-
-    /* Place the container to the right */
-    .right {
-        left: 10.6%;
-    }
-
-    /* Add arrows to the right container (pointing left) */
-    .right::before {
-        content: " ";
-        height: 0;
-        position: absolute;
-        top: 18px;
-        width: 0;
-        z-index: 1;
-        left: 5px;
-        border: medium solid #041a2f;
-        border-width: 10px 10px 10px 0;
-        border-color: transparent #041a2f transparent transparent;
-    }
-
-    /* Fix the circle for containers on the right side */
-    .right::after {
-        left: -16px;
-    }
-    .content{
-        border: 1px solid #d3d3d3;
-        padding: 3px;
-        border-radius: 4px;
-        width: 300px;
-    }
-    .answerer-image{
-        width: 50px;
-        height: 45px;
-        border-radius: 100%;
-        margin-top: 5px;
-        margin-left: 5px;
-    }
-    .answerer-image img{
-        border-radius: 100%;
-    }
-    .answerer-name{
-        font-family: roboto_bold;
-        text-align: left;
-        text-transform: capitalize;
-    }
-    .answer{
-        background: #f6f7fd;
-        border-radius: 4px;
-        padding: 3px;
-        text-align: left;
-        font-family: roboto_regular;
-        font-size: 13px;
-    }
-    /* end middle-each-lessons-content style */
-
-    /* right-section-status-user style */
-    .right-section-status-user{
-        background-color: white;
-        padding: 10px 10px 10px 10px;
-        width: 100%;
-    }
-    .title-learner{
-        font-family: roboto_bold;
-        text-transform: capitalize;
-        text-align: left;
-        padding: 10px;
-        font-size: 16px;
-    }
-    .admin-image-ame{
-        position: absolute;
-        bottom: 5px;
-        left: 5px;
-    }
-    .admin-image{
-        border-radius: 100%;
-        background-color: #f6f7fd;
-        padding: 2px;
-        height: 68px;
-        width: 70px;
-    }
-    .admin-image img{
-        border-radius: 100%;
-        height: 100%;
-        width: 100%;
-    }
-    .group-name{
-        font-family: roboto_bold;
-        text-transform: capitalize;
-        text-align: left;
-        color: white;
-        margin-top: 20px;
-    }
-    .learners-list{
-        padding: 10px;
-        min-width: 250px;
-    }
-    .top-learner{
-        border-radius: 4px;
         box-shadow: 0 0 5px rgba(0,0,0, 0.3);
     }
-    .learner-desc {width: 100%;}
-    .learner-name{width: 100%;}
-    .learner-bio{width: 100%;}
-
-    .each-learner{
-        padding: 10px;
-        border-radius: 4px;
-        margin-bottom: 20px;
-        box-shadow: 0 0 3px rgba(0,0,0, 0.3);
-    }
-    .learner-image{
-        background: white;
-    }
-    .img{
-        border-radius: 100%;
-        border: 1px solid #d3d3d3;
-        padding: 2px;
-        background: #f6f7fd;
-        width: 50px;
-        height: 50px;
-    }
-    .img img{
-        border-radius: 100%;
-        height: 100%;
-        width: 100%;
-        object-fit: fill;
-    }
-    .learner-desc{
-        margin-left: 6px;
-    }
-    .name{
-        font-family: roboto_bold;
-        text-transform: capitalize;
-        text-align: left;
-        width: 100%;
-    }
-    .name div{
-        width: 120px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
-    .follow button{
-        background-color: #041a2f;
-        color: white;
-        padding: 3px 10px 3px 10px;
-        font-family: roboto_bold;
-        border: none;
-        outline: none;
-        border-radius: 4px;
-        font-size: 13px;
-        cursor: pointer;
-    }
-    .following button{
-        background-color: white;
-        color: #041a2f;
-        padding: 3px 10px 3px 10px;
-        font-family: roboto_;
-        border: none;
-        outline: none;
-        border-radius: 4px;
-        font-size: 13px;
-        border: 1px solid #d3d3d3;
-        cursor: pointer;
-    }
-    .learner-bio{
-        font-family: roboto_medium;
-        font-size: 13px;
-        width: 100%;
-        color: #d3d3d3;
-        letter-spacing: 0.4px;
-        line-height: 17.5px;
-    }
-    .discuss-in-group{
-        box-shadow: 0 0 5px rgba(0,0,0, 0.3);
-        border-radius: 4px;
-    }
-    .each-group{
-        border-radius: 4px;
-        margin-bottom: 20px;
-        box-shadow: 0 0 3px rgba(0,0,0, 0.3);
-    }
-    .group-list{
-        padding: 10px;
-    }
-    .group-image{
-        border-top-left-radius: 4px;
-        border-top-right-radius: 4px;
-        position: relative;
-        height: 130px;
-        background-color: whitesmoke;
-    }
-    .group-image img{
-        border-top-left-radius: 4px;
-        border-top-right-radius: 4px;
-    }
-    .admin-image-ame{
-        position: absolute;
-        bottom: 5px;
-        left: 5px;
-    }
-    .admin-image{
-        border-radius: 100%;
-        background-color: #f6f7fd;
-        padding: 2px;
-        height: 68px;
-        width: 70px;
-    }
-    .admin-image img{
-        border-radius: 100%;
-        height: 100%;
-        width: 100%;
-    }
-    .group-name{
-        font-family: roboto_bold;
-        text-transform: capitalize;
-        text-align: left;
-        color: white;
+    .full-lesson{
         margin-top: 20px;
     }
-    .group-bio{
-        font-family: roboto_regular;
-        font-size: 13px;
-        padding: 10px;
-        letter-spacing: 0.5px;
-        line-height: 17.5px;
-    }
-    .user-accurate{
-        padding: 10px 7px;
-        border-top: 1.5px solid #d3d3d3;
-        font-family: roboto_bold;
-        text-transform: capitalize;
-        overflow: hidden;
-    }
-    .user-accurate div{
-        float: left;
-        margin-right: 7px;
-        margin-left: 7px;
-    }
-    .user-accurate .member, .likes{
-        float: left;
-        margin-top: 7px;
-    }
-    .user-accurate div span{
-        font-family: roboto_bold;
-    }
-    .ask button{
-        background-color: #041a2f;
-        color: white;
-        font-size: 13px;
-        border: none;
-        outline: none;
-        padding: 5px 10px 5px 10px;
-        cursor: pointer;
-        border-radius: 4px;
-        font-family: roboto_bold;
-    }
-    .trainer-accurate{
-        background: #f6f7fd;
-        padding: 5px;
-        font-family: roboto_medium;
-        text-align: left;
-        text-transform: capitalize;
-        font-size: 13px;
-        border-radius: 4px;
-    }
-    .trainer-accurate div span{
-        font-family: roboto_bold;
-    }
-    .student-image{
-        background: white;
-    }
-    .name-student{
-        font-family: roboto_bold;
-        text-transform: capitalize;
-        text-align: left;
-        width: 150px;
-        letter-spacing: 0.5px;
-        line-height: 18px;
-    }
-    .introduction-course{
-        font-family: roboto_medium;
-        text-transform: capitalize;
-    }
-    .short-def span{
-        color: green;
-        font-family: roboto_medium;
-    }
-    .examples-title{
-        background: #041a2f;
-        color: white;
-        padding: 4px 8px;
-        border-radius: 4px;
-        font-family: roboto_medium;
-        text-transform: capitalize;
-        width: auto;
-    }
-    p{
-        font-family: roboto_regular;
-    }
-    p div{
-        font-family: roboto_regular;
-    }
-    .angles{
-        background: #f6f7fd;
-        font-family: roboto_medium;
-        padding: 5px 6px;
-        display: flex;
-        justify-content: space-between;
-    }
-    .Solution-title{
-        background: white;
-        padding: 5px 8px;
-        font-family: roboto_bold;
-        text-transform: capitalize;
-        border-radius: 4px;
-        border: 1px solid #d3d3d3;
-    }
-    .exercise-title{
-        background: #062a4b;
-        color: white;
-        padding: 5px 10px;
-        text-transform: capitalize;
-        font-family: roboto_medium;
-    }
-    .each-exercise{
-        padding: 5px 10px;
-        background: #f6f7fd;
-        font-family: roboto_regular;
-    }
-    .each-sub-lessons{
-        background: #062a4b;
-        text-align: center;
-        color: white;
-        font-family: roboto_medium;
-        text-transform: capitalize;
-        font-size: 14px;
-        padding: 5px 0px;
-        border-radius: 4px;
-        margin-bottom: 10px;
-    }
-    .subtitle-lessons{
-        font-family: roboto_bold;
-        text-transform: capitalize;
-        color: #041a2f;
-    }
-    .title-ph{
-        font-family: roboto_bold;
-        text-transform: capitalize;
-        color: #041a2f;
-    }
-    .law{
-        font-family: roboto_medium;
-        color: #041a2f;
-    }
-    h5{
-        font-family: roboto_medium;
-        color: #041a2f;
-    }
-    .card-link{
-        color: #041a2f;
-        font-family: roboto_bold;
-        text-transform: capitalize;
-    }
-    .hightlights{
-        background: #f6f7fd;
-        padding: 5px;
-        font-family: roboto_medium;
+    .username{
         width: 100%;
     }
-
-    .container-spnner {
-        position: relative;
-        width: 30px;
-        height: 30px;
-        border-radius: 15px;
-        -webkit-animation: rotation 1s infinite;
-                animation: rotation 1s infinite;
-
-    }
-    .container-spnner .shape {
-        position: absolute;
-        width: 10px;
-        height: 10px;
-    }
-    .container-spnner .shape.shape-1 {
-        left: 0;
-        background-color: #0d71ce;
-        border-top-left-radius: 10px;
-    }
-    .container-spnner .shape.shape-2 {
-        right: 0;
-        background-color: #062a4b;
-        border-top-right-radius: 10px;
-    }
-    .container-spnner .shape.shape-3 {
-        bottom: 0;
-        background-color: #071c2e;
-        border-bottom-left-radius: 10px;
-    }
-    .container-spnner .shape.shape-4 {
-        bottom: 0;
-        right: 0;
-        background-color: #0d71ce;
-        border-bottom-right-radius: 10px;
-    }
-    
-    @-webkit-keyframes rotation {
-        from {
-            -webkit-transform: rotate(0deg);
-                    transform: rotate(0deg);
-        }
-        to {
-            -webkit-transform: rotate(720deg);
-                    transform: rotate(720deg);
-        }
-    }
-    
-    @keyframes rotation {
-        from {
-            -webkit-transform: rotate(0deg);
-                    transform: rotate(0deg);
-        }
-        to {
-            -webkit-transform: rotate(720deg);
-                    transform: rotate(720deg);
-        }
-    }
-    /* end right-section-status-user style */
-    /* end down section */
-    /* END SOFTWARE DEVELOPMENT STYLE AREA */
-    /* ================================================================================================================ */
-    /* ================================================================================================================ */
-
-
-    /* MEDIA QUERY */
-    /* ============================================================================================================================= */
-    /* ============================================================================================================================= */
-     @media screen and (max-width: 1200px){
-         .right-section-status-user{
-             display: none;
-         }
-         .left-section-course-lessons{
-             width: 400px;
-         }
-     }
-     @media screen and (max-width: 967px){
-        .separeter-division{
-            flex-direction: column;
-        }
-        .left-section-course-lessons{
-            width: 100%;
-        }
-        .middle-each-lessons-content{
-            width: 100%;
-        }
-        .courses{
-            overflow: auto;
-            overflow-y: hidden;
-            display: flex;
-        }
-        .course-lessons{
-            margin-right: 10px;
-            width: auto;
-        }
-        .lessons-link{
-            display: flex;
-        }
-        .each-lessons{
-            float: left;
-        }
-
-
-        .course-img{
-            width: 100%;
-        }
-        .attend-course{
-            width: 100%;
-        }
-        .content-course{
-            width: 100%;
-        }
-        .get-full-lesson{
-            width: 100%;
-        }
-        .course-img{
-            box-shadow: 0 0 5px rgba(0,0,0, 0.3);
-        }
-        .full-lesson{
-            margin-top: 20px;
-        }
-        .username{
-            width: 100%;
-        }
-     }
-    /* ============================================================================================================================= */
-    /* ============================================================================================================================= */
+ }
+/* ============================================================================================================================= */
+/* ============================================================================================================================= */
 

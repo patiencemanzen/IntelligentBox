@@ -15,28 +15,31 @@
             $this->E_mail = $email;
         }
 
-        private function count_date($selected_date){
-            $PostedDate = $selected_date;
-            $currDate = Date("Y-m-d h:i:s");
-
-            $date1 = strtotime($PostedDate);  
-            $date2 = strtotime($currDate);  
-            
-            $diff = abs($date2 - $date1); 
-            $years = floor($diff / (365*60*60*24));  
-            $months = floor(($diff - $years * 365*60*60*24) / (30*60*60*24));
-            $days = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24)/ (60*60*24)); 
-            $hours = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24 - $days*60*60*24) / (60*60)); 
-            $minutes = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24 - $days*60*60*24 - $hours*60*60)/ 60);
-            $seconds = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24 - $days*60*60*24 - $hours*60*60 - $minutes*60)); 
-
-            if($days > 30){
-               return $PostedDate;
-            }if($days < 30){
-                return $days." Day(s) ago";
-            }if($days < 0){
-                return $hours." Hour(s) ago";
-            }
+        function timeAgo($time_ago){
+            $time_ago = strtotime($time_ago);
+            $cur_time   = time();
+            $time_elapsed   = $cur_time - $time_ago;
+            $seconds    = $time_elapsed ;
+            $minutes    = round($time_elapsed / 60 );
+            $hours      = round($time_elapsed / 3600);
+            $days       = round($time_elapsed / 86400 );
+            $weeks      = round($time_elapsed / 604800);
+            $months     = round($time_elapsed / 2600640 );
+            $years      = round($time_elapsed / 31207680 );
+            // Seconds
+            if($seconds <= 60){return "just now";}
+            //Minutes
+            else if($minutes <=60){if($minutes==1){return "one minute ago";}else{return "$minutes minutes ago";}}
+            //Hours
+            else if($hours <=24){if($hours==1){return "an hour ago";}else{return "$hours hrs ago";}}
+            //Days
+            else if($days <= 7){if($days==1){return "yesterday";}else{return "$days days ago";}}
+            //Weeks
+            else if($weeks <= 4.3){if($weeks==1){return "a week ago";}else{return "$weeks weeks ago";}}
+            //Months
+            else if($months <=12){if($months==1){return "a month ago";}else{return "$months months ago";}}
+            //Years
+            else{if($years==1){return "one year ago";}else{return "$years years ago";}}
         }
 
         // DISPLAY POST THAT AVE BEEN POSTED EARLIER
@@ -56,8 +59,7 @@
                     // count date
                     // =============================
                     $select_date_posted = $fetch_posts['created_on'];
-                    $today_date = date("d/m/Y");
-                    $Form_date = $this->count_date($select_date_posted);
+                    $Form_date = $this->timeAgo($select_date_posted);
 
                     $select_basic_info = "SELECT * FROM intelligent_users WHERE email='$poster_email'";
                     $execute_basic_info = mysqli_query($this->Frequency(), $select_basic_info);
@@ -78,14 +80,21 @@
                         <!-- profile last updated view // each post -->
                         <!-- ========================================================================================================= -->
                         <div class="each-post mt-3" id="<?php echo 'post_status_'.$post_identity; ?>">
-                            <div class="arrangement-section d-flex">
-                                <div class="poster-identity"><a href="public_profile.box.php" ><div class="poster-img" id="load_profile_post" data-toggle="tooltip" data-placement="bottom" title="<?php echo $getFirstname; ?> <?php echo $getLastname; ?>' profile" ><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" width="100%" height="100%"></div></a></div>
-                                <div class="full-post ml-2">
-                                    <!-- poster name -->
-                                    <div class="poster-name"><?php echo $getFirstname; ?> <?php echo $getLastname; ?></div>
-
+                            <div class="arrangement-section">
+                                <div class="poster-identity">
+                                    <a href="public_profile.box.php" ><div class="poster-img" id="load_profile_post" data-toggle="tooltip" data-placement="bottom" title="<?php echo $getFirstname; ?> <?php echo $getLastname; ?>' profile" ><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" width="100%" height="100%"></div></a>
+                                    <div class="poster-detail">
+                                       <div class="poster-name"><?php echo $getFirstname; ?> <?php echo $getLastname; ?> <span class="time-shared"><i class="fa fa-globe"></i> <?php echo $Form_date; ?></span></div>
+                                       <?php if($type == "profile"){?>
+                                        <div class="post-short-info">Profile photo</div>
+                                       <?php }else{ ?>
+                                        <div class="post-short-info">shared activity</div>
+                                       <?php } ?>
+                                    </div>
+                                </div>
+                                <div class="full-post">
                                     <!-- post caption -->
-                                    <div class="post-caption"><?php echo $select_caption; ?></div>
+                                    <div class="post-caption"><?php echo $select_caption; ?> </div>
 
                                     <!-- if post is video -->
                                     <?php if($select_media_posted == ""){?>
@@ -120,16 +129,11 @@
                                     <?php }?>
 
                                     <div class="user-accurate-feeling d-flex justify-content-between mt-2">
-                                        <!-- time post posted range -->
                                         <div class="duration mr-2"><div class="time-post"><i class="fa fa-globe"></i> <?php echo $Form_date; ?></div></div>
-                                        <!-- end time -->
 
                                         <!-- comment and likes -->
                                         <!-- ========================================================================================================================================== -->
                                         <div class="user-feelings d-flex justify-content-between">
-
-                                            <!-- comments addition -->
-                                            <!-- =================================================================================================================================== -->
                                             <div class="comments" data-toggle="collapse" data-target="#comment_<?php echo $post_identity; ?>" id="<?php echo $post_identity; ?>">
                                                 <?php 
                                                    $select_comments = "SELECT * FROM user_common_post_comments WHERE email='$this->E_mail' AND post_identity='$post_identity'";
@@ -138,7 +142,7 @@
                                                         <i class="fa fa-comment" style="color: #08345e;" id="<?php echo $post_identity; ?>"></i>
                                                    <?php }else{ ?>
                                                         <i class="fa fa-comment-o" id="<?php echo $post_identity; ?>"></i>
-                                                   <?php } ?> <span id="comment_div"> Comments </span> <span id="count-comments_<?php echo $post_identity; ?>">
+                                                   <?php } ?> <span><span id="comment_div"> Comments </span> <span id="count-comments_<?php echo $post_identity; ?>"></span>
                                                 <script>
                                                     setInterval(()=> {
                                                         $(document).ready(function(){
@@ -186,10 +190,8 @@
                                                     }, 1000);
                                                 </script>
                                             </span></div>
-                                            <!-- end likes and dislike -->
                                             <!-- ========================================================================================================================================================================================== -->
                                         </div>
-                                        <!-- end feelings -->
                                         <!-- =============================================================================================================================================================================================== -->
                                     </div>
 
@@ -288,22 +290,29 @@
                 $getEmail = $fetch_comment['email'];
                 $getComment = $fetch_comment['comment'];
                 $getComment_identity = $fetch_comment['identity'];
+                $created_on = $fetch_comment['created_on'];
 
                 $select_basic_info = "SELECT * FROM intelligent_users WHERE email='$getEmail'";
                 $execute_basic_info = mysqli_query($this->Frequency(), $select_basic_info);
                 $fetch_basic_info = mysqli_fetch_assoc($execute_basic_info);
-                $getFirstname = $fetch_basic_info['firstName'];
-                $getLastname = $fetch_basic_info['lastName'];
+                    $getFirstname = $fetch_basic_info['firstName'];
+                    $getLastname = $fetch_basic_info['lastName'];
 
                 $select_poster_img = "SELECT profile_image FROM user_profile_image WHERE usr_email='$getEmail' AND status_image='1'";
                 $execute_profile_image = mysqli_query($this->Frequency(),$select_poster_img);
                 $fetch_image = mysqli_fetch_assoc($execute_profile_image);
-                $profile_image = $fetch_image['profile_image']; ?>
+                    $profile_image = $fetch_image['profile_image']; 
+                    
+                $select_poster_img = "SELECT profile_image FROM user_profile_image WHERE usr_email='$email' AND status_image='1'";
+                $execute_my_image = mysqli_query($this->Frequency(),$select_poster_img);
+                $fetch_my_image = mysqli_fetch_assoc($execute_my_image);
+                    $my_image = $fetch_my_image['profile_image'];
+                    ?>
                     <div class="container right-comment mt-2 mb-2">
                         <div class="content d-flex">
-                            <div><div class="answerer-image"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%"></div></div>
+                            <div><div class="answerer-image"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="my profile" width="100%" height="100%"></div></div>
                             <div class="answerer-detail ml-2">
-                                <div class="answerer-name"><?php echo $getFirstname; ?> <?php echo $getLastname; ?></div>
+                                <div class="answerer-name"><?php echo $getFirstname; ?> <?php echo $getLastname; ?> <span class="time-shared"><i class="fa fa-globe"></i> <?php echo $this->timeAgo($created_on); ?></span></div>
                                 <div class="answer"><?php echo $getComment; ?></div>
                                 <div class="accurancy d-flex justify-content-between">
                                     <div class="question-comment" id="<?php echo $getComment_identity; ?>" data-target="#comment-found-<?php echo $getComment_identity; ?>" data-toggle="collapse" onclick="comment_reply_display(this)">
@@ -345,15 +354,14 @@
                                             }, 1000);
                                         </script>
                                     </span></div>
-                                    <!-- <div class="question-answer"><i class="fa fa-reply"></i></div> -->
                                 </div>
 
                                 <!-- comment of comment -->
                                 <!-- ======================================================= -->
                                 <div class="commenting-section collapse" id="comment-found-<?php echo $getComment_identity; ?>">
                                     <div class="comment-add-comment">
-                                        <div><div class="commeter-image-down"><img src="../Images/profile-img/profile-image/profile-image-1.webp" alt="" width="100%" height="100%"></div></div>
-                                        <div class="textarea-add-comment"><textarea name="" id="" cols="30" rows="1" placeholder="Write comment..."></textarea></div>
+                                        <div><div class="commeter-image-down"><img src="<?php echo '../Images/profile-img/profile-image/'.$my_image; ?>" alt="" width="100%" height="100%"></div></div>
+                                        <div><div class="textarea-add-comment"><textarea name="" id="" cols="30" rows="1" placeholder="Write comments..."></textarea></div></div>
                                         <div class="post-comment-written"><button id="<?php echo $getComment_identity; ?>" onclick="comment_reply(this)">Post</button></div>
                                     </div>
                                     <div class="comment-found-comment">
@@ -426,9 +434,10 @@
                     $profile_image = $fetch_image['profile_image'];  ?>
                         <div class="each-comment-found">
                             <div><div class="commenter-image-found"><img src="<?php echo '../Images/profile-img/profile-image/'.$profile_image; ?>" alt="" width="100%" height="100%"></div></div>
-                            <div>
+                            <div class="comment-comment-detail">
+                                <div class="poster-comment-name"><?php echo $getFirstname; ?> <?php echo $getLastname; ?></div>
                                 <div class="real-comment-found"><?php echo $getComment_replied; ?></div>
-                                <div class="time-commented"><?php echo $this->count_date($getStartdate); ?></div>
+                                <div class="time-commented"><?php echo $this->timeAgo($getStartdate); ?></div>
                             </div>
                         </div>
            <?php  }

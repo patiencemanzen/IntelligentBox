@@ -1,17 +1,3 @@
-<!-- 
-	//////////////////////////////////////////////////////
-
-    INTELLIGENT BOX
-    DESIGNED & DEVELOPED by Manirabona Patience
-    
-    author: Mnirabona Patience,
-    Email:  Hseal419@gmail.com,
-    location: Kigali,Rwanda,
-    pro: Intelligent Box E-learning,
-    version: 1.0.0
-    
-	//////////////////////////////////////////////////////
--->
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -26,29 +12,18 @@
        <meta name="robots" content="index, follow"/>
        <meta name="apple-mobile-web-app-capable" content="yes">
 
-       <!-- index, used to repesent intelligent box on search engine and it browser -->
        <title>intelligentBox</title>
 
-       <!-- intelligent box logo, present on search engine and on browse header -->
        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
-       <!-- external style link, type css file-->
        <link rel="stylesheet" href="../Assets/css/header.box.css">
 
        <!-- external css file/ libraries -->
        <link rel="stylesheet" href="../Lib/bootstrap/css/bootstrap.min.css">
        <link rel="stylesheet" href="../Lib/material/css/material-dashboard.css?v=2.1.1">
        <link rel="stylesheet" href="../Lib/now-ui-kit/now-ui-kit.css?v=1.3.0">
-       <link rel="stylesheet" href="../Lib/animate/animate.min.css">
        <link rel="stylesheet" href="../Lib/font-awesome/css/font-awesome.min.css">
-       <link rel="stylesheet" href="../Lib/jquery/jquery.fancybox.css">
-       <link rel="stylesheet" href="../Lib/lightbox/css/lightbox.min.css">
-       <link rel="stylesheet" href="../Lib/owlcarousel/assets/owl.carousel.min.css">
-       <link rel="stylesheet" href="../Lib/slick/slick.css">
-       <link rel="stylesheet" href="../Lib/theme-color/violet-theme.css">
-       <link rel="stylesheet" href="../Lib/venobox/venobox.css">
        <link rel="stylesheet" href="../Assets/css/pre-loader-image.css">
-   
    </head>
    <body>
 
@@ -84,21 +59,6 @@
                     </div>
                     <!-- end notification -->
                     <!-- ========================================================================================================================================== -->
-
-                    <!-- message icon notification -->
-                    <!-- ============================================================================================================================================== -->
-                    <div class="nav-item">
-                        <a class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Messages" onclick="openMessageArea_small()"><i class="fa fa-envelope-o"></i> <span class="pre-top"> Messages </span></a>
-                        <div id="count_message_small"></div>
-                        <div class="popup-notification-nav none" id="messages_popUp_left_small">
-                            <div class="div-title">Messages</div>
-                            <div class="noti-holder" id="show_message_small">
-
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end messaging -->
-                    <!-- ======================================================================================================================================= -->
 
                     <!-- news notification icon -->
                     <!-- ======================================================================================================================================= -->
@@ -137,7 +97,7 @@
 
                     <!-- =========================================================================== -->
                     <div class="nav-item"  data-toggle="tooltip" data-placement="bottom" title="History">
-                        <a class="nav-link" href="../History/"><i class="fa fa-clock-o"></i> <span class="pre-top"> History </span></a>
+                        <a class="nav-link" href="../History/"><i class="fa fa-square-o"></i> <span class="pre-top"> History </span></a>
                     </div>
                     <!-- end history -->
                     <!-- ============================================================================ -->
@@ -146,14 +106,28 @@
                     <!-- ============================================================================== -->
                     <div class="nav-item"  data-toggle="tooltip" data-placement="bottom" title="History">
                         <a class="nav-link" href="../Religion/"><i class="fa fa-navicon" data-toggle="tooltip" data-placement="bottom" title="History"></i> <span class="pre-top"> Religions </span></a>
-                        <!-- <div class="counter">9+</div> -->
                     </div>
                     <!-- end history -->
                     <!-- ================================================================================ -->
 
+                    <!-- courses -->
+                    <!-- ============================================================================== -->
+                    <div class="nav-item">
+                        <a class="" href="../Built-in-courses/"><i class="fa fa-graduation-cap" data-toggle="tooltip" data-placement="bottom" title="Courses"></i> <span class="pre-top"> Courses </span></a>
+                    </div>
+                    <!-- ================================================================================ -->
+
+                    <!-- courses -->
+                    <!-- ============================================================================== -->
+                    <div class="nav-item">
+                        <a class="" href="../Questions&Answers/question.php"><i class="fa fa-question" data-toggle="tooltip" data-placement="bottom" title="Courses"></i> <span class="pre-top">Questions & Answers</span></a>
+                    </div>
+                    <!-- ================================================================================ -->
+
+
                      <!-- usr profile image and search -->
                     <!-- ================================================================================================================ -->
-                    <div class="search-user-student d-flex mb-4 position-relative">
+                    <div class="search-user-student d-flex position-relative">
                         <!--user-image -->
                         <!-- ================================================================================ -->
                         <div class="user-nav-image">
@@ -187,12 +161,9 @@
             </div>
             <!-- end small device -->
             <!-- ============================================================================================================================ -->
-            <!-- ============================================================================================================================ -->
-
 
 
             <!-- subnavbar down -->
-            <!-- ============================================================================================================================ -->
             <!-- =========================================================================================================================== -->
             <div class="navigation-bar-icon">
                 <div class="nav-icons">
@@ -215,63 +186,25 @@
                     <!-- end notification -->
                     <!-- ========================================================================================================================================== -->
 
-                    <!-- message icon notification -->
-                    <!-- ============================================================================================================================================== -->
-                    <div class="nav-item">
-                        <a class="nav-link" onclick="openMessageArea()"><i class="fa fa-envelope-o" data-toggle="tooltip" data-placement="bottom" title="Messages"></i> <span class="pre-top"> Messages </span></a>
-                        <div id="count_message"></div>
-                        <div class="popup-notification-nav none" id="messages_popUp">
-                            <div class="div-title">Messages</div>
-                            <div class="noti-holder" id="messages_holder">
-
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end messaging -->
-                    <!-- ======================================================================================================================================= -->
-
                     <!-- news notification icon -->
                     <!-- ======================================================================================================================================= -->
                     <div class="nav-item">
                         <a class="nav-link" href="../World-News/"><i class="fa fa-newspaper-o" data-toggle="tooltip" data-placement="bottom" title="News"></i> <span class="pre-top"> News </span></a>
-                        <!-- <div class="counter">9+</div> -->
                     </div>
                     <!-- end news -->
                     <!-- ======================================================================================================================================= -->
-
-                    <!-- personal or group challenge notification icon -->
-                    <!-- ======================================================================================================================================== -->
-                    <div class="nav-item">
-                        <a class="nav-link" onclick="openChallenge()"><i class="fa fa-superpowers" data-toggle="tooltip" data-placement="bottom" title="Group Challenges"></i> <span class="pre-top"> GC </span></a>
-                        <!-- <div class="counter">9+</div> -->
-                        <div class="popup-notification-nav none" id="challenges_popUp">
-                            <div class="div-title">Group challenges</div>
-                            <div class="noti-holder">
-                                <!-- when it is new challenges -->
-                                <div class="noti-title"><i class="fa fa-superpowers"></i> <span><!--New 4 --></span></div>
-                                <div class="noti-list" id="request_challenge_noti">
-                               
-                                </div>
-                                <!-- end new challenges -->
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end challenge -->
-                    <!-- ========================================================================================================================================= -->
 
                     <!-- home notification icon -->
                     <!-- =============================================================================================================================================== -->
                     <div class="nav-item">
                         <a class="nav-link" href="../Home/"> <i class="fa fa-home" data-toggle="tooltip" data-placement="bottom" title="Home"></i> <span class="pre-top"> Home </span></a>
-                        <!-- <div class="counter">9+</div> -->
                     </div>
                     <!-- end hone -->
                     <!-- ================================================================================================================================================= -->
 
                     <!-- =========================================================================== -->
                     <div class="nav-item">
-                        <a class="nav-link" href="../History/"><i class="fa fa-clock-o" data-toggle="tooltip" data-placement="bottom" title="History"></i> <span class="pre-top"> History </span></a>
-                        <!-- <div class="counter">9+</div> -->
+                        <a class="nav-link" href="../History/"><i class="fa fa-square-o" data-toggle="tooltip" data-placement="bottom" title="History"></i> <span class="pre-top"> History </span></a>
                     </div>
                     <!-- end history -->
                     <!-- ============================================================================ -->
@@ -279,12 +212,25 @@
                     <!-- history notification icon -->
                     <!-- ============================================================================== -->
                     <div class="nav-item">
-                        <a class="nav-link" href="../Religion/"><i class="fa fa-navicon" data-toggle="tooltip" data-placement="bottom" title="History"></i> <span class="pre-top"> Religions </span></a>
-                        <!-- <div class="counter">9+</div> -->
+                        <a class="nav-link" href="../Religion/"><i class="" data-toggle="tooltip" data-placement="bottom" title="Religion"></i> <span class="pre-top"> Religions </span></a>
                     </div>
                     <!-- end history -->
                     <!-- ================================================================================ -->
 
+                    <!-- courses -->
+                    <!-- ============================================================================== -->
+                    <div class="nav-item">
+                        <a class="nav-link" href="../Built-in-courses/"><i class="fa fa-graduation-cap" data-toggle="tooltip" data-placement="bottom" title="Religion"></i> <span class="pre-top"> Courses </span></a>
+                    </div>
+                    <!-- courses -->
+                    <!-- ================================================================================ -->
+
+                    <!-- question -->
+                    <!-- ============================================================================== -->
+                    <div class="nav-item question">
+                        <a class="nav-link" href="../Questions&Answers/question.php"><i class="fa fa-question" data-toggle="tooltip" data-placement="bottom" title="Questions and answers"></i> <span class="pre-top">Que</span></a>
+                    </div>
+                    <!-- ================================================================================ -->
 
                     <!-- usr profile image and search -->
                     <!-- ================================================================================================================ -->
@@ -292,9 +238,10 @@
                         <!--user-image -->
                         <!-- ================================================================================ -->
                         <div class="user-nav-image">
-                            <a href="../Profile/profile.php"><div class="pre-nav-image" style="margin-top: 2px;" id="header_profile"> 
-
-                            </div></a>
+                            <a href="../Profile/profile.php">
+                                <div class="pre-nav-image" style="margin-top: 2px;" id="header_profile">  </div>
+                                <div class="user_top_name"><?php echo $lastName; ?></div>
+                            </a>
                         </div>
                         <!-- end user image -->
                         <!-- ================================================================================== -->
@@ -310,7 +257,9 @@
                             </div>
                             <div class="search-result" id="search-result">
                                 <div class="result-show" id="search_result_show">
-
+                                    <div class="search_loader ml-auto mr-auto" id="load_search">
+                                        <div class="shape shape-3"></div>
+                                    </div>                                
                                 </div>
                             </div>
                         </div>
@@ -332,77 +281,25 @@
             </div>
             <!-- end subnav down -->
             <!-- ======================================================================================================================================= -->
-            <!-- ======================================================================================================================================= -->
 
         </nav>
         <!-- end top navigation -->
-        <!-- ======================================================================================================================================= -->
         <!-- ======================================================================================================================================= -->
         
         
         <!-- javascript external file, type js  and libraries-->
         <!-- ======================================================================================== -->
-        <!-- ======================================================================================== -->
-
         <script src="../Assets/js/header.box.js"></script>
         <script src="../Assets/js/header_content.box.js"></script>
 
         <script src="../Lib/ckeditor/ckeditor.js"></script>
         <script src="../Lib/bootstrap/js/bootstrap.min.js" type="text/javascript"></script> 
-        <script src="../Lib/bootstrap/js/bootstrap-datepicker.js"></script> 
-        <script src="../Lib/custom/custom.js"></script>
-        <script src="../Lib/date-picker/bootstrap-switch.js"></script>
-        <script src="../Lib/date-picker/nouislider.min.js"></script>
-        <script src="../Lib/easing/easing.min.js"></script>
-        <script src="../Lib/jquery/jquery-migrate.min.js"></script>
-        <script src="../Lib/jquery/jquery.bootstrap-wizard.js"></script>
-        <script src="../Lib/jquery/jquery.counterup.js"></script>
-        <script src="../Lib/jquery/jquery.fancybox.pack.js"></script>
         <script src="../Lib/jquery/jquery.min.js"></script>
-        <script src="../Lib/jquery/jquery.mixitup.js"></script>
-        <script src="../Lib/jquery/jquery.poptrox.min.js"></script>
-        <script src="../Lib/jquery/jquery.validate.min.js"></script>
-        <script src="../Lib/jquery/perfect-scrollbar.jquery.min.js"></script>
-        <script src="../Lib/lightbox/js/lightbox-plus-jquery.min.js"></script>
         <script src="../Lib/material/js/material-dashboard?v=2.1.1.js"></script>
         <script src="../Lib/now-ui-kit/now-ui-kit.js"></script>
-        <script src="../Lib/owlcarousel/owl.carousel.js"></script>
-        <script src="../Lib/popper/popper.min.js"></script>
-        <script src="../Lib/skel/skel.min.js"></script>
-        <script src="../Lib/slick/slick.js"></script>
-        <script src="../Lib/superfish/superfish.js"></script>
-        <script src="../Lib/venobox/venobox.js"></script>
-        <script src="../Lib/wow/wow.min.js"></script>
         <script src="../Lib/bootstrap/js/bootstrap-material-design.min.js"></script>
         <script src="loader.js"></script>
-        <script>
-            $(document).ready(function() {
-            //init DateTimePickers
-            md.initFormExtendedDatetimepickers();
-            });
-        </script> 
-        <script>
-            $(document).ready(function() {
-                // the body of this function is in assets/js/now-ui-kit.js
-                nowuiKit.initSliders();
-            });
-        
-            function scrollToDownload() {
-        
-                if ($('.section-download').length != 0) {
-                $("html, body").animate({
-                    scrollTop: $('.section-download').offset().top
-                }, 1000);
-                }
-            }
-        </script>
-        <script>
-            CKEDITOR.replace('content');
-        </script>
-
         <!-- end libraries -->
         <!-- ====================================================================================================================== -->
-        <!-- ====================================================================================================================== -->
-
    </body>
 </html>

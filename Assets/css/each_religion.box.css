@@ -49,24 +49,24 @@
 
     /* left side section */
     /* ==================================================================================================================================== */
+    .down-lord{
+        box-shadow: 0 0 10px rgba(0,0,0, 0.3);
+        background: white;
+        margin-top: 80px;
+        padding: 10px;
+    }
     .left-side-section{
         background: white;
         padding: 10px 0px 10px 0px;
         margin-right: 10px;
     }
-    .down-lord{
-        box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 15px rgba(0,0,0, 0.4);
-        background: white;
-        margin-top: 80px;
-    }
 
     /* top background */
-    /* =================================================================================================================================== */
     /* =================================================================================================================================== */
     .top-background-image{
         position: relative;
         background: #f6f7fd;
-        height: 250px;
+        height: 300px;
         border-bottom-left-radius: 4px;
         border-bottom-right-radius: 4px;
     }
@@ -77,12 +77,14 @@
     }
     .top-name-pre{
         position: absolute;
-        bottom: 10px;
-        left: 10px;
+        bottom: 20px;
+        left: 20px;
         color: white;
         font-size: 18px;
         font-family: roboto_bold;
         text-transform: capitalize;
+        letter-spacing: 0.6px;
+        line-height: 21px;
     }
     .present-map{
         border: 1px solid #d3d3d3;
@@ -183,7 +185,9 @@
         text-transform: capitalize;
         border-radius: 20px;
         padding: 8px 11px 8px 13px;
-        font-size: 15px;
+        font-size: 16px;
+        line-height: 20px;
+        letter-spacing: 0.6px;
     }
     .each-today-in-history{
         padding: 5px;
@@ -205,6 +209,8 @@
     }
     .story-image img{
         border-radius: 4px;
+        width: 100%;
+        height: 100%;
     }
     .story-title{
         font-family: roboto_bold;
@@ -214,25 +220,30 @@
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+        letter-spacing: 0.6px;
+        line-height: 20px;
     }
     .story-title-1{
         font-family: roboto_bold;
         text-transform: capitalize;
         font-size: 16px;
+        letter-spacing: 0.6px;
+        line-height: 21px;
     }
     .short-desc{
         font-family: roboto_bold;
-        line-height: 19px;
-        letter-spacing: 0.4px;
+        line-height: 21px;
+        letter-spacing: 0.6px;
         margin-top: 3px;
-        font-size: 15px;
+        font-size: 16px;
     }
     .full-story{
         font-family: roboto_regular;
         padding: 10px 5px;
         border-top: 1.5px solid #d3d3d3;
-        line-height: 18px;
-        letter-spacing: 0.4px;
+        line-height: 21px;
+        letter-spacing: 0.6px;
+        line-height: 21px;
     }
     .readMore-on{
         padding: 5px 5px;
@@ -520,6 +531,8 @@
         text-transform: capitalize;
         width: 100%;
         margin-top: 5px;
+        letter-spacing: 0.6px;
+        line-height: 21px;
     }
     .post-sub-title{
         font-size: 15px;
@@ -530,12 +543,15 @@
     }
     .full-desc-religion{
         font-family: roboto_regular;
+        font-size: 16px;
+        letter-spacing: 0.6px;        
+        line-height: 21px;
     }
     .full-desc-religion p{
-        /* line-height: 19px; */
-        letter-spacing: 0.4px;
-        font-size: 14px;
         font-family: roboto_regular;
+        font-size: 16px;
+        letter-spacing: 0.6px;        
+        line-height: 21px;
     }
     .sub-title-paragraphy{
         font-family: roboto_bold;
@@ -551,9 +567,11 @@
     }
     .books-title{
         font-family: roboto_bold;
-        letter-spacing: 0.3px;
+        letter-spacing: 0.6px;
         border-bottom: 1px solid #d3d3d3;
-        padding-bottom: 5px;
+        padding-bottom: 10px;
+        font-size: 16px;
+        line-height: 21px;
     }
     .book-downlord{
         display: flex;
@@ -568,8 +586,10 @@
     .bookName{
         font-family: roboto_bold;
         margin-left: 10px;
-        font-size: 15px;
         margin-top: 4px;
+        letter-spacing: 0.6px;
+        line-height: 21px;
+        font-size: 16px;
     }
     .downlord-btn{
         background: #041a2f;
@@ -597,12 +617,10 @@
         font-size: 14px;
         cursor: pointer;
         text-transform: capitalize;
-        letter-spacing: 0.5px;
-        font-weight: 600;
+        letter-spacing: 0.6px;
         color: white;
         margin-top: 20px;
         margin-bottom: 20px;
-        box-shadow: 0 0 2px rgba(0,0,0, 0.3);
     }
     .key_concert{
         font-family: roboto_regular;

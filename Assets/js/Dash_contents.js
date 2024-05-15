@@ -391,3 +391,23 @@ function restore_database(obj){
         });
     });
 }
+
+// function send updates
+// =====================================================================================================
+function share_updates(obj){
+    var updates_text = document.getElementById("updates").value;
+    if(updates_text == ""){
+        document.getElementById("updates-text").style.border = "1px solid red";
+        document.getElementById("updates-text").style.borderRadius = "14px";
+    }else{
+        obj.innerHTML = "Sending updates....";
+        document.getElementById("loader").style.display = "block";
+
+        $(this).load("dash_upadates.box.php", {
+            update_user: updates_text
+        }, function(){
+            obj.innerHTML = "Send updates";
+            document.getElementById("loader").style.display = "none";
+        });
+    }
+}

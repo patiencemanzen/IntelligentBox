@@ -1,28 +1,31 @@
-    /* 
-        //////////////////////////////////////////////////////
+/* 
+    //////////////////////////////////////////////////////
 
-        INTELLIGENT BOX
-        DESIGNED & DEVELOPED by Manirabona Patience
-        
-        author: Mnirabona Patience,
-        Email:  Hseal419@gmail.com,
-        location: Kigali,Rwanda,
-        pro: Intelligent Box E-learning,
-        version: 1.0.0
-        
-        //////////////////////////////////////////////////////
-    */
+    INTELLIGENT BOX
+    DESIGNED & DEVELOPED by Manirabona Patience
+    
+    author: Mnirabona Patience,
+    Email:  Hseal419@gmail.com,
+    location: Kigali,Rwanda,
+    pro: Intelligent Box E-learning,
+    version: 1.0.0
+    
+    //////////////////////////////////////////////////////
+*/
 
-    /* external font family */
-    /* =================================================================================================================================================== */
-    /* =================================================================================================================================================== */
+/* external font family */
+/* =================================================================================================================================================== */
+/* =================================================================================================================================================== */
     @font-face {font-family: 'roboto_bold';src: url('../fonts/Roboto/Roboto-Bold.ttf');} 
     @font-face{font-family: 'roboto_regular';src: url('../fonts/Roboto/Roboto-Regular.ttf');}
     @font-face{font-family: 'baskvile';src: url('../fonts/baskerville/BASKVILL.TTF');}
     @font-face{font-family: 'roboto_medium';src: url('../fonts/Roboto/Roboto-Medium.ttf');}
+/* =================================================================================================================================================== */
 
-     /* width */
-     ::-webkit-scrollbar {
+/* SROLL WIDTH */
+/* ==================================================================================================================================================== */
+    /* width */
+    ::-webkit-scrollbar {
         width: 10px;
     }
 
@@ -36,15 +39,36 @@
         background: #041a2f;
         border-radius: 4px; 
     }
+/* ==================================================================================================================================================== */
 
-    /* basic style */
-    /* ==================================================================================================================================================== */
+/* MAIN COLOR */
+/* ===================================================================================================================================================== */
+    :root{
+        --BoxPrimary: #041a2f;
+        --BoxSecondary: #f6f7fd;
+        --BoxSubPrimary: #071c2e;
+        --BoxSubSecondary: #08345e;
+        --BoxLines: #d3d3d3;
+        --Basic: white;
+    }
+/* ==================================================================================================================================================== */
+
+/* COMMON STYLE */
+/* ===================================================================================================================================================== */
+    *{
+        letter-spacing: 0.6px;
+        line-height: 20px;
+    }
+/* ======================================================================================================================================================= */
+
+/* basic style */
+/* ==================================================================================================================================================== */
     .title_logo{
-        background: #041a2f;
-        padding: 20px 15px 20px 15px;
+        background: var(--BoxPrimary);
+        padding: 30px 15px;
         width: 100%;
         text-align: center;
-        color: white;
+        color: var(--Basic);
         position: relative;
         border-bottom-left-radius: 4px;
         border-bottom-right-radius: 4px;
@@ -71,7 +95,7 @@
         margin-left: 50px;
     }
     .each_counter{
-        background: #f7f6fd;
+        background: var(--BoxSecondary);
         padding: 5px;
         border-radius: 50%;
         position: absolute;
@@ -79,8 +103,8 @@
         z-index: 99;
     }
     .count_state{
-        background: #041a2f;
-        color: white;
+        background: var(--BoxPrimary);
+        color: var(--Basic);
         font-family: roboto_bold;
         font-size: 50px;
         padding: 40px 35px;
@@ -90,7 +114,7 @@
         opacity: .5;
     }
     .title_states{
-        background: #041a2f;
+        background: var(--BoxPrimary);
         padding: 20px 15px;
         text-align: center;
         vertical-align: middle;
@@ -100,10 +124,9 @@
     }
     .pre_privacy{
         font-family: roboto_bold;
-        font-size: 20px;
+        font-size: 21px;
         opacity: .5;
-        color: white;
-        /* margin-top: 15px; */
+        color: var(--Basic);
     }
     .privacy_pre{
         font-family: roboto_bold;
@@ -111,7 +134,7 @@
         position: absolute;
         right: 43%;
         top: 25px;
-        color: white;
+        color: var(--Basic);
         text-align: center;
         margin-left: 20px;
         display: none;
@@ -130,8 +153,8 @@
         margin-left: 50px;
     }
     .email{
-        background: #041a2f;
-        color: white;
+        background: var(--BoxPrimary);
+        color: var(--Basic);
         font-family: roboto_bold;
         text-transform: capitalize;
         padding: 5px 9px;
@@ -141,13 +164,14 @@
         margin-right: 10px;
     }
     .title_end{
-        background: #041a2f;
+        background: var(--BoxPrimary);
         padding: 20px 15px 20px 15px;
         width: 100%;
         text-align: center;
-        color: white;
+        color: var(--Basic);
         position: relative;
         border-top-left-radius: 4px;
         border-top-right-radius: 4px;
         margin-top: 30px;
     }
+/* ======================================================================================================================== */

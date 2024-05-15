@@ -24,7 +24,9 @@
         margin: 0;
         font-family: roboto_regular;
         background-color: white;
-        letter-spacing: 0.2px;
+    }
+    *{
+        letter-spacing: 0.6px;
     }
 
 /* MAIN COLOR */
@@ -159,17 +161,17 @@
         background: white;
         padding: 0;
     }
-    .sign-in-btn ul{
+    .segments-link ul{
         padding: 0;
     }
-    .sign-in-btn ul li{
+    .segment-link ul li{
         float: left;
         list-style: none;
         padding: 7px 14px;
         cursor: pointer;
         position: relative;
     }
-    .sign-in-btn ul li::before{
+    .segment-link ul li::before{
         content: "";
         position: absolute;
         /* z-index: -1; */
@@ -185,14 +187,15 @@
         transition-timing-function: ease-out;
         border-radius: 30%;
     }
-    .sign-in-btn ul li:hover::before,.sign-in-btn ul li:focus::before{
+    .segment-link ul li:hover::before,.segment-link ul li:focus::before{
         left: 0;
         right: 0;
     }
-    .sign-in-btn ul li a{
+    .segment-link ul li a{
         color: #041a2f;
         font-family: roboto_bold;
-        letter-spacing: 0.3px;
+        letter-spacing: 0.6px;
+        font-size: 15px;
     }
 
 
@@ -221,6 +224,7 @@
         height: 100%;
         background: white;
         font-family: roboto_medium;
+        margin-top: 2px;
     }
     .search-input{
         padding: 4px 8px 4px 10px;
@@ -233,7 +237,7 @@
     }
     .search-input .fa{
         margin-right: 10px;
-        margin-top: 3px;
+        margin-top: 3.5px;
         color: #041a2f;
     }
 
@@ -493,31 +497,65 @@
 
  /* carousel style */
  /* ======================================================================================================================= */
-    .carousel{
+    .top-background-image{
+        background: url(../../Images/index-img/slides/slide-11.png) center;
+        height: 400px;
         position: relative;
-        box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 7px rgba(0,0,0, 0.4);
+        box-shadow: 0 0 10px rgba(0,0,0, 0.3);
     }
-    .over-carousel{
+    .top-over-background{
         position: absolute;
-        top: 0px;
-        width: 100%;
-        display: flex;
-        background: rgba(0,0,0, 0.4);
-        width: 100%;
+        background: rgba(0,0,0, 0.3);
         height: 100%;
-    }
-    .carousel-caption-down{
-        color: white;
-        font-size: 15px;
-        margin-top: 9rem;
         width: 100%;
-        font-family: roboto_bold;
+    }
+    .top-mesg{
+        width: 40%;
+        margin-top: 5rem;
+    }
+    .top-mesg p{
+        color: white;
+        line-height: 23px;
         letter-spacing: 0.6px;
-        font-weight: 590;
-        text-align: center;
+        font-size: 19px;
+        font-family: roboto_bold;
+    }
+    .what-we-offer{
+        margin-top: 40px;
+        display: inline-flex;
+    }
+    .create-account-top{
+        background-color: #08345e;
+        padding: 7px 20px;
+        margin-left: 20px;
+        border-radius: 4px;
+        font-size: 16px;
+        letter-spacing: 0.6px;
+        color: white;
+        font-family: roboto_bold;
+    }
+    .create-account-top a{
+        color: white;
+    }
+    .create-account-top a:hover{
+        color: white;
+    }
+    .sign-me-btn-top{
+        background-color: white;
+        padding: 7px 20px;
+        border-radius: 4px;
+        font-size: 16px;
+        letter-spacing: 0.6px;
+        font-family: roboto_bold;
+    }
+    .sign-me-btn-top a{
+        color: #041a2f;
+    }
+    .sign-me-btn-top a:hover{
+        color: #041a2f;
     }
     .carousel-item{
-        height: 60vh;
+        height: 80vh;
         background: #f6f7fd;
         box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 6px rgba(0,0,0, 0.4);
         background-size: cover;
@@ -538,6 +576,7 @@
         padding: 50px;
         background: url(../../Images/index-img/fixed_background.jpg) center center no-repeat;
         background-size: cover;
+        background-attachment: fixed;
         overflow: hidden;
         position: relative;
         text-align: center;
@@ -805,6 +844,7 @@
         color: white;
         font-family: roboto_bold;
         margin: 0 auto;
+        line-height: 20px;
     }
 
     .connect_world{
@@ -831,6 +871,7 @@
         color: white;
         font-family: roboto_bold;
         margin: 0 auto;
+        line-height: 21px;
     }
 
 
@@ -859,18 +900,18 @@
         border-radius: 6px;
         width: 228px;
         height: auto;
-        margin: 15px 5px 5px 7px;
+        margin: 15px 5px 5px 6px;
         box-shadow: 0 0 10px rgba(0,0,0, 0.4);
     }
     .middle_img_pre div img{
         border-radius: 4px;
     }
     .course-desc{
-        padding: 20px;
+        padding: 15px 20px;
         font-family: roboto_bold;
         text-align: center;
-        letter-spacing: 0.3px;
-        line-height: 19px;
+        letter-spacing: 0.6px;
+        line-height: 20px;
         font-size: 15px;
     }
     .course-sub-desc{
@@ -879,6 +920,7 @@
         text-align: center;
         line-height: 20px;
         font-size: 14px;
+        letter-spacing: 0.6px;
     }
 
     /* INTELLIGENT SELF */
@@ -1130,7 +1172,9 @@
    /* ================================================================================================================== */
    .present-section{
        font-family: roboto_bold;
-       letter-spacing: 0.5px;
+       letter-spacing: 0.6px;
+       line-height: 21px;
+       font-size: 15px;
    }
    .student-choise{
        background: #071c2e;
@@ -1138,11 +1182,13 @@
        color: white;
        font-family: roboto_bold;
        text-transform: capitalize;
-       border-radius: 4px;
+       border-radius: 24px;
        text-align: center;
        cursor: pointer;
        margin-top: 50px;
        width: 100%;
+       letter-spacing: 0.6px;
+       font-size: 16px;
    }
    .trainer-choise{
         background: #071c2e;
@@ -1803,10 +1849,132 @@
    /* end developer style */
    /* ================================================================================================================================ */
    /* =============================================================================================================================== */
+.profession_detail .section-header .prof_title {
+    color: var(--Basic);
+    line-height: 35px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-family: roboto_bold;
+    text-align: center;
+    font-size: 30px;
+}
+.profession_detail p{
+    color: var(--Basic);
+    line-height: 24px;
+    font-family: roboto_medium;
+}
+/* ========================================================================================================================== */
 
-   /* MEDIA QUERY APPLY ON SMALL DEVICE AND EXTRA LARGE DEVICE */
-   /* ==================================================================================================================================== */
-   /* ==================================================================================================================================== */
+/* SHORT DESCRIPTION */
+/* ========================================================================================================================== */
+    .short-description{
+        background: white;
+        width: 100%;
+        padding: 50px 0px;
+    }
+    .description-content{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+    .each-descrption{
+        background: white;
+        width: 250px;
+        margin: 10px 20px;
+        text-align: center;
+    }
+    .desc-icon-outline{
+        font-size: 25px;
+    }
+    .desc-title{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-family: roboto_bold;
+        font-size: 18px;
+        letter-spacing: 0.6px;
+        color: var(--BoxPrimary);
+    }
+    .desc-icon{
+        font-size: 20px;
+        border-radius: 4px;
+        font-family: roboto_bold;
+        letter-spacing: 0.6px;
+    }
+    .title-txt{
+        font-size: 17px;
+        margin-left: 15px;
+    }
+    .desc-body{
+        margin-top: 15px;
+        font-family: roboto_medium;
+        letter-spacing: 0.6px;
+        font-size: 16px;
+        line-height: 22px;
+    }
+/* ================================================================================================================================= */
+
+/* footer */
+/* ================================================================================================================== */
+    .box-footer{
+        background: #041a2f;
+        padding: 20px 0px 20px 0px;
+        width: 100%;
+    }
+    .inner-footer{
+        border-radius: 4px;
+        padding: 5px;
+        box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 6px rgba(0,0,0, 0.4);
+        overflow: hidden;
+        background: white;
+    }
+    .condition{
+        padding: 5px;
+        float: left;
+        color: #041a2f;
+    }
+    .condition-icons .fa {
+        font-size: 23px;
+        color: #041a2f;
+    }
+    .condition-detail{
+        width: 200px;
+        margin-left: 10px;
+    }
+    .condition-title {
+        font-family: roboto_bold;
+        line-height: 18px;
+        font-size: 16px;
+    }
+    .conditio-body{
+        font-family: roboto_medium;
+        line-height: 18px;
+        letter-spacing: 0.6px;
+        margin-top: 5px;
+    }
+    .pre-footer-log{
+        background: #041a2f;
+        width: auto;
+        padding: 25px;
+        color: white;
+        font-family: roboto_bold;
+        font-size: 25px;
+        border-radius: 4px;
+    }
+    .copyright-footer{
+        color: white;
+        margin-top: 10px;
+        text-transform: capitalize;
+        text-align: center;
+        font-family: roboto_bold;
+        letter-spacing: 0.6px;
+    }
+/* end footer */
+/* =================================================================================================================== */
+
+/* MEDIA QUERY APPLY ON SMALL DEVICE AND EXTRA LARGE DEVICE */
+/* ==================================================================================================================================== */
+/* ==================================================================================================================================== */
    @media screen and (max-width: 1199px){
     .search-input{
         margin-left: 30px;
@@ -1834,7 +2002,7 @@
    @media screen and (max-width: 991px){
        /* intelectual-skills style */
         /* ============================================================================================================= */
-        .search-index{
+        /* .search-index{
             display: none;
         }
         .active-column,.thumb-1{
@@ -1842,7 +2010,7 @@
         }
         .connect_world{
             display: none;
-        }
+        } */
         .condition-detail{width: 100%;}
         .conditio-body{width: 100%;}
         .thumbnail-items{
@@ -1857,10 +2025,15 @@
             padding: 10px 0px;
         }
    }
-   @media screen and (max-width: 767px){
+   @media screen and (max-width: 768px){
         .search-input{
-            width: 250px;
-            margin-left:  0;
+            width: 580px;
+        }
+        .active-column,.thumb-1{
+            display: none;
+        }
+        .connect_world{
+            display: none;
         }
         .dis_short_devs{display: none;}
         #intro,#signmeup,#signmein{
@@ -1921,6 +2094,10 @@
         .thumbnail-items{
             border-radius: 6px;
             width: 380px;
+            margin-left: 23%;
+        }
+        .middle_img_pre{
+            margin-left: 23%;
         }
         .middle_img_pre div{
             border-radius: 6px;
@@ -1929,7 +2106,8 @@
         }
         .tab-content-container{ /* Card style */
             border-radius: 4px;
-            width: 380px;
+            width: 600px;
+            margin-left: 40px;
         }
         .user-option{
             height: 500px;
@@ -1946,7 +2124,8 @@
            margin-top: 20px;
         }
         .intelligent_self{
-            width: 380px;
+            width: 600px;
+            margin-left: 40px;
         }
         .eachdepartment{
             width: 100px;
@@ -1969,21 +2148,29 @@
             display: none;
         }
     
-   }
-    @media screen and (max-width: 375px){
+    }
+    @media screen and (max-width: 360px){
         .search-input{
-            width: 300px;
-            margin-left: 0;
+            width: 330px;
+            margin-left: 0px;
         }
         .all_trades_found{display: none;}
-        .sign-in-btn{
-            display: none;
-        }
-        .over-carousel{
-            position: absolute;
+        .top-mesg{
             width: 100%;
-            display: flex;
+            margin-top: 3rem;
         }
+        .top-mesg p{
+            font-size: 16px;
+        }
+        .sign-me-btn-top{
+            font-size: 15px;
+            padding: 5px 10px;
+        }
+        .create-account-top{
+            font-size: 15px;
+            padding: 5px 10px;
+        }
+
         .dis-grid{
             display: flex;
             flex-direction: column;
@@ -1994,6 +2181,124 @@
         .thumbnail-items{
             border-radius: 6px;
             width: 280px;
+            margin: 0;
+        }
+        .middle_img_pre{
+            margin-left: 0;
+        }
+        .middle_img_pre div{
+            border-radius: 6px;
+            width: 280px;
+        }
+        .thumbnail-items{
+            margin-left: 25px;
+        }
+        .middle_img_pre{
+            margin-left: 25px;
+        }
+        .right_thumb_content{
+            width: 100%;
+        }
+        .tab-content-container{
+            width: 330px;
+        }
+        .intelligent_self{
+            margin-left: 0px;
+            width: 330px;
+        }
+        .box-footer{
+            width: 100%;
+        }
+        .content {
+            padding: 10px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            width: 300px;
+            box-shadow: 0 0 1px rgba(0,0,0, 0.4),0 0 0px rgba(0,0,0, 0.4),0 0 5px rgba(0,0,0, 0.4);
+        }
+        .student-trainer-option{
+            position: absolute;
+            top: 0px;
+            overflow: auto;
+            padding: 10px 15px;
+            height: 100%;
+        }
+        .down-tab{
+            padding: 10px;
+        }
+        .each-developer{
+            background: white;
+            margin-top: 20px;
+            width: 250px;
+            margin-left: 30px;
+        }
+        .developer-img {
+            height: 200px;
+        }
+        .profile_image{
+            position: absolute;
+            border-radius: 50%;
+            background-color: white;
+            padding: 5px;
+            width: 150px;
+            height: 150px;
+            right: 50px;
+            top: 70px;
+        }
+         .carousel-caption-down{
+            margin-top: 5rem;
+            line-height: 20px;
+            font-size: 14px;
+        }
+        .middle_thumb_content{
+            flex-direction: column;
+        }
+        .user-option{
+            height: 580px;
+            margin-top: 20px;
+        }
+        .search-input .fa{
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: 320px){
+        .search-input{
+            width: 300px;
+            margin-left: 0px;
+        }
+        .all_trades_found{display: none;}
+        .top-mesg{
+            width: 100%;
+            margin-top: 3rem;
+        }
+        .top-mesg p{
+            font-size: 16px;
+        }
+        .sign-me-btn-top{
+            font-size: 15px;
+            padding: 5px 10px;
+        }
+        .create-account-top{
+            font-size: 15px;
+            padding: 5px 10px;
+        }
+
+        .dis-grid{
+            display: flex;
+            flex-direction: column;
+        }
+        .sep-dep-ex{
+            margin-top: 15px;
+        }
+        .thumbnail-items{
+            border-radius: 6px;
+            width: 280px;
+            margin: 0;
+        }
+        .middle_img_pre{
+            margin-left: 0;
         }
         .middle_img_pre div{
             border-radius: 6px;
@@ -2039,14 +2344,14 @@
             height: 200px;
          }
          .profile_image{
-             position: absolute;
-             border-radius: 50%;
-             background-color: white;
-             padding: 5px;
-             width: 150px;
-             height: 150px;
-             right: 50px;
-             top: 80px;
+            position: absolute;
+            border-radius: 50%;
+            background-color: white;
+            padding: 5px;
+            width: 150px;
+            height: 150px;
+            right: 50px;
+            top: 80px;
          }
          .carousel-caption-down{
             margin-top: 5rem;

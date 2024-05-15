@@ -33,7 +33,7 @@
     class Migration extends Scyllar implements Worlds {
 
         // initialize and implement updateBackground
-        public function updateBackground_image($Email, $backgroundsTable,$backgroundImage){
+        public function updateBackground_image($Email, $backgroundsTable, $backgroundImage){
             $select_detail = "SELECT * FROM intelligent_users WHERE email='$Email'";
             $execute_detail = mysqli_query($this->Frequency(),$select_detail);
             $fetch_detail = mysqli_fetch_assoc($execute_detail);

@@ -196,7 +196,7 @@
                 <div class="each-group">
                     <div class="group-image">
                         <img src="<?php echo '../Images/class_img/'.$getProfileImage; ?>" alt="" width="100%" height="100%">
-                        <div class="admin-image-ame d-flex">
+                        <div class="admin-image-ame">
                             <div class="group-name ml-2"><?php echo $getClassName; ?></div>
                         </div>
                     </div>
